@@ -1,4 +1,4 @@
-# Project Proposal
+# LOGO IDE on FPGA
 
 **Team Members**: Josh Xu, Aditya Srinivasan, Hunter Lee
 
