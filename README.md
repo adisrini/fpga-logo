@@ -80,9 +80,8 @@ We will have assembly code that runs the entire program. This will consist of an
 ## Appendix
 
 
+![Graphics](/assets/graphic.png)
+**Figure 1**: Proposed graphic design of our project
 
-Figure 1: Proposed graphic design of our project
-
-
-
-Figure 2: Data memory segmentation, with designated pointers (registers)
+![Data memory segmentation](/assets/data-memory-segmentation.png)
+**Figure 2**: Data memory segmentation, with designated pointers (registers)
