@@ -85,6 +85,8 @@ We will have assembly code that runs the entire program. This will consist of an
 <b>Figure 1</b>: Proposed graphic design of our project
 </p>
 
+<br />
+
 <p align="center">
 <img src="/assets/data-memory-segmentation.png" width=300px /><br />
 <b>Figure 2</b> Data memory segmentation, with designated pointers (registers)
