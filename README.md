@@ -80,8 +80,12 @@ We will have assembly code that runs the entire program. This will consist of an
 ## Appendix
 
 
-![Graphics](/assets/graphic.png)
-**Figure 1**: Proposed graphic design of our project
+<p align="center">
+<img src="/assets/graphic.png" width=300px/> <br />
+<b>Figure 1</b>: Proposed graphic design of our project
+</p>
 
-![Data memory segmentation](/assets/data-memory-segmentation.png)
-**Figure 2**: Data memory segmentation, with designated pointers (registers)
+<p align="center">
+<img src="/assets/data-memory-segmentation.png" width=300px /><br />
+<b>Figure 2</b> Data memory segmentation, with designated pointers (registers)
+</p>
