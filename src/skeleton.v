@@ -54,11 +54,10 @@ module skeleton(resetn,
 	//assign clock = inclock;
 	
 	wire [31:0] logo_command;
+	wire [7:0] ascii;
 	wire [1:0] position;
 	
 	position_counter pos_count(position, 1'b1, ps2_key_pressed, ~resetn);
-	
-	
 	
 	// your processor
 	processor myprocessor(clock, ~resetn, /*ps2_key_pressed, ps2_out, lcd_write_en, lcd_write_data,*/ debug_data_in, debug_addr);
@@ -66,12 +65,14 @@ module skeleton(resetn,
 	// keyboard controller
 	PS2_Interface myps2(clock, resetn, ps2_clock, ps2_data, ps2_key_data, ps2_key_pressed, ps2_out);
 	
+	mapping map(ps2_out, ascii);
+	
 	// lcd controller
-	lcd mylcd(clock, ~resetn, 1'b1, ps2_out, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
+	lcd mylcd(clock, ~resetn, 1'b1, ascii, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
 	
 	// example for sending ps2 data to the first two seven segment displays
-	Hexadecimal_To_Seven_Segment hex1(ps2_out[3:0], seg1);
-	Hexadecimal_To_Seven_Segment hex2(ps2_out[7:4], seg2);
+	Hexadecimal_To_Seven_Segment hex1(ascii[3:0], seg1);
+	Hexadecimal_To_Seven_Segment hex2(ascii[7:4], seg2);
 	
 	// the other seven segment displays are currently set to 0
 	Hexadecimal_To_Seven_Segment hex3(4'b0, seg3);
@@ -206,7 +207,7 @@ module mapping(in, out);
 		 out1<=8'h44;
 	else if(in==8'h24)	//E
 		 out1<=8'h45; 
-	else if(in==8'h26)	//F
+	else if(in==8'h2B)	//F
 		 out1<=8'h46;
 	else if(in==8'h34)	//G
 		 out1<=8'h47;

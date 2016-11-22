@@ -1,6 +1,6 @@
 Flow report for skeleton
-Mon Nov 21 22:09:46 2016
-Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Tue Nov 22 15:16:20 2016
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 
 ---------------------
@@ -38,26 +38,26 @@ agreement for further details.
 
 
 
-+----------------------------------------------------------------------------------+
-; Flow Summary                                                                     ;
-+------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Nov 21 22:09:46 2016       ;
-; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
-; Revision Name                      ; skeleton                                    ;
-; Top-level Entity Name              ; skeleton                                    ;
-; Family                             ; Cyclone IV E                                ;
-; Device                             ; EP4CE115F29C7                               ;
-; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 9,755 / 114,480 ( 9 % )                     ;
-;     Total combinational functions  ; 9,398 / 114,480 ( 8 % )                     ;
-;     Dedicated logic registers      ; 2,158 / 114,480 ( 2 % )                     ;
-; Total registers                    ; 2158                                        ;
-; Total pins                         ; 154 / 529 ( 29 % )                          ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 2,725,888 / 3,981,312 ( 68 % )              ;
-; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                             ;
-; Total PLLs                         ; 1 / 4 ( 25 % )                              ;
-+------------------------------------+---------------------------------------------+
++--------------------------------------------------------------------------------------+
+; Flow Summary                                                                         ;
++------------------------------------+-------------------------------------------------+
+; Flow Status                        ; Successful - Tue Nov 22 15:16:20 2016           ;
+; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
+; Revision Name                      ; skeleton                                        ;
+; Top-level Entity Name              ; skeleton                                        ;
+; Family                             ; Cyclone IV E                                    ;
+; Device                             ; EP4CE115F29C7                                   ;
+; Timing Models                      ; Final                                           ;
+; Total logic elements               ; 9,865 / 114,480 ( 9 % )                         ;
+;     Total combinational functions  ; 9,453 / 114,480 ( 8 % )                         ;
+;     Dedicated logic registers      ; 2,158 / 114,480 ( 2 % )                         ;
+; Total registers                    ; 2158                                            ;
+; Total pins                         ; 154 / 529 ( 29 % )                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 2,725,888 / 3,981,312 ( 68 % )                  ;
+; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                                 ;
+; Total PLLs                         ; 1 / 4 ( 25 % )                                  ;
++------------------------------------+-------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/21/2016 22:05:27 ;
+; Start date & time ; 11/22/2016 15:13:28 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; skeleton            ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +--------------------------------------+---------------------------------------+---------------+-------------+-----------------------------+
 ; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id                  ;
 +--------------------------------------+---------------------------------------+---------------+-------------+-----------------------------+
-; COMPILER_SIGNATURE_ID                ; 52236202716.147979472706384           ; --            ; --          ; --                          ;
+; COMPILER_SIGNATURE_ID                ; 159090364245495.147984560802124       ; --            ; --          ; --                          ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; stall_logic_tb              ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; statusReg_tb                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; multdiv_tb                  ;
@@ -105,7 +105,7 @@ agreement for further details.
 ; EDA_TEST_BENCH_FILE                  ; multdiv_tb.v                          ; --            ; --          ; multdiv_tb                  ;
 ; EDA_TEST_BENCH_FILE                  ; bypass_wb_tb.v                        ; --            ; --          ; bypass_wb_tb                ;
 ; EDA_TEST_BENCH_FILE                  ; characterData_tb.v                    ; --            ; --          ; characterData_tb            ;
-; EDA_TEST_BENCH_FILE                  ; keyboard_fill_characters_tb.v.bak     ; --            ; --          ; keyboard_fill_characters_tb ;
+; EDA_TEST_BENCH_FILE                  ; keyboard_fill_characters_tb.v         ; --            ; --          ; keyboard_fill_characters_tb ;
 ; EDA_TEST_BENCH_FILE                  ; processor_pipeline_tb.v               ; --            ; --          ; processor_pipeline_tb       ;
 ; EDA_TEST_BENCH_FILE                  ; instruction_splitter_tb.v             ; --            ; --          ; instruction_splitter_tb     ;
 ; EDA_TEST_BENCH_FILE                  ; check_zero_tb.v                       ; --            ; --          ; check_zero_tb               ;
@@ -167,7 +167,6 @@ agreement for further details.
 ; MISC_FILE                            ; imem.cmp                              ; --            ; --          ; --                          ;
 ; MISC_FILE                            ; dmem_inst.v                           ; --            ; --          ; --                          ;
 ; MISC_FILE                            ; dmem.cmp                              ; --            ; --          ; --                          ;
-; NOMINAL_CORE_SUPPLY_VOLTAGE          ; 1.2V                                  ; --            ; --          ; --                          ;
 ; PARTITION_COLOR                      ; 16764057                              ; --            ; --          ; Top                         ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING                 ; --            ; --          ; Top                         ;
 ; PARTITION_NETLIST_TYPE               ; SOURCE                                ; --            ; --          ; Top                         ;
@@ -182,12 +181,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:01:10     ; 1.0                     ; 931 MB              ; 00:01:08                           ;
-; Fitter                    ; 00:02:17     ; 1.0                     ; 1454 MB             ; 00:02:09                           ;
-; Assembler                 ; 00:00:06     ; 1.0                     ; 832 MB              ; 00:00:05                           ;
-; TimeQuest Timing Analyzer ; 00:00:12     ; 1.0                     ; 1019 MB             ; 00:00:11                           ;
-; EDA Netlist Writer        ; 00:00:17     ; 1.0                     ; 879 MB              ; 00:00:15                           ;
-; Total                     ; 00:04:02     ; --                      ; --                  ; 00:03:48                           ;
+; Analysis & Synthesis      ; 00:00:46     ; 1.0                     ; 966 MB              ; 00:00:57                           ;
+; Fitter                    ; 00:01:24     ; 1.1                     ; 1985 MB             ; 00:02:15                           ;
+; Assembler                 ; 00:00:08     ; 1.0                     ; 806 MB              ; 00:00:05                           ;
+; TimeQuest Timing Analyzer ; 00:00:10     ; 1.4                     ; 1059 MB             ; 00:00:08                           ;
+; EDA Netlist Writer        ; 00:00:14     ; 1.0                     ; 850 MB              ; 00:00:12                           ;
+; Total                     ; 00:02:42     ; --                      ; --                  ; 00:03:37                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -196,11 +195,11 @@ agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; DESKTOP-TH3G9F0  ; Windows 8 ; 6.2        ; x86_64         ;
-; Fitter                    ; DESKTOP-TH3G9F0  ; Windows 8 ; 6.2        ; x86_64         ;
-; Assembler                 ; DESKTOP-TH3G9F0  ; Windows 8 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; DESKTOP-TH3G9F0  ; Windows 8 ; 6.2        ; x86_64         ;
-; EDA Netlist Writer        ; DESKTOP-TH3G9F0  ; Windows 8 ; 6.2        ; x86_64         ;
+; Analysis & Synthesis      ; 202H-PC01        ; Windows 7 ; 6.1        ; x86_64         ;
+; Fitter                    ; 202H-PC01        ; Windows 7 ; 6.1        ; x86_64         ;
+; Assembler                 ; 202H-PC01        ; Windows 7 ; 6.1        ; x86_64         ;
+; TimeQuest Timing Analyzer ; 202H-PC01        ; Windows 7 ; 6.1        ; x86_64         ;
+; EDA Netlist Writer        ; 202H-PC01        ; Windows 7 ; 6.1        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 
