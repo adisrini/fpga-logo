@@ -1,0 +1,18 @@
+.text
+
+# INITIALIZATION
+main:
+
+# WAIT FOR COMMAND TO APPEAR IN REGISTER 30
+loop:
+bne $30, $0, parse
+
+
+# PARSE COMMAND IN REGISTER 30
+parse:
+add $30, $0, $0   # RESET REGISTER 30 TO EMPTY
+# PARSE AND EXECUTE LOGIC
+j loop
+
+
+.data
