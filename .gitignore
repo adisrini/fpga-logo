@@ -74,7 +74,5 @@ src/simulation/modelsim/rtl_work/_info
 # ignore Quartus II generated folders
 src/db/
 src/incremental_db/
-src/simulation/
 src/timing/
-src/testbench/
 *_sim/
