@@ -125,6 +125,33 @@ endmodule
 // PARAMS:
 //      * 32-BIT INPUT
 //    * 1-BIT DIRECTION (0 = left, 1 = right)
+
+
+module characterData(register_Out, ps2_info, clock, ps2_enable, reset);
+	input [7:0] ps2_info;
+	input ps2_enable, clock, reset;
+	
+	output [31:0] register_Out;
+	
+	wire [31:0] out_temp, out_register_input;
+	
+	wire [7:0] mappedResult;
+	
+	mapping m(ps2_info, mappedResult);
+	
+	
+	shift8bitena s8be(register_Out, 1'b0, ps2_enable, out_temp);   // SHIFT WHENEVER ENABLE IS TRUE.
+	
+	assign out_register_input[31:8] = out_temp[31:8];
+	assign out_register_input[7:0] = mappedResult;
+	
+	// HERE YOU"RE CHOOSING BETWEEN RESETING AND WRITING THE INITIAL DATA vs THE DATA RESULTING FROM PS2.
+	
+	register r1(clock, ps2_enable, reset, out_register_input,register_Out);   
+	
+endmodule
+	
+	
 module shift8bitena(data_input, ctrl_shiftdirection, ena, data_output);
     input [31:0] data_input;
     input ctrl_shiftdirection, ena;
@@ -136,4 +163,36 @@ module shift8bitena(data_input, ctrl_shiftdirection, ena, data_output);
     shift4bit s8(intermediate1, ctrl_shiftdirection, intermediate2);
 	 
 	 assign data_output = (ena) ? intermediate2 : data_input;
+endmodule
+
+
+
+module mapping(in, out);
+
+	input [7:0] in;
+	output [7:0] out;
+	reg [7:0] out1;
+	always@(in)
+	begin
+		if(in==8'h1c)
+		 out1<=8'h41;
+	else if (in==8'h32)
+		 out1<=8'h42;
+	else if(in==8'h21)
+		 out1<=8'h43;
+	 else if(in==8'h23)
+		 out1<=8'h44;
+	 else if(in==8'h24)
+		 out1<=8'h45; 
+	 else if(in==8'h26)
+		 out1<=8'h46;
+	 else if(in==8'h34)
+		 out1<=8'h47;
+	 else if(in==8'h33)
+		 out1<=8'h48;
+	else //begin
+		 out1<=8'h00;
+	end
+	assign out=out1;
+
 endmodule

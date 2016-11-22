@@ -1,5 +1,5 @@
 Flow report for skeleton
-Mon Nov 21 19:36:56 2016
+Mon Nov 21 23:20:02 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Nov 21 19:36:56 2016       ;
+; Flow Status                        ; Successful - Mon Nov 21 23:20:01 2016       ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                      ; skeleton                                    ;
 ; Top-level Entity Name              ; skeleton                                    ;
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/21/2016 19:35:45 ;
+; Start date & time ; 11/21/2016 23:16:19 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; skeleton            ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +--------------------------------------+---------------------------------------+---------------+-------------+-----------------------------+
 ; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id                  ;
 +--------------------------------------+---------------------------------------+---------------+-------------+-----------------------------+
-; COMPILER_SIGNATURE_ID                ; 52236202716.147978574506844           ; --            ; --          ; --                          ;
+; COMPILER_SIGNATURE_ID                ; 114448683348974.147978817816060       ; --            ; --          ; --                          ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; stall_logic_tb              ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; statusReg_tb                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; multdiv_tb                  ;
@@ -174,8 +174,8 @@ agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:08     ; 1.0                     ; 936 MB              ; 00:01:02                           ;
-; Total                ; 00:01:08     ; --                      ; --                  ; 00:01:02                           ;
+; Analysis & Synthesis ; 00:03:38     ; 1.0                     ; 895 MB              ; 00:04:19                           ;
+; Total                ; 00:03:38     ; --                      ; --                  ; 00:04:19                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -184,7 +184,7 @@ agreement for further details.
 +----------------------+------------------+-----------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +----------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis ; DESKTOP-TH3G9F0  ; Windows 8 ; 6.2        ; x86_64         ;
+; Analysis & Synthesis ; JXUCPU           ; Windows 8 ; 6.2        ; x86_64         ;
 +----------------------+------------------+-----------+------------+----------------+
 
 
