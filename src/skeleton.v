@@ -54,8 +54,10 @@ module skeleton(resetn,
 	//assign clock = inclock;
 	
 	wire [31:0] logo_command;
-	wire [7:0] ascii;
+	wire [7:0] data_ps2ascii;
 	wire [1:0] position;
+	reg [7:0] last_pressed;
+	reg trigger;
 	
 	position_counter pos_count(position, 1'b1, ps2_key_pressed, ~resetn);
 	
@@ -65,14 +67,28 @@ module skeleton(resetn,
 	// keyboard controller
 	PS2_Interface myps2(clock, resetn, ps2_clock, ps2_data, ps2_key_data, ps2_key_pressed, ps2_out);
 	
-	mapping map(ps2_out, ascii);
+	// map PS2 output to ASCII value
+	mapping map(ps2_out, data_ps2ascii);
+	
+	always @(posedge clock)
+	begin
+	if(~(data_ps2ascii == last_pressed))
+		begin
+			last_pressed <= data_ps2ascii;
+			trigger <= 1'b1;
+		end
+	else
+		begin
+			trigger <= 1'b0;
+		end
+	end
 	
 	// lcd controller
-	lcd mylcd(clock, ~resetn, 1'b1, ascii, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
+	lcd mylcd(clock, ~resetn, 1'b1, data_ps2ascii, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
 	
 	// example for sending ps2 data to the first two seven segment displays
-	Hexadecimal_To_Seven_Segment hex1(ascii[3:0], seg1);
-	Hexadecimal_To_Seven_Segment hex2(ascii[7:4], seg2);
+	Hexadecimal_To_Seven_Segment hex1(data_ps2ascii[3:0], seg1);
+	Hexadecimal_To_Seven_Segment hex2(data_ps2ascii[7:4], seg2);
 	
 	// the other seven segment displays are currently set to 0
 	Hexadecimal_To_Seven_Segment hex3(4'b0, seg3);
