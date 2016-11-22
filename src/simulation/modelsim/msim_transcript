@@ -12,27 +12,27 @@
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/VGA_Audio_PLL.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:54:57 on Nov 21,2016
+# Start time: 23:57:25 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/VGA_Audio_PLL.v 
 # -- Compiling module VGA_Audio_PLL
 # 
 # Top level modules:
 # 	VGA_Audio_PLL
-# End time: 23:54:57 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 23:57:25 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Reset_Delay.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:54:57 on Nov 21,2016
+# Start time: 23:57:25 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Reset_Delay.v 
 # -- Compiling module Reset_Delay
 # 
 # Top level modules:
 # 	Reset_Delay
-# End time: 23:54:57 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 23:57:25 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/skeleton.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:54:58 on Nov 21,2016
+# Start time: 23:57:26 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/skeleton.v 
 # -- Compiling module skeleton
 # -- Compiling module position_counter
@@ -43,131 +43,131 @@
 # Top level modules:
 # 	skeleton
 # 	characterData
-# End time: 23:54:58 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 23:57:26 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/PS2_Interface.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:54:58 on Nov 21,2016
+# Start time: 23:57:26 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/PS2_Interface.v 
 # -- Compiling module PS2_Interface
 # 
 # Top level modules:
 # 	PS2_Interface
-# End time: 23:54:58 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 23:57:26 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/PS2_Controller.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:54:59 on Nov 21,2016
+# Start time: 23:57:27 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/PS2_Controller.v 
 # -- Compiling module PS2_Controller
 # 
 # Top level modules:
 # 	PS2_Controller
-# End time: 23:54:59 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 23:57:27 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/pll.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:54:59 on Nov 21,2016
+# Start time: 23:57:27 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/pll.v 
 # -- Compiling module pll
 # 
 # Top level modules:
 # 	pll
-# End time: 23:54:59 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 23:57:27 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/imem.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:55:00 on Nov 21,2016
+# Start time: 23:57:27 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/imem.v 
 # -- Compiling module imem
 # 
 # Top level modules:
 # 	imem
-# End time: 23:55:00 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 23:57:28 on Nov 21,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Hexadecimal_To_Seven_Segment.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:55:00 on Nov 21,2016
+# Start time: 23:57:28 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Hexadecimal_To_Seven_Segment.v 
 # -- Compiling module Hexadecimal_To_Seven_Segment
 # 
 # Top level modules:
 # 	Hexadecimal_To_Seven_Segment
-# End time: 23:55:00 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 23:57:28 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/dmem.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:55:00 on Nov 21,2016
+# Start time: 23:57:28 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/dmem.v 
 # -- Compiling module dmem
 # 
 # Top level modules:
 # 	dmem
-# End time: 23:55:01 on Nov 21,2016, Elapsed time: 0:00:01
+# End time: 23:57:29 on Nov 21,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Altera_UP_PS2_Data_In.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:55:01 on Nov 21,2016
+# Start time: 23:57:29 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Altera_UP_PS2_Data_In.v 
 # -- Compiling module Altera_UP_PS2_Data_In
 # 
 # Top level modules:
 # 	Altera_UP_PS2_Data_In
-# End time: 23:55:01 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 23:57:29 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Altera_UP_PS2_Command_Out.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:55:01 on Nov 21,2016
+# Start time: 23:57:29 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Altera_UP_PS2_Command_Out.v 
 # -- Compiling module Altera_UP_PS2_Command_Out
 # 
 # Top level modules:
 # 	Altera_UP_PS2_Command_Out
-# End time: 23:55:02 on Nov 21,2016, Elapsed time: 0:00:01
+# End time: 23:57:30 on Nov 21,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/vga_controller.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:55:02 on Nov 21,2016
+# Start time: 23:57:30 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/vga_controller.v 
 # -- Compiling module vga_controller
 # 
 # Top level modules:
 # 	vga_controller
-# End time: 23:55:02 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 23:57:30 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/video_sync_generator.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:55:02 on Nov 21,2016
+# Start time: 23:57:30 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/video_sync_generator.v 
 # -- Compiling module video_sync_generator
 # 
 # Top level modules:
 # 	video_sync_generator
-# End time: 23:55:02 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 23:57:30 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/img_index.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:55:03 on Nov 21,2016
+# Start time: 23:57:31 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/img_index.v 
 # -- Compiling module img_index
 # 
 # Top level modules:
 # 	img_index
-# End time: 23:55:03 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 23:57:31 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/img_data.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:55:03 on Nov 21,2016
+# Start time: 23:57:31 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/img_data.v 
 # -- Compiling module img_data
 # 
 # Top level modules:
 # 	img_data
-# End time: 23:55:03 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 23:57:31 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/processor_as577.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:55:04 on Nov 21,2016
+# Start time: 23:57:32 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/processor_as577.v 
 # -- Compiling module processor
 # -- Compiling module bypass_ex
@@ -233,43 +233,43 @@
 # 
 # Top level modules:
 # 	processor
-# End time: 23:55:04 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 23:57:33 on Nov 21,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src/db {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/db/pll_altpll.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:55:05 on Nov 21,2016
+# Start time: 23:57:33 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src/db" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/db/pll_altpll.v 
 # -- Compiling module pll_altpll
 # 
 # Top level modules:
 # 	pll_altpll
-# End time: 23:55:05 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 23:57:33 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/lcd.sv}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:55:05 on Nov 21,2016
+# Start time: 23:57:33 on Nov 21,2016
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/lcd.sv 
 # -- Compiling module lcd
 # 
 # Top level modules:
 # 	lcd
-# End time: 23:55:05 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 23:57:34 on Nov 21,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/characterData_tb.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 23:55:05 on Nov 21,2016
+# Start time: 23:57:34 on Nov 21,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/characterData_tb.v 
 # -- Compiling module characterData_tb
 # 
 # Top level modules:
 # 	characterData_tb
-# End time: 23:55:06 on Nov 21,2016, Elapsed time: 0:00:01
+# End time: 23:57:34 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  characterData_tb
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" characterData_tb 
-# Start time: 23:55:06 on Nov 21,2016
+# Start time: 23:57:35 on Nov 21,2016
 # Loading work.characterData_tb
 # Loading work.characterData
 # Loading work.mapping
@@ -280,8 +280,6 @@
 # Loading work.register
 # Loading altera_ver.dffe
 # Loading altera_ver.prim_gdff
-# ** Warning: (vsim-3015) C:/Users/Joshua/Documents/GitHub/fpga-logo/src/skeleton.v(138): [PCDPC] - Port size (8) does not match connection size (32) for port 'out'. The port definition is at: C:/Users/Joshua/Documents/GitHub/fpga-logo/src/skeleton.v(168).
-#    Time: 0 ps  Iteration: 0  Instance: /characterData_tb/cd/m File: C:/Users/Joshua/Documents/GitHub/fpga-logo/src/skeleton.v
 # 
 # add wave *
 # view structure
@@ -395,5 +393,3 @@
 # ** Note: $stop    : C:/Users/Joshua/Documents/GitHub/fpga-logo/src/characterData_tb.v(20)
 #    Time: 1020 ns  Iteration: 0  Instance: /characterData_tb
 # Break in Module characterData_tb at C:/Users/Joshua/Documents/GitHub/fpga-logo/src/characterData_tb.v line 20
-# End time: 23:56:31 on Nov 21,2016, Elapsed time: 0:01:25
-# Errors: 0, Warnings: 1

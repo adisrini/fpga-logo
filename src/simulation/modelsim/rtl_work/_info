@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dC:/Users/Joshua/Documents/GitHub/fpga-logo/src/simulation/modelsim
 vAltera_UP_PS2_Command_Out
-Z1 !s110 1479790502
+Z1 !s110 1479790650
 !i10b 1
 !s100 ZjDIV:z^W4aE7ECD]ReVK0
 I?PaK<]7A=@Y@B5iXMgnO22
@@ -23,7 +23,7 @@ Z5 OV;L;10.4d;61
 r1
 !s85 0
 31
-Z6 !s108 1479790501.000000
+Z6 !s108 1479790649.000000
 !s107 C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Altera_UP_PS2_Command_Out.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src|C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Altera_UP_PS2_Command_Out.v|
 !i113 1
@@ -31,7 +31,7 @@ Z7 o-vlog01compat -work work
 Z8 !s92 -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src
 n@altera_@u@p_@p@s2_@command_@out
 vAltera_UP_PS2_Data_In
-Z9 !s110 1479790501
+Z9 !s110 1479790649
 !i10b 1
 !s100 ee^TmQcGZ[E_>UMojW[Zg0
 IC<1;lPGJ8IU[2Dc=>4R``2
@@ -53,7 +53,7 @@ R7
 R8
 n@altera_@u@p_@p@s2_@data_@in
 vas577_alu
-Z10 !s110 1479790504
+Z10 !s110 1479790652
 !i10b 1
 !s100 k2=PVoP1;cj3C>NkM:EUJ2
 IeR]28c:HD01;VHmFI77UD1
@@ -67,7 +67,7 @@ R5
 r1
 !s85 0
 31
-Z14 !s108 1479790504.000000
+Z14 !s108 1479790652.000000
 Z15 !s107 C:/Users/Joshua/Documents/GitHub/fpga-logo/src/processor_as577.v|
 Z16 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src|C:/Users/Joshua/Documents/GitHub/fpga-logo/src/processor_as577.v|
 !i113 1
@@ -243,13 +243,13 @@ R16
 R7
 R8
 vcharacterData
-Z17 !s110 1479790498
+Z17 !s110 1479790646
 !i10b 1
-!s100 X3U1nmR7`QKQ>NAlbF[1=3
-Ig8V5DcLhfMJKAAZ1[a4Bk1
+!s100 G3`O>ao1fmb:W4jlanehV3
+IgzUUB?f_6=m4flm_KFJ?Y2
 R2
 R0
-Z18 w1479790188
+Z18 w1479790589
 Z19 8C:/Users/Joshua/Documents/GitHub/fpga-logo/src/skeleton.v
 Z20 FC:/Users/Joshua/Documents/GitHub/fpga-logo/src/skeleton.v
 L0 130
@@ -257,7 +257,7 @@ R5
 r1
 !s85 0
 31
-Z21 !s108 1479790498.000000
+Z21 !s108 1479790646.000000
 Z22 !s107 C:/Users/Joshua/Documents/GitHub/fpga-logo/src/skeleton.v|
 Z23 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src|C:/Users/Joshua/Documents/GitHub/fpga-logo/src/skeleton.v|
 !i113 1
@@ -265,7 +265,7 @@ R7
 R8
 ncharacter@data
 vcharacterData_tb
-!s110 1479790506
+!s110 1479790654
 !i10b 1
 !s100 o0k4C<6BaLBnb0B=X`EJI3
 Ijl_4UZkWH7d0kMR8TNAJ81
@@ -279,7 +279,7 @@ R5
 r1
 !s85 0
 31
-Z24 !s108 1479790505.000000
+!s108 1479790654.000000
 !s107 C:/Users/Joshua/Documents/GitHub/fpga-logo/src/characterData_tb.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src|C:/Users/Joshua/Documents/GitHub/fpga-logo/src/characterData_tb.v|
 !i113 1
@@ -457,7 +457,7 @@ R16
 R7
 R8
 vdffeveri
-R10
+Z24 !s110 1479790653
 !i10b 1
 !s100 ZN?ALX2IkG^2A62ZBif7f1
 I]<ZD]z<1IgUg:K2Nz?6lI2
@@ -534,7 +534,7 @@ R5
 r1
 !s85 0
 31
-Z27 !s108 1479790500.000000
+Z27 !s108 1479790648.000000
 !s107 C:/Users/Joshua/Documents/GitHub/fpga-logo/src/dmem.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src|C:/Users/Joshua/Documents/GitHub/fpga-logo/src/dmem.v|
 !i113 1
@@ -605,7 +605,7 @@ R16
 R7
 R8
 vHexadecimal_To_Seven_Segment
-Z28 !s110 1479790500
+Z28 !s110 1479790648
 !i10b 1
 !s100 >j7dlo6D<6b_bXMV;SleR2
 I^>N6=DddXad:VT;n=obO92
@@ -641,14 +641,14 @@ R5
 r1
 !s85 0
 31
-R27
+Z29 !s108 1479790647.000000
 !s107 C:/Users/Joshua/Documents/GitHub/fpga-logo/src/imem.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src|C:/Users/Joshua/Documents/GitHub/fpga-logo/src/imem.v|
 !i113 1
 R7
 R8
 vimg_data
-Z29 !s110 1479790503
+Z30 !s110 1479790651
 !i10b 1
 !s100 JFdTUOcdkh^ibfN2P0Il=3
 IndRZhz;RM7iFP0[oW=DYK0
@@ -662,14 +662,14 @@ R5
 r1
 !s85 0
 31
-Z30 !s108 1479790503.000000
+Z31 !s108 1479790651.000000
 !s107 C:/Users/Joshua/Documents/GitHub/fpga-logo/src/img_data.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src|C:/Users/Joshua/Documents/GitHub/fpga-logo/src/img_data.v|
 !i113 1
 R7
 R8
 vimg_index
-R29
+R30
 !i10b 1
 !s100 nic2ACEkRML]?cFJ`aa_;1
 IR^CRaa@aEf5fhz0:DEX3i2
@@ -683,7 +683,7 @@ R5
 r1
 !s85 0
 31
-R30
+R31
 !s107 C:/Users/Joshua/Documents/GitHub/fpga-logo/src/img_index.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src|C:/Users/Joshua/Documents/GitHub/fpga-logo/src/img_index.v|
 !i113 1
@@ -841,7 +841,7 @@ R7
 R8
 vlcd
 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
-Z31 !s110 1479790505
+R24
 !i10b 1
 !s100 4d9[jBL5f6iUZ]`z^C42R1
 I=YSV]LZO6G58j;c0YX^zk2
@@ -857,7 +857,7 @@ R5
 r1
 !s85 0
 31
-R24
+Z32 !s108 1479790653.000000
 !s107 C:/Users/Joshua/Documents/GitHub/fpga-logo/src/lcd.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src|C:/Users/Joshua/Documents/GitHub/fpga-logo/src/lcd.sv|
 !i113 1
@@ -887,14 +887,14 @@ R8
 vmapping
 R17
 !i10b 1
-!s100 WjY5R^cRgTed:9E]0J]bn0
-IJN0Vo0E]mfNnoe]9n`7Qz1
+!s100 lbLDTHgiDjnzmSEZogNZ]1
+Ikf3>D9kC>]kl[:SBk2TIl0
 R2
 R0
 R18
 R19
 R20
-L0 168
+L0 170
 R5
 r1
 !s85 0
@@ -1074,7 +1074,7 @@ R16
 R7
 R8
 vpll
-Z32 !s110 1479790499
+Z33 !s110 1479790647
 !i10b 1
 !s100 el8m9?VhINk2D<LX>]oEj3
 I7<>djT]A8n4N7jc]S^Nac0
@@ -1088,14 +1088,14 @@ R5
 r1
 !s85 0
 31
-Z33 !s108 1479790499.000000
+R29
 !s107 C:/Users/Joshua/Documents/GitHub/fpga-logo/src/pll.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src|C:/Users/Joshua/Documents/GitHub/fpga-logo/src/pll.v|
 !i113 1
 R7
 R8
 vpll_altpll
-R31
+R24
 !i10b 1
 !s100 2[X4]z<HMg5W5S4]lA8_11
 InW_dR;g^W1DfVAz_O1`zX2
@@ -1109,7 +1109,7 @@ R5
 r1
 !s85 0
 31
-R24
+R32
 !s107 C:/Users/Joshua/Documents/GitHub/fpga-logo/src/db/pll_altpll.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src/db|C:/Users/Joshua/Documents/GitHub/fpga-logo/src/db/pll_altpll.v|
 !i113 1
@@ -1158,7 +1158,7 @@ R16
 R7
 R8
 vPS2_Controller
-R32
+R33
 !i10b 1
 !s100 SBbk<]9<EO>4gfA4Nk28g0
 I_SZ_BR6`>:0`Ve5<6985X1
@@ -1172,7 +1172,7 @@ R5
 r1
 !s85 0
 31
-R33
+R29
 !s107 C:/Users/Joshua/Documents/GitHub/fpga-logo/src/PS2_Controller.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src|C:/Users/Joshua/Documents/GitHub/fpga-logo/src/PS2_Controller.v|
 !i113 1
@@ -1265,7 +1265,7 @@ R16
 R7
 R8
 vregister32
-R10
+R24
 !i10b 1
 !s100 e?fnOQhT_P38j_4[YeAm02
 IEma3=fJ@`^<5Ngh_LA2>L3
@@ -1307,7 +1307,7 @@ R16
 R7
 R8
 vregister65
-R10
+R24
 !i10b 1
 !s100 Cnkml70cXW=UkN2@HK<j[1
 IB8LK8?ONn2j7mzVU[YOML2
@@ -1328,7 +1328,7 @@ R16
 R7
 R8
 vReset_Delay
-Z34 !s110 1479790497
+Z34 !s110 1479790645
 !i10b 1
 !s100 <?EH4X[VcB<k?aKTEg:<H0
 Io8OhVGj<jZM:H@2Lf^P>=2
@@ -1342,7 +1342,7 @@ R5
 r1
 !s85 0
 31
-Z35 !s108 1479790497.000000
+Z35 !s108 1479790645.000000
 !s107 C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Reset_Delay.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src|C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Reset_Delay.v|
 !i113 1
@@ -1392,7 +1392,7 @@ R16
 R7
 R8
 vshift1bit65
-R10
+R24
 !i10b 1
 !s100 nTXoCAzIUOWLl03bc]j;e3
 IS9FMQofML7VCbz17O_Xh@2
@@ -1478,14 +1478,14 @@ R8
 vshift8bitena
 R17
 !i10b 1
-!s100 ^lm[e3>cY>0DVCh[5ToFf0
-Io?^OQd;NHzH;2LHMV:fgK3
+!s100 @F;<jZ`[8UR?naLLSiIWX3
+I[1[aH2njj5RMF9@LB5C7:3
 R2
 R0
 R18
 R19
 R20
-L0 153
+L0 155
 R5
 r1
 !s85 0
@@ -1748,7 +1748,7 @@ R5
 r1
 !s85 0
 31
-Z36 !s108 1479790502.000000
+Z36 !s108 1479790650.000000
 !s107 C:/Users/Joshua/Documents/GitHub/fpga-logo/src/vga_controller.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src|C:/Users/Joshua/Documents/GitHub/fpga-logo/src/vga_controller.v|
 !i113 1
