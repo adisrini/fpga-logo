@@ -120,38 +120,47 @@ module position_counter(out,enable,clk,reset);
 	end
 endmodule
 
-// 8-BIT SHIFTER (verified)
-//
-// PARAMS:
-//      * 32-BIT INPUT
-//    * 1-BIT DIRECTION (0 = left, 1 = right)
 
-
-module characterData(register_Out, ps2_info, clock, ps2_enable, reset);
-	input [7:0] ps2_info;
+/**********
+ FILLS A 32 BIT WIRE WITH THE CONVERTED DATA FROM PS2 FROM RIGHT TO LEFT
+ 
+ @param: register_out is the output filled wire
+ @param: ps2_keydata is the data from PS2 keyboard
+ @param: clock
+ @param: ps2_enable is whether the PS2 was activated
+ @param: reset is whether to reset the wire
+**********/
+module characterData(register_out, ps2_keydata, clock, ps2_enable, reset);
+	input [7:0] ps2_keydata;
 	input ps2_enable, clock, reset;
 	
-	output [31:0] register_Out;
+	output [31:0] register_out;
 	
 	wire [31:0] out_temp, out_register_input;
 	
 	wire [7:0] mappedResult;
 	
-	mapping m(ps2_info, mappedResult);
+	mapping m(ps2_keydata, mappedResult);
 	
 	
-	shift8bitena s8be(register_Out, 1'b0, ps2_enable, out_temp);   // SHIFT WHENEVER ENABLE IS TRUE.
+	shift8bitena s8be(register_out, 1'b0, ps2_enable, out_temp);   // SHIFT WHENEVER ENABLE IS TRUE.
 	
 	assign out_register_input[31:8] = out_temp[31:8];
 	assign out_register_input[7:0] = mappedResult;
 	
 	// HERE YOU"RE CHOOSING BETWEEN RESETING AND WRITING THE INITIAL DATA vs THE DATA RESULTING FROM PS2.
 	
-	register r1(clock, ps2_enable, reset, out_register_input,register_Out);   
-	
+	register r1(clock, ps2_enable, reset, out_register_input,register_out); 
 endmodule
 	
-	
+/**********
+ SHIFTS DATA 8 BITS IN THE SPECIFIED DIRECTION IF ENABLED
+ 
+ @param: data_input is the 32-bit input
+ @param: ctrl_shiftdirection decides which direction to shift (0 = left, 1 = right)
+ @param: ena is whether to enable shifting
+ @param: data_output is the 32-bit output
+**********/
 module shift8bitena(data_input, ctrl_shiftdirection, ena, data_output);
     input [31:0] data_input;
     input ctrl_shiftdirection, ena;
