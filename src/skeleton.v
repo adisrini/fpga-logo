@@ -139,9 +139,9 @@ endmodule
  @param: ps2_enable is whether the PS2 was activated
  @param: reset is whether to reset the wire
 **********/
-module characterData(register_out, ps2_keydata, clock, ps2_enable, reset);
+module characterData(register_out, ps2_keydata, ps2_enable, reset);
 	input [7:0] ps2_keydata;
-	input ps2_enable, clock, reset;
+	input ps2_enable, reset;
 	
 	output [31:0] register_out;
 	
@@ -152,14 +152,14 @@ module characterData(register_out, ps2_keydata, clock, ps2_enable, reset);
 	mapping m(ps2_keydata, mappedResult);
 	
 	
-	shift8bitena s8be(register_out, 1'b0, ps2_enable, out_temp);   // SHIFT WHENEVER ENABLE IS TRUE.
+	shift8bitena s8be(register_out, 1'b0, 1'b1, out_temp);   // SHIFT WHENEVER ENABLE IS TRUE.
 	
 	assign out_register_input[31:8] = out_temp[31:8];
 	assign out_register_input[7:0] = mappedResult;
 	
 	// HERE YOU"RE CHOOSING BETWEEN RESETING AND WRITING THE INITIAL DATA vs THE DATA RESULTING FROM PS2.
 	
-	register r1(clock, ps2_enable, reset, out_register_input,register_out); 
+	register r1(~ps2_enable, 1'b1, reset, out_register_input,register_out); 
 endmodule
 	
 /**********

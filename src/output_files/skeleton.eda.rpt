@@ -1,5 +1,5 @@
 EDA Netlist Writer report for skeleton
-Wed Nov 16 13:24:14 2016
+Mon Nov 21 22:09:46 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Wed Nov 16 13:24:14 2016 ;
+; EDA Netlist Writer Status ; Successful - Mon Nov 21 22:09:46 2016 ;
 ; Revision Name             ; skeleton                              ;
 ; Top-level Entity Name     ; skeleton                              ;
 ; Family                    ; Cyclone IV E                          ;
@@ -67,20 +67,20 @@ agreement for further details.
 +---------------------------------------------------------------------------------------------------+---------------------------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                                         ;
-+----------------------------------------------------------------------------------------------------+
-; Generated Files                                                                                    ;
-+----------------------------------------------------------------------------------------------------+
-; C:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim/skeleton_7_1200mv_85c_slow.vo     ;
-; C:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim/skeleton_7_1200mv_0c_slow.vo      ;
-; C:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim/skeleton_min_1200mv_0c_fast.vo    ;
-; C:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim/skeleton.vo                       ;
-; C:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim/skeleton_7_1200mv_85c_v_slow.sdo  ;
-; C:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim/skeleton_7_1200mv_0c_v_slow.sdo   ;
-; C:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim/skeleton_min_1200mv_0c_v_fast.sdo ;
-; C:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim/skeleton_v.sdo                    ;
-+----------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                             ;
++--------------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                        ;
++--------------------------------------------------------------------------------------------------------+
+; C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/simulation/modelsim/skeleton_7_1200mv_85c_slow.vo     ;
+; C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/simulation/modelsim/skeleton_7_1200mv_0c_slow.vo      ;
+; C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/simulation/modelsim/skeleton_min_1200mv_0c_fast.vo    ;
+; C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/simulation/modelsim/skeleton.vo                       ;
+; C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/simulation/modelsim/skeleton_7_1200mv_85c_v_slow.sdo  ;
+; C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/simulation/modelsim/skeleton_7_1200mv_0c_v_slow.sdo   ;
+; C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/simulation/modelsim/skeleton_min_1200mv_0c_v_fast.sdo ;
+; C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/simulation/modelsim/skeleton_v.sdo                    ;
++--------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -89,21 +89,21 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
-    Info: Processing started: Wed Nov 16 13:23:59 2016
+    Info: Processing started: Mon Nov 21 22:09:29 2016
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off skeleton -c skeleton
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (204019): Generated file skeleton_7_1200mv_85c_slow.vo in folder "C:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file skeleton_7_1200mv_0c_slow.vo in folder "C:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file skeleton_min_1200mv_0c_fast.vo in folder "C:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file skeleton.vo in folder "C:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file skeleton_7_1200mv_85c_v_slow.sdo in folder "C:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file skeleton_7_1200mv_0c_v_slow.sdo in folder "C:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file skeleton_min_1200mv_0c_v_fast.sdo in folder "C:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file skeleton_v.sdo in folder "C:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file skeleton_7_1200mv_85c_slow.vo in folder "C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file skeleton_7_1200mv_0c_slow.vo in folder "C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file skeleton_min_1200mv_0c_fast.vo in folder "C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file skeleton.vo in folder "C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file skeleton_7_1200mv_85c_v_slow.sdo in folder "C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file skeleton_7_1200mv_0c_v_slow.sdo in folder "C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file skeleton_min_1200mv_0c_v_fast.sdo in folder "C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file skeleton_v.sdo in folder "C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 872 megabytes
-    Info: Processing ended: Wed Nov 16 13:24:14 2016
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:12
+    Info: Peak virtual memory: 879 megabytes
+    Info: Processing ended: Mon Nov 21 22:09:46 2016
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:16
 
 
