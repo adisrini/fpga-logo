@@ -196,9 +196,9 @@ module mapping(in, out);
 	reg [7:0] out1;
 	always@(in)
 	begin
-	if(in==8'h1c)		//A
+	if(in==8'h1c)			//A
 		 out1<=8'h41;
-	else if (in==8'h32) //B
+	else if (in==8'h32)  //B
 		 out1<=8'h42;
 	else if(in==8'h21) 	//C
 		 out1<=8'h43;
