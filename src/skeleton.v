@@ -99,6 +99,15 @@ module skeleton(resetn,
 	
 endmodule
 
+	
+/**********
+ FSM COUNTER THAT INCREMENTS FROM 0 -> 3 THEN RESTARTS
+ 
+ @param: out is the counter value
+ @param: enable is whether the counter is enabled
+ @param: clk is the counter clock
+ @param: reset is whether to reset the counter
+**********/
 module position_counter(out,enable,clk,reset);
 	output [1:0] out;	 //potentially change								
 	input enable, clk, reset;
@@ -130,9 +139,9 @@ endmodule
  @param: ps2_enable is whether the PS2 was activated
  @param: reset is whether to reset the wire
 **********/
-module characterData(register_out, ps2_keydata, clock, ps2_enable, reset);
+module characterData(register_out, ps2_keydata, ps2_enable, reset);
 	input [7:0] ps2_keydata;
-	input ps2_enable, clock, reset;
+	input ps2_enable, reset;
 	
 	output [31:0] register_out;
 	
@@ -143,14 +152,14 @@ module characterData(register_out, ps2_keydata, clock, ps2_enable, reset);
 	mapping m(ps2_keydata, mappedResult);
 	
 	
-	shift8bitena s8be(register_out, 1'b0, ps2_enable, out_temp);   // SHIFT WHENEVER ENABLE IS TRUE.
+	shift8bitena s8be(register_out, 1'b0, 1'b1, out_temp);   // SHIFT WHENEVER ENABLE IS TRUE.
 	
 	assign out_register_input[31:8] = out_temp[31:8];
 	assign out_register_input[7:0] = mappedResult;
 	
 	// HERE YOU"RE CHOOSING BETWEEN RESETING AND WRITING THE INITIAL DATA vs THE DATA RESULTING FROM PS2.
 	
-	register r1(clock, ps2_enable, reset, out_register_input,register_out); 
+	register r1(~ps2_enable, 1'b1, reset, out_register_input,register_out); 
 endmodule
 	
 /**********
@@ -187,9 +196,9 @@ module mapping(in, out);
 	reg [7:0] out1;
 	always@(in)
 	begin
-	if(in==8'h1c)		//A
+	if(in==8'h1c)			//A
 		 out1<=8'h41;
-	else if (in==8'h32) //B
+	else if (in==8'h32)  //B
 		 out1<=8'h42;
 	else if(in==8'h21) 	//C
 		 out1<=8'h43;

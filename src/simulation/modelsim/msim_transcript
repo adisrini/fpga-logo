@@ -10,30 +10,30 @@
 # Copying C:/altera_lite/16.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/VGA_Audio_PLL.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/VGA_Audio_PLL.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:36 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/VGA_Audio_PLL.v 
+# Start time: 22:20:39 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/VGA_Audio_PLL.v 
 # -- Compiling module VGA_Audio_PLL
 # 
 # Top level modules:
 # 	VGA_Audio_PLL
-# End time: 00:27:36 on Nov 22,2016, Elapsed time: 0:00:00
+# End time: 22:20:39 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Reset_Delay.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Reset_Delay.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:37 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Reset_Delay.v 
+# Start time: 22:20:39 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Reset_Delay.v 
 # -- Compiling module Reset_Delay
 # 
 # Top level modules:
 # 	Reset_Delay
-# End time: 00:27:37 on Nov 22,2016, Elapsed time: 0:00:00
+# End time: 22:20:39 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/skeleton.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/skeleton.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:37 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/skeleton.v 
+# Start time: 22:20:39 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/skeleton.v 
 # -- Compiling module skeleton
 # -- Compiling module position_counter
 # -- Compiling module characterData
@@ -43,132 +43,132 @@
 # Top level modules:
 # 	skeleton
 # 	characterData
-# End time: 00:27:37 on Nov 22,2016, Elapsed time: 0:00:00
+# End time: 22:20:39 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/PS2_Interface.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/PS2_Interface.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:37 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/PS2_Interface.v 
+# Start time: 22:20:39 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/PS2_Interface.v 
 # -- Compiling module PS2_Interface
 # 
 # Top level modules:
 # 	PS2_Interface
-# End time: 00:27:38 on Nov 22,2016, Elapsed time: 0:00:01
+# End time: 22:20:39 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/PS2_Controller.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/PS2_Controller.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:38 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/PS2_Controller.v 
+# Start time: 22:20:39 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/PS2_Controller.v 
 # -- Compiling module PS2_Controller
 # 
 # Top level modules:
 # 	PS2_Controller
-# End time: 00:27:38 on Nov 22,2016, Elapsed time: 0:00:00
+# End time: 22:20:39 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/pll.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/pll.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:38 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/pll.v 
+# Start time: 22:20:39 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/pll.v 
 # -- Compiling module pll
 # 
 # Top level modules:
 # 	pll
-# End time: 00:27:39 on Nov 22,2016, Elapsed time: 0:00:01
+# End time: 22:20:39 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/imem.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/imem.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:39 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/imem.v 
+# Start time: 22:20:39 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/imem.v 
 # -- Compiling module imem
 # 
 # Top level modules:
 # 	imem
-# End time: 00:27:39 on Nov 22,2016, Elapsed time: 0:00:00
+# End time: 22:20:40 on Nov 21,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Hexadecimal_To_Seven_Segment.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Hexadecimal_To_Seven_Segment.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:39 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Hexadecimal_To_Seven_Segment.v 
+# Start time: 22:20:40 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Hexadecimal_To_Seven_Segment.v 
 # -- Compiling module Hexadecimal_To_Seven_Segment
 # 
 # Top level modules:
 # 	Hexadecimal_To_Seven_Segment
-# End time: 00:27:39 on Nov 22,2016, Elapsed time: 0:00:00
+# End time: 22:20:40 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/dmem.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/dmem.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:40 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/dmem.v 
+# Start time: 22:20:40 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/dmem.v 
 # -- Compiling module dmem
 # 
 # Top level modules:
 # 	dmem
-# End time: 00:27:40 on Nov 22,2016, Elapsed time: 0:00:00
+# End time: 22:20:40 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Altera_UP_PS2_Data_In.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Altera_UP_PS2_Data_In.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:40 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Altera_UP_PS2_Data_In.v 
+# Start time: 22:20:40 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Altera_UP_PS2_Data_In.v 
 # -- Compiling module Altera_UP_PS2_Data_In
 # 
 # Top level modules:
 # 	Altera_UP_PS2_Data_In
-# End time: 00:27:40 on Nov 22,2016, Elapsed time: 0:00:00
+# End time: 22:20:40 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Altera_UP_PS2_Command_Out.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Altera_UP_PS2_Command_Out.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:41 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/Altera_UP_PS2_Command_Out.v 
+# Start time: 22:20:40 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Altera_UP_PS2_Command_Out.v 
 # -- Compiling module Altera_UP_PS2_Command_Out
 # 
 # Top level modules:
 # 	Altera_UP_PS2_Command_Out
-# End time: 00:27:41 on Nov 22,2016, Elapsed time: 0:00:00
+# End time: 22:20:40 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/vga_controller.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/vga_controller.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:41 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/vga_controller.v 
+# Start time: 22:20:40 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/vga_controller.v 
 # -- Compiling module vga_controller
 # 
 # Top level modules:
 # 	vga_controller
-# End time: 00:27:41 on Nov 22,2016, Elapsed time: 0:00:00
+# End time: 22:20:40 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/video_sync_generator.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/video_sync_generator.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:41 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/video_sync_generator.v 
+# Start time: 22:20:40 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/video_sync_generator.v 
 # -- Compiling module video_sync_generator
 # 
 # Top level modules:
 # 	video_sync_generator
-# End time: 00:27:41 on Nov 22,2016, Elapsed time: 0:00:00
+# End time: 22:20:40 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/img_index.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/img_index.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:42 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/img_index.v 
+# Start time: 22:20:40 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/img_index.v 
 # -- Compiling module img_index
 # 
 # Top level modules:
 # 	img_index
-# End time: 00:27:42 on Nov 22,2016, Elapsed time: 0:00:00
+# End time: 22:20:41 on Nov 21,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/img_data.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/img_data.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:42 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/img_data.v 
+# Start time: 22:20:41 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/img_data.v 
 # -- Compiling module img_data
 # 
 # Top level modules:
 # 	img_data
-# End time: 00:27:42 on Nov 22,2016, Elapsed time: 0:00:00
+# End time: 22:20:41 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/processor_as577.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/processor_as577.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:43 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/processor_as577.v 
+# Start time: 22:20:41 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/processor_as577.v 
 # -- Compiling module processor
 # -- Compiling module bypass_ex
 # -- Compiling module bypass_mem
@@ -233,44 +233,44 @@
 # 
 # Top level modules:
 # 	processor
-# End time: 00:27:43 on Nov 22,2016, Elapsed time: 0:00:00
+# End time: 22:20:41 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src/db {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/db/pll_altpll.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src/db {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/db/pll_altpll.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:44 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src/db" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/db/pll_altpll.v 
+# Start time: 22:20:41 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/db" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/db/pll_altpll.v 
 # -- Compiling module pll_altpll
 # 
 # Top level modules:
 # 	pll_altpll
-# End time: 00:27:44 on Nov 22,2016, Elapsed time: 0:00:00
+# End time: 22:20:41 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/lcd.sv}
+# vlog -sv -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/lcd.sv}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:44 on Nov 22,2016
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/lcd.sv 
+# Start time: 22:20:41 on Nov 21,2016
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/lcd.sv 
 # -- Compiling module lcd
 # 
 # Top level modules:
 # 	lcd
-# End time: 00:27:44 on Nov 22,2016, Elapsed time: 0:00:00
+# End time: 22:20:41 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src {C:/Users/Joshua/Documents/GitHub/fpga-logo/src/characterData_tb.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/keyboard_fill_characters_tb.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 00:27:44 on Nov 22,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Joshua/Documents/GitHub/fpga-logo/src" C:/Users/Joshua/Documents/GitHub/fpga-logo/src/characterData_tb.v 
-# -- Compiling module characterData_tb
+# Start time: 22:20:41 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/keyboard_fill_characters_tb.v 
+# -- Compiling module keyboard_fill_characters_tb
 # 
 # Top level modules:
-# 	characterData_tb
-# End time: 00:27:45 on Nov 22,2016, Elapsed time: 0:00:01
+# 	keyboard_fill_characters_tb
+# End time: 22:20:41 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  characterData_tb
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" characterData_tb 
-# Start time: 00:27:45 on Nov 22,2016
-# Loading work.characterData_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  keyboard_fill_characters_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" keyboard_fill_characters_tb 
+# Start time: 22:20:42 on Nov 21,2016
+# Loading work.keyboard_fill_characters_tb
 # Loading work.characterData
 # Loading work.mapping
 # Loading work.shift8bitena
@@ -282,156 +282,32 @@
 # Loading altera_ver.prim_gdff
 # 
 # add wave *
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: joshxu95  Hostname: JXUCPU  ProcessID: 15364
+# 
+#           Attempting to use alternate WLF file "./wlft0q8iv5".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlft0q8iv5
+# 
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-#                    0<<Starting the simulation>> 
-# Reading the values of clock 0, ps2_info 21, and reset 1 and output 00000000 
-# Reading the values of clock 1, ps2_info 21, and reset 1 and output 00000000 
-# Reading the values of clock 0, ps2_info 22, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 22, and reset 0 and output 00000058 
-# Reading the values of clock 0, ps2_info 23, and reset 0 and output 00000058 
-# Reading the values of clock 1, ps2_info 23, and reset 0 and output 00005844 
-# Reading the values of clock 0, ps2_info 24, and reset 0 and output 00005844 
-# Reading the values of clock 1, ps2_info 24, and reset 0 and output 00584445 
-# Reading the values of clock 0, ps2_info 25, and reset 0 and output 00584445 
-# Reading the values of clock 1, ps2_info 25, and reset 0 and output 58444534 
-# Reading the values of clock 0, ps2_info 26, and reset 0 and output 58444534 
-# Reading the values of clock 1, ps2_info 26, and reset 0 and output 44453446 
-# Reading the values of clock 0, ps2_info 27, and reset 0 and output 44453446 
-# Reading the values of clock 1, ps2_info 27, and reset 0 and output 45344600 
-# Reading the values of clock 0, ps2_info 28, and reset 0 and output 45344600 
-# Reading the values of clock 1, ps2_info 28, and reset 0 and output 34460000 
-# Reading the values of clock 0, ps2_info 29, and reset 0 and output 34460000 
-# Reading the values of clock 1, ps2_info 29, and reset 0 and output 46000000 
-# Reading the values of clock 0, ps2_info 2a, and reset 0 and output 46000000 
-# Reading the values of clock 1, ps2_info 2a, and reset 0 and output 00000056 
-# Reading the values of clock 0, ps2_info 2b, and reset 0 and output 00000056 
-# Reading the values of clock 1, ps2_info 2b, and reset 0 and output 00005600 
-# Reading the values of clock 0, ps2_info 2c, and reset 1 and output 00000000 
-# Reading the values of clock 1, ps2_info 2c, and reset 1 and output 00000000 
-# Reading the values of clock 0, ps2_info 2d, and reset 1 and output 00000000 
-# Reading the values of clock 1, ps2_info 2d, and reset 1 and output 00000000 
-# Reading the values of clock 0, ps2_info 2e, and reset 1 and output 00000000 
-# Reading the values of clock 1, ps2_info 2e, and reset 1 and output 00000000 
-# Reading the values of clock 0, ps2_info 2f, and reset 1 and output 00000000 
-# Reading the values of clock 1, ps2_info 2f, and reset 1 and output 00000000 
-# Reading the values of clock 0, ps2_info 30, and reset 1 and output 00000000 
-# Reading the values of clock 1, ps2_info 30, and reset 1 and output 00000000 
-# Reading the values of clock 0, ps2_info 31, and reset 1 and output 00000000 
-# Reading the values of clock 1, ps2_info 31, and reset 1 and output 00000000 
-# Reading the values of clock 0, ps2_info 32, and reset 1 and output 00000000 
-# Reading the values of clock 1, ps2_info 32, and reset 1 and output 00000000 
-# Reading the values of clock 0, ps2_info 33, and reset 1 and output 00000000 
-# Reading the values of clock 1, ps2_info 33, and reset 1 and output 00000000 
-# Reading the values of clock 0, ps2_info 34, and reset 1 and output 00000000 
-# Reading the values of clock 1, ps2_info 34, and reset 1 and output 00000000 
-# Reading the values of clock 0, ps2_info 35, and reset 1 and output 00000000 
-# Reading the values of clock 1, ps2_info 35, and reset 1 and output 00000000 
-# Reading the values of clock 0, ps2_info 36, and reset 1 and output 00000000 
-# Reading the values of clock 1, ps2_info 36, and reset 1 and output 00000000 
-# Reading the values of clock 0, ps2_info 37, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 37, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 38, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 38, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 39, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 39, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 3a, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 3a, and reset 0 and output 0000004d 
-# Reading the values of clock 0, ps2_info 3b, and reset 0 and output 0000004d 
-# Reading the values of clock 1, ps2_info 3b, and reset 0 and output 00004d4a 
-# Reading the values of clock 0, ps2_info 3c, and reset 0 and output 00004d4a 
-# Reading the values of clock 1, ps2_info 3c, and reset 0 and output 004d4a55 
-# Reading the values of clock 0, ps2_info 3d, and reset 0 and output 004d4a55 
-# Reading the values of clock 1, ps2_info 3d, and reset 0 and output 4d4a5537 
-# Reading the values of clock 0, ps2_info 3e, and reset 0 and output 4d4a5537 
-# Reading the values of clock 1, ps2_info 3e, and reset 0 and output 4a553738 
-# Reading the values of clock 0, ps2_info 3f, and reset 0 and output 4a553738 
-# Reading the values of clock 1, ps2_info 3f, and reset 0 and output 55373800 
-# Reading the values of clock 0, ps2_info 40, and reset 0 and output 55373800 
-# Reading the values of clock 1, ps2_info 40, and reset 0 and output 37380000 
-# Reading the values of clock 0, ps2_info 41, and reset 0 and output 37380000 
-# Reading the values of clock 1, ps2_info 41, and reset 0 and output 38000000 
-# Reading the values of clock 0, ps2_info 42, and reset 0 and output 38000000 
-# Reading the values of clock 1, ps2_info 42, and reset 0 and output 0000004b 
-# Reading the values of clock 0, ps2_info 43, and reset 0 and output 0000004b 
-# Reading the values of clock 1, ps2_info 43, and reset 0 and output 00004b49 
-# Reading the values of clock 0, ps2_info 44, and reset 0 and output 00004b49 
-# Reading the values of clock 1, ps2_info 44, and reset 0 and output 004b494f 
-# Reading the values of clock 0, ps2_info 45, and reset 0 and output 004b494f 
-# Reading the values of clock 1, ps2_info 45, and reset 0 and output 4b494f30 
-# Reading the values of clock 0, ps2_info 46, and reset 0 and output 4b494f30 
-# Reading the values of clock 1, ps2_info 46, and reset 0 and output 494f3039 
-# Reading the values of clock 0, ps2_info 47, and reset 0 and output 494f3039 
-# Reading the values of clock 1, ps2_info 47, and reset 0 and output 4f303900 
-# Reading the values of clock 0, ps2_info 48, and reset 0 and output 4f303900 
-# Reading the values of clock 1, ps2_info 48, and reset 0 and output 30390000 
-# Reading the values of clock 0, ps2_info 49, and reset 0 and output 30390000 
-# Reading the values of clock 1, ps2_info 49, and reset 0 and output 39000000 
-# Reading the values of clock 0, ps2_info 4a, and reset 0 and output 39000000 
-# Reading the values of clock 1, ps2_info 4a, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 4b, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 4b, and reset 0 and output 0000004c 
-# Reading the values of clock 0, ps2_info 4c, and reset 0 and output 0000004c 
-# Reading the values of clock 1, ps2_info 4c, and reset 0 and output 00004c00 
-# Reading the values of clock 0, ps2_info 4d, and reset 0 and output 00004c00 
-# Reading the values of clock 1, ps2_info 4d, and reset 0 and output 004c0050 
-# Reading the values of clock 0, ps2_info 4e, and reset 0 and output 004c0050 
-# Reading the values of clock 1, ps2_info 4e, and reset 0 and output 4c005000 
-# Reading the values of clock 0, ps2_info 4f, and reset 0 and output 4c005000 
-# Reading the values of clock 1, ps2_info 4f, and reset 0 and output 00500000 
-# Reading the values of clock 0, ps2_info 50, and reset 0 and output 00500000 
-# Reading the values of clock 1, ps2_info 50, and reset 0 and output 50000000 
-# Reading the values of clock 0, ps2_info 51, and reset 0 and output 50000000 
-# Reading the values of clock 1, ps2_info 51, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 52, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 52, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 53, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 53, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 54, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 54, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 55, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 55, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 56, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 56, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 57, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 57, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 58, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 58, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 59, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 59, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 5a, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 5a, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 5b, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 5b, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 5c, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 5c, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 5d, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 5d, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 5e, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 5e, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 5f, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 5f, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 60, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 60, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 61, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 61, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 62, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 62, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 63, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 63, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 64, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 64, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 65, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 65, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 66, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 66, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 67, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 67, and reset 0 and output 00000000 
-# Reading the values of clock 0, ps2_info 68, and reset 0 and output 00000000 
-# Reading the values of clock 1, ps2_info 68, and reset 0 and output 00000000 
-# ** Note: $stop    : C:/Users/Joshua/Documents/GitHub/fpga-logo/src/characterData_tb.v(24)
-#    Time: 1440 ns  Iteration: 0  Instance: /characterData_tb
-# Break in Module characterData_tb at C:/Users/Joshua/Documents/GitHub/fpga-logo/src/characterData_tb.v line 24
+# Values: data_PS2key xx, ctrl_PS2pressed 0, reset 1, output 00 00 00 00
+# Values: data_PS2key xx, ctrl_PS2pressed 0, reset 0, output 00 00 00 00
+# Values: data_PS2key 1c, ctrl_PS2pressed 1, reset 0, output 00 00 00 00
+# Values: data_PS2key 1c, ctrl_PS2pressed 0, reset 0, output 00 00 00 41
+# Values: data_PS2key 31, ctrl_PS2pressed 1, reset 0, output 00 00 00 41
+# Values: data_PS2key 31, ctrl_PS2pressed 0, reset 0, output 00 00 41 4e
+# Values: data_PS2key 23, ctrl_PS2pressed 1, reset 0, output 00 00 41 4e
+# Values: data_PS2key 23, ctrl_PS2pressed 0, reset 0, output 00 41 4e 44
+# Values: data_PS2key 36, ctrl_PS2pressed 1, reset 0, output 00 41 4e 44
+# Values: data_PS2key 36, ctrl_PS2pressed 0, reset 0, output 41 4e 44 36
+# ** Note: $stop    : C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/keyboard_fill_characters_tb.v(37)
+#    Time: 730 ns  Iteration: 0  Instance: /keyboard_fill_characters_tb
+# Break in Module keyboard_fill_characters_tb at C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/keyboard_fill_characters_tb.v line 37
+# End time: 22:21:09 on Nov 21,2016, Elapsed time: 0:00:27
+# Errors: 0, Warnings: 2
