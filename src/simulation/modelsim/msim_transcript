@@ -1,0 +1,883 @@
+# Reading C:/altera_lite/16.0/modelsim_ase/tcl/vsim/pref.tcl
+# do skeleton_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim ALTERA vmap 10.4d Lib Mapping Utility 2015.12 Dec 30 2015
+# vmap work rtl_work 
+# Copying C:/altera_lite/16.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/VGA_Audio_PLL.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:00 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/VGA_Audio_PLL.v 
+# -- Compiling module VGA_Audio_PLL
+# 
+# Top level modules:
+# 	VGA_Audio_PLL
+# End time: 20:58:00 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Reset_Delay.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:01 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Reset_Delay.v 
+# -- Compiling module Reset_Delay
+# 
+# Top level modules:
+# 	Reset_Delay
+# End time: 20:58:01 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/skeleton.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:01 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/skeleton.v 
+# -- Compiling module skeleton
+# 
+# Top level modules:
+# 	skeleton
+# End time: 20:58:01 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/PS2_Interface.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:02 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/PS2_Interface.v 
+# -- Compiling module PS2_Interface
+# 
+# Top level modules:
+# 	PS2_Interface
+# End time: 20:58:02 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/PS2_Controller.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:02 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/PS2_Controller.v 
+# -- Compiling module PS2_Controller
+# 
+# Top level modules:
+# 	PS2_Controller
+# End time: 20:58:02 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/pll.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:02 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/pll.v 
+# -- Compiling module pll
+# 
+# Top level modules:
+# 	pll
+# End time: 20:58:02 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/imem.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:02 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/imem.v 
+# -- Compiling module imem
+# 
+# Top level modules:
+# 	imem
+# End time: 20:58:02 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Hexadecimal_To_Seven_Segment.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:02 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Hexadecimal_To_Seven_Segment.v 
+# -- Compiling module Hexadecimal_To_Seven_Segment
+# 
+# Top level modules:
+# 	Hexadecimal_To_Seven_Segment
+# End time: 20:58:02 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/dmem.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:02 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/dmem.v 
+# -- Compiling module dmem
+# 
+# Top level modules:
+# 	dmem
+# End time: 20:58:02 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Altera_UP_PS2_Data_In.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:02 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Altera_UP_PS2_Data_In.v 
+# -- Compiling module Altera_UP_PS2_Data_In
+# 
+# Top level modules:
+# 	Altera_UP_PS2_Data_In
+# End time: 20:58:02 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Altera_UP_PS2_Command_Out.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:02 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Altera_UP_PS2_Command_Out.v 
+# -- Compiling module Altera_UP_PS2_Command_Out
+# 
+# Top level modules:
+# 	Altera_UP_PS2_Command_Out
+# End time: 20:58:03 on Nov 20,2016, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/vga_controller.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:03 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/vga_controller.v 
+# -- Compiling module vga_controller
+# 
+# Top level modules:
+# 	vga_controller
+# End time: 20:58:03 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/video_sync_generator.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:03 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/video_sync_generator.v 
+# -- Compiling module video_sync_generator
+# 
+# Top level modules:
+# 	video_sync_generator
+# End time: 20:58:03 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/img_index.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:03 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/img_index.v 
+# -- Compiling module img_index
+# 
+# Top level modules:
+# 	img_index
+# End time: 20:58:03 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/img_data.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:03 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/img_data.v 
+# -- Compiling module img_data
+# 
+# Top level modules:
+# 	img_data
+# End time: 20:58:03 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/processor_jx35.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:03 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/processor_jx35.v 
+# -- Compiling module processor_jx35
+# -- Compiling module start
+# -- Compiling module IF_ID_Register
+# -- Compiling module ID_EX_Register
+# -- Compiling module EX_MEM_Register
+# -- Compiling module MEM_WB_Register
+# -- Compiling module instControl
+# -- Compiling module statusReg
+# -- Compiling module lw_Stall_Logic
+# -- Compiling module flushLogic
+# -- Compiling module bypass_EX
+# -- Compiling module bypass_mem
+# -- Compiling module computeValues
+# -- Compiling module signExt15
+# -- Compiling module basicShiftLeft2
+# -- Compiling module multiplexer4_5bit
+# -- Compiling module multiplexer_27bit
+# -- Compiling module multiplexer_12bit
+# -- Compiling module multiplexer_5bit
+# -- Compiling module multiplexer_1bit
+# -- Compiling module sameRegister_5bit
+# -- Compiling module singleReg_27bit
+# -- Compiling module singleReg_5bit
+# -- Compiling module checkEquality_27bit
+# -- Compiling module jx35_alu
+# -- Compiling module isLT
+# -- Compiling module overFlowChecker
+# -- Compiling module checkEquality
+# -- Compiling module ALU1bit
+# -- Compiling module adder8bit
+# -- Compiling module adder32bit_8
+# -- Compiling module andOr32bit
+# -- Compiling module multiplexer
+# -- Compiling module multiplexer4
+# -- Compiling module shiftOperator
+# -- Compiling module leftBarrelShifter
+# -- Compiling module rightBarrelShifter
+# -- Compiling module multdiv_jx35
+# -- Compiling module fullMult
+# -- Compiling module fullDiv
+# -- Compiling module divideCycle
+# -- Compiling module multCycle
+# -- Compiling module initFlipLogic
+# -- Compiling module flipVal
+# -- Compiling module oneBitShifterMod
+# -- Compiling module oneBitShifterMod64
+# -- Compiling module checkOverflow
+# -- Compiling module up_counter
+# -- Compiling module checkZero
+# -- Compiling module multiplexer33bit
+# -- Compiling module multiplexer64
+# -- Compiling module multiplexer1
+# -- Compiling module singleReg64
+# -- Compiling module regfile_jx35
+# -- Compiling module singleReg
+# -- Compiling module triBuffer
+# -- Compiling module decoder32
+# 
+# Top level modules:
+# 	processor_jx35
+# 	start
+# 	basicShiftLeft2
+# 	oneBitShifterMod
+# 	multiplexer33bit
+# End time: 20:58:04 on Nov 20,2016, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored/db {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/db/pll_altpll.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:04 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/db" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/db/pll_altpll.v 
+# -- Compiling module pll_altpll
+# 
+# Top level modules:
+# 	pll_altpll
+# End time: 20:58:04 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/lcd.sv}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:04 on Nov 20,2016
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/lcd.sv 
+# -- Compiling module lcd
+# 
+# Top level modules:
+# 	lcd
+# End time: 20:58:04 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/skeleton_jx35_restored {C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/processor_jx35_tb.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:58:04 on Nov 20,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored" C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/processor_jx35_tb.v 
+# -- Compiling module processor_jx35_tb
+# 
+# Top level modules:
+# 	processor_jx35_tb
+# End time: 20:58:04 on Nov 20,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  processor_jx35_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" processor_jx35_tb 
+# Start time: 20:58:05 on Nov 20,2016
+# Loading work.processor_jx35_tb
+# Loading work.processor_jx35
+# Loading work.imem
+# Loading altera_mf_ver.altsyncram
+# Loading work.adder32bit_8
+# Loading work.multiplexer
+# Loading work.singleReg
+# Loading work.IF_ID_Register
+# Loading work.computeValues
+# Loading work.multiplexer4_5bit
+# Loading work.multiplexer_5bit
+# Loading work.instControl
+# Loading work.checkEquality
+# Loading work.regfile_jx35
+# Loading work.decoder32
+# Loading work.signExt15
+# Loading work.ID_EX_Register
+# Loading work.multiplexer4
+# Loading work.jx35_alu
+# Loading work.andOr32bit
+# Loading work.shiftOperator
+# Loading work.leftBarrelShifter
+# Loading work.rightBarrelShifter
+# Loading work.isLT
+# Loading work.overFlowChecker
+# Loading work.multdiv_jx35
+# Loading work.up_counter
+# Loading altera_ver.dffe
+# Loading altera_ver.prim_gdff
+# Loading work.fullMult
+# Loading work.multCycle
+# Loading work.oneBitShifterMod64
+# Loading work.multiplexer64
+# Loading work.singleReg64
+# Loading work.checkOverflow
+# Loading work.checkZero
+# Loading work.fullDiv
+# Loading work.initFlipLogic
+# Loading work.flipVal
+# Loading work.divideCycle
+# Loading work.multiplexer1
+# Loading work.multiplexer_1bit
+# Loading work.statusReg
+# Loading work.multiplexer_27bit
+# Loading work.singleReg_27bit
+# Loading work.checkEquality_27bit
+# Loading work.lw_Stall_Logic
+# Loading work.sameRegister_5bit
+# Loading work.flushLogic
+# Loading work.bypass_EX
+# Loading work.EX_MEM_Register
+# Loading work.bypass_mem
+# Loading work.multiplexer_12bit
+# Loading work.dmem
+# Loading work.MEM_WB_Register
+# Loading work.singleReg_5bit
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# Loading work.adder8bit
+# Loading work.triBuffer
+# Loading work.ALU1bit
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+#                    0<<Starting the simulation>> 
+# PC_COUNTER          0 multdivresult          0 multdiv exception 0 regs           0           0           0           0           0           0           0           0           0           0 status:         0
+# PC_COUNTER          1 multdivresult          0 multdiv exception 0 regs           0           0           0           0           0           0           0           0           0           0 status:         0
+# PC_COUNTER          2 multdivresult          0 multdiv exception 0 regs           0           0           0           0           0           0           0           0           0           0 status:         0
+# PC_COUNTER          9 multdivresult          0 multdiv exception 0 regs           0           0           0           0           0           0           0           0           0           0 status:         0
+# PC_COUNTER         10 multdivresult          0 multdiv exception 0 regs           0           0           0           0           0           0           0           0           0           0 status:         0
+# PC_COUNTER         10 multdivresult          0 multdiv exception 0 regs           0           0           0           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         11 multdivresult          0 multdiv exception 0 regs           0           0           0           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         12 multdivresult          0 multdiv exception 0 regs           0           0           0           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         13 multdivresult          0 multdiv exception 0 regs           0           0           0           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         13 multdivresult          0 multdiv exception 0 regs           1           0           0           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER          1 multdivresult          0 multdiv exception 0 regs           1           0           0           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER          1 multdivresult          0 multdiv exception 0 regs           1          20           0           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER          2 multdivresult          0 multdiv exception 0 regs           1          20           0           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER          3 multdivresult          0 multdiv exception 0 regs           1          20           0           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         12 multdivresult          0 multdiv exception 0 regs           1          20           0           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         13 multdivresult          0 multdiv exception 0 regs           1          20           0           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         14 multdivresult          0 multdiv exception 0 regs           1          20           0           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         15 multdivresult          0 multdiv exception 0 regs           1          20           0           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         16 multdivresult          0 multdiv exception 0 regs           1          20           0           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         16 multdivresult          0 multdiv exception 0 regs           1          20          21           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         12 multdivresult          0 multdiv exception 0 regs           1          20          21           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         12 multdivresult          0 multdiv exception 0 regs           2          20          21           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         13 multdivresult          0 multdiv exception 0 regs           2          20          21           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         14 multdivresult          0 multdiv exception 0 regs           2          20          21           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         15 multdivresult          0 multdiv exception 0 regs           2          20          21           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         16 multdivresult          0 multdiv exception 0 regs           2          20          21           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         16 multdivresult          0 multdiv exception 0 regs           2          20          22           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         12 multdivresult          0 multdiv exception 0 regs           2          20          22           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         12 multdivresult          0 multdiv exception 0 regs           4          20          22           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         13 multdivresult          0 multdiv exception 0 regs           4          20          22           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         14 multdivresult          0 multdiv exception 0 regs           4          20          22           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         15 multdivresult          0 multdiv exception 0 regs           4          20          22           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         16 multdivresult          0 multdiv exception 0 regs           4          20          22           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         16 multdivresult          0 multdiv exception 0 regs           4          20          24           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         12 multdivresult          0 multdiv exception 0 regs           4          20          24           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         12 multdivresult          0 multdiv exception 0 regs           8          20          24           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         13 multdivresult          0 multdiv exception 0 regs           8          20          24           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         14 multdivresult          0 multdiv exception 0 regs           8          20          24           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         15 multdivresult          0 multdiv exception 0 regs           8          20          24           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         16 multdivresult          0 multdiv exception 0 regs           8          20          24           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         16 multdivresult          0 multdiv exception 0 regs           8          20          28           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         12 multdivresult          0 multdiv exception 0 regs           8          20          28           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         12 multdivresult          0 multdiv exception 0 regs          16          20          28           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         13 multdivresult          0 multdiv exception 0 regs          16          20          28           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         14 multdivresult          0 multdiv exception 0 regs          16          20          28           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         15 multdivresult          0 multdiv exception 0 regs          16          20          28           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         16 multdivresult          0 multdiv exception 0 regs          16          20          28           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         16 multdivresult          0 multdiv exception 0 regs          16          20          36           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         17 multdivresult          0 multdiv exception 0 regs          16          20          36           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER         17 multdivresult          0 multdiv exception 0 regs          32          20          36           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER          2 multdivresult          0 multdiv exception 0 regs          32          20          36           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER          3 multdivresult          0 multdiv exception 0 regs          32          20          36           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER          4 multdivresult          0 multdiv exception 0 regs          32          20          36           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER          5 multdivresult          0 multdiv exception 0 regs          32          20          36           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER          6 multdivresult          0 multdiv exception 0 regs          32          20          36           0           0           0           0           0           0           1 status:         0
+# PC_COUNTER          6 multdivresult          0 multdiv exception 0 regs          32          20          36          36           0           0           0           0           0           1 status:         0
+# PC_COUNTER          7 multdivresult          0 multdiv exception 0 regs          32          20          36          36           0           0           0           0           0           1 status:         0
+# PC_COUNTER          8 multdivresult          0 multdiv exception 0 regs          32          20          36          36           0           0           0           0           0           1 status:         0
+# PC_COUNTER          8 multdivresult          0 multdiv exception 0 regs          32          20          36           9           0           0           0           0           0           1 status:         0
+# PC_COUNTER          9 multdivresult          0 multdiv exception 0 regs          32          20          36           9           0           0           0           0           0           1 status:         0
+# PC_COUNTER          9 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           0           0           0           0           0           1 status:         0
+# PC_COUNTER         23 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           0           0           0           0           0           1 status:         0
+# PC_COUNTER         24 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           0           0           0           0           0           1 status:         0
+# PC_COUNTER         25 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           0           0           0           0           0           1 status:         0
+# PC_COUNTER         26 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           0           0           0           0           0           1 status:         0
+# PC_COUNTER         27 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           0           0           0           0           0           1 status:         0
+# PC_COUNTER         27 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           4           0           0           0           0           1 status:         0
+# PC_COUNTER         28 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           4           0           0           0           0           1 status:         0
+# PC_COUNTER         28 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           4          13           0           0           0           1 status:         0
+# PC_COUNTER         27 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           4          13           0           0           0           1 status:         0
+# PC_COUNTER         27 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER         28 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER         29 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER         30 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           4          13          17           0           0           1 status:       101
+# PC_COUNTER         17 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           4          13          17           0           0           1 status:       101
+# PC_COUNTER         18 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           4          13          17           0           0           1 status:       101
+# PC_COUNTER         19 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           4          13          17           0           0           1 status:       101
+# PC_COUNTER         20 multdivresult          0 multdiv exception 0 regs         -27          20          36           9           4          13          17           0           0           1 status:       101
+# PC_COUNTER         20 multdivresult          0 multdiv exception 0 regs       46340          20          36           9           4          13          17           0           0           1 status:       101
+# PC_COUNTER         21 multdivresult          0 multdiv exception 0 regs       46340          20          36           9           4          13          17           0           0           1 status:       101
+# PC_COUNTER         22 multdivresult          0 multdiv exception 0 regs       46340          20          36           9           4          13          17           0           0           1 status:       101
+# PC_COUNTER         22 multdivresult          0 multdiv exception 0 regs       46340       46340          36           9           4          13          17           0           0           1 status:       101
+# PC_COUNTER         23 multdivresult          0 multdiv exception 0 regs       46340       46340          36           9           4          13          17           0           0           1 status:       101
+# PC_COUNTER         24 multdivresult          0 multdiv exception 0 regs       46340       46340          36           9           4          13          17           0           0           1 status:       101
+# PC_COUNTER        104 multdivresult          0 multdiv exception 0 regs       46340       46340          36           9           4          13          17           0           0           1 status:       101
+# PC_COUNTER        104 multdivresult          0 multdiv exception 0 regs       46340       46340       46340           9           4          13          17           0           0           1 status:       101
+# PC_COUNTER        105 multdivresult          0 multdiv exception 0 regs       46340       46340       46340           9           4          13          17           0           0           1 status:       101
+# PC_COUNTER        106 multdivresult          0 multdiv exception 0 regs       46340       46340       46340           9           4          13          17           0           0           1 status:       101
+# PC_COUNTER        107 multdivresult          0 multdiv exception 0 regs       46340       46340       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        108 multdivresult          0 multdiv exception 0 regs       46340       46340       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        109 multdivresult          0 multdiv exception 0 regs       46340       46340       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        109 multdivresult          0 multdiv exception 0 regs          11       46340       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        109 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        110 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        111 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        112 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        113 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        114 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        115 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        116 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        117 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        118 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        119 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        120 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        121 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        122 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        123 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        124 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        125 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        126 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        127 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        128 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        129 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        130 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        131 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        132 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        133 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        134 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        135 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        136 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        137 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        138 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        139 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        140 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        141 multdivresult          0 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        142 multdivresult        220 multdiv exception 0 regs          11          20       46340           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        142 multdivresult        220 multdiv exception 0 regs          11          20         220           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        143 multdivresult        220 multdiv exception 0 regs          11          20         220           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        144 multdivresult        220 multdiv exception 0 regs          11          20         220           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        143 multdivresult        220 multdiv exception 0 regs          11          20         220           9           4          13          17           0           0           1 status:         0
+# PC_COUNTER        143 multdivresult        220 multdiv exception 0 regs          11          20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        144 multdivresult        220 multdiv exception 0 regs          11          20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        145 multdivresult        220 multdiv exception 0 regs          11          20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        146 multdivresult        220 multdiv exception 0 regs          11          20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        146 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        147 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        148 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        149 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        150 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        151 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        152 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        153 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        154 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        155 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        156 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        157 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        158 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        159 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        160 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        161 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        162 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        163 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        164 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        165 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        166 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        167 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        168 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        169 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        170 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        171 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        172 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        173 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        174 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        175 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        176 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        177 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        178 multdivresult        220 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        179 multdivresult 4294967076 multdiv exception 0 regs          11         -20         220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        179 multdivresult 4294967076 multdiv exception 0 regs          11         -20        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        180 multdivresult 4294967076 multdiv exception 0 regs          11         -20        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        179 multdivresult 4294967076 multdiv exception 0 regs          11         -20        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        180 multdivresult 4294967076 multdiv exception 0 regs          11         -20        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        181 multdivresult 4294967076 multdiv exception 0 regs          11         -20        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        182 multdivresult 4294967076 multdiv exception 0 regs          11         -20        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        183 multdivresult 4294967076 multdiv exception 0 regs          11         -20        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        183 multdivresult 4294967076 multdiv exception 0 regs       65535         -20        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        183 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        184 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        185 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        186 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        187 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        188 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        189 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        190 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        191 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        192 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        193 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        194 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        195 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        196 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        197 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        198 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        199 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        200 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        201 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        202 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        203 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        204 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        205 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        206 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        207 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        208 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        209 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        210 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        211 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        212 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        213 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        214 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        215 multdivresult 4294967076 multdiv exception 0 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        216 multdivresult 4294836225 multdiv exception 1 regs       65535       65535        -220           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        216 multdivresult 4294836225 multdiv exception 1 regs       65535       65535     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER        217 multdivresult 4294836225 multdiv exception 1 regs       65535       65535     -131071           9           4          13          17         101           0           1 status:         1
+# PC_COUNTER         29 multdivresult 4294836225 multdiv exception 1 regs       65535       65535     -131071           9           4          13          17         101           0           1 status:         1
+# PC_COUNTER         30 multdivresult 4294836225 multdiv exception 1 regs       65535       65535     -131071           9           4          13          17         101           0           1 status:         1
+# PC_COUNTER         31 multdivresult 4294836225 multdiv exception 1 regs       65535       65535     -131071           9           4          13          17         101           0           1 status:         1
+# PC_COUNTER         32 multdivresult 4294836225 multdiv exception 1 regs       65535       65535     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         33 multdivresult 4294836225 multdiv exception 1 regs       65535       65535     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         34 multdivresult 4294836225 multdiv exception 1 regs       65535       65535     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         34 multdivresult 4294836225 multdiv exception 1 regs       47329       65535     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         34 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         35 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         36 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         37 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         38 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         39 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         40 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         41 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         42 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         43 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         44 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         45 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         46 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         47 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         48 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         49 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         50 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         51 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         52 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         53 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         54 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         55 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         56 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         57 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         58 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         59 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         60 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         61 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         62 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         63 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         64 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         65 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         66 multdivresult 4294836225 multdiv exception 1 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         67 multdivresult       3944 multdiv exception 0 regs       47329          12     -131071           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         67 multdivresult       3944 multdiv exception 0 regs       47329          12        3944           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         68 multdivresult       3944 multdiv exception 0 regs       47329          12        3944           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         69 multdivresult       3944 multdiv exception 0 regs       47329          12        3944           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         68 multdivresult       3944 multdiv exception 0 regs       47329          12        3944           9           4          13          17         101           0           1 status:         0
+# PC_COUNTER         68 multdivresult       3944 multdiv exception 0 regs       47329          12        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         69 multdivresult       3944 multdiv exception 0 regs       47329          12        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         70 multdivresult       3944 multdiv exception 0 regs       47329          12        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         71 multdivresult       3944 multdiv exception 0 regs       47329          12        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         71 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         72 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         73 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         74 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         75 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         76 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         77 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         78 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         79 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         80 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         81 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         82 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         83 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         84 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         85 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         86 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         87 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         88 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         89 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         90 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         91 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         92 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         93 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         94 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         95 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         96 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         97 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         98 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER         99 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        100 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        101 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        102 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        103 multdivresult       3944 multdiv exception 0 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        104 multdivresult 4294967295 multdiv exception 1 regs       47329           0        3944           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        104 multdivresult 4294967295 multdiv exception 1 regs       47329           0          -1           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        105 multdivresult 4294967295 multdiv exception 1 regs       47329           0          -1           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        223 multdivresult 4294967295 multdiv exception 1 regs       47329           0          -1           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        224 multdivresult 4294967295 multdiv exception 1 regs       47329           0          -1           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        225 multdivresult 4294967295 multdiv exception 1 regs       47329           0          -1           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        226 multdivresult 4294967295 multdiv exception 1 regs       47329           0          -1           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        225 multdivresult 4294967295 multdiv exception 1 regs       47329           0          -1           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        226 multdivresult 4294967295 multdiv exception 1 regs       47329           0          -1           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        227 multdivresult 4294967295 multdiv exception 1 regs       47329           0          -1           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        228 multdivresult 4294967295 multdiv exception 1 regs       47329           0          -1           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        229 multdivresult 4294967295 multdiv exception 1 regs       47329           0          -1           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        229 multdivresult 4294967295 multdiv exception 1 regs      -65535           0          -1           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        230 multdivresult 4294967295 multdiv exception 1 regs      -65535           0          -1           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        230 multdivresult 4294967295 multdiv exception 1 regs      -65535       65535          -1           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        231 multdivresult 4294967295 multdiv exception 1 regs      -65535       65535          -1           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        231 multdivresult 4294967295 multdiv exception 1 regs -2147450880       65535          -1           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        232 multdivresult 4294967295 multdiv exception 1 regs -2147450880       65535          -1           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        232 multdivresult 4294967295 multdiv exception 1 regs -2147450880       65535           0           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        216 multdivresult 4294967295 multdiv exception 1 regs -2147450880       65535           0           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        216 multdivresult 4294967295 multdiv exception 1 regs -2147450880       65535  2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        217 multdivresult 4294967295 multdiv exception 1 regs -2147450880       65535  2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        218 multdivresult 4294967295 multdiv exception 1 regs -2147450880       65535  2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        219 multdivresult 4294967295 multdiv exception 1 regs -2147450880       65535  2147450881           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        218 multdivresult 4294967295 multdiv exception 1 regs -2147450880       65535  2147450881           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        219 multdivresult 4294967295 multdiv exception 1 regs -2147450880       65535  2147450881           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        220 multdivresult 4294967295 multdiv exception 1 regs -2147450880       65535  2147450881           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        221 multdivresult 4294967295 multdiv exception 1 regs -2147450880       65535  2147450881           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        222 multdivresult 4294967295 multdiv exception 1 regs -2147450880       65535  2147450881           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        222 multdivresult 4294967295 multdiv exception 1 regs       65535       65535  2147450881           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        223 multdivresult 4294967295 multdiv exception 1 regs       65535       65535  2147450881           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        224 multdivresult 4294967295 multdiv exception 1 regs       65535       65535  2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        224 multdivresult 4294967295 multdiv exception 1 regs  2147450880       65535  2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        231 multdivresult 4294967295 multdiv exception 1 regs  2147450880       65535  2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        231 multdivresult 4294967295 multdiv exception 1 regs  2147450880       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        232 multdivresult 4294967295 multdiv exception 1 regs  2147450880       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        233 multdivresult 4294967295 multdiv exception 1 regs  2147450880       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        234 multdivresult 4294967295 multdiv exception 1 regs  2147450880       65535 -2147450881           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        233 multdivresult 4294967295 multdiv exception 1 regs  2147450880       65535 -2147450881           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        234 multdivresult 4294967295 multdiv exception 1 regs  2147450880       65535 -2147450881           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        235 multdivresult 4294967295 multdiv exception 1 regs  2147450880       65535 -2147450881           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        236 multdivresult 4294967295 multdiv exception 1 regs  2147450880       65535 -2147450881           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        237 multdivresult 4294967295 multdiv exception 1 regs  2147450880       65535 -2147450881           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        237 multdivresult 4294967295 multdiv exception 1 regs       65535       65535 -2147450881           9           4          13          17         202           0           1 status:         0
+# PC_COUNTER        238 multdivresult 4294967295 multdiv exception 1 regs       65535       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        238 multdivresult 4294967295 multdiv exception 1 regs  2147450880       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER         16 multdivresult 4294967295 multdiv exception 1 regs  2147450880       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER         16 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER         17 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER         18 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        237 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        238 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        239 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        240 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        241 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        242 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        243 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        244 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        245 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        246 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        247 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        248 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        249 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        250 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        251 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        252 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        253 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        254 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        255 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        256 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        257 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        258 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        259 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        260 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        261 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        262 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        263 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        264 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        265 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        266 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        267 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        268 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        269 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        270 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        271 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        272 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        273 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        274 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        275 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        276 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        277 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        278 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        279 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        280 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        281 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        282 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        283 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        284 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        285 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        286 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        287 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        288 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        289 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        290 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        291 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        292 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        293 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        294 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        295 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        296 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        297 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        298 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        299 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        300 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        301 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        302 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        303 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        304 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        305 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        306 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        307 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        308 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        309 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        310 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        311 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        312 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        313 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        314 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        315 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        316 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        317 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        318 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        319 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        320 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        321 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        322 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        323 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        324 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        325 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        326 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        327 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        328 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        329 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        330 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        331 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        332 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        333 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        334 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        335 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        336 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        337 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        338 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        339 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        340 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        341 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        342 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        343 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        344 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        345 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        346 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        347 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        348 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        349 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        350 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        351 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        352 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        353 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        354 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        355 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        356 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        357 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        358 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        359 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        360 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        361 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        362 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        363 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        364 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        365 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        366 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        367 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        368 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        369 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        370 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        371 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        372 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        373 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        374 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        375 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        376 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        377 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        378 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        379 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        380 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        381 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        382 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        383 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        384 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        385 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        386 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        387 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        388 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        389 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        390 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        391 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        392 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        393 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        394 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        395 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        396 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        397 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        398 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        399 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        400 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        401 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        402 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        403 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        404 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        405 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        406 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        407 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        408 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        409 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        410 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        411 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        412 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        413 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        414 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        415 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        416 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        417 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        418 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        419 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        420 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        421 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        422 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        423 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        424 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        425 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        426 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        427 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        428 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        429 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        430 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        431 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        432 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# PC_COUNTER        433 multdivresult 4294967295 multdiv exception 1 regs -2147450881       65535 -2147450881           9           4          13          17         202           0           1 status:         1
+# ** Note: $stop    : C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/processor_jx35_tb.v(24)
+#    Time: 20 us  Iteration: 0  Instance: /processor_jx35_tb
+# Break in Module processor_jx35_tb at C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/processor_jx35_tb.v line 24
+# End time: 20:58:32 on Nov 20,2016, Elapsed time: 0:00:27
+# Errors: 0, Warnings: 0

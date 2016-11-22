@@ -1,0 +1,173 @@
+Flow report for skeleton
+Sun Nov 20 20:57:33 2016
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Sun Nov 20 20:57:33 2016       ;
+; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
+; Revision Name                      ; skeleton                                    ;
+; Top-level Entity Name              ; skeleton                                    ;
+; Family                             ; Cyclone IV E                                ;
+; Device                             ; EP4CE115F29C7                               ;
+; Timing Models                      ; Final                                       ;
+; Total logic elements               ; 6,256                                       ;
+;     Total combinational functions  ; 4,865                                       ;
+;     Dedicated logic registers      ; 2,135                                       ;
+; Total registers                    ; 2135                                        ;
+; Total pins                         ; 154                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 2,725,888                                   ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 1                                           ;
++------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 11/20/2016 20:56:31 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; skeleton            ;
++-------------------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                  ;
++--------------------------------------+---------------------------------------+---------------+-------------+----------------------+
+; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id           ;
++--------------------------------------+---------------------------------------+---------------+-------------+----------------------+
+; COMPILER_SIGNATURE_ID                ; 52236202716.147970419105456           ; --            ; --          ; --                   ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; statusReg_tb         ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; signExt15_tb         ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; flushLogic_tb        ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; processorCont_tb     ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; jx35_alu_tb          ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; computeValues_tb     ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; sameRegister_5bit_tb ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; instControl_tb       ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; lw_Stall_Logic_tb    ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; processor_jx35_tb    ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; processor_tb         ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; processor_jx35_tb                     ; --            ; --          ; eda_simulation       ;
+; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                           ; --            ; --          ; eda_simulation       ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)             ; <None>        ; --          ; --                   ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                       ; --            ; --          ; eda_simulation       ;
+; EDA_TEST_BENCH_FILE                  ; statusReg_tb.v                        ; --            ; --          ; statusReg_tb         ;
+; EDA_TEST_BENCH_FILE                  ; signExt15_tb.v                        ; --            ; --          ; signExt15_tb         ;
+; EDA_TEST_BENCH_FILE                  ; flushLogic_tb.v                       ; --            ; --          ; flushLogic_tb        ;
+; EDA_TEST_BENCH_FILE                  ; processorCont_tb.v                    ; --            ; --          ; processorCont_tb     ;
+; EDA_TEST_BENCH_FILE                  ; jx35_alu_tb.v                         ; --            ; --          ; jx35_alu_tb          ;
+; EDA_TEST_BENCH_FILE                  ; computeValues_tb.v                    ; --            ; --          ; computeValues_tb     ;
+; EDA_TEST_BENCH_FILE                  ; sameRegister_5bit_tb.v                ; --            ; --          ; sameRegister_5bit_tb ;
+; EDA_TEST_BENCH_FILE                  ; instControl_tb.v                      ; --            ; --          ; instControl_tb       ;
+; EDA_TEST_BENCH_FILE                  ; lw_Stall_Logic_tb.v                   ; --            ; --          ; lw_Stall_Logic_tb    ;
+; EDA_TEST_BENCH_FILE                  ; processor_jx35_tb.v                   ; --            ; --          ; processor_jx35_tb    ;
+; EDA_TEST_BENCH_FILE                  ; processor_tb.v                        ; --            ; --          ; processor_tb         ;
+; EDA_TEST_BENCH_MODULE_NAME           ; statusReg_tb                          ; --            ; --          ; statusReg_tb         ;
+; EDA_TEST_BENCH_MODULE_NAME           ; signExt15_tb                          ; --            ; --          ; signExt15_tb         ;
+; EDA_TEST_BENCH_MODULE_NAME           ; flushLogic_tb                         ; --            ; --          ; flushLogic_tb        ;
+; EDA_TEST_BENCH_MODULE_NAME           ; processorCont_tb                      ; --            ; --          ; processorCont_tb     ;
+; EDA_TEST_BENCH_MODULE_NAME           ; jx35_alu_tb                           ; --            ; --          ; jx35_alu_tb          ;
+; EDA_TEST_BENCH_MODULE_NAME           ; computeValues_tb                      ; --            ; --          ; computeValues_tb     ;
+; EDA_TEST_BENCH_MODULE_NAME           ; sameRegister_5bit_tb                  ; --            ; --          ; sameRegister_5bit_tb ;
+; EDA_TEST_BENCH_MODULE_NAME           ; instControl_tb                        ; --            ; --          ; instControl_tb       ;
+; EDA_TEST_BENCH_MODULE_NAME           ; lw_Stall_Logic_tb                     ; --            ; --          ; lw_Stall_Logic_tb    ;
+; EDA_TEST_BENCH_MODULE_NAME           ; processor_jx35_tb                     ; --            ; --          ; processor_jx35_tb    ;
+; EDA_TEST_BENCH_MODULE_NAME           ; processor_tb                          ; --            ; --          ; processor_tb         ;
+; EDA_TEST_BENCH_NAME                  ; computeValues_tb                      ; --            ; --          ; eda_simulation       ;
+; EDA_TEST_BENCH_NAME                  ; processorCont_tb                      ; --            ; --          ; eda_simulation       ;
+; EDA_TEST_BENCH_NAME                  ; instControl_tb                        ; --            ; --          ; eda_simulation       ;
+; EDA_TEST_BENCH_NAME                  ; signExt15_tb                          ; --            ; --          ; eda_simulation       ;
+; EDA_TEST_BENCH_NAME                  ; processor_tb                          ; --            ; --          ; eda_simulation       ;
+; EDA_TEST_BENCH_NAME                  ; sameRegister_5bit_tb                  ; --            ; --          ; eda_simulation       ;
+; EDA_TEST_BENCH_NAME                  ; lw_Stall_Logic_tb                     ; --            ; --          ; eda_simulation       ;
+; EDA_TEST_BENCH_NAME                  ; statusReg_tb                          ; --            ; --          ; eda_simulation       ;
+; EDA_TEST_BENCH_NAME                  ; flushLogic_tb                         ; --            ; --          ; eda_simulation       ;
+; EDA_TEST_BENCH_NAME                  ; jx35_alu_tb                           ; --            ; --          ; eda_simulation       ;
+; EDA_TEST_BENCH_NAME                  ; processor_jx35_tb                     ; --            ; --          ; eda_simulation       ;
+; EDA_TIME_SCALE                       ; 1 ps                                  ; --            ; --          ; eda_simulation       ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                    ; --            ; --          ; --                   ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                     ; --            ; --          ; --                   ;
+; MISC_FILE                            ; pll.bsf                               ; --            ; --          ; --                   ;
+; MISC_FILE                            ; pll.cmp                               ; --            ; --          ; --                   ;
+; MISC_FILE                            ; pll.ppf                               ; --            ; --          ; --                   ;
+; MISC_FILE                            ; imem_inst.v                           ; --            ; --          ; --                   ;
+; MISC_FILE                            ; imem.cmp                              ; --            ; --          ; --                   ;
+; MISC_FILE                            ; dmem_inst.v                           ; --            ; --          ; --                   ;
+; MISC_FILE                            ; dmem.cmp                              ; --            ; --          ; --                   ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE          ; 1.2V                                  ; --            ; --          ; --                   ;
+; PARTITION_COLOR                      ; 16764057                              ; --            ; --          ; Top                  ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING                 ; --            ; --          ; Top                  ;
+; PARTITION_NETLIST_TYPE               ; SOURCE                                ; --            ; --          ; Top                  ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                   ; --            ; --          ; --                   ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --          ; --                   ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                          ; --            ; --          ; --                   ;
++--------------------------------------+---------------------------------------+---------------+-------------+----------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:01:01     ; 1.0                     ; 928 MB              ; 00:00:50                           ;
+; Total                ; 00:01:01     ; --                      ; --                  ; 00:00:50                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Flow OS Summary                                                                   ;
++----------------------+------------------+-----------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++----------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis ; DESKTOP-TH3G9F0  ; Windows 8 ; 6.2        ; x86_64         ;
++----------------------+------------------+-----------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off skeleton -c skeleton
+
+
+
