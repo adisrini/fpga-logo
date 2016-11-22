@@ -53,6 +53,13 @@ module skeleton(resetn,
 	// UNCOMMENT FOLLOWING LINE AND COMMENT ABOVE LINE TO RUN AT 50 MHz
 	//assign clock = inclock;
 	
+	wire [31:0] logo_command;
+	wire [1:0] position;
+	
+	position_counter pos_count(position, 1'b1, ps2_key_pressed, ~resetn);
+	
+	
+	
 	// your processor
 	processor myprocessor(clock, ~resetn, /*ps2_key_pressed, ps2_out, lcd_write_en, lcd_write_data,*/ debug_data_in, debug_addr);
 	
@@ -90,4 +97,43 @@ module skeleton(resetn,
 								 .r_data(VGA_R));
 	
 	
+endmodule
+
+module position_counter(out,enable,clk,reset);
+	output [1:0] out;	 //potentially change								
+	input enable, clk, reset;
+	reg [1:0] out;		//potentially change	initial out = 6'b0;
+	initial 
+	begin
+		out = 2'b00;
+	end
+	always @(posedge clk)
+	if (reset) begin
+	  out <= 6'b0;
+	end else if (enable) begin
+		case(out)
+			2'd0: out <= 2'd1;
+			2'd1: out <= 2'd2;
+			2'd2: out <= 2'd3;
+			2'd3: out <= 2'd0;		
+		endcase
+	end
+endmodule
+
+// 8-BIT SHIFTER (verified)
+//
+// PARAMS:
+//      * 32-BIT INPUT
+//    * 1-BIT DIRECTION (0 = left, 1 = right)
+module shift8bitena(data_input, ctrl_shiftdirection, ena, data_output);
+    input [31:0] data_input;
+    input ctrl_shiftdirection, ena;
+    output [31:0] data_output;
+
+    wire [31:0] intermediate1, intermediate2;
+
+    shift4bit s4(data_input, ctrl_shiftdirection, intermediate1);
+    shift4bit s8(intermediate1, ctrl_shiftdirection, intermediate2);
+	 
+	 assign data_output = (ena) ? intermediate2 : data_input;
 endmodule

@@ -10,160 +10,163 @@
 # Copying C:/altera_lite/16.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/VGA_Audio_PLL.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/VGA_Audio_PLL.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:32 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/VGA_Audio_PLL.v 
+# Start time: 19:41:11 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/VGA_Audio_PLL.v 
 # -- Compiling module VGA_Audio_PLL
 # 
 # Top level modules:
 # 	VGA_Audio_PLL
-# End time: 13:17:32 on Nov 16,2016, Elapsed time: 0:00:00
+# End time: 19:41:11 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/Reset_Delay.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Reset_Delay.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:32 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/Reset_Delay.v 
+# Start time: 19:41:11 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Reset_Delay.v 
 # -- Compiling module Reset_Delay
 # 
 # Top level modules:
 # 	Reset_Delay
-# End time: 13:17:32 on Nov 16,2016, Elapsed time: 0:00:00
+# End time: 19:41:11 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/skeleton.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/skeleton.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:32 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/skeleton.v 
+# Start time: 19:41:11 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/skeleton.v 
 # -- Compiling module skeleton
+# -- Compiling module position_counter
+# -- Compiling module shift8bitena
 # 
 # Top level modules:
 # 	skeleton
-# End time: 13:17:32 on Nov 16,2016, Elapsed time: 0:00:00
+# 	shift8bitena
+# End time: 19:41:11 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/PS2_Interface.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/PS2_Interface.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:32 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/PS2_Interface.v 
+# Start time: 19:41:11 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/PS2_Interface.v 
 # -- Compiling module PS2_Interface
 # 
 # Top level modules:
 # 	PS2_Interface
-# End time: 13:17:32 on Nov 16,2016, Elapsed time: 0:00:00
+# End time: 19:41:11 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/PS2_Controller.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/PS2_Controller.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:32 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/PS2_Controller.v 
+# Start time: 19:41:11 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/PS2_Controller.v 
 # -- Compiling module PS2_Controller
 # 
 # Top level modules:
 # 	PS2_Controller
-# End time: 13:17:32 on Nov 16,2016, Elapsed time: 0:00:00
+# End time: 19:41:11 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/pll.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/pll.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:33 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/pll.v 
+# Start time: 19:41:11 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/pll.v 
 # -- Compiling module pll
 # 
 # Top level modules:
 # 	pll
-# End time: 13:17:33 on Nov 16,2016, Elapsed time: 0:00:00
+# End time: 19:41:12 on Nov 21,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/imem.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/imem.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:33 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/imem.v 
+# Start time: 19:41:12 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/imem.v 
 # -- Compiling module imem
 # 
 # Top level modules:
 # 	imem
-# End time: 13:17:33 on Nov 16,2016, Elapsed time: 0:00:00
+# End time: 19:41:12 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/Hexadecimal_To_Seven_Segment.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Hexadecimal_To_Seven_Segment.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:33 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/Hexadecimal_To_Seven_Segment.v 
+# Start time: 19:41:12 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Hexadecimal_To_Seven_Segment.v 
 # -- Compiling module Hexadecimal_To_Seven_Segment
 # 
 # Top level modules:
 # 	Hexadecimal_To_Seven_Segment
-# End time: 13:17:33 on Nov 16,2016, Elapsed time: 0:00:00
+# End time: 19:41:12 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/dmem.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/dmem.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:33 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/dmem.v 
+# Start time: 19:41:12 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/dmem.v 
 # -- Compiling module dmem
 # 
 # Top level modules:
 # 	dmem
-# End time: 13:17:33 on Nov 16,2016, Elapsed time: 0:00:00
+# End time: 19:41:12 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/Altera_UP_PS2_Data_In.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Altera_UP_PS2_Data_In.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:33 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/Altera_UP_PS2_Data_In.v 
+# Start time: 19:41:12 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Altera_UP_PS2_Data_In.v 
 # -- Compiling module Altera_UP_PS2_Data_In
 # 
 # Top level modules:
 # 	Altera_UP_PS2_Data_In
-# End time: 13:17:33 on Nov 16,2016, Elapsed time: 0:00:00
+# End time: 19:41:12 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/Altera_UP_PS2_Command_Out.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Altera_UP_PS2_Command_Out.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:33 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/Altera_UP_PS2_Command_Out.v 
+# Start time: 19:41:12 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Altera_UP_PS2_Command_Out.v 
 # -- Compiling module Altera_UP_PS2_Command_Out
 # 
 # Top level modules:
 # 	Altera_UP_PS2_Command_Out
-# End time: 13:17:33 on Nov 16,2016, Elapsed time: 0:00:00
+# End time: 19:41:12 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/vga_controller.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/vga_controller.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:33 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/vga_controller.v 
+# Start time: 19:41:12 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/vga_controller.v 
 # -- Compiling module vga_controller
 # 
 # Top level modules:
 # 	vga_controller
-# End time: 13:17:34 on Nov 16,2016, Elapsed time: 0:00:01
+# End time: 19:41:12 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/video_sync_generator.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/video_sync_generator.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:34 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/video_sync_generator.v 
+# Start time: 19:41:12 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/video_sync_generator.v 
 # -- Compiling module video_sync_generator
 # 
 # Top level modules:
 # 	video_sync_generator
-# End time: 13:17:34 on Nov 16,2016, Elapsed time: 0:00:00
+# End time: 19:41:12 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/img_index.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/img_index.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:34 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/img_index.v 
+# Start time: 19:41:12 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/img_index.v 
 # -- Compiling module img_index
 # 
 # Top level modules:
 # 	img_index
-# End time: 13:17:34 on Nov 16,2016, Elapsed time: 0:00:00
+# End time: 19:41:12 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/img_data.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/img_data.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:34 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/img_data.v 
+# Start time: 19:41:12 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/img_data.v 
 # -- Compiling module img_data
 # 
 # Top level modules:
 # 	img_data
-# End time: 13:17:34 on Nov 16,2016, Elapsed time: 0:00:00
+# End time: 19:41:13 on Nov 21,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/processor_as577.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/processor_as577.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:34 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/processor_as577.v 
+# Start time: 19:41:13 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/processor_as577.v 
 # -- Compiling module processor
 # -- Compiling module bypass_ex
 # -- Compiling module bypass_mem
@@ -228,113 +231,48 @@
 # 
 # Top level modules:
 # 	processor
-# End time: 13:17:35 on Nov 16,2016, Elapsed time: 0:00:01
+# End time: 19:41:13 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor/db {C:/Users/Aditya Srinivasan/Desktop/processor/db/pll_altpll.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src/db {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/db/pll_altpll.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:35 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor/db" C:/Users/Aditya Srinivasan/Desktop/processor/db/pll_altpll.v 
+# Start time: 19:41:13 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/db" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/db/pll_altpll.v 
 # -- Compiling module pll_altpll
 # 
 # Top level modules:
 # 	pll_altpll
-# End time: 13:17:35 on Nov 16,2016, Elapsed time: 0:00:00
+# End time: 19:41:13 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/lcd.sv}
+# vlog -sv -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/lcd.sv}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:35 on Nov 16,2016
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/lcd.sv 
+# Start time: 19:41:13 on Nov 21,2016
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/lcd.sv 
 # -- Compiling module lcd
 # 
 # Top level modules:
 # 	lcd
-# End time: 13:17:35 on Nov 16,2016, Elapsed time: 0:00:00
+# End time: 19:41:13 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/processor {C:/Users/Aditya Srinivasan/Desktop/processor/processor_pipeline_stall_tb.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/shift8bitena_tb.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 13:17:35 on Nov 16,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/processor" C:/Users/Aditya Srinivasan/Desktop/processor/processor_pipeline_stall_tb.v 
-# -- Compiling module processor_pipeline_stall_tb
+# Start time: 19:41:13 on Nov 21,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/shift8bitena_tb.v 
+# -- Compiling module shift8bitena_tb
 # 
 # Top level modules:
-# 	processor_pipeline_stall_tb
-# End time: 13:17:35 on Nov 16,2016, Elapsed time: 0:00:00
+# 	shift8bitena_tb
+# End time: 19:41:13 on Nov 21,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  processor_pipeline_stall_tb
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" processor_pipeline_stall_tb 
-# Start time: 13:17:36 on Nov 16,2016
-# Loading work.processor_pipeline_stall_tb
-# Loading work.processor
-# Loading work.register
-# Loading work.cla
-# Loading work.cla8
-# Loading work.ovf
-# Loading work.lt
-# Loading work.imem
-# Loading altera_mf_ver.altsyncram
-# Loading work.stage_IF_ID
-# Loading work.instruction_splitter
-# Loading work.control
-# Loading work.opcode_decode
-# Loading work.encode_ALUop
-# Loading work.mux4_5bit
-# Loading work.sign_extender
-# Loading work.assign_registers
-# Loading work.regfile_as577
-# Loading work.decoder
-# Loading work.stage_ID_EX
-# Loading work.bypass_ex
-# Loading work.equals_4bit
-# Loading work.jump_addresser
-# Loading work.mux4_32bit
-# Loading work.assign_alu_operands
-# Loading work.as577_alu
-# Loading work.shiftXbits
-# Loading work.shift1bit
-# Loading work.shift2bit
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  shift8bitena_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" shift8bitena_tb 
+# Start time: 19:41:13 on Nov 21,2016
+# Loading work.shift8bitena_tb
+# Loading work.shift8bitena
 # Loading work.shift4bit
-# Loading work.shift8bit
-# Loading work.shift16bit
-# Loading work.tristate
-# Loading work.multdiv_as577
-# Loading work.up_counter
-# Loading work.dffeveri
-# Loading work.register32
-# Loading work.booth_mult
-# Loading work.boothCycle
-# Loading work.cla_mul
-# Loading work.cla8simple
-# Loading work.shift1bit65
-# Loading work.isCountZerobit6
-# Loading work.mux65
-# Loading work.register65
-# Loading work.isCount31bit6
-# Loading work.checkMultException
-# Loading work.negate
-# Loading work.div
-# Loading work.mux32
-# Loading work.division_cycle
-# Loading work.checkDivisionException
-# Loading work.assign_status
-# Loading work.register27
-# Loading work.is_not_zero
-# Loading work.stall_logic
-# Loading work.flush_logic
-# Loading work.jb_PC
-# Loading work.is_zero27bits
-# Loading work.stage_EX_MEM
-# Loading work.bypass_mem
-# Loading work.dmem
-# Loading work.stage_MEM_WB
-# Loading work.register5
-# Loading work.assign_reg_write
-# Loading altera_ver.dffe
-# Loading altera_ver.prim_gdff
-# Loading altera_mf_ver.altsyncram_body
-# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
-# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# Loading work.shift2bit
+# Loading work.shift1bit
 # 
 # add wave *
 # view structure
@@ -342,306 +280,38 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-#                    0<<Starting the simulation>> 
-#    x          0  402653193          0          0          0          0
-#    0          0  402653193  402653193          0          0          0
-#    0          0  134217740  402653193          0          0          0
-#    0          0  134217740  134217740  402653193          0          0
-#    0          0  952369167  134217740  402653193          0          0
-#    0          0  952369167          0          0  402653193          0
-#    0          0  675282945          0          0  402653193          0
-#    0          0  675282945  675282945          0          0  402653193
-#    0          0  679477268  675282945          0          0  402653193
-#    0          0  679477268  679477268  675282945          0          0
-#    0          0  666894336  679477268  675282945          0          0
-#    1          0  666894336  666894336  679477268  675282945          0
-#    1          0   12722176  666894336  679477268  675282945          0
-#   20          0   12722176   12722176  666894336  679477268  675282945
-#   20          0    4325520   12722176  666894336  679477268  675282945
-#    1          0    4325520          0          0  666894336  679477268
-#    1          0  134217740          0          0  666894336  679477268
-#    1          0  134217740  134217740          0          0  666894336
-#    1          0  952369167  134217740          0          0  666894336
-#    0          0  952369167  952369167  134217740          0          0
-#    0          0 1090781199  952369167  134217740          0          0
-#    0          0 1090781199          0          0  134217740          0
-#    0          0   12722176          0          0  134217740          0
-#   20          0   12722176   12722176          0          0  134217740
-#   20          0    4325520   12722176          0          0  134217740
-#    0          0    4325520    4325520   12722176          0          0
-#    0          0  809893885    4325520   12722176          0          0
-#   21         20  809893885  809893885    4325520   12722176          0
-#   21         20  134217730  809893885    4325520   12722176          0
-#    2          0  134217730  134217730  809893885    4325520   12722176
-#    2          0  134217965  134217730  809893885    4325520   12722176
-# 4078         20  134217965          0          0  809893885    4325520
-# 4078         20   12722176          0          0  809893885    4325520
-#    0          0   12722176   12722176          0          0  809893885
-#    0          0    4325520   12722176          0          0  809893885
-#    0          0    4325520    4325520   12722176          0          0
-#    0          0  809893885    4325520   12722176          0          0
-#   22         20  809893885  809893885    4325520   12722176          0
-#   22         20  134217730  809893885    4325520   12722176          0
-#    4          0  134217730  134217730  809893885    4325520   12722176
-#    4          0  134217965  134217730  809893885    4325520   12722176
-# 4080         20  134217965          0          0  809893885    4325520
-# 4080         20   12722176          0          0  809893885    4325520
-#    0          0   12722176   12722176          0          0  809893885
-#    0          0    4325520   12722176          0          0  809893885
-#    0          0    4325520    4325520   12722176          0          0
-#    0          0  809893885    4325520   12722176          0          0
-#   24         20  809893885  809893885    4325520   12722176          0
-#   24         20  134217730  809893885    4325520   12722176          0
-#    8          0  134217730  134217730  809893885    4325520   12722176
-#    8          0  134217965  134217730  809893885    4325520   12722176
-# 4084         20  134217965          0          0  809893885    4325520
-# 4084         20   12722176          0          0  809893885    4325520
-#    0          0   12722176   12722176          0          0  809893885
-#    0          0    4325520   12722176          0          0  809893885
-#    0          0    4325520    4325520   12722176          0          0
-#    0          0  809893885    4325520   12722176          0          0
-#   28         20  809893885  809893885    4325520   12722176          0
-#   28         20  134217730  809893885    4325520   12722176          0
-#   16          0  134217730  134217730  809893885    4325520   12722176
-#   16          0  134217965  134217730  809893885    4325520   12722176
-# 4092         20  134217965          0          0  809893885    4325520
-# 4092         20   12722176          0          0  809893885    4325520
-#    0          0   12722176   12722176          0          0  809893885
-#    0          0    4325520   12722176          0          0  809893885
-#    0          0    4325520    4325520   12722176          0          0
-#    0          0  809893885    4325520   12722176          0          0
-#   36         20  809893885  809893885    4325520   12722176          0
-#   36         20  134217730  809893885    4325520   12722176          0
-#   32          0  134217730  134217730  809893885    4325520   12722176
-#   32          0  134217965  134217730  809893885    4325520   12722176
-#   12         20  134217965  134217965  134217730  809893885    4325520
-#   12         20 1077936146  134217965  134217730  809893885    4325520
-#    0          0 1077936146          0          0  134217730  809893885
-#    0          0  952369167          0          0  134217730  809893885
-#    0          0  952369167  952369167          0          0  134217730
-#    0          0 1090781199  952369167          0          0  134217730
-#    0          0 1090781199 1090781199  952369167          0          0
-#    0          0   17301780 1090781199  952369167          0          0
-#   35         36   17301780   17301780 1090781199  952369167          0
-#   35         36    4730884   17301780 1090781199  952369167          0
-#   35          0    4730884   17301780          0 1090781199  952369167
-#    0          0    4730884    4730884   17301780          0 1090781199
-#    0          0  272760833    4730884   17301780          0 1090781199
-#    9          0  272760833  272760833    4730884   17301780          0
-#    9          0  272629775  272760833    4730884   17301780          0
-# 4069         36  272629775  272629775  272760833    4730884   17301780
-# 4069         36  708837780  272629775  272760833    4730884   17301780
-#    0 4294967269  708837780  708837780  272629775  272760833    4730884
-#    0 4294967269  675282945  708837780  272629775  272760833    4730884
-# 4069          0  675282945          0          0  272629775  272760833
-# 4069          0   21110792          0          0  272629775  272760833
-#    0          0   21110792   21110792          0          0  272629775
-#    0          0   25837580   21110792          0          0  272629775
-#    0          0   25837580   25837580   21110792          0          0
-#    0          0   30040064   25837580   21110792          0          0
-#    4         20   30040064   30040064   25837580   21110792          0
-#    4         20 2952790024   30040064   25837580   21110792          0
-#   13          9 2952790024 2952790024   30040064   25837580   21110792
-#   13          9 2818572389 2952790024   30040064   25837580   21110792
-#   17         13 2818572389 2818572389 2952790024   30040064   25837580
-#   17         13 2952790033 2818572389 2952790024   30040064   25837580
-#    0          0 2952790033          0          0 2952790024   30040064
-#    0          0 2818572389          0          0 2952790024   30040064
-#    0          0 2818572389 2818572389          0          0 2952790024
-#    0          0 2952790033 2818572389          0          0 2952790024
-#    0          0 2952790033 2952790033 2818572389          0          0
-#    0          0 2818572288 2952790033 2818572389          0          0
-#    0          0 2818572288 2818572288 2952790033 2818572389          0
-#    0          0  675330273 2818572288 2952790033 2818572389          0
-#    0          0  675330273          0          0 2952790033 2818572389
-#    0          0 1077936146          0          0 2952790033 2818572389
-#    0          0 1077936146 1077936146          0          0 2952790033
-#    0          0  943849472 1077936146          0          0 2952790033
-#    0          0  943849472  943849472 1077936146          0          0
-#    0          0 1082261504  943849472 1077936146          0          0
-#   18          0 1082261504  943849472          0 1077936146          0
-# 4042 4294967269 1082261504 1082261504  943849472          0 1077936146
-# 4042 4294967269  943980544 1082261504  943849472          0 1077936146
-# 1284      46340  943980544  943980544 1082261504  943849472          0
-# 1284      46340 1086586880  943980544 1082261504  943849472          0
-# 1284          0 1086586880  943980544          0 1082261504  943849472
-# 1304      46340 1086586880 1086586880  943980544          0 1082261504
-# 1304      46340 2952790120 1086586880  943980544          0 1082261504
-#   20      46340 2952790120 2952790120 1086586880  943980544          0
-#   20      46340   21110792 2952790120 1086586880  943980544          0
-# 1284          0   21110792   21110792 2952790120 1086586880  943980544
-# 1284          0   25837580   21110792 2952790120 1086586880  943980544
-#    0          0   25837580          0          0 2952790120 1086586880
-#    0          0 2818572288          0          0 2952790120 1086586880
-# 2568      46340 2818572288 2818572288          0          0 2952790120
-# 2568      46340  675282955 2818572288          0          0 2952790120
-#    0          0  675282955  675282955 2818572288          0          0
-#    0          0  679477268  675282955 2818572288          0          0
-#    0          0  679477268  679477268  675282955 2818572288          0
-#    0          0   12722200  679477268  675282955 2818572288          0
-#   11          0   12722200   12722200  679477268  675282955 2818572288
-#   11          0          0   12722200  679477268  675282955 2818572288
-#   20          0          0          0   12722200  679477268  675282955
-#    0         20          0          0          0   12722200  679477268
-#    0          0          0          0          0          0   12722200
-#    0          0          0          0          0          0          0
-#  220          0          0          0          0          0          0
-#  220          0  704643173          0          0          0          0
-#    0          0  704643173  704643173          0          0          0
-#    0          0 2952790024  704643173          0          0          0
-#    0          0 2952790024 2952790024  704643173          0          0
-#    0          0  679608300 2952790024  704643173          0          0
-#  101          0  679608300  679608300 2952790024  704643173          0
-#  101          0   12722200  679608300 2952790024  704643173          0
-#    0          0   12722200          0          0 2952790024  704643173
-#    0          0  679608300          0          0 2952790024  704643173
-#    1          1  679608300  679608300          0          0 2952790024
-#    1          1   12722200  679608300          0          0 2952790024
-#    0          0   12722200   12722200  679608300          0          0
-#    0          0          0   12722200  679608300          0          0
-# 4076          1          0          0   12722200  679608300          0
-#    0 4294967276          0          0          0   12722200  679608300
-#    0          0          0          0          0          0   12722200
-#    0          0          0          0          0          0          0
-# 3876          0          0          0          0          0          0
-# 3876          0 2952790024          0          0          0          0
-#    0          0 2952790024 2952790024          0          0          0
-#    0          0  675348479 2952790024          0          0          0
-#    0          0  675348479  675348479 2952790024          0          0
-#    0          0  679542783  675348479 2952790024          0          0
-#    0          0  679542783          0          0 2952790024          0
-#    0          0  675348479          0          0 2952790024          0
-#    0          0  675348479  675348479          0          0 2952790024
-#    0          0  679542783  675348479          0          0 2952790024
-#    0          0  679542783  679542783  675348479          0          0
-#    0          0   12722200  679542783  675348479          0          0
-# 4095          0   12722200   12722200  679542783  675348479          0
-# 4095          0          0   12722200  679542783  675348479          0
-# 4095          0          0          0   12722200  679542783  675348479
-#    0      65535          0          0          0   12722200  679542783
-#    0          0          0          0          0          0   12722200
-#    0          0          0          0          0          0          0
-#    1          0          0          0          0          0          0
-#    1          0 2952790045          0          0          0          0
-#    0          0 2952790045 2952790045          0          0          0
-#    0          0 2818572288 2952790045          0          0          0
-#    0          0 2818572288 2818572288 2952790045          0          0
-#    0          0 2952790024 2818572288 2952790045          0          0
-#    0          0 2952790024          0          0 2952790045          0
-#    0          0 2818572288          0          0 2952790045          0
-#    0          0 2818572288 2818572288          0          0 2952790045
-#    0          0  675330273 2818572288          0          0 2952790045
-#    0          0  675330273  675330273 2818572288          0          0
-#    0          0  679477260  675330273 2818572288          0          0
-#    0          0  679477260  679477260  675330273 2818572288          0
-#    0          0   12722204  679477260  675330273 2818572288          0
-# 2273          0   12722204   12722204  679477260  675330273 2818572288
-# 2273          0          0   12722204  679477260  675330273 2818572288
-#   12          0          0          0   12722204  679477260  675330273
-#    0         12          0          0          0   12722204  679477260
-#    0          0          0          0          0          0   12722204
-#    0          0          0          0          0          0          0
-# 3944          0          0          0          0          0          0
-# 3944          0  704643274          0          0          0          0
-#    0          0  704643274  704643274          0          0          0
-#    0          0 2952790024  704643274          0          0          0
-#    0          0 2952790024 2952790024  704643274          0          0
-#    0          0  679477248 2952790024  704643274          0          0
-#  202          0  679477248  679477248 2952790024  704643274          0
-#  202          0   12722204  679477248 2952790024  704643274          0
-#    0          0   12722204          0          0 2952790024  704643274
-#    0          0  679477248          0          0 2952790024  704643274
-#    0          0  679477248  679477248          0          0 2952790024
-#    0          0   12722204  679477248          0          0 2952790024
-#    0          0   12722204   12722204  679477248          0          0
-#    0          0          0   12722204  679477248          0          0
-#    0          0          0          0   12722204  679477248          0
-#    0          0          0          0          0   12722204  679477248
-#    0          0          0          0          0          0   12722204
-#    0          0          0          0          0          0          0
-# 4095          0          0          0          0          0          0
-# 4095          0 2952790239          0          0          0          0
-#    0          0 2952790239 2952790239          0          0          0
-#    0          0 2818572288 2952790239          0          0          0
-#    0          0 2818572288 2818572288 2952790239          0          0
-#    0          0  675282955 2818572288 2952790239          0          0
-#    0          0  675282955          0          0 2952790239          0
-#    0          0 2818572288          0          0 2952790239          0
-#    0          0 2818572288 2818572288          0          0 2952790239
-#    0          0 2952790024 2818572288          0          0 2952790239
-#    0          0 2952790024 2952790024 2818572288          0          0
-#    0          0  675348481 2952790024 2818572288          0          0
-#    0          0  675348481  675348481 2952790024 2818572288          0
-#    0          0  679542783  675348481 2952790024 2818572288          0
-#    0          0  679542783          0          0 2952790024 2818572288
-#    0          0  675348481          0          0 2952790024 2818572288
-#    0          0  675348481  675348481          0          0 2952790024
-#    0          0  679542783  675348481          0          0 2952790024
-#    0          0  679542783  679542783  675348481          0          0
-#    0          0    4327312  679542783  675348481          0          0
-#    1          0    4327312    4327312  679542783  675348481          0
-#    1          0  683671552    4327312  679542783  675348481          0
-# 4095          0  683671552  683671552    4327312  679542783  675348481
-# 4095          0   12722180  683671552    4327312  679542783  675348481
-#    0          0   12722180   12722180  683671552    4327312  679542783
-#    0          0 2952790232   12722180  683671552    4327312  679542783
-#    0          0 2952790232 2952790232   12722180  683671552    4327312
-#    0          0 2818572288 2952790232   12722180  683671552    4327312
-#    1      65535 2818572288 2818572288 2952790232   12722180  683671552
-#    1      65535 2952790024 2818572288 2952790232   12722180  683671552
-#    0          0 2952790024          0          0 2952790232   12722180
-#    0          0 2818572288          0          0 2952790232   12722180
-#    0          0 2818572288 2818572288          0          0 2952790232
-#    0          0 2952790024 2818572288          0          0 2952790232
-#    0          0 2952790024 2952790024 2818572288          0          0
-#    0          0  675348479 2952790024 2818572288          0          0
-#    0          0  675348479  675348479 2952790024 2818572288          0
-#    0          0  679542783  675348479 2952790024 2818572288          0
-#    0          0  679542783          0          0 2952790024 2818572288
-#    0          0  675348479          0          0 2952790024 2818572288
-#    0          0  675348479  675348479          0          0 2952790024
-#    0          0  679542783  675348479          0          0 2952790024
-#    0          0  679542783  679542783  675348479          0          0
-#    0          0    4327312  679542783  675348479          0          0
-# 4095          0    4327312    4327312  679542783  675348479          0
-# 4095          0   12722176    4327312  679542783  675348479          0
-# 4095          0   12722176   12722176    4327312  679542783  675348479
-# 4095          0 2952790247   12722176    4327312  679542783  675348479
-#    0          0 2952790247 2952790247   12722176    4327312  679542783
-#    0          0 2818572288 2952790247   12722176    4327312  679542783
-# 4095      65535 2818572288 2818572288 2952790247   12722176    4327312
-# 4095      65535 2952790024 2818572288 2952790247   12722176    4327312
-#    0          0 2952790024          0          0 2952790247   12722176
-#    0          0 2818572288          0          0 2952790247   12722176
-#    0          0 2818572288 2818572288          0          0 2952790247
-#    0          0 2952790024 2818572288          0          0 2952790247
-#    0          0 2952790024 2952790024 2818572288          0          0
-#    0          0  675348479 2952790024 2818572288          0          0
-#    0          0  675348479  675348479 2952790024 2818572288          0
-#    0          0    4327312  675348479 2952790024 2818572288          0
-#    0          0    4327312          0          0 2952790024 2818572288
-#    0          0  675348479          0          0 2952790024 2818572288
-#    0          0  675348479  675348479          0          0 2952790024
-#    0          0    4327312  675348479          0          0 2952790024
-#    0          0    4327312    4327312  675348479          0          0
-#    0          0  675479551    4327312  675348479          0          0
-# 4095          0  675479551  675479551    4327312  675348479          0
-# 4095          0 2952790032  675479551    4327312  675348479          0
-#    0          0 2952790032 2952790032  675479551    4327312  675348479
-#    0          0          0 2952790032  675479551    4327312  675348479
-# 4095          0          0          0 2952790032  675479551    4327312
-#    0          0          0          0          0 2952790032  675479551
-#    0          0  134217965          0          0 2952790032  675479551
-#    0          0  134217965  134217965          0          0 2952790032
-#    0          0 1077936146  134217965          0          0 2952790032
-#    0          0 1077936146 1077936146  134217965          0          0
-#    0          0  943849472 1077936146  134217965          0          0
-#    0          0  943849472          0          0  134217965          0
-#    0          0          0          0          0  134217965          0
-#    0          0          0          0          0          0  134217965
-#    0          0          0          0          0          0          0
-# ** Note: $stop    : C:/Users/Aditya Srinivasan/Desktop/processor/processor_pipeline_stall_tb.v(23)
-#    Time: 30020 ns  Iteration: 0  Instance: /processor_pipeline_stall_tb
-# Break in Module processor_pipeline_stall_tb at C:/Users/Aditya Srinivasan/Desktop/processor/processor_pipeline_stall_tb.v line 23
-# End time: 13:19:30 on Nov 16,2016, Elapsed time: 0:01:54
+# 00000000000011010110000110100110 0 00000000000011010110000110100110
+# 00000000000011010110000110100110 1 00001101011000011010011000000000
+# 00000000000011010110000110100110 0 00000000000011010110000110100110
+# 00000000000011010110000110100110 1 00001101011000011010011000000000
+# 00000000000011010110000110100110 0 00000000000011010110000110100110
+# 00000000000011010110000110100110 1 00001101011000011010011000000000
+# 00000000000011010110000110100110 0 00000000000011010110000110100110
+# 00000000000011010110000110100110 1 00001101011000011010011000000000
+# 00000000000011010110000110100110 0 00000000000011010110000110100110
+# 00000000000011010110000110100110 1 00001101011000011010011000000000
+# 00000000000011010110000110100110 0 00000000000011010110000110100110
+# 00000000000011010110000110100110 1 00001101011000011010011000000000
+# 00000000000011010110000110100110 0 00000000000011010110000110100110
+# 00000000000011010110000110100110 1 00001101011000011010011000000000
+# 00000000000011010110000110100110 0 00000000000011010110000110100110
+# 00000000000011010110000110100110 1 00001101011000011010011000000000
+# 00000000000011010110000110100110 0 00000000000011010110000110100110
+# 00000000000011010110000110100110 1 00001101011000011010011000000000
+# 00000000000011010110000110100110 0 00000000000011010110000110100110
+# 00000000000011010110000110100110 1 00001101011000011010011000000000
+# 00000000000011010110000110100110 0 00000000000011010110000110100110
+# 00000000000011010110000110100110 1 00001101011000011010011000000000
+# 00000000000011010110000110100110 0 00000000000011010110000110100110
+# 00000000000011010110000110100110 1 00001101011000011010011000000000
+# 00000000000011010110000110100110 0 00000000000011010110000110100110
+# 00000000000011010110000110100110 1 00001101011000011010011000000000
+# 00000000000011010110000110100110 0 00000000000011010110000110100110
+# 00000000000011010110000110100110 1 00001101011000011010011000000000
+# 00000000000011010110000110100110 0 00000000000011010110000110100110
+# 00000000000011010110000110100110 1 00001101011000011010011000000000
+# ** Note: $stop    : C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/shift8bitena_tb.v(16)
+#    Time: 300 ns  Iteration: 0  Instance: /shift8bitena_tb
+# Break in Module shift8bitena_tb at C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/shift8bitena_tb.v line 16
+# End time: 19:41:29 on Nov 21,2016, Elapsed time: 0:00:16
 # Errors: 0, Warnings: 0

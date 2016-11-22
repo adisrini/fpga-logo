@@ -14,7 +14,7 @@ module processor_pipeline_stall_tb();
 		$display($time, "<<Starting the simulation>> ");
 //		$monitor("Reading the values of clock %b, reset %b, dmem_data_in %b, dmem_address %b, data_writeReg %b p.instr %b, p.rd %b, p.rs %b, p.rt %b, p.shamt %b, p.alu_op %b,p.opcode %b, p.jumpInst %b, p.pc_immedInst %b,p.be_or_NextInst %b, p.jump_or_NextInst %b, p.jrVal_or_NextInst %b, jumpInst %b, jump%b", clock, reset, dmem_data_in, dmem_address, data_writeReg, p.instr, p.rd, p.rs, p.rt, p.shamt, p.alu_op,p.opcode,p.jumpInst, p.pc_immedInst,p.be_or_NextInst, p.jump_or_NextInst, p.jrVal_or_NextInst,p.jumpInst, p.jump);
 //		$monitor("Reading the values of clock %b, reset %b, dmem_data_in %b, dmem_address %b, data_writeReg %b p.instr %b program_counter %b", clock, reset, dmem_data_in, dmem_address, data_writeReg, p.instr,p.pcReadOut);
-		$monitor("%d %d %d %d %d %d %d", p.debug_address, p.debug_data_in, p.instruction_if_id_in, p.instruction_if_id_out, p.instruction_id_ex_out, p.instruction_ex_mem_out, p.instruction_mem_wb_out);
+		$monitor("%d %d %d %d %d %d %d", p.reg0, p.reg1, p.reg2, p.reg3, p.reg4, p.reg5, p.reg31);
 		reset = 1;
 		clock = 0;
 		#20

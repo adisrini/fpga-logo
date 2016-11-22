@@ -1,5 +1,5 @@
 Flow report for skeleton
-Mon Nov 21 18:59:17 2016
+Mon Nov 21 19:36:56 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Nov 21 18:59:17 2016       ;
+; Flow Status                        ; Successful - Mon Nov 21 19:36:56 2016       ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                      ; skeleton                                    ;
 ; Top-level Entity Name              ; skeleton                                    ;
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/21/2016 18:57:58 ;
+; Start date & time ; 11/21/2016 19:35:45 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; skeleton            ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +--------------------------------------+---------------------------------------+---------------+-------------+-----------------------------+
 ; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id                  ;
 +--------------------------------------+---------------------------------------+---------------+-------------+-----------------------------+
-; COMPILER_SIGNATURE_ID                ; 52236202716.147978347801836           ; --            ; --          ; --                          ;
+; COMPILER_SIGNATURE_ID                ; 52236202716.147978574506844           ; --            ; --          ; --                          ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; stall_logic_tb              ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; statusReg_tb                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; multdiv_tb                  ;
@@ -86,6 +86,7 @@ agreement for further details.
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; check_zero_tb               ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; sign_extender_tb            ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; flush_logic_tb              ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; shift8bitena_tb             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; processor_pipeline_stall_tb ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; jump_addresser_tb           ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; fsm_counter_tb              ;
@@ -93,7 +94,7 @@ agreement for further details.
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; encode_aluop_tb             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; ternary_tb                  ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; processor_tb                ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; processor_pipeline_stall_tb           ; --            ; --          ; eda_simulation              ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; shift8bitena_tb                       ; --            ; --          ; eda_simulation              ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                           ; --            ; --          ; eda_simulation              ;
 ; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)             ; <None>        ; --          ; --                          ;
 ; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                       ; --            ; --          ; eda_simulation              ;
@@ -106,6 +107,7 @@ agreement for further details.
 ; EDA_TEST_BENCH_FILE                  ; check_zero_tb.v                       ; --            ; --          ; check_zero_tb               ;
 ; EDA_TEST_BENCH_FILE                  ; sign_extender_tb.v                    ; --            ; --          ; sign_extender_tb            ;
 ; EDA_TEST_BENCH_FILE                  ; flush_logic_tb.v                      ; --            ; --          ; flush_logic_tb              ;
+; EDA_TEST_BENCH_FILE                  ; shift8bitena_tb.v                     ; --            ; --          ; shift8bitena_tb             ;
 ; EDA_TEST_BENCH_FILE                  ; processor_pipeline_stall_tb.v         ; --            ; --          ; processor_pipeline_stall_tb ;
 ; EDA_TEST_BENCH_FILE                  ; jump_addresser_tb.v                   ; --            ; --          ; jump_addresser_tb           ;
 ; EDA_TEST_BENCH_FILE                  ; fsm_counter_tb.v                      ; --            ; --          ; fsm_counter_tb              ;
@@ -122,6 +124,7 @@ agreement for further details.
 ; EDA_TEST_BENCH_MODULE_NAME           ; check_zero_tb                         ; --            ; --          ; check_zero_tb               ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; sign_extender_tb                      ; --            ; --          ; sign_extender_tb            ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; flush_logic_tb                        ; --            ; --          ; flush_logic_tb              ;
+; EDA_TEST_BENCH_MODULE_NAME           ; shift8bitena_tb                       ; --            ; --          ; shift8bitena_tb             ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; processor_pipeline_stall_tb           ; --            ; --          ; processor_pipeline_stall_tb ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; jump_addresser_tb                     ; --            ; --          ; jump_addresser_tb           ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; fsm_counter_tb                        ; --            ; --          ; fsm_counter_tb              ;
@@ -145,6 +148,7 @@ agreement for further details.
 ; EDA_TEST_BENCH_NAME                  ; check_zero_tb                         ; --            ; --          ; eda_simulation              ;
 ; EDA_TEST_BENCH_NAME                  ; fsm_counter_tb                        ; --            ; --          ; eda_simulation              ;
 ; EDA_TEST_BENCH_NAME                  ; multdiv_tb                            ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_NAME                  ; shift8bitena_tb                       ; --            ; --          ; eda_simulation              ;
 ; EDA_TIME_SCALE                       ; 1 ps                                  ; --            ; --          ; eda_simulation              ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                    ; --            ; --          ; --                          ;
 ; MIN_CORE_JUNCTION_TEMP               ; 0                                     ; --            ; --          ; --                          ;
@@ -170,8 +174,8 @@ agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:17     ; 1.0                     ; 952 MB              ; 00:01:02                           ;
-; Total                ; 00:01:17     ; --                      ; --                  ; 00:01:02                           ;
+; Analysis & Synthesis ; 00:01:08     ; 1.0                     ; 936 MB              ; 00:01:02                           ;
+; Total                ; 00:01:08     ; --                      ; --                  ; 00:01:02                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

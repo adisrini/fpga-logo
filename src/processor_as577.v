@@ -71,8 +71,46 @@ module processor(clock, reset, /*ps2_key_pressed, ps2_out, lcd_write, lcd_data,*
 
             // REGISTER WRITE DATA
             wire [31:0] data_writeReg;
+				
+				wire signed [31:0] reg0, reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, reg10, reg11, reg12, reg13, reg14, reg15, reg16, reg17, reg18, reg19, reg20, reg21, reg22, reg23, reg24, reg25, reg26, reg27, reg28, reg29, reg30, reg31;
+				wire [1023:0] allData;
 
-            regfile_as577 rgfile(~clock, ctrl_WB_RegW, reset, ctrl_ID_WRITE_REG, ctrl_ID_READ_REG1, ctrl_ID_READ_REG2, data_writeReg, data_readRegA_id_ex_in, data_readRegB_id_ex_in);
+            regfile_as577 rgfile(~clock, ctrl_WB_RegW, reset, ctrl_ID_WRITE_REG, ctrl_ID_READ_REG1, ctrl_ID_READ_REG2, data_writeReg, data_readRegA_id_ex_in, data_readRegB_id_ex_in, allData);
+				
+				assign reg0 = allData[31:0];
+				assign reg1 = allData[63:32];
+				assign reg2 = allData[95:64];
+				assign reg3 = allData[127:96];
+				assign reg4 = allData[159:128];
+				assign reg5 = allData[191:160];
+				assign reg6 = allData[223:192];
+				assign reg7 = allData[255:224];
+				assign reg8 = allData[287:256];
+				assign reg9 = allData[319:288];
+				assign reg10 = allData[351:320];
+				assign reg11 = allData[383:352];
+				assign reg12 = allData[415:384];
+				assign reg13 = allData[447:416];
+				assign reg14 = allData[479:448];
+				assign reg15 = allData[511:480];
+				assign reg16 = allData[543:512];
+				assign reg17 = allData[575:544];
+				assign reg18 = allData[607:576];
+				assign reg19 = allData[639:608];
+				assign reg20 = allData[671:640];
+				assign reg21 = allData[703:672];
+				assign reg22 = allData[735:704];
+				assign reg23 = allData[767:736];
+				assign reg24 = allData[799:768];
+				assign reg25 = allData[831:800];
+				assign reg26 = allData[863:832];
+				assign reg27 = allData[895:864];
+				assign reg28 = allData[927:896];
+				assign reg29 = allData[959:928];
+				assign reg30 = allData[991:960];
+				assign reg31 = allData[1023:992];
+				
+				
 
     // ID_EX STAGE
     wire [31:0] instruction_id_ex_out, data_PC_PLUS_ONE_id_ex_out, data_readRegA_id_ex_out, data_readRegB_id_ex_out;
@@ -1143,13 +1181,14 @@ endmodule
 //
 // REGISTER FILE
 //
-module regfile_as577(clock, ctrl_writeEnable, ctrl_reset, ctrl_writeReg, ctrl_readRegA, ctrl_readRegB, data_writeReg, data_readRegA, data_readRegB);
+module regfile_as577(clock, ctrl_writeEnable, ctrl_reset, ctrl_writeReg, ctrl_readRegA, ctrl_readRegB, data_writeReg, data_readRegA, data_readRegB, allData);
 
     // inputs and outputs
     input clock, ctrl_writeEnable, ctrl_reset;
     input [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
     input [31:0] data_writeReg;
     output [31:0] data_readRegA, data_readRegB;
+	 output [1023:0] allData;
 
     wire [31:0] temp_write_choose, write_chooseReg;
     decoder dc1(ctrl_writeReg, ctrl_writeEnable, temp_write_choose);
@@ -1173,6 +1212,7 @@ module regfile_as577(clock, ctrl_writeEnable, ctrl_reset, ctrl_writeReg, ctrl_re
                             .data_readReg(data));
             tristate tsA(data, read_chooseRegA[i], data_readRegA);
             tristate tsB(data, read_chooseRegB[i], data_readRegB);
+				assign allData[i*32 +: 32] = data;
         end
     endgenerate
 
