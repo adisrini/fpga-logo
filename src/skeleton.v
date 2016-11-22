@@ -175,9 +175,13 @@ module shift8bitena(data_input, ctrl_shiftdirection, ena, data_output);
 endmodule
 
 
-
+/**********
+ MAPS PS2 INPUT DATA TO ASCII VALUE
+ 
+ @param: in is the 8-bit input PS2 key data
+ @param: out is the 8-bit output ASCII value
+**********/
 module mapping(in, out);
-
 	input [7:0] in;
 	output [7:0] out;
 	reg [7:0] out1;
@@ -189,49 +193,49 @@ module mapping(in, out);
 		 out1<=8'h42;
 	else if(in==8'h21) 	//C
 		 out1<=8'h43;
-	 else if(in==8'h23)	//D
+	else if(in==8'h23)	//D
 		 out1<=8'h44;
-	 else if(in==8'h24)	//E
+	else if(in==8'h24)	//E
 		 out1<=8'h45; 
-	 else if(in==8'h26)	//F
+	else if(in==8'h26)	//F
 		 out1<=8'h46;
-	 else if(in==8'h34)	//G
+	else if(in==8'h34)	//G
 		 out1<=8'h47;
-	 else if(in==8'h33)	//H
+	else if(in==8'h33)	//H
 		 out1<=8'h48;
 	else if (in==8'h43)	//I
 		 out1<=8'h49;
 	else if(in==8'h3B)	//J
 		 out1<=8'h4A;
-	 else if(in==8'h42)	//K
+	else if(in==8'h42)	//K
 		 out1<=8'h4B;
-	 else if(in==8'h4B)	//L
+	else if(in==8'h4B)	//L
 		 out1<=8'h4C; 
-	 else if(in==8'h3A)	//M
+	else if(in==8'h3A)	//M
 		 out1<=8'h4D;
-	 else if(in==8'h31)	//N
+	else if(in==8'h31)	//N
 		 out1<=8'h4E;
-	 else if(in==8'h44)	//O
+	else if(in==8'h44)	//O
 		 out1<=8'h4F;	 
 	else if (in==8'h4D)	//P
 		 out1<=8'h50;
 	else if(in==8'h15)	//Q
 		 out1<=8'h51;
-	 else if(in==8'h2D)	//R
+	else if(in==8'h2D)	//R
 		 out1<=8'h52;
-	 else if(in==8'h1B)	//S
+	else if(in==8'h1B)	//S
 		 out1<=8'h53; 
-	 else if(in==8'h2C)	//T
+	else if(in==8'h2C)	//T
 		 out1<=8'h54;
-	 else if(in==8'h3C)	//U
+	else if(in==8'h3C)	//U
 		 out1<=8'h55;
-	 else if(in==8'h2A)	//V
+	else if(in==8'h2A)	//V
 		 out1<=8'h56;
 	else if(in==8'h1D)	//W
 		 out1<=8'h57;
-	 else if(in==8'h22)	//X
+	else if(in==8'h22)	//X
 		 out1<=8'h58;
-	 else if(in==8'h35)	//Y
+	else if(in==8'h35)	//Y
 		 out1<=8'h59;
 	else if(in==8'h1A)	//Z
 		 out1<=8'h5A;
@@ -239,21 +243,21 @@ module mapping(in, out);
 		out1<=8'h30;
 	else if(in==8'h16)	//1
 		 out1<=8'h31;
-	 else if(in==8'h1E)	//2
+	else if(in==8'h1E)	//2
 		 out1<=8'h32;
-	 else if(in==8'h26)	//3
+	else if(in==8'h26)	//3
 		 out1<=8'h33; 
-	 else if(in==8'h25)	//4
+	else if(in==8'h25)	//4
 		 out1<=8'h34;
-	 else if(in==8'h2E)	//5
+	else if(in==8'h2E)	//5
 		 out1<=8'h35;
-	 else if(in==8'h36)	//6
+	else if(in==8'h36)	//6
 		 out1<=8'h36;
 	else if(in==8'h3D)	//7
 		 out1<=8'h37;
-	 else if(in==8'h3E)	//8
+	else if(in==8'h3E)	//8
 		 out1<=8'h38;
-	 else if(in==8'h46)	//9
+	else if(in==8'h46)	//9
 		 out1<=8'h39;
 	else //begin
 		 out1<=8'h00;
