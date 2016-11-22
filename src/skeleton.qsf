@@ -165,42 +165,6 @@ set_location_assignment PIN_H21 -to leds[4]
 set_location_assignment PIN_G20 -to leds[5]
 set_location_assignment PIN_G22 -to leds[6]
 set_location_assignment PIN_G21 -to leds[7]
-set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
-set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH processor_jx35_tb -section_id eda_simulation
-set_global_assignment -name EDA_TEST_BENCH_NAME computeValues_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id computeValues_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME computeValues_tb -section_id computeValues_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME processorCont_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id processorCont_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME processorCont_tb -section_id processorCont_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME instControl_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id instControl_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME instControl_tb -section_id instControl_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME signExt15_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id signExt15_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME signExt15_tb -section_id signExt15_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME processor_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id processor_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME processor_tb -section_id processor_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME sameRegister_5bit_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id sameRegister_5bit_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME sameRegister_5bit_tb -section_id sameRegister_5bit_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME lw_Stall_Logic_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id lw_Stall_Logic_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME lw_Stall_Logic_tb -section_id lw_Stall_Logic_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME statusReg_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id statusReg_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME statusReg_tb -section_id statusReg_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME flushLogic_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id flushLogic_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME flushLogic_tb -section_id flushLogic_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME jx35_alu_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id jx35_alu_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME jx35_alu_tb -section_id jx35_alu_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME processor_jx35_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id processor_jx35_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME processor_jx35_tb -section_id processor_jx35_tb
 set_global_assignment -name MIF_FILE index.mif
 set_global_assignment -name MIF_FILE index_logo.mif
 set_global_assignment -name MIF_FILE img_bars.mif
@@ -230,29 +194,90 @@ set_global_assignment -name VERILOG_FILE vga_controller.v
 set_global_assignment -name VERILOG_FILE video_sync_generator.v
 set_global_assignment -name VERILOG_FILE img_index.v
 set_global_assignment -name VERILOG_FILE img_data.v
-set_global_assignment -name VERILOG_FILE computeValues_tb.v
+set_global_assignment -name VERILOG_FILE instruction_splitter_tb.v
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH processor_pipeline_stall_tb -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_NAME instruction_splitter_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id instruction_splitter_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME instruction_splitter_tb -section_id instruction_splitter_tb
+set_global_assignment -name VERILOG_FILE sign_extender_tb.v
+set_global_assignment -name EDA_TEST_BENCH_NAME sign_extender_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id sign_extender_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME sign_extender_tb -section_id sign_extender_tb
+set_global_assignment -name VERILOG_FILE jump_addresser_tb.v
+set_global_assignment -name EDA_TEST_BENCH_NAME jump_addresser_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id jump_addresser_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME jump_addresser_tb -section_id jump_addresser_tb
+set_global_assignment -name VERILOG_FILE encode_aluop_tb.v
+set_global_assignment -name EDA_TEST_BENCH_NAME encode_aluop_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id encode_aluop_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME encode_aluop_tb -section_id encode_aluop_tb
 set_global_assignment -name VERILOG_FILE processor_tb.v
-set_global_assignment -name VERILOG_FILE processorCont_tb.v
-set_global_assignment -name VERILOG_FILE instControl_tb.v
-set_global_assignment -name VERILOG_FILE signExt15_tb.v
-set_global_assignment -name VERILOG_FILE sameRegister_5bit_tb.v
-set_global_assignment -name VERILOG_FILE lw_Stall_Logic_tb.v
-set_global_assignment -name VERILOG_FILE lw_Stall_Logic_5bit_tb.v
+set_global_assignment -name EDA_TEST_BENCH_NAME processor_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id processor_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME processor_tb -section_id processor_tb
+set_global_assignment -name VERILOG_FILE processor_pipeline_tb.v
+set_global_assignment -name EDA_TEST_BENCH_NAME processor_pipeline_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id processor_pipeline_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME processor_pipeline_tb -section_id processor_pipeline_tb
+set_global_assignment -name VERILOG_FILE stall_logic_tb.v
+set_global_assignment -name EDA_TEST_BENCH_NAME stall_logic_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id stall_logic_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME stall_logic_tb -section_id stall_logic_tb
+set_global_assignment -name VERILOG_FILE flush_logic_tb.v
+set_global_assignment -name EDA_TEST_BENCH_NAME flush_logic_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id flush_logic_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME flush_logic_tb -section_id flush_logic_tb
+set_global_assignment -name VERILOG_FILE processor_pipeline_stall_tb.v
+set_global_assignment -name EDA_TEST_BENCH_NAME processor_pipeline_stall_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id processor_pipeline_stall_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME processor_pipeline_stall_tb -section_id processor_pipeline_stall_tb
+set_global_assignment -name VERILOG_FILE bypass_mem_tb.v
+set_global_assignment -name EDA_TEST_BENCH_NAME bypass_mem_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id bypass_mem_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME bypass_mem_tb -section_id bypass_mem_tb
+set_global_assignment -name VERILOG_FILE bypass_wb_tb.v
+set_global_assignment -name EDA_TEST_BENCH_NAME bypass_wb_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id bypass_wb_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME bypass_wb_tb -section_id bypass_wb_tb
+set_global_assignment -name VERILOG_FILE ternary_tb.v
+set_global_assignment -name EDA_TEST_BENCH_NAME ternary_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id ternary_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME ternary_tb -section_id ternary_tb
 set_global_assignment -name VERILOG_FILE statusReg_tb.v
-set_global_assignment -name VERILOG_FILE flushLogic_tb.v
-set_global_assignment -name VERILOG_FILE jx35_alu_tb.v
+set_global_assignment -name EDA_TEST_BENCH_NAME statusReg_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id statusReg_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME statusReg_tb -section_id statusReg_tb
+set_global_assignment -name VERILOG_FILE check_zero_tb.v
+set_global_assignment -name EDA_TEST_BENCH_NAME check_zero_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id check_zero_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME check_zero_tb -section_id check_zero_tb
+set_global_assignment -name VERILOG_FILE fsm_counter_tb.v
+set_global_assignment -name EDA_TEST_BENCH_NAME fsm_counter_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id fsm_counter_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME fsm_counter_tb -section_id fsm_counter_tb
+set_global_assignment -name VERILOG_FILE multdiv_tb.v
+set_global_assignment -name EDA_TEST_BENCH_NAME multdiv_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id multdiv_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME multdiv_tb -section_id multdiv_tb
 set_global_assignment -name VECTOR_WAVEFORM_FILE waveform1.vwf
-set_global_assignment -name VERILOG_FILE processor_jx35.v
-set_global_assignment -name VERILOG_FILE processor_jx35_tb.v
-set_global_assignment -name EDA_TEST_BENCH_FILE computeValues_tb.v -section_id computeValues_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE processorCont_tb.v -section_id processorCont_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE instControl_tb.v -section_id instControl_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE signExt15_tb.v -section_id signExt15_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE instruction_splitter_tb.v -section_id instruction_splitter_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE sign_extender_tb.v -section_id sign_extender_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE jump_addresser_tb.v -section_id jump_addresser_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE encode_aluop_tb.v -section_id encode_aluop_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE processor_tb.v -section_id processor_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE sameRegister_5bit_tb.v -section_id sameRegister_5bit_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE lw_Stall_Logic_tb.v -section_id lw_Stall_Logic_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE processor_pipeline_tb.v -section_id processor_pipeline_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE stall_logic_tb.v -section_id stall_logic_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE flush_logic_tb.v -section_id flush_logic_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE processor_pipeline_stall_tb.v -section_id processor_pipeline_stall_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE bypass_mem_tb.v -section_id bypass_mem_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE bypass_wb_tb.v -section_id bypass_wb_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE ternary_tb.v -section_id ternary_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE statusReg_tb.v -section_id statusReg_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE flushLogic_tb.v -section_id flushLogic_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE jx35_alu_tb.v -section_id jx35_alu_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE processor_jx35_tb.v -section_id processor_jx35_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE check_zero_tb.v -section_id check_zero_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE fsm_counter_tb.v -section_id fsm_counter_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE multdiv_tb.v -section_id multdiv_tb
+set_global_assignment -name VECTOR_WAVEFORM_FILE reset.vwf
+set_global_assignment -name VERILOG_FILE processor_as577.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -1,0 +1,29 @@
+`timescale 1 ns/ 100 ps
+module bypass_mem_tb();
+
+reg [4:0] opcode_WB, opcode_Mem;
+reg rd_WB, rd_Mem;
+
+wire bypass_mem;
+
+
+bypass_mem bm(bypass_mem,opcode_WB, opcode_Mem, rd_WB, rd_Mem)
+
+initial
+begin
+$display($time, "<<Starting the simulation>> ");
+$monitor("Values of opcode_WB %b, opcode_Mem %b, rd_WB %b, rd_Mem %b, and bypass_Mem %b",opcode_WB, opcode_Mem, rd_WB, rd_Mem, bypass_Mem);
+opcode_WB = 5'b10000;
+opcode_Mem = 5'b10000;
+rd_WB = 0;
+rd_Mem = 0;
+#300
+$stop;
+end
+always
+#20 opcode_WB = ~opcode_WB;
+always
+#40 rd_WB = ~rd_WB;
+always
+#80 rd_Mem = ~rd_Mem;
+endmodule

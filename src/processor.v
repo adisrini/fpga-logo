@@ -1,1680 +1,1723 @@
-//module processor(clock, reset, /*ps2_key_pressed, ps2_out, lcd_write, lcd_data,*/ debug_data_in, debug_address);
+//module processor_as577(clock, reset, /*ps2_key_pressed, ps2_out, lcd_write, lcd_data,*/ debug_data_in, debug_address);
 //
-//	
-//////////////////////////////////////////////Round 0 - INITIALIZE CLOCK/RESET  //////////////////////////////////////////////////////
+//    input           clock, reset/*, ps2_key_pressed*/;
+//    //input     [7:0]   ps2_out;
 //
-//input 	clock, reset/*, ps2_key_pressed*/;
-//	//input 	[7:0]	ps2_out;
-//	
-//	//output 			lcd_write;
-//	//output 	[31:0] 	lcd_data;
-//	
-//	// GRADER OUTPUTS - YOU MUST CONNECT TO YOUR DMEM
-//output 	[31:0] 	debug_data_in;
-//output	[11:0]	debug_address;
+//    //output            lcd_write;
+//    //output    [31:0]  lcd_data;
+//
+//    // GRADER OUTPUTS - YOU MUST CONNECT TO YOUR DMEM
+//    output  [31:0]  debug_data_in;
+//    output  [11:0]  debug_address;
+//
+//    // your processor here
+//    //
+//
+//
+//    // IF_ID STAGE
+//
+//    // PC
+//    wire [31:0] instruction_if_id_in, data_JB, data_NEXT_PC, data_PC_PLUS_ONE_if_id_in, data_PC;
+//	 wire ctrl_stall, ctrl_flush;
+//    wire [31:0] intermediate_next_PC;
+//    assign intermediate_next_PC = (ctrl_stall) ? data_PC : data_PC_PLUS_ONE_if_id_in;
+//    assign data_NEXT_PC = (ctrl_flush) ? data_JB : intermediate_next_PC;
+//    register pc(clock, 1'b1, reset, data_NEXT_PC, data_PC);
+//
+//    // PC = PC + 1
+//    wire ignore0, ignore1, ignore2;
+//    wire [31:0] ignore3, ignore4;
+//    cla add1(data_PC, 32'b1, 1'b0, data_PC_PLUS_ONE_if_id_in, ignore0, ignore1, ignore2, ignore3, ignore4);
+//
+//    imem myimem(.address    (data_PC[11:0]),
+//                    .clken      (1'b1),
+//                    .clock      (~clock),
+//                    .q              (instruction_if_id_in)
+//    );
+//
+//    wire [31:0] instruction_if_id_out, data_PC_PLUS_ONE_if_id_out;
+//    wire [31:0] choose_instruction_if_id_in, intermediate_choose;
+//    assign intermediate_choose = (ctrl_stall) ? instruction_if_id_out : instruction_if_id_in;
+//    assign choose_instruction_if_id_in = (ctrl_flush) ? 32'b0 : intermediate_choose;
+//    stage_IF_ID if_id(clock, reset, 1'b1, choose_instruction_if_id_in, data_PC_PLUS_ONE_if_id_in, instruction_if_id_out, data_PC_PLUS_ONE_if_id_out);
+//
+//            // SPLITTING INSTRUCTION
+//            wire [4:0] data_ID_opcode, data_ID_rd, data_ID_rs, data_ID_rt, data_ID_shamt, data_ID_ALUop;
+//            wire [16:0] data_ID_immediate;
+//            wire [26:0] data_ID_target;
+//
+//            instruction_splitter split_id(instruction_if_id_out, data_ID_opcode, data_ID_rd, data_ID_rs, data_ID_rt, data_ID_shamt, data_ID_ALUop, data_ID_immediate, data_ID_target);
+//
+//            // CONTROLS
+//            wire [4:0] ctrl_ID_ALUop;
+//            wire ctrl_ID_JR, ctrl_ID_JAL, ctrl_ID_DMWE, ctrl_ID_RWd, ctrl_ID_READ1, ctrl_ID_READ2, ctrl_ID_BNE, ctrl_ID_BLT, ctrl_ID_J, ctrl_ID_ALUin, ctrl_ID_RegW, ctrl_ID_SWE, ctrl_WB_RegW, ctrl_WB_RWd;
+//            control ctrl_id(instruction_if_id_out, ctrl_ID_ALUop, ctrl_ID_JR, ctrl_ID_JAL, ctrl_ID_DMWE, ctrl_ID_RWd, ctrl_ID_READ1, ctrl_ID_READ2, ctrl_ID_BNE, ctrl_ID_BLT, ctrl_ID_J, ctrl_ID_ALUin, ctrl_ID_RegW, ctrl_ID_SWE);
+//				
+//				wire is_sw_ID;
+//				assign is_sw_ID = ~instruction_if_id_out[31] & ~instruction_if_id_out[30] & instruction_if_id_out[29] & instruction_if_id_out[28] & instruction_if_id_out[27];
+//
+//            // AUXILLIARY
+//            wire [31:0] extended_ID_immediate;
+//            sign_extender sx_id(data_ID_immediate, extended_ID_immediate);
+//
+//            // REGISTER FILE
+//            wire [4:0] ctrl_ID_WRITE_REG, ctrl_ID_READ_REG1_temp, ctrl_ID_READ_REG2_temp;
+//            wire [31:0] data_readRegA_id_ex_in, data_readRegB_id_ex_in;
+//            assign_registers asgn2(data_ID_rd, data_ID_rs, data_ID_rt, ctrl_ID_READ1, ctrl_ID_READ2, ctrl_ID_JAL, ctrl_ID_READ_REG1_temp, ctrl_ID_READ_REG2_temp);
+//				
+//				wire [4:0] ctrl_ID_READ_REG1, ctrl_ID_READ_REG2;
+//				assign ctrl_ID_READ_REG1 = (is_sw_ID) ? ctrl_ID_READ_REG2_temp : ctrl_ID_READ_REG1_temp;
+//				assign ctrl_ID_READ_REG2 = (is_sw_ID) ? ctrl_ID_READ_REG1_temp : ctrl_ID_READ_REG2_temp;
+//
+//            // REGISTER WRITE DATA
+//            wire [31:0] data_writeReg;
+//
+//            assign stall_ID = ctrl_ID_JR | ctrl_ID_JAL | ctrl_ID_J | ctrl_ID_BNE | ctrl_ID_BLT | (~data_ID_opcode[4] & data_ID_opcode[3] & ~data_ID_opcode[2] & ~data_ID_opcode[1] & ~data_ID_opcode[0]);
+//
+//            regfile_as577 rgfile(~clock, ctrl_WB_RegW, reset, ctrl_ID_WRITE_REG, ctrl_ID_READ_REG1, ctrl_ID_READ_REG2, data_writeReg, data_readRegA_id_ex_in, data_readRegB_id_ex_in);
+//
+//    // ID_EX STAGE
+//    wire [31:0] instruction_id_ex_out, data_PC_PLUS_ONE_id_ex_out, data_readRegA_id_ex_out, data_readRegB_id_ex_out;
+//    wire [31:0] choose_instruction_if_id_out;
+//    assign choose_instruction_if_id_out = (ctrl_stall | ctrl_flush) ? 32'b0 : instruction_if_id_out;
+//    stage_ID_EX id_ex(clock, reset, 1'b1, data_PC_PLUS_ONE_if_id_out, data_readRegA_id_ex_in, data_readRegB_id_ex_in, choose_instruction_if_id_out, data_PC_PLUS_ONE_id_ex_out, data_readRegA_id_ex_out, data_readRegB_id_ex_out, instruction_id_ex_out);
+//
+//            // SPLITTING INSTRUCTION
+//            wire [4:0] data_EX_opcode, data_EX_rd, data_EX_rs, data_EX_rt, data_EX_shamt, data_EX_ALUop;
+//            wire [16:0] data_EX_immediate;
+//            wire [26:0] data_EX_target;
+//
+//            instruction_splitter split_ex(instruction_id_ex_out, data_EX_opcode, data_EX_rd, data_EX_rs, data_EX_rt, data_EX_shamt, data_EX_ALUop, data_EX_immediate, data_EX_target);
+//
+//            // CONTROLS
+//            wire [4:0] ctrl_EX_ALUop;
+//            wire ctrl_EX_JR, ctrl_EX_JAL, ctrl_EX_DMWE, ctrl_EX_RWd, ctrl_EX_READ1, ctrl_EX_READ2, ctrl_EX_BNE, ctrl_EX_BLT, ctrl_EX_J, ctrl_EX_ALUin, ctrl_EX_RegW, ctrl_EX_SWE, ctrl_EX_BEX;
+//            control ctrl_ex(instruction_id_ex_out, ctrl_EX_ALUop, ctrl_EX_JR, ctrl_EX_JAL, ctrl_EX_DMWE, ctrl_EX_RWd, ctrl_EX_READ1, ctrl_EX_READ2, ctrl_EX_BNE, ctrl_EX_BLT, ctrl_EX_J, ctrl_EX_ALUin, ctrl_EX_RegW, ctrl_EX_SWE);
+//				
+//				assign ctrl_EX_BEX = data_EX_opcode[4] & ~data_EX_opcode[3] & data_EX_opcode[2] & data_EX_opcode[1] & ~data_EX_opcode[0];
+//				
+//				// BYPASS EXECUTE STAGE
+//				wire [4:0] ctrl_rr1_EX, ctrl_rr2_EX, ctrl_wr_MEM, ctrl_wr_WB;
+//				wire [1:0] forwardA, forwardB;
+//				wire ctrl_MEM_RegW;
+//				wire is_mem_zero, is_wb_zero;
+//				wire [31:0] instruction_ex_mem_out, instruction_mem_wb_out;
+//				assign is_mem_zero = ~(|instruction_ex_mem_out);
+//				assign is_wb_zero = ~(|instruction_mem_wb_out);
+//				assign ctrl_rr1_EX = (ctrl_EX_READ1) ? data_EX_rd : data_EX_rs;
+//				assign ctrl_rr2_EX = (ctrl_EX_READ2) ? data_EX_rs : data_EX_rt;
+//				bypass_ex bx(is_mem_zero, is_wb_zero, ctrl_rr1_EX, ctrl_rr2_EX, ctrl_wr_MEM, ctrl_wr_WB, ctrl_MEM_RegW, ctrl_WB_RegW, forwardA, forwardB);
+//
+//            // AUXILLIARY
+//            wire [31:0] extended_EX_immediate;
+//            sign_extender sx_ex(data_EX_immediate, extended_EX_immediate);
+//
+//            wire [31:0] data_JUMP_PC, data_BRANCH_PC;
+//
+//            // JUMP AND BRANCH ADDRESSING
+//            wire ignore5, ignore6, ignore7;
+//            wire [31:0] ignore8, ignore9;
+//            jump_addresser ja(data_EX_target, 32'b0, data_JUMP_PC);
+//            cla branch_addresser(extended_EX_immediate, data_PC_PLUS_ONE_id_ex_out, 1'b0, data_BRANCH_PC, ignore5, ignore6, ignore7, ignore8, ignore9);
+//
+//            // ALU
+//            wire [31:0] alu_operandA, alu_operandB, alu_EX_result, data_readRegA_bypassed, data_readRegB_bypassed, alu_MEM_result;
+//            wire isNotEqual, isLessThan, overflow;
+//				
+//				mux4_32bit mx_bypassA(data_readRegA_id_ex_out, data_writeReg, alu_MEM_result, data_readRegA_id_ex_out, forwardA[0], forwardA[1], data_readRegA_bypassed);
+//				mux4_32bit mx_bypassB(data_readRegB_id_ex_out, data_writeReg, alu_MEM_result, data_readRegB_id_ex_out, forwardB[0], forwardB[1], data_readRegB_bypassed);
+//				
+//            assign_alu_operands asgn0(data_readRegA_bypassed, data_readRegB_bypassed, extended_EX_immediate, ctrl_EX_ALUin, alu_operandA, alu_operandB);
+//
+//            as577_alu alu(alu_operandA, alu_operandB, ctrl_EX_ALUop, data_EX_shamt, alu_EX_result, isNotEqual, isLessThan, overflow);
+//
+//				// MULT/DIV
+//				wire [31:0] multdiv_result;
+//				wire ctrl_MULT, ctrl_DIV, data_exception, data_inputRDY, data_resultRDY;
+//				wire is_add, is_sub, is_addi;
+//				assign ctrl_MULT = ~data_EX_opcode[0] & ~data_EX_opcode[1] & ~data_EX_opcode[2] & ~data_EX_opcode[3] & ~data_EX_opcode[4] & ~data_EX_ALUop[0] & data_EX_ALUop[1] & data_EX_ALUop[2] & ~data_EX_ALUop[3] & ~data_EX_ALUop[4];
+//				assign ctrl_DIV = ~data_EX_opcode[0] & ~data_EX_opcode[1] & ~data_EX_opcode[2] & ~data_EX_opcode[3] & ~data_EX_opcode[4] & data_EX_ALUop[0] & data_EX_ALUop[1] & data_EX_ALUop[2] & ~data_EX_ALUop[3] & ~data_EX_ALUop[4];
+//				assign is_add = ~data_EX_opcode[0] & ~data_EX_opcode[1] & ~data_EX_opcode[2] & ~data_EX_opcode[3] & ~data_EX_opcode[4] & ~data_EX_ALUop[0] & ~data_EX_ALUop[1] & ~data_EX_ALUop[2] & ~data_EX_ALUop[3] & ~data_EX_ALUop[4];
+//				assign is_sub = ~data_EX_opcode[0] & ~data_EX_opcode[1] & ~data_EX_opcode[2] & ~data_EX_opcode[3] & ~data_EX_opcode[4] & data_EX_ALUop[0] & ~data_EX_ALUop[1] & ~data_EX_ALUop[2] & ~data_EX_ALUop[3] & ~data_EX_ALUop[4];
+//				assign is_addi = data_EX_opcode[0] & ~data_EX_opcode[1] & data_EX_opcode[2] & ~data_EX_opcode[3] & ~data_EX_opcode[4];
+//				multdiv_as577 multdiv(alu_operandA, alu_operandB, ctrl_MULT, ctrl_DIV, clock, multdiv_result, data_exception, data_inputRDY, data_resultRDY);
+//				
+//            // STATUS
+//            wire [26:0] status_in, status_out;
+//				wire overwrite, status_ovf;
+//				assign status_ovf = (overflow & (is_add | is_sub | is_addi)) | (data_exception & data_resultRDY);
+//            assign_status asgn_sts(instruction_id_ex_out[31:27], instruction_id_ex_out[6:2], status_ovf, data_EX_target, status_in, overwrite);
+//
+//				wire status_write;
+//				assign status_write = ctrl_EX_SWE & overwrite;
+//				
+//            register27 rg_sts(clock, status_write, reset, status_in, status_out);
+//				
+//            wire is_not_noop;
+//            is_not_zero inz(is_not_noop, instruction_if_id_out);
+//
+//            stall_logic sl(is_not_noop, instruction_id_ex_out[31:27], instruction_if_id_out[31:27], instruction_id_ex_out[6:2], instruction_if_id_out[6:2], data_EX_rd, ctrl_ID_READ_REG2, ctrl_ID_READ_REG1, ctrl_stall);
+//            flush_logic fl(instruction_id_ex_out[31:27], isNotEqual, isLessThan, ctrl_flush);
+//
+//            // FIND NEXT PC
+//            jb_PC jb(data_PC_PLUS_ONE_id_ex_out, data_BRANCH_PC, data_JUMP_PC, ctrl_EX_BNE, ctrl_EX_BLT, isNotEqual, isLessThan, data_readRegA_bypassed, ctrl_EX_JR, ctrl_EX_J, ctrl_EX_JAL, ctrl_EX_BEX, status_out, data_JB);
 //		
-//	//just for now!!
-//////all wires here
 //
-////ROUND 1
-//
-////wire [31:0] nextInstructionLocation;
-//wire readyToBegin;
-//wire [31:0] pcReadOut,normalInst_loc, currInst_loc, currInst_32bit,nextPC_afterStall,nextPC;
-//wire [31:0] next_inst_IF_ID_in, instr_IF_ID_in;
-//
-////////////////////////////////////////////CONTROL BITS///////////////////////////////////////////////////////////
-//wire [4:0] rd_IF, rs_IF, rt_IF, shamt_IF, alu_op_IF,opcode_IF;
-//wire [26:0] target_IF;
-//wire [16:0] immediate_IF;
-//wire  rs_rd1_IF, rt_rs2_IF, memToReg_IF, reg_we_IF, mem_we_IF, alu_imm_ctrl_IF;
-//wire br_IF, jump_IF,jal_ctrl_IF,jr_ctrl_IF, bne_blt_IF,STALL_IF,changePC_IF;
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-////ROUND 1-2
-//
-//wire [31:0] next_inst_IF_ID_out, instr_IF_ID_out;
-//
-//wire [31:0] stallResult_IF_ID;
-//
-//
-////ROUND 2
-//wire [31:0] data_readRegA_ID_EX_in, data_readRegB_ID_EX_in, imm_se_ID_EX_in;
-//wire [4:0] read_reg1, read_reg2,read_reg1_temp, read_reg2_temp;
-//wire allZeros;
-//
-////////////////////////////////////////////CONTROL BITS///////////////////////////////////////////////////////////
-//wire [4:0] rd_ID, rs_ID, rt_ID, shamt_ID, alu_op_ID,opcode_ID;
-//wire [26:0] target_ID;
-//wire [16:0] immediate_ID;
-//wire  rs_rd1_ID, rt_rs2_ID, memToReg_ID, reg_we_ID, mem_we_ID, alu_imm_ctrl_ID;
-//wire br_ID, jump_ID,jal_ctrl_ID,jr_ctrl_ID, bne_blt_ID,STALL_ID, changePC_ID;
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//
-////ROUND 3
-//
-//wire data_exception_multdiv, data_inputRDY, data_resultRDY;
-//wire [26:0] status_reg_in, status_reg_out;
-//wire enableStatus,bex_ex, not_AllZeros_27bit,isBEX;
-//wire bne_or_blt, br_mux_ctrl;
-//wire [31:0] data_regA_bypassed, data_regB_bypassed;
-//wire [31:0] pc_immedInst, jumpInst, be_or_NextInst, jump_or_NextInst, jrVal_or_NextInst;
-//wire [31:0] aluImmB;
-//wire isLessThan, isNotEqual, overflow;
-//wire [31:0] alu_result_EX_MEM_in, data_result_mult_div;
-//wire [4:0] read_reg1_BP, read_reg2_BP;
-//wire notEquals0_MEM,notEquals0_WB;
-//wire [1:0] forwardA, forwardB;
-//
-////////////////////////////////////////////CONTROL BITS///////////////////////////////////////////////////////////
-//wire [4:0] rd_EX, rs_EX, rt_EX, shamt_EX, alu_op_EX,opcode_EX;
-//wire [26:0] target_EX;
-//wire [16:0] immediate_EX;
-//wire  rs_rd1_EX, rt_rs2_EX, memToReg_EX, reg_we_EX, mem_we_EX, alu_imm_ctrl_EX;
-//wire br_EX, jump_EX,jal_ctrl_EX,jr_ctrl_EX, bne_blt_EX,STALL_EX, changePC_EX;
-//
-//wire arith_EX, ctrl_div_EX,ctrl_mult_EX,ctrl_mult_div_EX;
-//////////////////////////////////////
-//
-////ROUND 3-4
-//
-////INPUT WIRES//////
-//wire [31:0] instr_EX_MEM_in, next_inst_EX_MEM_in;
-//wire [31:0] data_readRegB_EX_MEM_in;
-//
-//
-////OUTPUT WIRES//////
-//wire [31:0] instr_EX_MEM_out, next_inst_EX_MEM_out;
-//wire [31:0] data_readRegB_EX_MEM_out;
-//wire [31:0] alu_result_EX_MEM_out;
-//
-////ROUND 4
-//
-//wire [31:0] dataMem_output_MEM_WB_in;
-//wire [31:0] bypass_data_WB;
-//wire [4:0] write_reg_mem;
-//wire bypass_mem;
-//
-////////////////////////////////////////////CONTROL BITS///////////////////////////////////////////////////////////
-//wire [4:0] rd_MEM, rs_MEM, rt_MEM, shamt_MEM, alu_op_MEM,opcode_MEM;
-//wire [26:0] target_MEM;
-//wire [16:0] immediate_MEM;
-//wire  rs_rd1_MEM, rt_rs2_MEM, memToReg_MEM, reg_we_MEM, mem_we_MEM, alu_imm_ctrl_MEM;
-//wire br_MEM, jump_MEM,jal_ctrl_MEM,jr_ctrl_MEM, bne_blt_MEM, STALL_MEM,changePC_MEM;
-//wire sw_MEM;
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//
-////ROUND 4-5
-//
-////INPUT WIRES//////
-//wire [31:0] alu_result_MEM_WB_in;
-//wire [31:0] instr_MEM_WB_in, next_inst_MEM_WB_in;
-//assign next_inst_MEM_WB_in = next_inst_EX_MEM_out;
-//assign instr_MEM_WB_in = instr_EX_MEM_out;
-//assign alu_result_MEM_WB_in = alu_result_EX_MEM_out;
-//
-//
-/////OUTPUT WIRES///
-//wire [31:0] instr_MEM_WB_out, next_inst_MEM_WB_out, alu_result_MEM_WB_out, dataMem_output_MEM_WB_out;
-//
-//
-////ROUND 5
-//wire [31:0] data_writeReg;
-//wire [4:0] write_reg_WB, rd_WB_case_multdiv,write_reg_no_multdiv_WB;
-//wire [31:0] alu_or_mem,jal_inst,data_no_multdiv_WB;
-//
-////////////////////////////////////////////CONTROL BITS///////////////////////////////////////////////////////////
-//wire [4:0] rd_WB, rs_WB, rt_WB, shamt_WB, alu_op_WB,opcode_WB;
-//wire [26:0] target_WB;
-//wire [16:0] immediate_WB;
-//wire  rs_rd1_WB, rt_rs2_WB, WBToReg_WB, reg_we_WB, WB_we_WB, alu_imm_ctrl_WB;
-//wire br_WB, jump_WB,jal_ctrl_WB,jr_ctrl_WB, bne_blt_WB,STALL_WB,changePC_WB;
-//wire ctrl_mult_div_WB, arith_WB, ctrl_mult_WB, ctrl_div_WB;
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//
-////////////////////////////////////////////Round 1 - IF //////////////////////////////////////////////////////////////////
-//
-//
-////	imem myimem(	.address 	(pcReadOut[11:0]),   // shouldn't this be pcReadOut???
-////					.clken		(1'b1),
-////					.clock		(clock),
-////					.q			(instr_IF_ID_in) // I think IMEM becomes the instr but not 100% sure.
-////	); 	
-////	//readout goes into an adder.
-//	
-//	
-////	start startfsm(readyToBegin,1'b1,clock,reset);
-//	
-////	multiplexer(nextInstructionLocation, 32'b0, nextPC, readyToBegin);
-//	
-//	imem myimem(	.address 	(pcReadOut[11:0]),   // shouldn't this be pcReadOut???
-//					.clken		(1'b1),
-//					.clock		(~clock),
-//					.q			(currInst_32bit) // I think IMEM becomes the instr but not 100% sure.
-//	); 	
-//	//readout goes into an adder.
-//	
-//	adder32bit_8 firstadder(normalInst_loc, pcReadOut, 32'b1, 1'b0); //adding in this case!
-//	
-//	multiplexer nextPC1(nextPC_afterStall, normalInst_loc, pcReadOut, stallLW);
-//	multiplexer nextPC2(nextPC, nextPC_afterStall, jrVal_or_NextInst, flushJB);
-//	
-//	singleReg pc(pcReadOut, nextPC, clock, reset, 1'b1);
-//	
-////	multiplexer mstall(next_inst_IF_ID_in, normalInst_loc, pcReadOut, stallLW); //not sure if STALL_IF or STALL_ID
-//	
-//	assign next_inst_IF_ID_in = nextPC;
-//	
-//	
-////	multiplexer definiteInstr(currInst_loc, normalInst_loc, jrVal_or_NextInst,STALL_EX);
-//	// view for inputs- adder32bit_8(sum, dataA, dataB, subtractBit);
-//	
-////	multiplexer mstallcurr(instr_in,currInst_32bit, 32'b0, stallLW); //not sure if STALL_IF or STALL_ID
-////	multiplexer mstallcurr(instr_in,currInst_32bit, 32'b0, stallLW); //not sure if STALL_IF or STALL_ID
-//	
-//	
-/////////////////////////Round 1 -> Round 2 Signals (IF/ID)//////////////////////////////////////////////////////
-//
-//
-//multiplexer mstallF_fff(stallResult_IF_ID,currInst_32bit,instr_IF_ID_out, stallLW); //not sure if STALL_IF or STALL_ID
-//
-//multiplexer mFlushF(instr_IF_ID_in, stallResult_IF_ID, 32'b0, flushJB); // flush here;
-//	
-//IF_ID_Register i1(instr_IF_ID_out, next_inst_IF_ID_out, instr_IF_ID_in, next_inst_IF_ID_in, clock, reset);
-//
-//
-/////////////////////////////////////////Round 2 Signals (ID) /////////////////////////////////////////////
-//
-//
-////multiplexer idInst(instr_ID, instr_IF_ID_out, stallLW);
-//
-//
-////CONTROL SIGNALS - ID STAGE
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-//computeValues cv2(opcode_ID, rd_ID, rs_ID, rt_ID, shamt_ID, alu_op_ID, immediate_ID, target_ID, instr_IF_ID_out);
-//instControl icd2(opcode_ID, alu_op_ID, rs_rd1_ID, rt_rs2_ID, memToReg_ID, reg_we_ID, 
-//mem_we_ID, alu_imm_ctrl_ID, br_ID, jump_ID, jal_ctrl_ID,jr_ctrl_ID, bne_blt_ID);
-//
-//and a3122(sw_ID,~opcode_ID[4], ~opcode_ID[3],opcode_ID[2],opcode_ID[1],opcode_ID[0]);   
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//	
-//checkEquality cess(allZeros, instr_IF_ID_out);
-//
-//	// Rd, rs, rt. read ports
-//	multiplexer_5bit read_port1(read_reg1_temp, rs_ID, rd_ID, rs_rd1_ID);
-//	multiplexer_5bit read_port2(read_reg2_temp, rt_ID, rs_ID, rt_rs2_ID);
-//
-//	multiplexer_5bit r_sw1(read_reg1, read_reg1_temp, read_reg2_temp, sw_ID);
-//	multiplexer_5bit r_sw2(read_reg2, read_reg2_temp, read_reg1_temp, sw_ID);
-//
-//	////TEMPORARILY READ ALL REGS!!!!!!
-//wire signed [31:0] reg0, reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, reg10, reg11,
-// reg12, reg13, reg14, reg15, reg16, reg17, reg18, reg19, reg20, reg21, reg22, reg23, 
-// reg24, reg25, reg26, reg27, reg28, reg29, reg30, reg31;
-// 
-// wire [1023:0] allData;
-//
-//  
-// 		regfile_jx35 rex(~clock, reg_we_WB, reset, write_reg_WB, 
-//read_reg1, read_reg2, data_writeReg, data_readRegA_ID_EX_in, data_readRegB_ID_EX_in, allData);
-// 
-//assign reg0 = allData[31:0];
-//assign reg1 = allData[63:32];
-//assign reg2 = allData[95:64];
-//assign reg3 = allData[127:96];
-//assign reg4 = allData[159:128];
-//assign reg5 = allData[191:160];
-//assign reg6 = allData[223:192];
-//assign reg7 = allData[255:224];
-//assign reg8 = allData[287:256];
-//assign reg9 = allData[319:288];
-//assign reg10 = allData[351:320];
-//assign reg11 = allData[383:352];
-//assign reg12 = allData[415:384];
-//assign reg13 = allData[447:416];
-//assign reg14 = allData[479:448];
-//assign reg15 = allData[511:480];
-//assign reg16 = allData[543:512];
-//assign reg17 = allData[575:544];
-//assign reg18 = allData[607:576];
-//assign reg19 = allData[639:608];
-//assign reg20 = allData[671:640];
-//assign reg21 = allData[703:672];
-//assign reg22 = allData[735:704];
-//assign reg23 = allData[767:736];
-//assign reg24 = allData[799:768];
-//assign reg25 = allData[831:800];
-//assign reg26 = allData[863:832];
-//assign reg27 = allData[895:864];
-//assign reg28 = allData[927:896];
-//assign reg29 = allData[959:928];
-//assign reg30 = allData[991:960];
-//assign reg31 = allData[1023:992];
-//
-//signExt15 se(imm_se_ID_EX_in, immediate_ID);
-//
-/////////////////////////////////////Round 2- > Round 3 Signals (ID- EX) //////////////////////////////////////////////////////
-//
-//wire [31:0] instr_ID_EX_in, next_inst_ID_EX_in;
-//wire stallOrFlush;
-//wire [31:0]  instr_ID_EX_out,next_inst_ID_EX_out;
-//wire [31:0] data_readRegA_ID_EX_out, data_readRegB_ID_EX_out, imm_se_ID_EX_out;
-//
-//or stf(stallOrFlush, stallLW, flushJB);
-//
-//multiplexer mstallD_loop(instr_ID_EX_in,instr_IF_ID_out, 32'b0, stallOrFlush); //not sure if STALL_IF or STALL_ID
-//
-////assign instr_ID_EX_in = instr_IF_ID_out;
-//assign next_inst_ID_EX_in = next_inst_IF_ID_out;
-//
-//
-//ID_EX_Register ifexr(instr_ID_EX_out, next_inst_ID_EX_out,
-//data_readRegA_ID_EX_out, data_readRegB_ID_EX_out, imm_se_ID_EX_out, 
-//data_readRegA_ID_EX_in, data_readRegB_ID_EX_in, imm_se_ID_EX_in, next_inst_ID_EX_in,
-//instr_ID_EX_in,clock, reset);
-//
-//
-//////////////////////////////////////////////////Round 3 Signals//////////////////////////////////////////////////////
-//
-//
-////CONTROL SIGNALS - EX STAGE
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//computeValues cv3(opcode_EX, rd_EX, rs_EX, rt_EX, shamt_EX, alu_op_EX, immediate_EX, target_EX, instr_ID_EX_out);
-//instControl ic3(opcode_EX,alu_op_EX, rs_rd1_EX, rt_rs2_EX, memToReg_EX, reg_we_EX, 
-//mem_we_EX, alu_imm_ctrl_EX, br_EX, jump_EX, jal_ctrl_EX,jr_ctrl_EX, bne_blt_EX);
-//and a5324(isBEX,opcode_EX[4], ~opcode_EX[3],opcode_EX[2],opcode_EX[1],~opcode_EX[0]);     // 10110
-//
-//and a53255(arith_EX,~opcode_EX[4], ~opcode_EX[3],~opcode_EX[2],~opcode_EX[1],~opcode_EX[0]);
-//and a53234(ctrl_mult_EX,~alu_op_EX[4], ~alu_op_EX[3],alu_op_EX[2],alu_op_EX[1],~alu_op_EX[0], arith_EX);
-//and a532343(ctrl_div_EX,~alu_op_EX[4], ~alu_op_EX[3],alu_op_EX[2],alu_op_EX[1], alu_op_EX[0], arith_EX);
-//or(ctrl_mult_div_EX,ctrl_mult_EX, ctrl_div_EX);
-//
-//and a3125(sw_EX,~opcode_EX[4], ~opcode_EX[3],opcode_EX[2],opcode_EX[1],opcode_EX[0]);   
-//
-//
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//multiplexer4 m4b1(data_regA_bypassed, data_readRegA_ID_EX_out,data_writeReg,alu_result_EX_MEM_out,data_readRegA_ID_EX_out,forwardA);
-//multiplexer4 m4b2(data_regB_bypassed, data_readRegB_ID_EX_out,data_writeReg,alu_result_EX_MEM_out,data_readRegB_ID_EX_out,forwardB);
-//
-//multiplexer readB_or_immediate(aluImmB, data_regB_bypassed, imm_se_ID_EX_out, alu_imm_ctrl_EX); 
-//
-//jx35_alu alu(data_regA_bypassed, aluImmB, alu_op_EX, shamt_EX,  alu_result_EX_MEM_in, isNotEqual, isLessThan, overflow);
-//
-//multdiv_jx35 mddd(data_regA_bypassed, data_regB_bypassed,ctrl_mult_EX, ctrl_div_EX, clock, data_result_mult_div, data_exception_multdiv, data_inputRDY, data_resultRDY);
-//
-////jx35_alu(data_operandA, data_operandB, ctrl_ALUopcode, ctrl_shiftamt, data_result, isNotEqual, isLessThan, overflow, ctrl_mult_div,clock);
-//
-//adder32bit_8 addd45(pc_immedInst,next_inst_ID_EX_out, imm_se_ID_EX_out, 1'b0); //1 or 4?
-////multiplexer to choose between equalTO and LessThan
-//multiplexer_1bit bne_or_blt_mux(bne_or_blt,isNotEqual, isLessThan, bne_blt_EX);
-//
-////setx and betx are here.
-//statusReg ssssrrrr(status_reg_in, enableStatus, opcode_EX, alu_op_EX, target_EX, overflow,data_exception_multdiv,data_resultRDY);
-//
-//singleReg_27bit s27jump(status_reg_out, status_reg_in, clock, reset, enableStatus);
-//
-//assign jumpInst[26:0] = target_EX;
-//assign jumpInst[31:27] = next_inst_ID_EX_out[31:27];
-//
-//checkEquality_27bit ce2789(not_AllZeros_27bit, status_reg_out);
-//
-//and(bex_ex, not_AllZeros_27bit,isBEX);
-//or(goToTarget, jump_EX, bex_ex);
-//
-//and(br_mux_ctrl, br_EX, bne_or_blt);
-//multiplexer if_mux(be_or_NextInst, next_inst_ID_EX_out, pc_immedInst, br_mux_ctrl);
-//
-//multiplexer next_or_branch(jump_or_NextInst, be_or_NextInst, jumpInst, goToTarget);
-//multiplexer jr_mux(jrVal_or_NextInst, jump_or_NextInst, data_readRegA_ID_EX_out , jr_ctrl_EX); //value can be READ from the 31st register
-//
-////singleReg pc(pcReadOut, jrVal_or_NextInst, clock, reset, 1'b1);
-//// view for inputs- singleReg pc(readOut, writeIn, clk, clr, ena)
-//
-//lw_Stall_Logic isl(stallLW, opcode_EX,opcode_ID, alu_op_EX, alu_op_ID, rd_EX, read_reg1, read_reg2);
-//flushLogic fff(flushJB, opcode_EX, isNotEqual, isLessThan);
-//
-//multiplexer_5bit read_port1BP(read_reg1_BP, rs_EX, rd_EX, rs_rd1_EX);
-//multiplexer_5bit read_port2BP(read_reg2_BP, rt_EX, rs_EX, rt_rs2_EX);
-//
-//checkEquality ce11223(notEquals0_MEM, instr_EX_MEM_out);
-//checkEquality c315324(notEquals0_WB, instr_MEM_WB_out);
-//
-//bypass_EX byp(forwardA, forwardB, reg_we_WB, reg_we_MEM, write_reg_WB, write_reg_mem, read_reg1_BP, read_reg2_BP,notEquals0_MEM,notEquals0_WB);
-//
-/////////////////////////////////////Round 3 - > Round 4 Signals (EX-MEM)//////////////////////////////////////////
-//
-//
-//assign next_inst_EX_MEM_in = next_inst_ID_EX_out;
-//assign instr_EX_MEM_in = instr_ID_EX_out;
-//assign data_readRegB_EX_MEM_in = data_regB_bypassed;
-//
-//EX_MEM_Register emr(instr_EX_MEM_out, 
-//alu_result_EX_MEM_out, data_readRegB_EX_MEM_out, next_inst_EX_MEM_out,
-//alu_result_EX_MEM_in, data_readRegB_EX_MEM_in, next_inst_EX_MEM_in,
-//instr_EX_MEM_in, clock, reset);
-//
-//
-//
-/////////////////////////////////////////////ROUND 4 - MEM//////////////////////////////////////////////////////
-//
-////CONTROL SIGNALS - MEM STAGE
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-//computeValues cv4(opcode_MEM, rd_MEM, rs_MEM, rt_MEM, shamt_MEM, alu_op_MEM, immediate_MEM, target_MEM, instr_EX_MEM_out);
-//instControl ic4(opcode_MEM,alu_op_MEM, rs_rd1_MEM, rt_rs2_MEM, memToReg_MEM, reg_we_MEM, 
-//mem_we_MEM, alu_imm_ctrl_MEM, br_MEM, jump_MEM, jal_ctrl_MEM,jr_ctrl_MEM, bne_blt_MEM);
-//   
-//and a3121(sw_MEM,~opcode_MEM[4], ~opcode_MEM[3],opcode_MEM[2],opcode_MEM[1],opcode_MEM[0], ~opcode_MEM);     
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//bypass_mem bmmmmmmmmm(bypass_mem, reg_we_WB, opcode_MEM,rd_WB, rd_MEM,notEquals0_WB);
-//multiplexer mdatabypass(bypass_data_WB, data_readRegB_EX_MEM_out, data_writeReg, bypass_mem);
-//
-//multiplexer_5bit write_port_mem(write_reg_mem, rd_MEM, 5'b11111, jal_ctrl_MEM);
-//
-//
-//	// CHANGE THIS TO ASSIGN YOUR DMEM WRITE ADDRESS ALSO TO debug_addr
-//	assign debug_data_in = bypass_data_WB;
-//	// CHANGE THIS TO ASSIGN YOUR DMEM DATA INPUT (TO BE WRITTEN) ALSO TO debug_data
-//	multiplexer_12bit datamemplex(debug_address[11:0], alu_result_EX_MEM_out[11:0], data_result_mult_div[11:0],data_resultRDY);
-//	////////////////////////////////////////////////////////////
-//	
-//		
-//	// You'll need to change where the dmem and imem read and write...
-//	dmem mydmem(	.address	(alu_result_EX_MEM_out[11:0]), //(alu_result) , // WHAT GOES HERE?!?!????????????
-//					.clock		(~clock),
-//					.data		(bypass_data_WB), // (datareadRegA) //what goes here?!?!
-//					.wren		(mem_we_MEM),
-//					.q			(dataMem_output_MEM_WB_in) // change where output q goes...
-//	);
-//
-//	
-//////////////////////////////////////Round 4 – 5 signals (MEM-WB) ///////////////////////////////////////////////////////
-//
-//
-//MEM_WB_Register mwbr(instr_MEM_WB_out, next_inst_MEM_WB_out, alu_result_MEM_WB_out, dataMem_output_MEM_WB_out,
-//alu_result_MEM_WB_in, dataMem_output_MEM_WB_in, next_inst_MEM_WB_in, instr_MEM_WB_in, clock, reset);
-//
-//
-// 
-/////////////////////////////////////////Round 5 (WB) ////////////////////////////////////////////////////////////////////////////
-//
-//
-//
-////CONTROL SIGNALS - WB STAGE
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-//computeValues cv5(opcode_WB, rd_WB, rs_WB, rt_WB, shamt_WB, alu_op_WB, immediate_WB, target_WB, instr_MEM_WB_out);
-//instControl ic5(opcode_WB, alu_op_WB, rs_rd1_WB, rt_rs2_WB, memToReg_WB, reg_we_WB, 
-//mem_we_WB, alu_imm_ctrl_WB, br_WB, jump_WB, jal_ctrl_WB,jr_ctrl_WB, bne_blt_WB);
-//and b23(arith_WB,~opcode_WB[4], ~opcode_WB[3],~opcode_WB[2],~opcode_WB[1],~opcode_WB[0]);
-//and b2351(ctrl_mult_WB,~alu_op_WB[4], ~alu_op_WB[3],alu_op_WB[2],alu_op_WB[1],~alu_op_WB[0], arith_WB);
-//and b51(ctrl_div_WB,~alu_op_WB[4], ~alu_op_WB[3],alu_op_WB[2],alu_op_WB[1], alu_op_WB[0], arith_WB);
-//or o315(ctrl_mult_div_WB,ctrl_mult_WB, ctrl_div_WB);
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//singleReg_5bit s516(rd_WB_case_multdiv, rd_WB,clock, reset,ctrl_mult_div_WB);	
-//
-//multiplexer_5bit write_port(write_reg_no_multdiv_WB, rd_WB, 5'b11111, jal_ctrl_WB);
-//multiplexer_5bit write_port_mult(write_reg_WB, write_reg_no_multdiv_WB,rd_WB_case_multdiv, data_resultRDY);
-//
-//multiplexer alu_or_memData(alu_or_mem, alu_result_MEM_WB_out, dataMem_output_MEM_WB_out, memToReg_WB);
-//
-////adder32bit_8 a898987(jal_inst,next_inst_MEM_WB_out, 32'b1, 1'b0); //1 or 4?
-//multiplexer jalLoc_or_aluMem(data_no_multdiv_WB, alu_or_mem,next_inst_MEM_WB_out, jal_ctrl_WB);
-//multiplexer value_or_multdiv(data_writeReg, data_no_multdiv_WB, data_result_mult_div, data_resultRDY);
+//// EX_MEM STAGE
+//wire [31:0] data_PC_PLUS_ONE_ex_mem_out, data_readRegB_ex_mem_out;
+//stage_EX_MEM ex_mem(clock, reset, 1'b1, data_PC_PLUS_ONE_id_ex_out, data_readRegB_bypassed, instruction_id_ex_out, alu_EX_result, data_PC_PLUS_ONE_ex_mem_out, data_readRegB_ex_mem_out, instruction_ex_mem_out, alu_MEM_result);
+//
+//            // SPLITTING INSTRUCTION
+//            wire [4:0] data_MEM_opcode, data_MEM_rd, data_MEM_rs, data_MEM_rt, data_MEM_shamt, data_MEM_ALUop;
+//            wire [16:0] data_MEM_immediate;
+//            wire [26:0] data_MEM_target;
+//
+//            instruction_splitter split_mem(instruction_ex_mem_out, data_MEM_opcode, data_MEM_rd, data_MEM_rs, data_MEM_rt, data_MEM_shamt, data_MEM_ALUop, data_MEM_immediate, data_MEM_target);
+//
+//            // CONTROLS
+//            wire [4:0] ctrl_MEM_ALUop;
+//            wire ctrl_MEM_JR, ctrl_MEM_JAL, ctrl_MEM_DMWE, ctrl_MEM_RWd, ctrl_MEM_READ1, ctrl_MEM_READ2, ctrl_MEM_BNE, ctrl_MEM_BLT, ctrl_MEM_J, ctrl_MEM_ALUin, ctrl_MEM_SWE;
+//            control ctrl_mem(instruction_ex_mem_out, ctrl_MEM_ALUop, ctrl_MEM_JR, ctrl_MEM_JAL, ctrl_MEM_DMWE, ctrl_MEM_RWd, ctrl_MEM_READ1, ctrl_MEM_READ2, ctrl_MEM_BNE, ctrl_MEM_BLT, ctrl_MEM_J, ctrl_MEM_ALUin, ctrl_MEM_RegW, ctrl_MEM_SWE);
+//				
+//				wire [31:0] dmem_data_in_bypassed;
+//				wire bypass;
+//				wire [4:0] data_WB_opcode, data_WB_rd;
+//				bypass_mem bm(is_wb_zero, data_MEM_opcode, ctrl_WB_RegW, data_MEM_rd, data_WB_rd, bypass);
+//				
+//				assign dmem_data_in_bypassed = (bypass) ? data_writeReg : data_readRegB_ex_mem_out;
+//
+//            //////////////////////////////////////
+//            ////// THIS IS REQUIRED FOR GRADING
+//            // CHANGE THIS TO ASSIGN YOUR DMEM WRITE ADDRESS ALSO TO debug_addr
+//            assign debug_data_in = dmem_data_in_bypassed;
+//            // CHANGE THIS TO ASSIGN YOUR DMEM DATA INPUT (TO BE WRITTEN) ALSO TO debug_data
+//            assign debug_address = (data_resultRDY) ? multdiv_result[11:0] : alu_MEM_result[11:0];
+//            ////////////////////////////////////////////////////////////
+//
+//            wire [31:0] data_dmem_out_ex_mem_out;
+//
+//            // You'll need to change where the dmem and imem read and write...
+//            dmem mydmem(.address            (debug_address),
+//                            .clock          (~clock),
+//                            .data           (debug_data_in),
+//                            .wren           (ctrl_MEM_DMWE),
+//                            .q              (data_dmem_out_ex_mem_out)
+//            );
+//				
+//				assign ctrl_wr_MEM = (ctrl_MEM_JAL) ? 5'b11111 : data_MEM_rd;
+//
+//// MEM_WB STAGE
+//wire [31:0] data_PC_PLUS_ONE_mem_wb_out, alu_WB_result, data_dmem_out_mem_wb_out;
+//stage_MEM_WB mem_wb(clock, reset, 1'b1, data_PC_PLUS_ONE_ex_mem_out, instruction_ex_mem_out, alu_MEM_result, data_dmem_out_ex_mem_out, data_PC_PLUS_ONE_mem_wb_out, instruction_mem_wb_out, alu_WB_result, data_dmem_out_mem_wb_out);
+//
+//            // SPLITTING INSTRUCTION
+//            wire [4:0] data_WB_rs, data_WB_rt, data_WB_shamt, data_WB_ALUop;
+//            wire [16:0] data_WB_immediate;
+//            wire [26:0] data_WB_target;
+//
+//            instruction_splitter split_wb(instruction_mem_wb_out, data_WB_opcode, data_WB_rd, data_WB_rs, data_WB_rt, data_WB_shamt, data_WB_ALUop, data_WB_immediate, data_WB_target);
+//
+//            // CONTROLS
+//            wire [4:0] ctrl_WB_ALUop;
+//            wire ctrl_WB_JR, ctrl_WB_JAL, ctrl_WB_DMWE, ctrl_WB_READ1, ctrl_WB_READ2, ctrl_WB_BNE, ctrl_WB_BLT, ctrl_WB_J, ctrl_WB_ALUin, ctrl_WB_SWE;
+//            control ctrl_wb(instruction_mem_wb_out, ctrl_WB_ALUop, ctrl_WB_JR, ctrl_WB_JAL, ctrl_WB_DMWE, ctrl_WB_RWd, ctrl_WB_READ1, ctrl_WB_READ2, ctrl_WB_BNE, ctrl_WB_BLT, ctrl_WB_J, ctrl_WB_ALUin, ctrl_WB_RegW, ctrl_WB_SWE);
+//				
+//				wire is_MULT_WB, is_DIV_WB, reg_num_enable;
+//				wire [4:0] multdiv_reg;
+//				
+//				assign is_MULT_WB = ~data_WB_opcode[0] & ~data_WB_opcode[1] & ~data_WB_opcode[2] & ~data_WB_opcode[3] & ~data_WB_opcode[4] & ~data_WB_ALUop[0] & data_WB_ALUop[1] & data_WB_ALUop[2] & ~data_WB_ALUop[3] & ~data_WB_ALUop[4];
+//				assign is_DIV_WB = ~data_WB_opcode[0] & ~data_WB_opcode[1] & ~data_WB_opcode[2] & ~data_WB_opcode[3] & ~data_WB_opcode[4] & data_WB_ALUop[0] & data_WB_ALUop[1] & data_WB_ALUop[2] & ~data_WB_ALUop[3] & ~data_WB_ALUop[4];
+//				
+//				assign reg_num_enable = is_MULT_WB | is_DIV_WB;
+//				
+//				register5 reg_num(clock, reg_num_enable, reset, data_WB_rd, multdiv_reg);
+//				
+//				wire [31:0] data_writeBack;
+//				assign data_writeReg = (data_resultRDY) ? multdiv_result : data_writeBack;
+//
+//            // REGISTER WRITES
+//            assign_reg_write asgn1(alu_WB_result, data_dmem_out_mem_wb_out, data_PC_PLUS_ONE_mem_wb_out, ctrl_WB_RWd, ctrl_WB_JAL, data_writeBack);
+//				
+//				assign ctrl_ID_WRITE_REG = (ctrl_WB_JAL) ? 5'b11111 : (data_resultRDY) ? multdiv_reg : data_WB_rd;
+//				assign ctrl_wr_WB = ctrl_ID_WRITE_REG;
 //
 //endmodule
 //
-//module start(out,enable,clk,reset);
-//	output out;	 //potentially change								
-//	input enable, clk, reset;
-//	reg out;		//potentially change
-//	initial out = 1'b0;
+//// ASSIGNS BYPASS FOR THE WB/MEM -> EX STAGES
+//module bypass_ex(is_mem_zero, is_wb_zero, rr1_ex, rr2_ex, wr_mem, wr_wb, regW_mem, regW_wb, forwardA, forwardB);
+//	input [4:0] rr1_ex, rr2_ex, wr_mem, wr_wb;
+//	input regW_mem, regW_wb;
+//	input is_mem_zero, is_wb_zero;
+//	output [1:0] forwardA, forwardB;
 //	
-//	always @(negedge clk)
-//	if (reset) begin
-//	  out <= 1'b0;
-//	end else if (enable) begin
-//		//out <= out + 1;
-//		case(out)
-//			1'b0: out <= 1'b1;
-//			1'b1: out <= 1'b1;
-//		endcase
-//	end
-//endmodule 
-//
-//
-////REGISTER MODULES!!!!!
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//module IF_ID_Register(instruction_out, nextInstr_out, instruction_in, nextInstr_in, clock, reset);
-// 
-//	input [31:0] instruction_in, nextInstr_in;
-//	output [31:0] instruction_out, nextInstr_out;
-//	input reset, clock;
+//	wire caseA2, caseB2, caseA1, caseB1;
 //	
-//	singleReg reg1(instruction_out, instruction_in, clock, reset, 1'b1);
-//	singleReg reg2(nextInstr_out, nextInstr_in, clock, reset, 1'b1);
-//		
-//endmodule
-//
-//module ID_EX_Register(instruction_out, nextInstr_out,
-//readResultA_out, readResultB_out, immed_se_out,   
-//readResultA_in, readResultB_in, immed_se_in, nextInstr_in,
-//instruction_in, clock, reset);
-// 
-// 	
-//	input clock, reset;
-// 	input [31:0] instruction_in;
-//	output [31:0] instruction_out;
-// 
-//	input [31:0] readResultA_in, readResultB_in, immed_se_in, nextInstr_in;
-//	output [31:0] readResultA_out, readResultB_out, immed_se_out, nextInstr_out;
+//	wire wr_mem_equals_rr1_ex;
+//	equals_4bit eq0(wr_mem, rr1_ex, wr_mem_equals_rr1_ex);
+//	assign caseA2 = regW_mem & wr_mem_equals_rr1_ex;
 //	
-//	singleReg reg1(instruction_out, instruction_in, clock, reset, 1'b1);
-//	singleReg readResAReg(readResultA_out, readResultA_in , clock, reset, 1'b1);
-//	singleReg readResBReg(readResultB_out,readResultB_in , clock, reset, 1'b1);
-//	singleReg immed_seReg(immed_se_out,immed_se_in , clock, reset, 1'b1);
-//	singleReg instrucLocReg(nextInstr_out, nextInstr_in, clock, reset, 1'b1);
+//	wire wr_mem_equals_rr2_ex;
+//	equals_4bit eq1(wr_mem, rr2_ex, wr_mem_equals_rr2_ex);
+//	assign caseB2 = regW_mem & wr_mem_equals_rr2_ex;
 //	
-//endmodule
-//
-//module EX_MEM_Register(instruction_out,
-//alu_result_out, readRegA_out, nextInstr_out,
-//alu_result_in, readRegA_in, nextInstr_in,
-//instruction_in, clock, reset);
-// 
-//	input clock, reset;
-//	input [31:0] instruction_in;
-//	output [31:0] instruction_out;
+//	wire wr_wb_equals_rr1_ex;
+//	equals_4bit eq2(wr_wb, rr1_ex, wr_wb_equals_rr1_ex);
+//	assign caseA1 = regW_wb & wr_wb_equals_rr1_ex & (~wr_mem_equals_rr1_ex | ~regW_mem);
 //	
-//	input [31:0] nextInstr_in;
-//	output [31:0] nextInstr_out;
+//	wire wr_wb_equals_rr2_ex;
+//	equals_4bit eq3(wr_wb, rr2_ex, wr_wb_equals_rr2_ex);
+//	assign caseB1 = regW_wb & wr_wb_equals_rr2_ex & (~wr_mem_equals_rr2_ex | ~regW_mem);
 //	
-//	input [31:0] alu_result_in, readRegA_in;
-//	output [31:0] alu_result_out, readRegA_out;
-// 
-//	singleReg reg1(instruction_out, instruction_in, clock, reset, 1'b1);
-//	singleReg instrucLocReg(readRegA_out,readRegA_in, clock, reset, 1'b1);
-//	singleReg aluReg(alu_result_out,alu_result_in, clock, reset, 1'b1);
-//	singleReg pcReg(nextInstr_out,nextInstr_in, clock, reset, 1'b1);	
+//	assign forwardA[1] = caseA2 & ~is_mem_zero;
+//	assign forwardB[1] = caseB2 & ~is_mem_zero;
+//	
+//	assign forwardA[0] = caseA1 & ~is_wb_zero;
+//	assign forwardB[0] = caseB1 & ~is_wb_zero;
 //
 //endmodule
 //
-//module MEM_WB_Register(instruction_out, nextInstr_out, alu_result_out, memData_out,
-//alu_result_in, memData_in, nextInstr_in, instruction_in, clock, reset);
-// 
-//	input clock, reset;
-//	input [31:0] instruction_in;
-//	output [31:0] instruction_out;
+//// ASSIGNS BYPASS FOR THE WB -> MEM STAGE
+//module bypass_mem(is_wb_zero, opcode_mem, regW_wb, mem_rd, wb_rd, bypass);
+//	input [4:0] opcode_mem, mem_rd, wb_rd;
+//	input regW_wb, is_wb_zero;
+//	output bypass;
+//
+//	wire mem_is_sw, same_rd;
 //	
-//	input [31:0] nextInstr_in;
-//	output [31:0] nextInstr_out;
+//	assign mem_is_sw = (~opcode_mem[4] & ~opcode_mem[3] & opcode_mem[2] & opcode_mem[1] & opcode_mem[0]);
 //	
-// 	input [31:0] alu_result_in, memData_in;
-//	output [31:0] alu_result_out, memData_out;
+//	equals_4bit eq(mem_rd, wb_rd, same_rd);
 //	
-//	singleReg reg1(instruction_out, instruction_in, clock, reset, 1'b1);
-//	singleReg instrucLocReg(alu_result_out, alu_result_in, clock, reset, 1'b1);
-//	singleReg memData(memData_out, memData_in, clock, reset, 1'b1);
-//	singleReg pcReg(nextInstr_out,nextInstr_in, clock, reset, 1'b1);	
-//	
+//	assign bypass = regW_wb & mem_is_sw & same_rd & ~is_wb_zero;
 //endmodule
 //
-//
-//module instControl(opcode, alu_code, rs_rd1, rt_rs2, memToReg, reg_we, mem_we, alu_imm_ctrl, br, jump, jal_ctrl, jr_ctrl, bne_blt);
-//	input [4:0] opcode;
-//	input [4:0] alu_code;
-//	wire alu, addi, sw, lw, j, bne, jal, jr, blt, bex, setx;	
-//	wire mul, div;
-//
-//	//control bits
-//	output rs_rd1, rt_rs2, memToReg, reg_we, mem_we, alu_imm_ctrl, br, jump, jal_ctrl, jr_ctrl, bne_blt;
-// // for viewing inputs	decoder32(registerOutput, select, writeEnable);
-// 
-// 
-//	// defining the values of alu, addi, sw, lw, .... etc.
-//	and a1(alu,~opcode[4], ~opcode[3],~opcode[2],~opcode[1],~opcode[0]);  // 00000
-//	and a2(addi,~opcode[4], ~opcode[3],opcode[2],~opcode[1],opcode[0]); //00101
-//	and a3(sw,~opcode[4], ~opcode[3],opcode[2],opcode[1],opcode[0]);      // 00111
-//	and a4(lw,~opcode[4], opcode[3],~opcode[2],~opcode[1],~opcode[0]);    // 01000
-//	and a5(j,~opcode[4], ~opcode[3],~opcode[2],~opcode[1],opcode[0]);     //00001
-//	and a6(bne,~opcode[4], ~opcode[3],~opcode[2],opcode[1],~opcode[0]);   // 00010
-//	and a7(jal,~opcode[4], ~opcode[3],~opcode[2],opcode[1],opcode[0]);    //00011
-//	and a8(jr,~opcode[4], ~opcode[3],opcode[2],~opcode[1],~opcode[0]);    // 00100
-//	and a9(blt,~opcode[4], ~opcode[3],opcode[2],opcode[1],~opcode[0]);    // 00110
-//	and a10(bex,opcode[4], ~opcode[3],opcode[2],opcode[1],~opcode[0]);     // 10110
-//	and a11(setx,opcode[4], ~opcode[3],opcode[2],~opcode[1],opcode[0]);    // 10101
-//	
-//	and a16(mul, ~alu_code[4], ~alu_code[3],alu_code[2],alu_code[1],~alu_code[0], alu);
-//	and a17(div, ~alu_code[4], ~alu_code[3],alu_code[2],alu_code[1],alu_code[0], alu);
-//	
-//	// defining the values of the ctrl bits
-//	or(rs_rd1, sw, bne, jr, blt);
-//	or(rt_rs2, sw, bne,blt);
-//	assign memToReg = lw;
-//	
-//	and(alu_no_multdiv, alu, ~mul, ~div);
-//	or or2(reg_we, alu_no_multdiv, addi, lw, jal);
-//	or or3(jump, j,jal,jr);
-//	assign mem_we = sw;
-//	or or4(alu_imm_ctrl, addi, lw, sw);
-//	or or5(br, bne, blt);
-//	assign jal_ctrl = jal;
-//	assign jr_ctrl = jr;
-//	assign bne_blt = blt;
-//	
+//// FLUSH LOGIC
+//module flush_logic(opcode_EX, isNotEqual, isLessThan, ctrl_flush);
+//    input [4:0] opcode_EX;
+//    input isNotEqual, isLessThan;
+//    output ctrl_flush;
+//    
+//    wire bne_success, blt_success, jump_general, bex;
+//    
+//    assign bne_success = ~opcode_EX[4] & ~opcode_EX[3] & ~opcode_EX[2] & opcode_EX[1] & ~opcode_EX[0] & isNotEqual;
+//    assign blt_success = ~opcode_EX[4] & ~opcode_EX[3] & opcode_EX[2] & opcode_EX[1] & ~opcode_EX[0] & isLessThan;
+//    assign jump_general = (~opcode_EX[4] & ~opcode_EX[3] & ~opcode_EX[2] & ~opcode_EX[1] & opcode_EX[0]) | (~opcode_EX[4] & ~opcode_EX[3] & ~opcode_EX[2] & opcode_EX[1] & opcode_EX[0]) | (~opcode_EX[4] & ~opcode_EX[3] & opcode_EX[2] & ~opcode_EX[1] & ~opcode_EX[0]);
+//	 assign bex = opcode_EX[4] & ~opcode_EX[3] & opcode_EX[2] & opcode_EX[1] & ~opcode_EX[0];
+//    
+//    assign ctrl_flush = bne_success | blt_success | jump_general | bex;
 //endmodule
 //
-//module statusReg(statusOut, enable, opcode, alu_code, target, overflow_add_sub, overflow_mult_div, ctrl_mult_div_ready);
-//	
-//	input [4:0] opcode, alu_code;
-//	input [26:0] target;
-//	input overflow_add_sub,ctrl_mult_div_ready,overflow_mult_div;
-//	output [26:0] statusOut;
-//	output enable;
-//	
-//	wire alu, addi, bex, setx;	
-//	wire add, sub, mul, div;
-//	
-//	wire [26:0] isOne;
-//	wire possibleOF_ops_mult_div,possibleOF_ops_add_sub,isOne_case1,isOne_case2;
-//	
-//	and a1(alu,~opcode[4], ~opcode[3],~opcode[2],~opcode[1],~opcode[0]);  // 00000
-//	and a2(addi,~opcode[4], ~opcode[3],opcode[2],~opcode[1],opcode[0]); //00101
-////	and a3(sw,~opcode[4], ~opcode[3],opcode[2],opcode[1],opcode[0]);      // 00111
-////	and a4(lw,~opcode[4], opcode[3],~opcode[2],~opcode[1],~opcode[0]);    // 01000
-////	and a5(j,~opcode[4], ~opcode[3],~opcode[2],~opcode[1],opcode[0]);     //00001
-////	and a6(bne,~opcode[4], ~opcode[3],~opcode[2],opcode[1],~opcode[0]);   // 00010
-////	and a7(jal,~opcode[4], ~opcode[3],~opcode[2],opcode[1],opcode[0]);    //00011
-////	and a8(jr,~opcode[4], ~opcode[3],opcode[2],~opcode[1],~opcode[0]);    // 00100
-////	and a9(blt,~opcode[4], ~opcode[3],opcode[2],opcode[1],~opcode[0]);    // 00110
-//	and a10(bex,opcode[4], ~opcode[3],opcode[2],opcode[1],~opcode[0]);     // 10110
-//	and a11(setx,opcode[4], ~opcode[3],opcode[2],~opcode[1],opcode[0]);    // 10101
-//	
-//	and a12(add, ~alu_code[4], ~alu_code[3],~alu_code[2],~alu_code[1],~alu_code[0], alu);
-//	and a13(sub, ~alu_code[4], ~alu_code[3],~alu_code[2],~alu_code[1], alu_code[0], alu);
-//	and a16(mul, ~alu_code[4], ~alu_code[3],alu_code[2],alu_code[1],~alu_code[0], alu);
-//	and a17(div, ~alu_code[4], ~alu_code[3],alu_code[2],alu_code[1],alu_code[0], alu);
-//	
-//	or o1(possibleOF_ops_add_sub, addi, add, sub);
-//	
-//	and(isOne_case1, possibleOF_ops_add_sub, overflow_add_sub);
-//	and(isOne_case2, ctrl_mult_div_ready, overflow_mult_div);
-//
-//	or(isOne[0],isOne_case1,isOne_case2);
-//	
-//	assign isOne[26:1] = 26'b0;
-//	
-//	assign enable = isOne[0] || setx; 
-//	
-//	multiplexer_27bit m27bit(statusOut, isOne, target, setx);
-//	
+//// DETERMINES WHETHER 32 BIT IS NOT ZERO
+//module is_not_zero(is_not_zero, in);
+//    input [31:0] in;
+//    output is_not_zero;
+//    
+//    wire intermediate;
+//    assign is_not_zero = in[0] | in[1] | in[2] | in[3] | in[4] | in[5] | in[6] | in[7] | in[8] | in[9] | in[10] | in[11] | in[12] | in[13] | in[14] | in[15] | in[16] | in[17] | in[18] | in[19] | in[20] | in[21] | in[22] | in[23] | in[24] | in[25] | in[26] | in[27] | in[28] | in[29] | in[30] | in[31];   
 //endmodule
 //
-//module lw_Stall_Logic(stallLW, opcode_A, opcode_B, alu_code_A, alu_code_B, a_write, b_read1, b_read2);
+//// DETERMINES WHETHER STALL SHOULD OCCUR
+//module stall_logic(is_not_noop, opcode_DX, opcode_ID, alu_opcode_DX, alu_opcode_ID, rd_DX, rr2_ID, rr1_ID, ctrl_stall);
+//    input [4:0] opcode_DX, opcode_ID, alu_opcode_DX, alu_opcode_ID, rd_DX, rr2_ID, rr1_ID;
+//    input is_not_noop;
+//    output ctrl_stall;
+//    
+//    wire arith, addi, bne, blt, lw, sw, j, jal, jr, bex, setx, add, sub, mul, div;
+//    
+//    opcode_decode dc(opcode_ID, arith, addi, sw, lw, j, bne, jal, jr, blt, bex, setx);
+//    
+//    assign add = arith & (~alu_opcode_ID[4] & ~alu_opcode_ID[3] & ~alu_opcode_ID[2] & ~alu_opcode_ID[1] & ~alu_opcode_ID[0]);
+//    assign sub = arith & (~alu_opcode_ID[4] & ~alu_opcode_ID[3] & ~alu_opcode_ID[2] & ~alu_opcode_ID[1] & alu_opcode_ID[0]);
+//    assign mul = arith & (~alu_opcode_ID[4] & ~alu_opcode_ID[3] & alu_opcode_ID[2] & alu_opcode_ID[1] & ~alu_opcode_ID[0]);
+//    assign div = arith & (~alu_opcode_ID[4] & ~alu_opcode_ID[3] & alu_opcode_ID[2] & alu_opcode_ID[1] & alu_opcode_ID[0]);
+//	 assign andi = arith & (~alu_opcode_ID[4] & ~alu_opcode_ID[3] & ~alu_opcode_ID[2] & alu_opcode_ID[1] & ~alu_opcode_ID[0]);
+//	 assign ori = arith & (~alu_opcode_ID[4] & ~alu_opcode_ID[3] & ~alu_opcode_ID[2] & alu_opcode_ID[1] & alu_opcode_ID[0]);
+//    
+//    wire mul_EX, div_EX;
+//    assign mul_EX = (~opcode_DX[4] & ~opcode_DX[3] & ~opcode_DX[2] & ~opcode_DX[1] & ~opcode_DX[0]) & (~alu_opcode_DX[4] & ~alu_opcode_DX[3] & alu_opcode_DX[2] & alu_opcode_DX[1] & ~alu_opcode_DX[0]);
+//    assign div_EX = (~opcode_DX[4] & ~opcode_DX[3] & ~opcode_DX[2] & ~opcode_DX[1] & ~opcode_DX[0]) & (~alu_opcode_DX[4] & ~alu_opcode_DX[3] & alu_opcode_DX[2] & alu_opcode_DX[1] & alu_opcode_DX[0]);
 //
-//	input [4:0] opcode_A, opcode_B, a_write,b_read1, b_read2, alu_code_A, alu_code_B;
-//	output stallLW;
-//	wire case1, case2, correctCom_case1, correctCom_case2, totalCase1, totalCase2,totalCase3, lw_A,mul_A, div_A;
-//	wire alu, addi, sw, lw, j, bne, jal, jr, blt, bex, setx;	
-//	wire add, sub, and_alu, or_alu, sll, sra, mul, div;
-//		
-//	and a1233(lw_A,~opcode_A[4], opcode_A[3],~opcode_A[2],~opcode_A[1],~opcode_A[0]);  // 01000
-//	and a1234(alu_A,~opcode_A[4], ~opcode_A[3],~opcode_A[2],~opcode_A[1],~opcode_A[0]);  // 01000
-//	and a1235(mul_A, ~alu_code_A[4], ~alu_code_A[3],alu_code_A[2],alu_code_A[1],~alu_code_A[0], alu_A);
-//	and a1236(div_A, ~alu_code_A[4], ~alu_code_A[3],alu_code_A[2],alu_code_A[1],alu_code_A[0], alu_A);
-//	
-//	
-//	and a1(alu,~opcode_B[4], ~opcode_B[3],~opcode_B[2],~opcode_B[1],~opcode_B[0]);  // 00000
-//	and a2(addi,~opcode_B[4], ~opcode_B[3],opcode_B[2],~opcode_B[1],opcode_B[0]); //00101
-//	and a3(sw,~opcode_B[4], ~opcode_B[3],opcode_B[2],opcode_B[1],opcode_B[0]);      // 00111
-//	and a4(lw,~opcode_B[4], opcode_B[3],~opcode_B[2],~opcode_B[1],~opcode_B[0]);    // 01000
-//	and a5(j,~opcode_B[4], ~opcode_B[3],~opcode_B[2],~opcode_B[1],opcode_B[0]);     //00001
-//	and a6(bne,~opcode_B[4], ~opcode_B[3],~opcode_B[2],opcode_B[1],~opcode_B[0]);   // 00010
-//	and a7(jal,~opcode_B[4], ~opcode_B[3],~opcode_B[2],opcode_B[1],opcode_B[0]);    //00011
-//	and a8(jr,~opcode_B[4], ~opcode_B[3],opcode_B[2],~opcode_B[1],~opcode_B[0]);    // 00100
-//	and a9(blt,~opcode_B[4], ~opcode_B[3],opcode_B[2],opcode_B[1],~opcode_B[0]);    // 00110
-//	and a10(bex,opcode_B[4], ~opcode_B[3],opcode_B[2],opcode_B[1],~opcode_B[0]);     // 10110
-//	and a11(setx,opcode_B[4], ~opcode_B[3],opcode_B[2],~opcode_B[1],opcode_B[0]);    // 10101
-//	
-//	and a12(add, ~alu_code_B[4], ~alu_code_B[3],~alu_code_B[2],~alu_code_B[1],~alu_code_B[0], alu);
-//	and a13(sub, ~alu_code_B[4], ~alu_code_B[3],~alu_code_B[2],~alu_code_B[1], alu_code_B[0], alu);
-//	and a18(and_alu, ~alu_code_B[4], ~alu_code_B[3],~alu_code_B[2],alu_code_B[1],~alu_code_B[0], alu);
-//	and a19(or_alu, ~alu_code_B[4], ~alu_code_B[3],~alu_code_B[2],alu_code_B[1],alu_code_B[0], alu);
-//	and a14(sll, ~alu_code_B[4], ~alu_code_B[3],alu_code_B[2],~alu_code_B[1],~alu_code_B[0], alu);	
-//	and a15(sra, ~alu_code_B[4], ~alu_code_B[3],alu_code_B[2],~alu_code_B[1],alu_code_B[0], alu);
-//	and a16(mul, ~alu_code_B[4], ~alu_code_B[3],alu_code_B[2],alu_code_B[1],~alu_code_B[0], alu);
-//	and a17(div, ~alu_code_B[4], ~alu_code_B[3],alu_code_B[2],alu_code_B[1],alu_code_B[0], alu);
-//
-//	sameRegister_5bit sr1(case1,a_write, b_read1);
-//	sameRegister_5bit sr2(case2,a_write, b_read2);
-//		
-//	or o1(correctCom_case1, sw,lw, alu, addi, bne, blt, jr);
-//	or o2(correctCom_case2, add, sub , and_alu,or_alu,mul, div, bne, blt);
-//	
-//	or or3(totalCase3, mul_A, div_A);
-//	
-//	and a50(totalCase1, correctCom_case1, case1, lw_A);
-//	and a51(totalCase2, correctCom_case2, case2, lw_A);
-//	
-//	or final(stallLW,  totalCase1, totalCase2, totalCase3);
-//	
+//    wire is_lw, rd_DX_equals_rr2_ID, rd_DX_equals_rr1_ID;
+//    
+//    assign is_lw = ~opcode_DX[4] & opcode_DX[3] & ~opcode_DX[2] & ~opcode_DX[1] & ~opcode_DX[0];
+//    equals_4bit eq0(rd_DX, rr2_ID, rd_DX_equals_rr2_ID);
+//    equals_4bit eq1(rd_DX, rr1_ID, rd_DX_equals_rr1_ID);
+//    
+//    wire case1, case2;
+//    assign case1 = is_lw & is_not_noop & rd_DX_equals_rr1_ID & (arith | addi | bne | blt | lw | jr | sw);
+//    assign case2 = is_lw & is_not_noop & rd_DX_equals_rr2_ID & (add | sub | mul | div | bne | blt | andi | ori);
+//    
+//    assign ctrl_stall = case1 | case2 | mul_EX | div_EX;
 //endmodule
 //
-//
-//module flushLogic(flush, opcode, isNotEqual, isLessThan);
-//
-//	input [4:0] opcode;
-//	input isNotEqual, isLessThan;
-//	
-//	output flush;
-//	wire case1_a, case1_b, case2;
-//	wire j, bne, jal, jr, blt, bex;
-//	
-//	and a5(j,~opcode[4], ~opcode[3],~opcode[2],~opcode[1],opcode[0]);     //00001
-//	and a6(bne,~opcode[4], ~opcode[3],~opcode[2],opcode[1],~opcode[0]);   // 00010
-//	and a7(jal,~opcode[4], ~opcode[3],~opcode[2],opcode[1],opcode[0]);    //00011
-//	and a8(jr,~opcode[4], ~opcode[3],opcode[2],~opcode[1],~opcode[0]);    // 00100
-//	and a9(blt,~opcode[4], ~opcode[3],opcode[2],opcode[1],~opcode[0]);    // 00110
-//	and a10(bex,opcode[4], ~opcode[3],opcode[2],opcode[1],~opcode[0]);     // 10110
-//	
-//	and(case1_a, isNotEqual, bne);
-//	and(case1_b, isLessThan, blt);
-//	
-//	or(case2, j, jal, jr, bex);
-//	
-//	or(flush, case1_a, case1_b, case2);
-//	
+//// DETERMINES WHETHER 4-BIT WIRES ARE EQUAL
+//module equals_4bit(data_A, data_B, equals);
+//    input [4:0] data_A, data_B;
+//    output equals;
+//    
+//    wire eq0, eq1, eq2, eq3, eq4;
+//    
+//    assign eq0 = data_A[0] ^ data_B[0];
+//    assign eq1 = data_A[1] ^ data_B[1];
+//    assign eq2 = data_A[2] ^ data_B[2];
+//    assign eq3 = data_A[3] ^ data_B[3];
+//    assign eq4 = data_A[4] ^ data_B[4];
+//    
+//    assign equals = ~(eq0 | eq1 | eq2 | eq3 | eq4);
 //endmodule
 //
-//module bypass_EX(forward_A, forward_B, w_en_wb, w_en_mem, write_reg_wb, write_reg_mem, read_reg1, read_reg2, mem_InstNotZero, WB_InstNotZero);
-//	
-//	input w_en_wb, w_en_mem;
-//	input [4:0] write_reg_wb, write_reg_mem, read_reg1, read_reg2;
-//	
-//	input mem_InstNotZero, WB_InstNotZero;
-//	
-//	output [1:0] forward_A, forward_B;
+//// LATCH BETWEEN FETCH AND DECODE STAGE
+//module stage_IF_ID(clock, reset, wren, instruction_if_id_in, data_PC_PLUS_ONE_if_id_in, instruction_if_id_out, data_PC_PLUS_ONE_if_id_out);
+//    input clock, reset, wren;
+//    input [31:0] instruction_if_id_in, data_PC_PLUS_ONE_if_id_in;
+//    output [31:0] instruction_if_id_out, data_PC_PLUS_ONE_if_id_out;
 //
-//	wire sameReg_2A, sameReg_2B, sameReg_1A, sameReg_1B;
-//	
-//	sameRegister_5bit sr1(sameReg_2A, write_reg_mem, read_reg1);
-//	sameRegister_5bit sr2(sameReg_2B, write_reg_mem, read_reg2);
-//	
-//	sameRegister_5bit sr3(sameReg_1A, write_reg_wb, read_reg1);
-//	sameRegister_5bit sr4(sameReg_1B, write_reg_wb, read_reg2);
-//	
-//	assign forward_A[1] = w_en_mem & sameReg_2A & mem_InstNotZero;
-//	assign forward_B[1] = w_en_mem & sameReg_2B & mem_InstNotZero;
-//		
-//	assign forward_A[0] = w_en_wb & sameReg_1A & (~sameReg_2A ||  ~w_en_mem) & WB_InstNotZero;
-//	assign forward_B[0] = w_en_wb & sameReg_1B & (~sameReg_2B ||  ~w_en_mem) & WB_InstNotZero;
-//
-//endmodule
-//	
-//module bypass_mem(bypass_mem,reg_write_ctrl, opcode_Mem, rd_WB, rd_Mem, WB_InstNotZero);
-//
-//	input reg_write_ctrl;
-//	input [4:0] opcode_Mem;
-//	input [4:0] rd_WB, rd_Mem;
-//	input WB_InstNotZero;
-//	
-//	wire equalWire, sw_Mem;
-//	
-//	output bypass_mem;
-//
-//	and a3(sw_Mem,~opcode_Mem[4], ~opcode_Mem[3],opcode_Mem[2],opcode_Mem[1],opcode_Mem[0]);      // 00111
-//	
-//	sameRegister_5bit srg(equalWire, rd_WB, rd_Mem);
-//	
-//	and a28(bypass_mem,reg_write_ctrl, sw_Mem, equalWire, WB_InstNotZero);
-//
+//    register rg1(clock, wren, reset, instruction_if_id_in, instruction_if_id_out);
+//    register rg2(clock, wren, reset, data_PC_PLUS_ONE_if_id_in, data_PC_PLUS_ONE_if_id_out);
 //endmodule
 //
-//module computeValues(opcode, rd, rs, rt, shamt, alu_op, immediate, target, instr);
-//		input [31:0] instr;
-//		output [4:0] rd, rs, rt, shamt, alu_op,opcode;
-//		output [26:0] target;
-////		output [1:0] zeroes_R;
-//		output [16:0] immediate;
-////		output [21:0] zeroes_J;
-//		
-//		wire [4:0] aluOpNormal;
-//		
-//		wire [1:0] select;
-//		
-//		wire sw, lw, blt, bne, add, sub, aluReg,addi;
-//		
-//		assign opcode = instr[31:27];
-//		
-//		and a0(aluReg,~opcode[4], ~opcode[3],~opcode[2],~opcode[1],~opcode[0]);
-//		and a1(sw,~opcode[4], ~opcode[3],opcode[2],opcode[1],opcode[0]);
-//		and a2(lw,~opcode[4], opcode[3],~opcode[2],~opcode[1],~opcode[0]);
-//		and a3(addi,~opcode[4], ~opcode[3],opcode[2],~opcode[1],opcode[0]);
-//		and a4(blt,~opcode[4], ~opcode[3],opcode[2],opcode[1],~opcode[0]);
-//		and a5(bne,~opcode[4], ~opcode[3],~opcode[2],opcode[1],~opcode[0]);
-//		
-//		or o1(add, sw, lw, addi);
-//		or o2(sub, blt,bne);
-//		
-//		or o3(select[0], sub, aluReg);
-//		or o4(select[1], add, aluReg);
-//		
-//		
-//		//Setting Status here, based on the ALU code ....//
-////		and a6(setStatusAdd, ~alu_op[4], ~alu_op[3],~alu_op[2],~alu_op[1],~alu_op[0]);
-////		and a7(setStatusSub, ~alu_op[4], ~alu_op[3],~alu_op[2],~alu_op[1],alu_op[0]);
-////		and a8(setStatusMult, ~alu_op[4], ~alu_op[3],alu_op[2],alu_op[1],~alu_op[0]);
-////		and a9(setStatusDiv, ~alu_op[4], ~alu_op[3],alu_op[2],alu_op[1],alu_op[0]);
-//		////////////////////////////////////////////////////////////////////////
-//		////////////////////////////////////////////////////////////////////////
-//		
-//		assign rd = instr[26:22];
-//		assign rs = instr[21:17];
-//		assign rt = instr[16:12];
-//		assign shamt = instr[11:7];
-//		assign aluOpNormal = instr[6:2];
-////		assign zeroes_R = instr[1:0];
-//		assign immediate = instr[16:0];
-//		assign target = instr[26:0];
-////		assign zeroes_J = instr[21:0];
-//		multiplexer4_5bit mp(alu_op, 5'b00000 ,5'b00001, 5'b00000, aluOpNormal, select);
-//		
+//// LATCH BETWEEN DECODE AND EXECUTE STAGE
+//module stage_ID_EX(clock, reset, wren, data_PC_PLUS_ONE_if_id_out, data_readRegA_id_ex_in, data_readRegB_id_ex_in, instruction_if_id_out, data_PC_PLUS_ONE_id_ex_out, data_readRegA_id_ex_out, data_readRegB_id_ex_out, instruction_id_ex_out);
+//    input clock, reset, wren;
+//    input [31:0] instruction_if_id_out, data_PC_PLUS_ONE_if_id_out, data_readRegA_id_ex_in, data_readRegB_id_ex_in;
+//    output [31:0] instruction_id_ex_out, data_PC_PLUS_ONE_id_ex_out, data_readRegA_id_ex_out, data_readRegB_id_ex_out;
+//
+//    register rg1(clock, wren, reset, instruction_if_id_out, instruction_id_ex_out);
+//    register rg2(clock, wren, reset, data_PC_PLUS_ONE_if_id_out, data_PC_PLUS_ONE_id_ex_out);
+//    register rg3(clock, wren, reset, data_readRegA_id_ex_in, data_readRegA_id_ex_out);
+//    register rg4(clock, wren, reset, data_readRegB_id_ex_in, data_readRegB_id_ex_out);
 //endmodule
 //
-//module signExt15(out, in);
+//// LATCH BETWEEN EXECUTE AND MEMORY STAGE
+//module stage_EX_MEM(clock, reset, wren, data_PC_PLUS_ONE_id_ex_out, data_readRegA_id_ex_out, instruction_id_ex_out, alu_EX_result, data_PC_PLUS_ONE_ex_mem_out, data_readRegA_ex_mem_out, instruction_ex_mem_out, alu_MEM_result);
+//    input clock, reset, wren;
+//    input [31:0] data_PC_PLUS_ONE_id_ex_out, data_readRegA_id_ex_out, instruction_id_ex_out, alu_EX_result;
+//    output [31:0] data_PC_PLUS_ONE_ex_mem_out, data_readRegA_ex_mem_out, instruction_ex_mem_out, alu_MEM_result;
 //
-//	input [16:0] in;
-//	output [31:0] out;
-//	genvar i;
-//	generate
-//	for (i = 31; i > 16; i = i-1) begin: adderFullLoop
-//		assign out[i] = in[16];
-//	end
-//	endgenerate
-//	
-//	assign out[16:0] = in;
+//    register rg1(clock, wren, reset, data_PC_PLUS_ONE_id_ex_out, data_PC_PLUS_ONE_ex_mem_out);
+//    register rg2(clock, wren, reset, data_readRegA_id_ex_out, data_readRegA_ex_mem_out);
+//    register rg3(clock, wren, reset, instruction_id_ex_out, instruction_ex_mem_out);
+//    register rg4(clock, wren, reset, alu_EX_result, alu_MEM_result);
 //endmodule
 //
-//module basicShiftLeft2(out, in);
+//// LATCH BETWEEN MEMORY AND WRITE-BACK STAGE
+//module stage_MEM_WB(clock, reset, wren, data_PC_PLUS_ONE_ex_mem_out, instruction_ex_mem_out, alu_MEM_result, data_dmem_out_ex_mem_out, data_PC_PLUS_ONE_mem_wb_out, instruction_mem_wb_out, alu_WB_result, data_dmem_out_mem_wb_out);
+//    input clock, reset, wren;
+//    input [31:0] data_PC_PLUS_ONE_ex_mem_out, instruction_ex_mem_out, alu_MEM_result, data_dmem_out_ex_mem_out;
+//    output [31:0] data_PC_PLUS_ONE_mem_wb_out, instruction_mem_wb_out, alu_WB_result, data_dmem_out_mem_wb_out;
 //
+//    register rg1(clock, wren, reset, data_PC_PLUS_ONE_ex_mem_out, data_PC_PLUS_ONE_mem_wb_out);
+//    register rg2(clock, wren, reset, instruction_ex_mem_out, instruction_mem_wb_out);
+//    register rg3(clock, wren, reset, alu_MEM_result, alu_WB_result);
+//    register rg4(clock, wren, reset, data_dmem_out_ex_mem_out, data_dmem_out_mem_wb_out);
+//endmodule
+//
+//// ASSIGNS THE STATUS BASED ON INSTRUCTION AND OVERFLOW
+//module assign_status(data_opcode, alu_opcode, data_overflow, data_target, data_status, overwrite);
+//    input [4:0] data_opcode, alu_opcode;
+//	 input [26:0] data_target;
+//    input data_overflow;
+//    output [26:0] data_status;
+//	 output overwrite;
+//
+//    wire i_arith, i_add, i_addi, i_sub, i_mul, i_div, i_setx;
+//	 
+//	 assign i_arith = ~data_opcode[0] & ~data_opcode[1] & ~data_opcode[2] & ~data_opcode[3] & ~data_opcode[4];
+//    assign i_add = i_arith & ~alu_opcode[0] & ~alu_opcode[1] & ~alu_opcode[2] & ~alu_opcode[3] & ~alu_opcode[4];
+//    assign i_sub = i_arith & alu_opcode[0] & ~alu_opcode[1] & ~alu_opcode[2] & ~alu_opcode[3] & ~alu_opcode[4];
+//    assign i_mul = i_arith & ~alu_opcode[0] & alu_opcode[1] & alu_opcode[2] & ~alu_opcode[3] & ~alu_opcode[4];
+//    assign i_div = i_arith & alu_opcode[0] & alu_opcode[1] & alu_opcode[2] & ~alu_opcode[3] & ~alu_opcode[4];
+//    assign i_setx = data_opcode[0] & ~data_opcode[1] & data_opcode[2] & ~data_opcode[3] & data_opcode[4];
+//	 assign i_addi = data_opcode[0] & ~data_opcode[1] & data_opcode[2] & ~data_opcode[3] & ~data_opcode[4];
+//
+//    wire [26:0] inter0;
+//
+//    assign inter0 = ((i_add | i_addi | i_sub | i_mul | i_div) & data_overflow) ? 27'b1 : 27'b0;
+//
+//    assign data_status = (i_setx) ? data_target : inter0;
+//	 assign overwrite = i_setx | ((i_add | i_addi | i_sub | i_mul | i_div) & data_overflow);
+//endmodule
+//
+//// DETERMINES THE NEXT PC VALUE
+//module jb_PC(data_PC_PLUS_ONE, data_BRANCH_PC, data_JUMP_PC, ctrl_BNE, ctrl_BLT, isNotEqual, isLessThan, data_readRegA, ctrl_JR, ctrl_J, ctrl_JAL, ctrl_BEX, data_status, data_NEXT_PC);
+//    input [31:0] data_PC_PLUS_ONE, data_BRANCH_PC, data_JUMP_PC, data_readRegA;
+//	 input [26:0] data_status;
+//    input ctrl_BNE, ctrl_BLT, isNotEqual, isLessThan, ctrl_JR, ctrl_J, ctrl_JAL, ctrl_BEX;
+//    output [31:0] data_NEXT_PC;
+//
+//	 wire is_status_zero;
+//	 is_zero27bits iz(data_status, is_status_zero);
+//	 
+//    wire ctrl_BRANCH, ctrl_JUMP;
+//    assign ctrl_BRANCH = (ctrl_BNE & isNotEqual) | (ctrl_BLT & isLessThan);
+//    assign ctrl_JUMP = ctrl_JR | ctrl_J | ctrl_JAL | (ctrl_BEX & ~is_status_zero);
+//
+//    wire [31:0] inter0, inter1;
+//    assign inter0 = (ctrl_BRANCH) ? data_BRANCH_PC : data_PC_PLUS_ONE;
+//    assign inter1 = (ctrl_JUMP) ? data_JUMP_PC : inter0;
+//    assign data_NEXT_PC = (ctrl_JR) ? data_readRegA : inter1;
+//endmodule
+//
+//// CHECKS IF 27 BIT NUMBER IS 0
+//module is_zero27bits(in, out);
 //	input [26:0] in;
-//	output [28:0] out;
-//	genvar i;
-//	generate
-//	for (i = 28; i >= 2; i = i-1) begin: adderFullLoop
-//		assign out[i] = in[i-2];
-//	end
-//	endgenerate
-//	
-//	assign out[1:0] = 2'b00;
-//	
-//endmodule
-//
-//module multiplexer4_5bit(out,input0, input1, input2, input3, selectBits);
-//	input [4:0] input0, input1, input2, input3;
-//	input [1:0] selectBits;
-//	wire[4:0] w1, w2;
-//	output [4:0] out;
-//	multiplexer_5bit m1 (w1, input0,input1, selectBits[0]),
-//	        m2 (w2, input2, input3, selectBits[0]),
-//	        m3 (out, w1, w2,selectBits[1]);
-//endmodule
-//
-//module multiplexer_27bit(out,input1, input2, selectBit);
-//	input [26:0] input1, input2;
-//	input selectBit;
-//	output [26:0] out;
-//	genvar i;
-//	generate
-//	for (i = 0; i < 27; i = i+1) begin: multiplexerLoop
-//		assign out[i] = selectBit ? input2[i]:input1[i];
-//	end
-//	endgenerate
-//	
-//	//Case select = 0: input1
-//	//Case select = 1: input2
-//endmodule	
-//
-//module multiplexer_12bit(out,input1, input2, selectBit);
-//	input [11:0] input1, input2;
-//	input selectBit;
-//	output [11:0] out;
-//	genvar i;
-//	generate
-//	for (i = 0; i < 12; i = i+1) begin: multiplexerLoop
-//		assign out[i] = selectBit ? input2[i]:input1[i];
-//	end
-//	endgenerate
-//	
-//	//Case select = 0: input1
-//	//Case select = 1: input2
-//endmodule	
-//
-//module multiplexer_5bit(out,input1, input2, selectBit);
-//	input [4:0] input1, input2;
-//	input selectBit;
-//	output [4:0] out;
-//	genvar i;
-//	generate
-//	for (i = 0; i < 5; i = i+1) begin: multiplexerLoop
-//		assign out[i] = selectBit ? input2[i]:input1[i];
-//	end
-//	endgenerate
-//	
-//	//Case select = 0: input1
-//	//Case select = 1: input2
-//endmodule	
-//
-//module multiplexer_1bit(out,input1, input2, selectBit);
-//	input input1, input2;
-//	input selectBit;
 //	output out;
-//	assign out = selectBit ? input2:input1;
+//	wire [26:0] temp;
 //	
-//	//Case select = 0: input1
-//	//Case select = 1: input2
-//endmodule	
-//
-//
-//module sameRegister_5bit(same, inputA, inputB);
-//	input [4:0] inputA, inputB;
-//	wire[4:0] dataResult;
-//	wire [4:0] tempOutput;
-//	
-//
-//	genvar j;
-//	generate
-//	for (j = 0; j < 5; j = j+1) begin: xorloops
-//		xor xa(dataResult[j], inputA[j],inputB[j]);
-//	end
-//	endgenerate
-//	
-//	output same;
-//	
-//	assign tempOutput[0] = dataResult[0];
+//	assign temp[0] = in[0];
 //	genvar i;
 //	generate
-//	for (i = 1; i < 5; i = i+1) begin: adderLoop 
-//		or(tempOutput[i], dataResult[i], tempOutput[i-1]);
+//	for(i = 1; i < 27; i = i + 1) begin: loop
+//		or(temp[i], in[i], temp[i - 1]);
 //	end
 //	endgenerate
 //	
-//	not(same,tempOutput[4]);
+//	assign out = ~temp[26];
+//endmodule
+//
+//// ASSIGNS REGISTER VALUE TO WRITE BASED ON CONTROLS
+//module assign_reg_write(alu_result, data_dmem_out, data_PC_PLUS_ONE, ctrl_RWd, ctrl_JAL, data_writeReg);
+//    input [31:0] alu_result, data_dmem_out, data_PC_PLUS_ONE;
+//    input ctrl_RWd, ctrl_JAL;
+//    output [31:0] data_writeReg;
+//
+//    wire [31:0] intermediate;
+//    assign intermediate = (ctrl_RWd) ? data_dmem_out : alu_result;
+//    assign data_writeReg = (ctrl_JAL) ? data_PC_PLUS_ONE : intermediate;
+//endmodule
+//
+//// ASSIGNS ALU OPERANDS BASED ON CONTROLS
+//module assign_alu_operands(data_readRegA, data_readRegB, extended_immediate, ctrl_ALUin, alu_operandA, alu_operandB);
+//    input [31:0] data_readRegA, data_readRegB, extended_immediate;
+//    input ctrl_ALUin;
+//    output [31:0] alu_operandA, alu_operandB;
+//
+//    assign alu_operandA = data_readRegA;
+//    assign alu_operandB = (ctrl_ALUin) ? extended_immediate : data_readRegB;
+//endmodule
+//
+//// ASSIGNS THE REGISTERS TO READ/WRITE BASED ON CONTROLS
+//module assign_registers(data_rd, data_rs, data_rt, ctrl_READ1, ctrl_READ2, ctrl_JAL, ctrl_READ_REG1, ctrl_READ_REG2);
+//    input [4:0] data_rd, data_rs, data_rt;
+//    input ctrl_READ1, ctrl_READ2, ctrl_JAL;
+//    output [4:0] ctrl_READ_REG1, ctrl_READ_REG2;
+//
+//    assign ctrl_READ_REG1 = (ctrl_READ1) ? data_rd : data_rs;
+//    assign ctrl_READ_REG2 = (ctrl_READ2) ? data_rs : data_rt;
+//endmodule
+//
+//// CONTROL
+//// TAKES OPCODE AND DETERMINES WHAT THE CONTROL SIGNALS SHOULD BE
+//module control(data_instruction, ctrl_ALUop, ctrl_JR, ctrl_JAL, ctrl_DMWE, ctrl_RWd, ctrl_READ1, ctrl_READ2, ctrl_BNE, ctrl_BLT, ctrl_J, ctrl_ALUin, ctrl_RegW, ctrl_SWE);
+//    input [31:0] data_instruction;
+//    output [4:0] ctrl_ALUop;
+//    output ctrl_JR, ctrl_JAL, ctrl_DMWE, ctrl_RWd, ctrl_READ1, ctrl_READ2, ctrl_BNE, ctrl_BLT, ctrl_J, ctrl_ALUin, ctrl_RegW, ctrl_SWE;
+//
+//    wire i_arith, i_addi, i_sw, i_lw, i_j, i_bne, i_jal, i_jr, i_blt, i_bex, i_setx;
+//
+//    opcode_decode dec(data_instruction[27 +: 5], i_arith, i_addi, i_sw, i_lw, i_j, i_bne, i_jal, i_jr, i_blt, i_bex, i_setx);
+//
+//    // ALU operation assignment
+//    encode_ALUop enc(data_instruction, ctrl_ALUop);
+//
+//    wire i_add, i_sub, i_mul, i_div;
+//
+//    assign i_add = i_arith & ~data_instruction[2] & ~data_instruction[3] & ~data_instruction[4] & ~data_instruction[5] & ~data_instruction[6];
+//    assign i_sub = i_arith & data_instruction[2] & ~data_instruction[3] & ~data_instruction[4] & ~data_instruction[5] & ~data_instruction[6];
+//    assign i_mul = i_arith & ~data_instruction[2] & data_instruction[3] & data_instruction[4] & ~data_instruction[5] & ~data_instruction[6];
+//    assign i_div = i_arith & data_instruction[2] & data_instruction[3] & data_instruction[4] & ~data_instruction[5] & ~data_instruction[6];
+//
+//    // Trivial assignments
+//    assign ctrl_JR = i_jr;
+//    assign ctrl_JAL = i_jal;
+//    assign ctrl_J = i_j;
+//    assign ctrl_BNE = i_bne;
+//    assign ctrl_BLT = i_blt;
+//    assign ctrl_DMWE = i_sw;
+//    assign ctrl_RWd = i_lw;
+//    assign ctrl_SWE = i_addi | i_setx | (i_arith & (i_add | i_sub | i_mul | i_div));
+//
+//    // Complex assignments
+//    assign ctrl_ALUin = i_addi | i_sw | i_lw;
+//    assign ctrl_RegW = (i_arith & ~i_mul & ~i_div) | i_addi | i_lw | i_jal;
+//    assign ctrl_READ1 = i_sw | i_bne | i_blt | i_jr;// if high, choose $rd, else $rs
+//    assign ctrl_READ2 = i_sw | i_bne | i_blt;           // if high, choose $rs, else $rt
+//
+//    // READ1:
+//    //      $rd: sw, bne, blt, jr
+//    //      $rs: everywhere else
+//    //
+//    // READ2:
+//    //      $rs: sw, bne, blt
+//    //      $rt: everywhere else
 //
 //endmodule
 //
-//module singleReg_27bit(readOut, writeIn, clk, clr, ena);
+//// TAKES IN OPCODE AND OUTPUTS 1-HOT WIRE FOR ACTIVE INSTRUCTION
+//module opcode_decode(opcode, i_arith, i_addi, i_sw, i_lw, i_j, i_bne, i_jal, i_jr, i_blt, i_bex, i_setx);
+//    input [4:0] opcode;
+//    output i_arith, i_addi, i_sw, i_lw, i_j, i_bne, i_jal, i_jr, i_blt, i_bex, i_setx;
 //
-//	input clk, clr, ena;
-//	input [26:0] writeIn;
-//	output [26:0] readOut;
-//	wire clrn;
-//	assign clrn = ~clr;
-//	
-//	genvar i;
-//	generate
-//	for (i = 0; i < 27; i = i+1) begin: loop1
-//		dffe currDFFE(.d(writeIn[i]), .clk(clk), .clrn(clrn), .prn(1'b1), .ena(ena), .q(readOut[i]));
-//	end
-//	endgenerate
+//    // i_arith governs all ALU operations (add, sub, and, or, sll, sra, mul, div, and custom_r)
+//    assign i_arith = ~opcode[4] & ~opcode[3] & ~opcode[2] & ~opcode[1] & ~opcode[0];
 //
-//endmodule
 //
-//module singleReg_5bit(readOut, writeIn, clk, clr, ena);
+//    assign i_addi = ~opcode[4] & ~opcode[3] & opcode[2] & ~opcode[1] & opcode[0];
 //
-//	input clk, clr, ena;
-//	input [4:0] writeIn;
-//	output [4:0] readOut;
-//	wire clrn;
-//	assign clrn = ~clr;
-//	
-//	genvar i;
-//	generate
-//	for (i = 0; i < 5; i = i+1) begin: loop1
-//		dffe currDFFE(.d(writeIn[i]), .clk(clk), .clrn(clrn), .prn(1'b1), .ena(ena), .q(readOut[i]));
-//	end
-//	endgenerate
+//    assign i_sw = ~opcode[4] & ~opcode[3] & opcode[2] & opcode[1] & opcode[0];
+//
+//    assign i_lw = ~opcode[4] & opcode[3] & ~opcode[2] & ~opcode[1] & ~opcode[0];
+//
+//    assign i_j = ~opcode[4] & ~opcode[3] & ~opcode[2] & ~opcode[1] & opcode[0];
+//
+//    assign i_bne = ~opcode[4] & ~opcode[3] & ~opcode[2] & opcode[1] & ~opcode[0];
+//
+//    assign i_jal = ~opcode[4] & ~opcode[3] & ~opcode[2] & opcode[1] & opcode[0];
+//
+//    assign i_jr = ~opcode[4] & ~opcode[3] & opcode[2] & ~opcode[1] & ~opcode[0];
+//
+//    assign i_blt = ~opcode[4] & ~opcode[3] & opcode[2] & opcode[1] & ~opcode[0];
+//
+//    assign i_bex = opcode[4] & ~opcode[3] & opcode[2] & opcode[1] & ~opcode[0];
+//
+//    assign i_setx = opcode[4] & ~opcode[3] & opcode[2] & ~opcode[1] & opcode[0];
 //
 //endmodule
 //
-//module checkEquality_27bit(notEquals0, dataResult);
-//	input [26:0] dataResult;
-//	
-//	wire [26:0] tempOutput;
-//	output notEquals0;
-//	
-//	assign tempOutput[0] = dataResult[0];
-//	genvar i;
-//	generate
-//	for (i = 1; i < 27; i = i+1) begin: adderLoop 
-//		or(tempOutput[i], dataResult[i], tempOutput[i-1]);
-//	end
-//	endgenerate
-//	
-//	assign notEquals0 = tempOutput[26];
+//// TAKES IN OPCODE AND OUTPUTS CORRECT ALU OPCODE (verified)
+//// NOTE: if opcode doesn't have a particular ALU op, it'll be 00000
+//module encode_ALUop(data_instruction, ctrl_ALUop);
+//    input [31:0] data_instruction;
+//    output [4:0] ctrl_ALUop;
+//
+//    // Extract the opcode from instruction
+//    wire [4:0] opcode;
+//    assign opcode = data_instruction[27 +:  5];
+//
+//    // Assign the options for ALU opcode
+//    wire [4:0] option_ALUop, option_SUB, option_ADD;
+//    assign option_ALUop = data_instruction[2 +: 5];
+//    assign option_SUB = 5'b00001;
+//    assign option_ADD = 5'b00000;
+//
+//    // Determine select bits
+//    wire s0, s1;
+//    assign s1 = (opcode[0] & opcode[1] & opcode[2] & ~opcode[3] & ~opcode[4]) | (opcode[0] & ~opcode[1] & opcode[2] & ~opcode[3] & ~opcode[4]) | (~opcode[0] & ~opcode[1] & ~opcode[2] & opcode[3] & ~opcode[4]) | (~opcode[0] & ~opcode[1] & ~opcode[2] & ~opcode[3] & ~opcode[4]);
+//    assign s0 = (~opcode[0] & opcode[1] & ~opcode[2] & ~opcode[3] & ~opcode[4]) | (~opcode[0] & opcode[1] & opcode[2] & ~opcode[3] & ~opcode[4]) | (~opcode[0] & ~opcode[1] & ~opcode[2] & ~opcode[3] & ~opcode[4]);
+//
+//    // Select option based on select bits
+//    mux4_5bit mx(5'b00000, option_SUB, option_ADD, option_ALUop, s0, s1, ctrl_ALUop);
+//
+//endmodule
+//
+//// PADS THE JUMP ADDRESS FROM 27-BITS TO 32-BITS (verified)
+//module jump_addresser(data_jump_address, data_PC_address, data_output_address);
+//    input [26:0] data_jump_address;
+//    input [31:0] data_PC_address;
+//    output [31:0] data_output_address;
+//
+//    assign data_output_address[0 +: 27] = data_jump_address;
+//    assign data_output_address[27 +: 5] = data_PC_address[27 +: 5];
+//endmodule
+//
+//// SIGN EXTENDS 17-BIT INPUT TO 32-BIT OUTPUT (verified)
+//module sign_extender(data_input, data_output);
+//    input [16:0] data_input;
+//    output [31:0] data_output;
+//
+//    wire msb = data_input[16];
+//
+//    assign data_output[0 +: 17] = data_input[0 +: 17];
+//
+//    genvar i;
+//    generate
+//        for(i = 17; i < 32; i = i + 1) begin: fillLoop
+//            assign data_output[i] = msb;
+//        end
+//    endgenerate
+//
+//endmodule
+//
+//// SPLITS 32-BIT INSTRUCTION INTO DIFFERENT CHUNKS (verified)
+//module instruction_splitter(data_instruction, data_opcode, data_rd, data_rs, data_rt, data_shamt, data_ALUop, data_immediate, data_target);
+//    input [31:0] data_instruction;
+//    output [4:0] data_opcode, data_rd, data_rs, data_rt, data_shamt, data_ALUop;
+//    output [16:0] data_immediate;
+//    output [26:0] data_target;
+//
+//    assign data_opcode = data_instruction[27 +: 5];
+//    assign data_rd = data_instruction[22 +: 5];
+//    assign data_rs = data_instruction[17 +: 5];
+//    assign data_rt = data_instruction[12 +: 5];
+//    assign data_shamt = data_instruction[7 +: 5];
+//    assign data_ALUop = data_instruction[2 +: 5];
+//    assign data_immediate = data_instruction[0 +: 17];
+//    assign data_target = data_instruction[0 +: 27];
 //endmodule
 //
 //
-////////////////// RECYCLED CODE BELOW!!! ALU.
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//module jx35_alu(data_operandA, data_operandB, ctrl_ALUopcode, ctrl_shiftamt, data_result, isNotEqual, isLessThan, overflow);
-//   input [31:0] data_operandA, data_operandB;
-//   input [4:0] ctrl_ALUopcode, ctrl_shiftamt;
-//   output [31:0] data_result;
-//   output isNotEqual, isLessThan, overflow;
-//	
-//	wire[31:0] adderResult, andOrResult,shiftResult;
-//	
-//	adder32bit_8 theAdder(adderResult, data_operandA, data_operandB, ctrl_ALUopcode[0]);
-//	andOr32bit andOr(andOrResult, data_operandA, data_operandB,ctrl_ALUopcode[0]);
-//	shiftOperator so(shiftResult, data_operandA, ctrl_shiftamt,ctrl_ALUopcode[0]);
-//	multiplexer4 multiplex(data_result, adderResult,andOrResult, shiftResult,32'b0,ctrl_ALUopcode[2:1]);
-//	
-//	isLT itl(isLessThan, data_operandA[31], data_operandB[31], data_result[31]);
+//// DON'T GO DOWN THERE UNLESS YOU NEED TO CHANGE HOW REGFILE/ALU/MULTDIV WORK
+////
+////
+////
+////  SRSLY KEEP OUT
+////
+////
+////
+////
 //
-//	overFlowChecker ofc(overflow, data_operandA[31], data_operandB[31], data_result[31], ctrl_ALUopcode[0]);
-//	checkEquality ce(isNotEqual, data_result);
-//endmodule
-//	
-//module isLT(itl,digitA, digitB, diff);
-//	input digitA, digitB, diff;
-//	wire c1,c2,c3,c4,not1b, not1a, notdiff;
-//	output itl;
-//	
-//	not n1a(not1a, digitA);
-//	not n1b(not1b, digitB);
-//	not ndiff(notdiff,diff);
-//	and case1(c1, digitA, digitB, diff);
-//	and case2(c2, not1a, not1b, diff);
-//	and case3(c3, digitA, not1b,diff);
-//	and case4(c4, digitA, not1b,notdiff);
-//	or(itl, c1,c2,c3,c4);
-//endmodule
 //
-//module overFlowChecker(overFlow, digit1A,digit1B,result1,addSub);
-//	input digit1A, digit1B, result1,addSub;
-//	wire c1,c2,c3,c4, not1b, not1a, notresult, notaddSub;
-//	output overFlow;
-//	
-//	not n1a(not1a, digit1A);
-//	not n1b(not1b, digit1B);
-//	not nresult(notresult, result1);
-//	not nadd(notaddSub, addSub);
-//	
-//	and case1(c1, not1a, not1b, result1, notaddSub);
-//	and case2(c2, digit1A, digit1B, notresult, notaddSub);
-//	and case3(c3, digit1A, not1b, notresult, addSub);
-//	and case4(c4, not1a, digit1B, result1, addSub);
-//	or(overFlow, c1,c2,c3,c4);
+//
+//
+////
+//// Arithmetic Logic Unit (ALU)
+////
+//module as577_alu(data_operandA, data_operandB, ctrl_ALUopcode, ctrl_shiftamt, data_result, isNotEqual, isLessThan, overflow);
+//    input [31:0] data_operandA, data_operandB;
+//    input [4:0] ctrl_ALUopcode, ctrl_shiftamt;
+//    output [31:0] data_result;
+//    output isNotEqual, isLessThan, overflow;
+//
+//    wire [31:0] wire_chooseOp;
+//    decoder d1(ctrl_ALUopcode, 1'b1, wire_chooseOp);
+//
+//    wire [31:0] data_adder, data_and, data_or, data_shift, zeros;
+//	 assign zeros = 32'b0;
+//
+//    // load added/subbed bits into wire
+//    cla c0(data_operandA, data_operandB, ctrl_ALUopcode[0], data_adder, isNotEqual, isLessThan, overflow, data_and, data_or);
+//
+//    // load shifted bits into wire
+//    shiftXbits sxb(data_operandA, ctrl_ALUopcode[0], ctrl_shiftamt, data_shift);
+//
+//    // channeling output of decoder through tristates into data output
+//    tristate ts0(data_adder, wire_chooseOp[0], data_result);
+//    tristate ts1(data_adder, wire_chooseOp[1], data_result);
+//    tristate ts2(data_and, wire_chooseOp[2], data_result);
+//    tristate ts3(data_or, wire_chooseOp[3], data_result);
+//    tristate ts4(data_shift, wire_chooseOp[4], data_result);
+//    tristate ts5(data_shift, wire_chooseOp[5], data_result);
+//    tristate ts6(zeros, wire_chooseOp[6], data_result);
+//    tristate ts7(zeros, wire_chooseOp[7], data_result);
+//
 //endmodule
 //
-//module checkEquality(notEquals0, dataResult);
-//	input [31:0] dataResult;
-//	
-//	wire [31:0] tempOutput;
-//	output notEquals0;
-//	
-//	assign tempOutput[0] = dataResult[0];
-//	genvar i;
-//	generate
-//	for (i = 1; i < 32; i = i+1) begin: adderLoop 
-//		or(tempOutput[i], dataResult[i], tempOutput[i-1]);
-//	end
-//	endgenerate
-//	
-//	assign notEquals0 = tempOutput[31];
-//endmodule
+//// TRISTATE BUFFER (verified)
+//module tristate(in, oe, out);
+//    input oe;
+//    input [31:0] in;
+//    output [31:0] out;
 //
-//module ALU1bit(g, p, dataA, dataB);
-//	input dataA, dataB;
-//	output g, p;
-//	and and1(g,dataA,dataB);
-//	or or1(p, dataA, dataB);
+//    // propagate if enabled else impede
+//    assign out = oe ? in : 32'bz;
 //endmodule
 //
 //
-//module adder8bit(sum, carryFinal, totalG, totalP, dataA, dataB,carryIn);
-//	input [7:0] dataA, dataB;
-//	input carryIn;
-//	output [7:0] sum;
-//	output carryFinal;
-//	wire [8:0] carryOut;
-//	output totalG, totalP;
-//	wire[7:0] g, p;
-//	wire[8:0] toOutG, toOutP;
-//	assign toOutP[0] = 1;
-//	assign toOutG[0] = 0;
-//	assign carryOut[0] = carryIn;
-//	
-//	genvar i;
-//	generate
-//	for (i = 0; i < 8; i = i+1) begin: adderLoop 
-//		wire p_c;
-//		ALU1bit alu(g[i], p[i], dataA[i], dataB[i]);
-//		and pc(p_c, p[i], carryOut[i]);
-//		xor xor1(sum[i], dataA[i], dataB[i], carryOut[i]);
-//		or or1(carryOut[i+1],g[i], p_c);
-//	end
-//	endgenerate
-//	
-//	genvar j;
-//	generate
-//	for (j = 0; j < 8; j = j+1) begin: adderLoop2nd
-//		wire temp;
-//		and andP(toOutP[j+1], p[7-j], toOutP[j]);
-//		and andtemp(temp, g[7-j], toOutP[j]);
-//		or orG(toOutG[j+1], toOutG[j], temp);
-//	end
-//	endgenerate
-//	
-//	assign carryFinal = carryOut[8];
-//	assign totalG= toOutG[8];
-//	assign totalP= toOutP[8];
-//	
+//// 5-TO-32 DECODER (verified)
+//module decoder(s, we, out);
+//    input we;
+//    input [4:0] s;
+//    output [31:0] out;
+//
+//    assign out[0] = (we) ? (~s[4] & ~s[3] & ~s[2] & ~s[1] & ~s[0]) : 1'b0;
+//    assign out[1] = (we) ? (~s[4] & ~s[3] & ~s[2] & ~s[1] & s[0]) : 1'b0;
+//    assign out[2] = (we) ? (~s[4] & ~s[3] & ~s[2] & s[1] & ~s[0]) : 1'b0;
+//    assign out[3] = (we) ? (~s[4] & ~s[3] & ~s[2] & s[1] & s[0]) : 1'b0;
+//    assign out[4] = (we) ? (~s[4] & ~s[3] & s[2] & ~s[1] & ~s[0]) : 1'b0;
+//    assign out[5] = (we) ? (~s[4] & ~s[3] & s[2] & ~s[1] & s[0]) : 1'b0;
+//    assign out[6] = (we) ? (~s[4] & ~s[3] & s[2] & s[1] & ~s[0]) : 1'b0;
+//    assign out[7] = (we) ? (~s[4] & ~s[3] & s[2] & s[1] & s[0]) : 1'b0;
+//    assign out[8] = (we) ? (~s[4] & s[3] & ~s[2] & ~s[1] & ~s[0]) : 1'b0;
+//    assign out[9] = (we) ? (~s[4] & s[3] & ~s[2] & ~s[1] & s[0]) : 1'b0;
+//    assign out[10] = (we) ? (~s[4] & s[3] & ~s[2] & s[1] & ~s[0]) : 1'b0;
+//    assign out[11] = (we) ? (~s[4] & s[3] & ~s[2] & s[1] & s[0]) : 1'b0;
+//    assign out[12] = (we) ? (~s[4] & s[3] & s[2] & ~s[1] & ~s[0]) : 1'b0;
+//    assign out[13] = (we) ? (~s[4] & s[3] & s[2] & ~s[1] & s[0]) : 1'b0;
+//    assign out[14] = (we) ? (~s[4] & s[3] & s[2] & s[1] & ~s[0]) : 1'b0;
+//    assign out[15] = (we) ? (~s[4] & s[3] & s[2] & s[1] & s[0]) : 1'b0;
+//    assign out[16] = (we) ? (s[4] & ~s[3] & ~s[2] & ~s[1] & ~s[0]) : 1'b0;
+//    assign out[17] = (we) ? (s[4] & ~s[3] & ~s[2] & ~s[1] & s[0]) : 1'b0;
+//    assign out[18] = (we) ? (s[4] & ~s[3] & ~s[2] & s[1] & ~s[0]) : 1'b0;
+//    assign out[19] = (we) ? (s[4] & ~s[3] & ~s[2] & s[1] & s[0]) : 1'b0;
+//    assign out[20] = (we) ? (s[4] & ~s[3] & s[2] & ~s[1] & ~s[0]) : 1'b0;
+//    assign out[21] = (we) ? (s[4] & ~s[3] & s[2] & ~s[1] & s[0]) : 1'b0;
+//    assign out[22] = (we) ? (s[4] & ~s[3] & s[2] & s[1] & ~s[0]) : 1'b0;
+//    assign out[23] = (we) ? (s[4] & ~s[3] & s[2] & s[1] & s[0]) : 1'b0;
+//    assign out[24] = (we) ? (s[4] & s[3] & ~s[2] & ~s[1] & ~s[0]) : 1'b0;
+//    assign out[25] = (we) ? (s[4] & s[3] & ~s[2] & ~s[1] & s[0]) : 1'b0;
+//    assign out[26] = (we) ? (s[4] & s[3] & ~s[2] & s[1] & ~s[0]) : 1'b0;
+//    assign out[27] = (we) ? (s[4] & s[3] & ~s[2] & s[1] & s[0]) : 1'b0;
+//    assign out[28] = (we) ? (s[4] & s[3] & s[2] & ~s[1] & ~s[0]) : 1'b0;
+//    assign out[29] = (we) ? (s[4] & s[3] & s[2] & ~s[1] & s[0]) : 1'b0;
+//    assign out[30] = (we) ? (s[4] & s[3] & s[2] & s[1] & ~s[0]) : 1'b0;
+//    assign out[31] = (we) ? (s[4] & s[3] & s[2] & s[1] & s[0]) : 1'b0;
+//endmodule
+//
+//// 32-BIT CARRY-LOOKAHEAD ADDER (verified)
+//module cla(data_operandA, data_operandB_RAW, ctrl_addSub, data_sum, isNotEqual, isLessThan, overflow, data_and, data_or);
+//    input ctrl_addSub;  // 0 for add, 1 for sub. also acts as carry-in
+//    input [31:0] data_operandA, data_operandB_RAW;
+//    output isNotEqual, isLessThan, overflow;
+//    output [31:0] data_sum, data_and, data_or;
+//
+//    wire [31:0] data_operandB;
+//
+//
+//    // xor bits of second input
+//    genvar i;
+//    generate
+//        for(i = 0; i < 32; i = i + 1) begin: xorLoop
+//            xor xor0(data_operandB[i], ctrl_addSub, data_operandB_RAW[i]);
+//        end
+//    endgenerate
+//
+//    // intermediate carry bits
+//    wire c8, c16, c24;
+//
+//    // block-level propagate and generate bits
+//    wire P0, P1, P2, P3, G0, G1, G2, G3;
+//
+//    // intermediate bits
+//    wire P0c0;
+//    wire P1G0, P1P0c0;
+//    wire P2G1, P2P1G0, P2P1P0c0;
+//    wire P3G2, P3P2G1, P3P2P1G0, P3P2P1P0c0;
+//
+//    cla8 adder0(data_operandA[0 +: 8], data_operandB[0 +: 8], data_operandB_RAW[0 +: 8], ctrl_addSub, data_sum[0 +: 8], data_and[0 +: 8], data_or[0 +: 8], P0, G0);
+//
+//    and and0(P0c0, P0, ctrl_addSub);
+//    or or0(c8, G0, P0c0);
+//
+//    cla8 adder1(data_operandA[8 +: 8], data_operandB[8 +: 8], data_operandB_RAW[8 +: 8], c8, data_sum[8 +: 8], data_and[8 +: 8], data_or[8 +: 8], P1, G1);
+//
+//    and and1(P1G0, P1, G0);
+//    and and2(P1P0c0, P1, P0, ctrl_addSub);
+//    or or1(c16, G1, P1G0, P1P0c0);
+//
+//    cla8 adder2(data_operandA[16 +: 8], data_operandB[16 +: 8], data_operandB_RAW[16 +: 8], c16, data_sum[16 +: 8], data_and[16 +: 8], data_or[16 +: 8], P2, G2);
+//
+//    and and3(P2G1, P2, G1);
+//    and and4(P2P1G0, P2, P1, G0);
+//    and and5(P2P1P0c0, P2, P1, P0, ctrl_addSub);
+//    or or2(c24, G2, P2G1, P2P1G0, P2P1P0c0);
+//
+//    cla8 adder3(data_operandA[24 +: 8], data_operandB[24 +: 8], data_operandB_RAW[24 +: 8], c24, data_sum[24 +: 8], data_and[24 +: 8], data_or[24 +: 8], P3, G3);
+//
+//    and and6(P3G2, P3, G2);
+//    and and7(P3P2G1, P3, P2, G1);
+//    and and8(P3P2P1G0, P3, P2, P1, G0);
+//    and and9(P3P2P1P0c0, P3, P2, P1, P0, ctrl_addSub);
+//    or or3(data_carryout, G3, P3G2, P3P2G1, P3P2P1G0, P3P2P1P0c0);
+//
+//    ovf ovf1(data_operandA[31], data_operandB_RAW[31], data_sum[31], ctrl_addSub, overflow);
+//    assign isNotEqual = (data_sum[0 +: 32]) ? 1 : 0;
+//    lt lt1(data_operandA[31], data_operandB_RAW[31], data_sum[31], isLessThan);
+//
+//endmodule
+//
+//// DETERMINES IF A < B (verified)
+//module lt(msb_A, msb_B, msb_sum, isLessThan);
+//    input msb_A, msb_B, msb_sum;
+//    output isLessThan;
+//
+//    wire msb_An, msb_Bn, msb_sumn;
+//
+//    not not1(msb_An, msb_A);
+//    not not2(msb_Bn, msb_B);
+//
+//    wire c1, c2, c3;
+//
+//    // same signs, if (a-b) negative then a < b
+//    and and1(c1, msb_A, msb_B, msb_sum);
+//    and and2(c2, msb_An, msb_Bn, msb_sum);
+//
+//    // different signs, then if a neg and b pos, a < b
+//    and and3(c3, msb_A, msb_Bn);
+//
+//    or or1(isLessThan, c1, c2, c3);
+//endmodule
+//
+//// check overflow
+//module ovf(msb_A, msb_B, msb_sum, ctrl_addSub, overflow);
+//    input msb_A, msb_B, msb_sum, ctrl_addSub;
+//    output overflow;
+//
+//    wire c1, c2, c3, c4;
+//    wire ctrl_addSubn, msb_An, msb_Bn, msb_sumn;
+//
+//    not not1(ctrl_addSubn, ctrl_addSub);
+//    not not2(msb_An, msb_A);
+//    not not3(msb_Bn, msb_B);
+//    not not4(msb_sumn, msb_sum);
+//
+//    // addition
+//    and and1(c1, ctrl_addSubn, msb_An, msb_Bn, msb_sum);    // A, B positive, sum negative
+//    and and2(c2, ctrl_addSubn, msb_A, msb_B, msb_sumn); // A, B negative, sum positive
+//
+//    // subtraction
+//    and and3(c3, ctrl_addSub, msb_A, msb_Bn, msb_sumn); // A positive, B, sum negative
+//    and and4(c4, ctrl_addSub, msb_An, msb_B, msb_sum);      // A negative, B, sum positive
+//
+//    or(overflow, c1, c2, c3, c4);
+//endmodule
+//
+//
+//// 8-BIT CARRY-LOOKAHEAD ADDER (verified)
+//module cla8(data_operandA, data_operandB, data_operandB_noEdit, c0, data_sum, data_and, data_or, P0, G0);
+//    input c0;
+//    input [7:0] data_operandA, data_operandB, data_operandB_noEdit;
+//    output P0, G0;
+//    output [7:0] data_sum, data_and, data_or;
+//
+//    wire g0, g1, g2, g3, g4, g5, g6, g7, p0, p1, p2, p3, p4, p5, p6, p7;
+//
+//    // generate bits
+//    and and0(g0, data_operandA[0], data_operandB[0]);
+//    and and1(g1, data_operandA[1], data_operandB[1]);
+//    and and2(g2, data_operandA[2], data_operandB[2]);
+//    and and3(g3, data_operandA[3], data_operandB[3]);
+//    and and4(g4, data_operandA[4], data_operandB[4]);
+//    and and5(g5, data_operandA[5], data_operandB[5]);
+//    and and6(g6, data_operandA[6], data_operandB[6]);
+//    and and7(g7, data_operandA[7], data_operandB[7]);
+//
+//    // assign bitwise AND
+//    and and45(data_and[0], data_operandA[0], data_operandB_noEdit[0]);
+//    and and46(data_and[1], data_operandA[1], data_operandB_noEdit[1]);
+//    and and47(data_and[2], data_operandA[2], data_operandB_noEdit[2]);
+//    and and48(data_and[3], data_operandA[3], data_operandB_noEdit[3]);
+//    and and49(data_and[4], data_operandA[4], data_operandB_noEdit[4]);
+//    and and50(data_and[5], data_operandA[5], data_operandB_noEdit[5]);
+//    and and51(data_and[6], data_operandA[6], data_operandB_noEdit[6]);
+//    and and52(data_and[7], data_operandA[7], data_operandB_noEdit[7]);
+//
+//    // propagate bits
+//    or or0(p0, data_operandA[0], data_operandB[0]);
+//    or or1(p1, data_operandA[1], data_operandB[1]);
+//    or or2(p2, data_operandA[2], data_operandB[2]);
+//    or or3(p3, data_operandA[3], data_operandB[3]);
+//    or or4(p4, data_operandA[4], data_operandB[4]);
+//    or or5(p5, data_operandA[5], data_operandB[5]);
+//    or or6(p6, data_operandA[6], data_operandB[6]);
+//    or or7(p7, data_operandA[7], data_operandB[7]);
+//
+//    // assign bitwise OR
+//    or or16(data_or[0], data_operandA[0], data_operandB_noEdit[0]);
+//    or or17(data_or[1], data_operandA[1], data_operandB_noEdit[1]);
+//    or or18(data_or[2], data_operandA[2], data_operandB_noEdit[2]);
+//    or or19(data_or[3], data_operandA[3], data_operandB_noEdit[3]);
+//    or or20(data_or[4], data_operandA[4], data_operandB_noEdit[4]);
+//    or or21(data_or[5], data_operandA[5], data_operandB_noEdit[5]);
+//    or or22(data_or[6], data_operandA[6], data_operandB_noEdit[6]);
+//    or or23(data_or[7], data_operandA[7], data_operandB_noEdit[7]);
+//
+//    // intermediate wires
+//    wire c1, c2, c3, c4, c5, c6, c7;
+//    wire p0c0, p1p0c0, p2p1p0c0, p3p2p1p0c0, p4p3p2p1p0c0, p5p4p3p2p1p0c0, p6p5p4p3p2p1p0c0, p7p6p5p4p3p2p1p0c0;
+//    wire p1g0, p2p1g0, p3p2p1g0, p4p3p2p1g0, p5p4p3p2p1g0, p6p5p4p3p2p1g0, p7p6p5p4p3p2p1g0;
+//    wire p2g1, p3p2g1, p4p3p2g1, p5p4p3p2g1, p6p5p4p3p2g1, p7p6p5p4p3p2g1;
+//    wire p3g2, p4p3g2, p5p4p3g2, p6p5p4p3g2, p7p6p5p4p3g2;
+//    wire p4g3, p5p4g3, p6p5p4g3, p7p6p5p4g3;
+//    wire p5g4, p6p5g4, p7p6p5g4;
+//    wire p6g5, p7p6g5;
+//    wire p7g6;
+//
+//    // assigning intermediate wires
+//    and and8(p0c0, p0, c0);
+//    and and9(p1p0c0, p1, p0, c0);
+//    and and10(p2p1p0c0, p2, p1, p0, c0);
+//    and and11(p3p2p1p0c0, p3, p2, p1, p0, c0);
+//    and and12(p4p3p2p1p0c0, p4, p3, p2, p1, p0, c0);
+//    and and13(p5p4p3p2p1p0c0, p5, p4, p3, p2, p1, p0, c0);
+//    and and14(p6p5p4p3p2p1p0c0, p6, p5, p4, p3, p2, p1, p0, c0);
+//    and and15(p7p6p5p4p3p2p1p0c0, p7, p6, p5, p4, p3, p2, p1, p0, c0);
+//    and and16(p1g0, p1, g0);
+//    and and17(p2p1g0, p2, p1, g0);
+//    and and18(p3p2p1g0, p3, p2, p1, g0);
+//    and and19(p4p3p2p1g0, p4, p3, p2, p1, g0);
+//    and and20(p5p4p3p2p1g0, p5, p4, p3, p2, p1, g0);
+//    and and21(p6p5p4p3p2p1g0, p6, p5, p4, p3, p2, p1, g0);
+//    and and22(p7p6p5p4p3p2p1g0, p7, p6, p5, p4, p3, p2, p1, g0);
+//    and and23(p2g1, p2, g1);
+//    and and24(p3p2g1, p3, p2, g1);
+//    and and25(p4p3p2g1, p4, p3, p2, g1);
+//    and and26(p5p4p3p2g1, p5, p4, p3, p2, g1);
+//    and and27(p6p5p4p3p2g1, p6, p5, p4, p3, p2, g1);
+//    and and28(p7p6p5p4p3p2g1, p7, p6, p5, p4, p3, p2, g1);
+//    and and29(p3g2, p3, g2);
+//    and and30(p4p3g2, p4, p3, g2);
+//    and and31(p5p4p3g2, p5, p4, p3, g2);
+//    and and32(p6p5p4p3g2, p6, p5, p4, p3, g2);
+//    and and33(p7p6p5p4p3g2, p7, p6, p5, p4, p3, g2);
+//    and and34(p4g3, p4, g3);
+//    and and35(p5p4g3, p5, p4, g3);
+//    and and36(p6p5p4g3, p6, p5, p4, g3);
+//    and and37(p7p6p5p4g3, p7, p6, p5, p4, g3);
+//    and and38(p5g4, p5, g4);
+//    and and39(p6p5g4, p6, p5, g4);
+//    and and40(p7p6p5g4, p7, p6, p5, g4);
+//    and and41(p6g5, p6, g5);
+//    and and42(p7p6g5, p7, p6, g5);
+//    and and43(p7g6, p7, g6);
+//
+//    // assigning carries
+//    or or8(c1, g0, p0c0);
+//    or or9(c2, g1, p1g0, p1p0c0);
+//    or or10(c3, g2, p2g1, p2p1g0, p2p1p0c0);
+//    or or11(c4, g3, p3g2, p3p2g1, p3p2p1g0, p3p2p1p0c0);
+//    or or12(c5, g4, p4g3, p4p3g2, p4p3p2g1, p4p3p2p1g0, p4p3p2p1p0c0);
+//    or or13(c6, g5, p5g4, p5p4g3, p5p4p3g2, p5p4p3p2g1, p5p4p3p2p1g0, p5p4p3p2p1p0c0);
+//    or or14(c7, g6, p6g5, p6p5g4, p6p5p4g3, p6p5p4p3g2, p6p5p4p3p2g1, p6p5p4p3p2p1g0, p6p5p4p3p2p1p0c0);
+//
+//    // assigning sums
+//    xor xor0(data_sum[0], data_operandA[0], data_operandB[0], c0);
+//    xor xor1(data_sum[1], data_operandA[1], data_operandB[1], c1);
+//    xor xor2(data_sum[2], data_operandA[2], data_operandB[2], c2);
+//    xor xor3(data_sum[3], data_operandA[3], data_operandB[3], c3);
+//    xor xor4(data_sum[4], data_operandA[4], data_operandB[4], c4);
+//    xor xor5(data_sum[5], data_operandA[5], data_operandB[5], c5);
+//    xor xor6(data_sum[6], data_operandA[6], data_operandB[6], c6);
+//    xor xor7(data_sum[7], data_operandA[7], data_operandB[7], c7);
+//
+//    // assigning block-level propagate
+//    and and44(P0, p7, p6, p5, p4, p3, p2, p1, p0);
+//    or or15(G0, g7, p7g6, p7p6g5, p7p6p5g4, p7p6p5p4g3, p7p6p5p4p3g2, p7p6p5p4p3p2g1, p7p6p5p4p3p2p1g0);
+//
+//endmodule
+//
+//// 1-BIT SHIFTER (verified)
+////
+//// PARAMS:
+////      * 32-BIT INPUT
+////    * 1-BIT DIRECTION (0 = left, 1 = right)
+//module shift1bit(data_input, ctrl_shiftdirection, data_output);
+//    input [31:0] data_input;
+//    input ctrl_shiftdirection;
+//    output [31:0] data_output;
+//
+//    // MSB and LSB special cases
+//    assign data_output[31] = (ctrl_shiftdirection) ? data_input[31] : data_input[30];
+//    assign data_output[0] = (ctrl_shiftdirection) ? data_input[1] : 1'b0;
+//
+//    // assign remaining middle bits using loop
+//    genvar i;
+//    generate
+//        for(i = 1; i < 31; i = i + 1) begin: shiftLoop
+//            assign data_output[i] = (ctrl_shiftdirection) ? data_input[i + 1] : data_input[i - 1];
+//        end
+//    endgenerate
+//
+//endmodule
+//
+//// 2-BIT SHIFTER (verified)
+////
+//// PARAMS:
+////      * 32-BIT INPUT
+////    * 1-BIT DIRECTION (0 = left, 1 = right)
+//module shift2bit(data_input, ctrl_shiftdirection, data_output);
+//    input [31:0] data_input;
+//    input ctrl_shiftdirection;
+//    output [31:0] data_output;
+//
+//    wire [31:0] intermediate;
+//
+//    shift1bit s1(data_input, ctrl_shiftdirection, intermediate);
+//    shift1bit s2(intermediate, ctrl_shiftdirection, data_output);
+//
+//endmodule
+//
+//
+//// 4-BIT SHIFTER (verified)
+////
+//// PARAMS:
+////      * 32-BIT INPUT
+////    * 1-BIT DIRECTION (0 = left, 1 = right)
+//module shift4bit(data_input, ctrl_shiftdirection, data_output);
+//    input [31:0] data_input;
+//    input ctrl_shiftdirection;
+//    output [31:0] data_output;
+//
+//    wire [31:0] intermediate;
+//
+//    shift2bit s2(data_input, ctrl_shiftdirection, intermediate);
+//    shift2bit s4(intermediate, ctrl_shiftdirection, data_output);
+//
+//endmodule
+//
+//// 8-BIT SHIFTER (verified)
+////
+//// PARAMS:
+////      * 32-BIT INPUT
+////    * 1-BIT DIRECTION (0 = left, 1 = right)
+//module shift8bit(data_input, ctrl_shiftdirection, data_output);
+//    input [31:0] data_input;
+//    input ctrl_shiftdirection;
+//    output [31:0] data_output;
+//
+//    wire [31:0] intermediate;
+//
+//    shift4bit s4(data_input, ctrl_shiftdirection, intermediate);
+//    shift4bit s8(intermediate, ctrl_shiftdirection, data_output);
+//
+//endmodule
+//
+//// 16-BIT SHIFTER (verified)
+////
+//// PARAMS:
+////      * 32-BIT INPUT
+////    * 1-BIT DIRECTION (0 = left, 1 = right)
+//module shift16bit(data_input, ctrl_shiftdirection, data_output);
+//    input [31:0] data_input;
+//    input ctrl_shiftdirection;
+//    output [31:0] data_output;
+//
+//    wire [31:0] intermediate;
+//
+//    shift8bit s8(data_input, ctrl_shiftdirection, intermediate);
+//    shift8bit s16(intermediate, ctrl_shiftdirection, data_output);
+//
+//endmodule
+//
+//// 31-BIT SHIFTER (verified)
+////
+//// PARAMS:
+////      * 32-BIT INPUT
+////      * 5-BIT SHAMT
+////    * 1-BIT DIRECTION (0 = left, 1 = right)
+//module shiftXbits(data_input, ctrl_shiftdirection, ctrl_shiftamt, data_output);
+//    input [31:0] data_input;
+//    input [4:0] ctrl_shiftamt;
+//    input ctrl_shiftdirection;
+//    output [31:0] data_output;
+//
+//    wire [31:0] s0, s1, s2, s3, s4, w0, w1, w2, w3;
+//
+//    shift1bit sh1(data_input, ctrl_shiftdirection, s0);
+//    assign w0 = (ctrl_shiftamt[0]) ? s0 : data_input;
+//
+//    shift2bit sh2(w0, ctrl_shiftdirection, s1);
+//    assign w1 = (ctrl_shiftamt[1]) ? s1 : w0;
+//
+//    shift4bit sh3(w1, ctrl_shiftdirection, s2);
+//    assign w2 = (ctrl_shiftamt[2]) ? s2 : w1;
+//
+//    shift8bit sh4(w2, ctrl_shiftdirection, s3);
+//    assign w3 = (ctrl_shiftamt[3]) ? s3 : w2;
+//
+//    shift16bit sh5(w3, ctrl_shiftdirection, s4);
+//    assign data_output = (ctrl_shiftamt[4]) ? s4 : w3;
+//
+//endmodule
+//
+//// 5-BIT 4-TO-1 MUX (verified)
+//module mux4_5bit(data_in0, data_in1, data_in2, data_in3, data_s0, data_s1, data_output);
+//    input [4:0] data_in0, data_in1, data_in2, data_in3;
+//    input data_s0, data_s1;
+//    output [4:0] data_output;
+//
+//    wire [4:0] inter0, inter1;
+//    assign inter0 = (data_s0) ? data_in1 : data_in0;
+//    assign inter1 = (data_s0) ? data_in3 : data_in2;
+//
+//    assign data_output = (data_s1) ? inter1 : inter0;
+//endmodule
+//
+//
+//// 32-BIT 4-TO-1 MUX (verified)
+//module mux4_32bit(data_in0, data_in1, data_in2, data_in3, data_s0, data_s1, data_output);
+//    input [31:0] data_in0, data_in1, data_in2, data_in3;
+//    input data_s0, data_s1;
+//    output [31:0] data_output;
+//
+//    wire [31:0] inter0, inter1;
+//    assign inter0 = (data_s0) ? data_in1 : data_in0;
+//    assign inter1 = (data_s0) ? data_in3 : data_in2;
+//
+//    assign data_output = (data_s1) ? inter1 : inter0;
 //endmodule
 //
 //
 ////
-//module adder32bit_8(sum, dataA, dataB, subtractBit);
-//	input [31:0] dataA, dataB;
-//	input subtractBit;
-//	output [31:0] sum;
-//	wire [4:0] carryToNext;
-//	wire [31:0] BnotB;
-//	assign carryToNext[0] = subtractBit;
-//	
-//	genvar ii;
-//	generate
-//	for (ii = 0; ii < 32; ii = ii+1) begin: flipLoop
-//		wire notGate;
-//		not notdata(notGate,dataB[ii]);
-//		assign BnotB[ii] = subtractBit ? notGate : dataB[ii];
-//	end
-//	endgenerate
-//	
-//	genvar i;
-//	generate
-//	for (i = 0; i < 4; i = i+1) begin: adderFullLoop
-//		wire carryOut,totalG, totalP,p_c;
-//		adder8bit adder8(sum[i*8+7:i*8], carryOut, totalG, totalP, dataA[i*8+7:i*8], BnotB[i*8+7:i*8], carryToNext[i]);
-//		and pc(p_c, totalP, carryOut);
-//		or or1(carryToNext[i+1],totalG, p_c);
-//	end
-//	endgenerate
-//endmodule
+//// REGISTER FILE
+////
+//module regfile_as577(clock, ctrl_writeEnable, ctrl_reset, ctrl_writeReg, ctrl_readRegA, ctrl_readRegB, data_writeReg, data_readRegA, data_readRegB);
 //
+//    // inputs and outputs
+//    input clock, ctrl_writeEnable, ctrl_reset;
+//    input [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
+//    input [31:0] data_writeReg;
+//    output [31:0] data_readRegA, data_readRegB;
 //
-//module andOr32bit(out,dataA, dataB, andOr);
-//	input [31:0] dataA, dataB;
-//	input andOr;
-//	wire [31:0] outAnd, outOr;
-//	output [31:0] out;
-//	genvar i;
-//	generate
-//	for (i = 0; i < 32; i = i+1) begin: adderLoop
-//		ALU1bit alu(outAnd[i], outOr[i], dataA[i], dataB[i]);
-//	end
-//	endgenerate
-//	multiplexer mAndOr(out,outAnd,outOr,andOr);
-//endmodule
+//    wire [31:0] temp_write_choose, write_chooseReg;
+//    decoder dc1(ctrl_writeReg, ctrl_writeEnable, temp_write_choose);
+//	 assign write_chooseReg[31:1] = temp_write_choose[31:1];
+//	 assign write_chooseReg[0] = 1'b0;	// ground register 0
 //
-//module multiplexer(out,input1, input2, selectBit);
-//	input [31:0] input1, input2;
-//	input selectBit;
-//	output [31:0] out;
-//	genvar i;
-//	generate
-//	for (i = 0; i < 32; i = i+1) begin: multiplexerLoop
-//		assign out[i] = selectBit ? input2[i]:input1[i];
-//	end
-//	endgenerate
-//	
-//	//Case select = 0: input1
-//	//Case select = 1: input2
-//endmodule	
+//    wire [31:0] read_chooseRegA;
+//    decoder dc2(ctrl_readRegA, 1'b1, read_chooseRegA);
 //
+//    wire [31:0] read_chooseRegB;
+//    decoder dc3(ctrl_readRegB, 1'b1, read_chooseRegB);
 //
-//module multiplexer4(out,input0, input1, input2, input3, selectBits);
-//	input [31:0] input0, input1, input2, input3;
-//	input [1:0] selectBits;
-//	wire[31:0] w1, w2;
-//	output [31:0] out;
-//	multiplexer m1 (w1, input0,input1, selectBits[0]),
-//	        m2 (w2, input2, input3, selectBits[0]),
-//	        m3 (out, w1, w2,selectBits[1]);
-//endmodule
-//
-//module shiftOperator(shiftedOut, dataA, shiftAmount, leftRight);
-//	input [31:0] dataA;
-//	input [4:0] shiftAmount;
-//	input leftRight;
-//	output [31:0] shiftedOut;
-//	wire [31:0] left, right;
-//	
-//	leftBarrelShifter lbs(left, dataA, shiftAmount);
-//	rightBarrelShifter rbs(right, dataA, shiftAmount);
-//	multiplexer mshift(shiftedOut,left,right,leftRight);
-//endmodule
-//	
-//
-//module leftBarrelShifter(shiftedOut, dataA, shiftAmount);
-//	input [31:0] dataA;
-//	input [4:0] shiftAmount;
-//	wire [31:0] s16, sFinal16, s8, sFinal8, s4, sFinal4, s2, sFinal2, s1, sFinal1;
-//	output [31:0] shiftedOut;
-//
-//	genvar i;
-//	generate
-//	for (i = 0; i < 16; i = i+1) begin: leftShiftLoop16
-//		assign s16[i+16] = dataA[i];
-//		assign s16[i] = 1'b0;
-//	end
-//	endgenerate
-//	multiplexer m16(sFinal16, dataA, s16, shiftAmount[4]);
-//	
-//	genvar i8;
-//	generate
-//	for (i8 = 0; i8 < 24; i8 = i8+1) begin: leftShiftLoop8
-//		assign s8[i8+8] = sFinal16[i8];
-//	end
-//	endgenerate
-//	
-//	genvar j8;
-//	generate
-//	for (j8 = 0; j8 < 8; j8 = j8+1) begin: leftShiftLoop8_2
-//		assign s8[j8] = 0;
-//	end
-//	endgenerate
-//	
-//	multiplexer m8(sFinal8, sFinal16, s8, shiftAmount[3]);
-//	
-//	// 4
-//	genvar i4;
-//	generate
-//	for (i4 = 0; i4 < 28; i4 = i4+1) begin: leftShiftLoop4
-//		assign s4[i4+4] = sFinal8[i4];
-//	end
-//	endgenerate
-//	
-//	genvar j4;
-//	generate
-//	for (j4 = 0; j4 < 4; j4 = j4+1) begin: leftShiftLoop4_2
-//		assign s4[j4] = 0;
-//	end
-//	endgenerate
-//	
-//	multiplexer m4(sFinal4, sFinal8, s4, shiftAmount[2]);
-//	
-//	//2
-//	genvar i2;
-//	generate
-//	for (i2 = 0; i2 < 30; i2 = i2+1) begin: leftShiftLoop2
-//		assign s2[i2+2] = sFinal4[i2];
-//	end
-//	endgenerate
-//	
-//	genvar j2;
-//	generate
-//	for (j2 = 0; j2 < 2; j2 = j2+1) begin: leftShiftLoop2_2
-//		assign s2[j2] = 0;
-//	end
-//	endgenerate
-//	
-//	multiplexer m2(sFinal2, sFinal4, s2, shiftAmount[1]);
-//	
-//	//1
-//	genvar i1;
-//	generate
-//	for (i1 = 0; i1 < 31; i1 = i1+1) begin: leftShiftLoop1
-//		assign s1[i1+1] = sFinal2[i1];
-//	end
-//	endgenerate
-//	
-//	genvar j1;
-//	generate
-//	for (j1 = 0; j1 < 1; j1 = j1+1) begin: leftShiftLoop1_2
-//		assign s1[j1] = 0;
-//	end
-//	endgenerate
-//	
-//	multiplexer m1(sFinal1, sFinal2, s1, shiftAmount[0]);
-//	
-//	assign shiftedOut = sFinal1;
-//endmodule
-//
-//module rightBarrelShifter(shiftedOut, dataA, shiftAmount);
-//	input [31:0] dataA;
-//	input [4:0] shiftAmount;
-//	wire [31:0] s16, sFinal16, s8, sFinal8, s4, sFinal4, s2, sFinal2, s1, sFinal1;
-//	output [31:0] shiftedOut;
-//	
-//	genvar i;
-//	generate
-//	for (i = 16; i < 32; i = i+1) begin: leftShiftLoop16
-//		assign s16[i-16] = dataA[i];
-//		assign s16[i] = dataA[31];
-//	end
-//	endgenerate
-//	multiplexer m16(sFinal16, dataA, s16, shiftAmount[4]);
-//	
-//	genvar i8;
-//	generate
-//	for (i8 = 8; i8 < 32; i8 = i8+1) begin: rightShiftLoop8
-//		assign s8[i8-8] = sFinal16[i8];
-//	end
-//	endgenerate
-//	
-//	genvar j8;
-//	generate
-//	for (j8 = 24; j8 < 32; j8 = j8+1) begin: rightShiftLoop8_2
-//		assign s8[j8] = dataA[31];
-//	end
-//	endgenerate
-//	
-//	multiplexer m8(sFinal8, sFinal16, s8, shiftAmount[3]);
-//	
-//	// 4
-//	genvar i4;
-//	generate
-//	for (i4 = 4; i4 < 32; i4 = i4+1) begin: rightShiftLoop4
-//		assign s4[i4-4] = sFinal8[i4];
-//	end
-//	endgenerate
-//	
-//	genvar j4;
-//	generate
-//	for (j4 = 28; j4 < 32; j4 = j4+1) begin: rightShiftLoop4_2
-//		assign s4[j4] = dataA[31];
-//	end
-//	endgenerate
-//	
-//	multiplexer m4(sFinal4, sFinal8, s4, shiftAmount[2]);
-//	
-//	//2
-//	genvar i2;
-//	generate
-//	for (i2 = 2; i2 < 32; i2 = i2+1) begin: rightShiftLoop2
-//		assign s2[i2-2] = sFinal4[i2];
-//	end
-//	endgenerate
-//	
-//	genvar j2;
-//	generate
-//	for (j2 = 30; j2 < 32; j2 = j2+1) begin: rightShiftLoop2_2
-//		assign s2[j2] = dataA[31];
-//	end
-//	endgenerate
-//	
-//	multiplexer m2(sFinal2, sFinal4, s2, shiftAmount[1]);
-//	
-//	//1
-//	genvar i1;
-//	generate
-//	for (i1 = 1; i1 < 32; i1 = i1+1) begin: rightShiftLoop1
-//		assign s1[i1-1] = sFinal2[i1];
-//	end
-//	endgenerate
-//	
-//	genvar j1;
-//	generate
-//	for (j1 = 31; j1 < 32; j1 = j1+1) begin: rightShiftLoop1_2
-//		assign s1[j1] = dataA[31];
-//	end
-//	endgenerate
-//	
-//	multiplexer m1(sFinal1, sFinal2, s1, shiftAmount[0]);
-//	
-//	assign shiftedOut = sFinal1;
-//endmodule
-//
-////////////////// RECYCLED CODE BELOW!!! MULT DIV
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//module multdiv_jx35(data_operandA, data_operandB, ctrl_MULT, ctrl_DIV, clock, data_result, data_exception, data_inputRDY, data_resultRDY);
-//   input [31:0] data_operandA;
-//   input [31:0] data_operandB;
-//	
-//   input ctrl_MULT, ctrl_DIV, clock;             
-//   output [31:0] data_result; 
-//   output data_exception, data_inputRDY, data_resultRDY;
-//
-//	wire [31:0] latchedA, latchedB;
-//	wire reset;
-//	wire [5:0] cycleNum;
-//	
-//	wire [31:0] data_resultTemp;
-//	
-//	or or1(reset,ctrl_MULT, ctrl_DIV);
-//	
-//	up_counter uc(cycleNum,1'b1,clock,reset);
-//	
-//	wire finalOf, exception0, data_exception_mult, data_exception_div;
-//	wire [31:0] multResult, divResult;
-//	wire doneMult, doneDiv, latchOp;
-//	
-//	wire data_exceptionTemp, latchReady;
-//	singleReg sr1(latchedA, data_operandA, clock, 1'b0, reset);
-//	singleReg sr2(latchedB, data_operandB, clock, 1'b0, reset);
-//	singleReg sr3(data_result, data_resultTemp, clock, 1'b0, latchReady);
-//	
-//	dffe dtemp(.d(data_exceptionTemp), .clk(clock), .clrn(1'b1), .prn(1'b1), .ena(latchReady), .q(data_exception));
-//	
-//	dffe currDFFE(.d(ctrl_DIV), .clk(clock), .clrn(1'b1), .prn(1'b1), .ena(reset), .q(latchOp));
-//		
-//	dffe currDFFE151(.d(latchReady), .clk(clock), .clrn(1'b1), .prn(1'b1), .ena(1'b1), .q(data_resultRDY));
-//	
-//	fullMult fm(multResult,doneMult, finalOf, cycleNum, latchedA, latchedB, ctrl_MULT, clock);
-//	
-//	fullDiv fd(divResult,doneDiv,exception0, cycleNum, latchedA, latchedB, ctrl_DIV, clock);
-//	
-//	multiplexer mmd(data_resultTemp, multResult, divResult, latchOp);
-//	multiplexer1 mmd2(data_exceptionTemp, data_exception_mult, data_exception_div, latchOp);
-//	
-//	and a1(data_exception_mult, doneMult, finalOf);
-//	and a2(data_exception_div, doneDiv, exception0);
-//	
-//	or or2(latchReady, doneMult, doneDiv);
-//	
-//	
-//	
-//	assign data_inputRDY = 1;
-//	
-//endmodule
-//
-//
-//module fullMult(result, done, of, counterIn,data_operandA, data_operandB, reset, clock);
-//		input reset,clock;
-//		input [31:0] data_operandA, data_operandB;
-//		input [5:0] counterIn;
-//		wire [64:0] initInput, tempInput,initInput_S,readOut,chosenInput;
-//		wire ready, notReady;
-//		//data_operandA is multiplier, data_operandB is multiplicand
-//		output [31:0] result;
-//		
-//		output done;
-//		output of;
-//				
-//		or or5(notReady, counterIn[0], counterIn[1], counterIn[2], counterIn[3], counterIn[4]);
-//		not(ready,notReady);
-//		
-//		assign initInput[64:33] = 32'b0;
-//		assign initInput[32:1] = data_operandB;
-//		assign initInput[0] = 0;
-//		
-//		multCycle sc0(initInput_S, data_operandA, initInput); // take the initial input, then perform 1 cycle on it
-//		 
-//		multCycle sc(tempInput, data_operandA, readOut); // Perform a boothcycle on non-zero cycles
-//		
-//		multiplexer64 m11(chosenInput, tempInput, initInput_S,  ready);
-//		
-//		singleReg64 value(readOut, chosenInput, clock,reset, 1'b1);
-//		
-//		and(done, ready, counterIn[5]);
-//		
-//		checkOverflow cof(of,readOut, data_operandA, data_operandB);
-//		
-//		assign result = readOut[32:1];
+//    genvar i;
+//    generate
+//        for(i = 0; i < 32; i = i + 1) begin: loop1
+//            wire [31:0] data;       // the register's data
+//            register rg(.clock(clock),
+//                            .ctrl_writeEnable(write_chooseReg[i]),
+//                            .ctrl_reset(ctrl_reset),
+//                            .data_writeReg(data_writeReg),
+//                            .data_readReg(data));
+//            tristate tsA(data, read_chooseRegA[i], data_readRegA);
+//            tristate tsB(data, read_chooseRegB[i], data_readRegB);
+//        end
+//    endgenerate
 //
 //endmodule
 //
-//module fullDiv(result, done,exception, counterIn, data_operandA, data_operandB, reset, clock);
-//		input reset,clock;
-//		input [5:0] counterIn;
-//		input [31:0] data_operandA, data_operandB;
-//		output [31:0] result;
-//		output done;
+//// 32-BIT REGISTER
+//module register(clock, ctrl_writeEnable, ctrl_reset, data_writeReg, data_readReg);
 //
-//		output exception;
-//		wire [31:0] initPosA, initPosB,quotRead, remRead,initQuot_S, initRem_S;
-//		wire flipResultBit;
-//		wire notReady;
-//		wire readyToFlip;
-//		wire [31:0] chosenRem, chosenQuot,initRem, initQuot,quotWrite, remWrite,flippedResult;
-//		initFlipLogic ifl(flipResultBit, initPosA, initPosB, data_operandA, data_operandB);
+//    // inputs and outputs
+//    input clock, ctrl_writeEnable, ctrl_reset;
+//    input [31:0] data_writeReg;
+//    output [31:0] data_readReg;
+//
+//    assign ctrl_resetn = ~ctrl_reset;
+//
+//    // flip flops
+//    genvar i;
+//    generate
+//        for(i = 0; i < 32; i = i + 1) begin: loop1
+//            dffe my_dffe(.d(data_writeReg[i]), .clk(clock), .clrn(ctrl_resetn), .prn(1'b1), .ena(ctrl_writeEnable), .q(data_readReg[i]));
+//        end
+//    endgenerate
+//
+//endmodule
+//
+//// 27-BIT REGISTER
+//module register27(clock, ctrl_writeEnable, ctrl_reset, data_writeReg, data_readReg);
+//
+//    // inputs and outputs
+//    input clock, ctrl_writeEnable, ctrl_reset;
+//    input [26:0] data_writeReg;
+//    output [26:0] data_readReg;
+//
+//    assign ctrl_resetn = ~ctrl_reset;
+//
+//    // flip flops
+//    genvar i;
+//    generate
+//        for(i = 0; i < 27; i = i + 1) begin: loop1
+//            dffe my_dffe(.d(data_writeReg[i]), .clk(clock), .clrn(ctrl_resetn), .prn(1'b1), .ena(ctrl_writeEnable), .q(data_readReg[i]));
+//        end
+//    endgenerate
+//
+//endmodule
+//
+//
+//// 5-BIT REGISTER
+//module register5(clock, ctrl_writeEnable, ctrl_reset, data_writeReg, data_readReg);
+//
+//    // inputs and outputs
+//    input clock, ctrl_writeEnable, ctrl_reset;
+//    input [4:0] data_writeReg;
+//    output [4:0] data_readReg;
+//
+//    assign ctrl_resetn = ~ctrl_reset;
+//
+//    // flip flops
+//    genvar i;
+//    generate
+//        for(i = 0; i < 5; i = i + 1) begin: loop1
+//            dffe my_dffe(.d(data_writeReg[i]), .clk(clock), .clrn(ctrl_resetn), .prn(1'b1), .ena(ctrl_writeEnable), .q(data_readReg[i]));
+//        end
+//    endgenerate
+//
+//endmodule
+//
+/////////////////////////////////////////////////////////
+//////////////////////// MUL DIV ////////////////////////
+/////////////////////////////////////////////////////////
+//
+//// latch inputs
+//module multdiv_as577(data_operandA, data_operandB, ctrl_MULT, ctrl_DIV, clock, data_result, data_exception, data_inputRDY, data_resultRDY);
+//	input [31:0] data_operandA;
+//	input [31:0] data_operandB;
+//	input ctrl_MULT, ctrl_DIV, clock;
+//	output [31:0] data_result;
+//	output data_exception, data_inputRDY, data_resultRDY;
+//		
+//	// assert input ready
+//	assign data_inputRDY = 1'b1;
+//	
+//	// count
+//	wire [5:0] count;
+//	wire ctrl;
+//	assign ctrl = ctrl_MULT | ctrl_DIV;
+//	up_counter counter(count, 1'b1, clock, ctrl);
+//	
+//	
+//	// latching controls
+//	wire latch_ctrl_mult, latch_ctrl_div;
+//	dffeveri dffe1(latch_ctrl_mult, ctrl_MULT, clock, ctrl, 1'b1, 1'b1);
+//	dffeveri dffe2(latch_ctrl_div, ctrl_DIV, clock, ctrl, 1'b1, 1'b1);
+//	
+//	// wires to write to for mult/div
+//	wire [31:0] result_mult, result_div;
+//	wire ready_mult, ready_div, exception_mult, exception_div;
 //			
-//		wire ready;	
-//		or or5(notReady, counterIn[0], counterIn[1], counterIn[2], counterIn[3], counterIn[4]);
-//		not(ready,notReady);
-//		
-//		assign initRem = initPosA; // should be flipped A
-//		assign initQuot = 32'b0;
-//		
-//		divideCycle dc0(initQuot_S,initRem_S, initQuot,initRem, initPosB, counterIn[4:0]); // data_operand B is divisor
-//		divideCycle dc(quotWrite, remWrite,quotRead, remRead, initPosB, counterIn[4:0]); // data_operand B is divisor
-//		
-//		multiplexer m1(chosenQuot, quotWrite, initQuot_S, ready);
-//		multiplexer m2(chosenRem, remWrite, initRem_S,  ready);
-//		
-//		singleReg quotient(quotRead, chosenQuot,clock,reset, 1'b1);
-//		singleReg remain_Dend(remRead, chosenRem, clock, reset, 1'b1);
-//		
-//		and(done, ready, counterIn[5]);
-//		
-//		checkZero cz(exception,data_operandB); //check if initial was all 0s.
-//		and(readyToFlip, flipResultBit, done);
-//		flipVal fv23(flippedResult, quotRead);
-//		multiplexer m3(result, quotRead, flippedResult, readyToFlip);
-//		
+//	// latching operands
+//	wire [31:0] mult_A, mult_B, div_A, div_B;
+//	register32 rg2(clock, ctrl_MULT, data_operandA, mult_A);
+//	register32 rg3(clock, ctrl_MULT, data_operandB, mult_B);
+//	register32 rg4(clock, ctrl_DIV, data_operandA, div_A);
+//	register32 rg5(clock, ctrl_DIV, data_operandB, div_B);
+//	
+//	// multiply
+//	booth_mult bm(mult_A, mult_B, count, latch_ctrl_mult, clock, result_mult, ready_mult, exception_mult);
+//	
+//	// flip inputs for division if negative
+//	wire [31:0] dividend, divisor, negate_A, negate_B, result_div_preflip;
+//	negate n1(div_A, negate_A);
+//	negate n2(div_B, negate_B);
+//	
+//	assign dividend = (div_A[31]) ? negate_A : div_A;
+//	assign divisor = (div_B[31]) ? negate_B : div_B;
+//	
+//	div d(dividend, divisor, ~count, latch_ctrl_div, clock, result_div_preflip, ready_div, exception_div);
+//	
+//	// flip output if one input is negative
+//	wire flip;
+//	xor xor1(flip, div_A[31], div_B[31]);
+//	
+//	wire [31:0] flipped_result;
+//	negate n3(result_div_preflip, flipped_result);
+//	
+//	assign result_div = (flip) ? flipped_result : result_div_preflip;
+//	
+//	// indicate if result is ready
+//	wire temp_ready;
+//	assign temp_ready = ready_div | ready_mult;
+//	
+//	dffeveri dffe(data_resultRDY, temp_ready, clock, 1'b1, 1'b1, 1'b1);
+//	
+//	// set result appropriately
+//	wire [31:0] res1, res2;
+//	assign res1 = (latch_ctrl_div) ? result_div : 32'bz;
+//	assign res2 = (latch_ctrl_mult) ? result_mult : res1;
+//	register32 rg1(clock, temp_ready, res2, data_result);
+//	
+//	// set exception appropriately
+//	wire xc1, xc2;
+//	assign xc1 = (latch_ctrl_div) ? exception_div : 1'bz;
+//	assign xc2 = (latch_ctrl_mult) ? exception_mult : xc1;
+//	dffeveri dffe3(data_exception, xc2, clock, temp_ready, 1'b1, 1'b1);
+//	
 //endmodule
 //
-//module divideCycle(remQuotientNew, remainDendNew, remQuotientOld, remainDendOld, divisor, cycleNum);
+//// Division
+//// TODO: flip signs and re-flip output
+//module div(data_operandA, data_operandB, count, latch, clock, data_result, data_ready, data_exception);
+//	input [31:0] data_operandA, data_operandB;
+//	input [5:0] count;
+//	input clock, latch;
+//	output [31:0] data_result;
+//	output data_ready, data_exception;
+//	
+//	// intermediates and initial values
+//	wire [31:0] intermediate_RQB, intermediate_quot, init_RQB, init_quot;
+//	
+//	// assigning initial values
+//	assign init_RQB = data_operandA;
+//	assign init_quot = 32'b0;
+//	
+//	// write to registers
+//	wire [31:0] quot_write, RQB_write;
+//	wire select;
+//	isCount31bit6 ic31(count, select);
+//	mux32 mx1(intermediate_quot, init_quot, select, quot_write);
+//	mux32 mx2(intermediate_RQB, init_RQB, select, RQB_write);
 //
-//	input [31:0] remainDendOld;
+//	wire [31:0] quot_read, RQB_read;
+//	register32 rg1(clock, 1'b1, quot_write, quot_read);
+//	register32 rg2(clock, 1'b1, RQB_write, RQB_read);
+//	
+//	// division cycle
+//	division_cycle dc(count, data_operandA, data_operandB, quot_read, RQB_read, intermediate_quot, intermediate_RQB);
+//	
+//	wire ready;
+//	isCountZerobit6 icz(count, ready);
+//	
+//	assign data_result = (ready) ? intermediate_quot : 32'bz;
+//	assign data_ready = latch & ready;
+//	
+//	checkDivisionException cde(data_operandB, data_exception);
+//	
+//endmodule
+//
+//// negates data
+//module negate(data_input, data_output);
+//	input [31:0] data_input;
+//	output [31:0] data_output;
+//	
+//	cla_mul sub(32'b0, data_input, 1'b1, data_output); 
+//endmodule
+//
+//// Determines if division throws exception (if divisor is zero)
+//module checkDivisionException(divisor, data_exception);
 //	input [31:0] divisor;
-//	input [4:0] cycleNum;
-//	input [31:0] remQuotientOld;
+//	output data_exception;
+//	
+//	assign data_exception = ~(|divisor);
+//endmodule
 //
-//	output [31:0] remQuotientNew;
-//	output [31:0] remainDendNew;
+//// Single division cycle
+//module division_cycle(count, dividend, divisor, quotient_in, RQB_in, quotient_out, RQB_out);
+//	input [31:0] dividend, divisor, quotient_in, RQB_in;
+//	input [5:0] count;
+//	output [31:0] quotient_out, RQB_out;
 //	
-//	wire GTE;
-//	wire LT;
+//	wire [31:0] shifted_RQB;
+//	shiftXbits sh1(RQB_in, 1'b1, count[0 +: 5], shifted_RQB);
 //	
-//	wire[4:0] shiftAmt;
-//	wire[31:0] shiftedDend;
-//	wire [31:0] shiftedSor;
-//	wire[31:0] difference1;
-//	wire[31:0] differenceFinal;
-//	wire [31:0] remQuotientTemp;
+//	wire [31:0] difference1;	// RQB - divisor
+//	cla_mul sub1(shifted_RQB, divisor, 1'b1, difference1);
 //	
-//	genvar i;
-//	generate
-//	for (i = 0; i < 5; i = i+1) begin: NotLoop
-//		not(shiftAmt[i], cycleNum[i]);
-//	end
-//	endgenerate
+//	wire set_bitn;
+//	// RQB < divisor -> set_bitn = 1
+//	lt lt1(shifted_RQB[31], divisor[31], difference1[31], set_bitn);
 //	
-//	rightBarrelShifter rbs1(shiftedDend, remainDendOld, shiftAmt);  // shift the der/Dividend thing
+//	// shift quotient left by 1 and set bit at bottom
+//	wire [31:0] quotient_shift;
+//	shift1bit sh2(quotient_in, 1'b0, quotient_shift);
 //	
-//	leftBarrelShifter lbs1(shiftedSor, divisor, shiftAmt);  // shift the der/Dividend thing
+//	assign quotient_out[1 +: 31] = quotient_shift[1 +: 31];
+//	assign quotient_out[0] = ~set_bitn;
 //	
-//	adder32bit_8 abs(difference1, shiftedDend, divisor, 1'b1); // subtract divisor from shiftedNumber
+//	// shift the divisor left by count
+//	wire [31:0] shifted_divisor;
+//	shiftXbits sh3(divisor, 1'b0, count[0 +: 5], shifted_divisor);
 //	
-//	leftBarrelShifter lbs2(remQuotientTemp, remQuotientOld, 5'b00001);  //shift the old quotient left by one bit
+//	// subtract divisor from RQB
+//	wire [31:0] difference2;
+//	cla_mul sub2(RQB_in, shifted_divisor, 1'b1, difference2);
 //	
-//	isLT lt(LT, shiftedDend[31], divisor[31],difference1[31]);		// Figure out if the difference was > 0.
-//	
-//	not(GTE, LT);
-//	
-//	assign remQuotientNew[0] = GTE;        									// Set the last bit of the difference equal to 1.
-//	assign remQuotientNew[31:1] = remQuotientTemp[31:1];				//Set the new quotient just equal to temp (which was shifted and correct)
-//	
-//	adder32bit_8 abs3(differenceFinal, remainDendOld, shiftedSor,1'b1); // subtract shifted Divisor from the remainder
-//	
-//	multiplexer m1(remainDendNew, remainDendOld, differenceFinal, GTE); // if its the difference is <0, then don't subtract
+//	// if set bit, subtract divisor from RQB else do nothing
+//	assign RQB_out = (~set_bitn) ? difference2 : RQB_in;
 //	
 //endmodule
 //
-//module multCycle(readOut,m_cand, wholeNum);  
-//	  input [31:0] m_cand;
-//	  input [64:0] wholeNum; 
-//	  output [64:0] readOut; 
-//	  
-//	  wire [64:0] tempWholeNum;
-//	  wire [31:0]firstRes;
-//	  wire addSub;
-//	  wire doNothing;
-//	  
-//	  assign addSub = wholeNum[1];
-//	  
-//	  adder32bit_8 ab(firstRes, wholeNum[64:33], m_cand,addSub);
-// 	
-//	  xor(doNothing, wholeNum[1], wholeNum[0]);
-//	  
-//	  assign tempWholeNum[32:0] = wholeNum[32:0];
+//// booth's multiplier
+//module booth_mult(data_operandA, data_operandB, count, latch, clock, product, data_ready, data_exception);
+//	// multiplicand (data_operandA), multiplier(data_operandB)
+//	input [31:0] data_operandA, data_operandB;
+//	input [5:0] count;
+//	input clock, latch;
+//	output [31:0] product;
+//	output data_ready, data_exception;
 //	
-//	  multiplexer mux(tempWholeNum[64:33], wholeNum[64:33], firstRes, doNothing); 
-//	  
-//	  oneBitShifterMod64 obsm(readOut, tempWholeNum);
+//	// intermediate and initInput
+//	wire [64:0] intermediate;
+//	wire [64:0] initInput_pre, initInput;
 //	
-//endmodule
-//
-//module initFlipLogic(flipResultBit, correctA, correctB, dataA, dataB);
-//	
-//	input [31:0] dataA, dataB;
-//	output [31:0] correctA, correctB;
-//	output flipResultBit;
-//	
-//	wire [31:0] flippedA, flippedB;
-//	
-//	flipVal fva (flippedA, dataA);
-//	flipVal fvb(flippedB, dataB);
-//	
-//	multiplexer m1(correctA, dataA, flippedA, dataA[31]);
-//	multiplexer m2(correctB, dataB, flippedB, dataB[31]);
-//
-//	xor x1(flipResultBit, dataA[31], dataB[31]);
-//	
-//endmodule
-//	
-//
-//module flipVal(dataOut,dataIn);
-//	input [31:0] dataIn;
-//	output [31:0] dataOut;
-//	
-//	adder32bit_8 abc(dataOut, 32'b0, dataIn, 1'b1);
-//
-//endmodule
-//
-//
-//
-//module oneBitShifterMod(out, data);
-//	
-//	input [32:0] data; 
-//	output [32:0] out;
-//	
-//	//1
-//	genvar i1;
-//	generate
-//	for (i1 = 1; i1 < 33; i1 = i1+1) begin: rightShiftLoop1_md
-//		assign out[i1-1] = data[i1];
-//	end
-//	endgenerate
-//	
-//	assign out[32] = data[32];	
+//	assign initInput_pre[1 +: 32] = data_operandB;
+//	assign initInput_pre[0] = 1'b0;
+//	assign initInput_pre[33 +: 32] = 32'b0;
+//	boothCycle bc1(data_operandA, initInput_pre, initInput);
 //		
+//	// 65-bit mux control input
+//	wire [64:0] regWrite;
+//	wire select;
+//	isCountZerobit6 icz(count, select);
+//	mux65 mx(intermediate, initInput, select, regWrite);
+//	
+//	// 65 DFFEs register
+//	wire [64:0] regRead;
+//	register65 rg(clock, regWrite, regRead);
+//		
+//	// output of register goes into booth cycle
+//	// output of booth cycle goes into mux 0th channel
+//	boothCycle bc2(data_operandA, regRead, intermediate);
+//		
+//	// output ready
+//	wire ready;
+//	isCount31bit6 ic31(count, ready);
+//	
+//	// exception
+//	checkMultException cme(intermediate, data_operandA, data_operandB, data_exception);
+//		
+//	assign product = (ready) ? intermediate[1 +: 32] : 32'bz;
+//	assign data_ready = latch & ready;
+//	
 //endmodule
 //
-//module oneBitShifterMod64(out, data);
+//// determines if multiplication has caused an exception
+//module checkMultException(intermediate, data_operandA, data_operandB, exception);
+//	input [64:0] intermediate;
+//	input [31:0] data_operandA, data_operandB;
+//	output exception;
 //	
-//	input [64:0] data; 
+//	wire case1, case2, case3, case4, case6, case7, signError;
+//	
+//	// operands diff signs and result positive
+//	assign case1 = ~intermediate[32] & ~data_operandA[31] & data_operandB[31];
+//	assign case2 = ~intermediate[32] & data_operandA[31] & ~data_operandB[31];
+//	
+//	// operands same sign and result negative
+//	assign case3 = intermediate[32] & ~data_operandA[31] & ~data_operandB[31];
+//	assign case4 = intermediate[32] & data_operandA[31] & data_operandB[31];
+//	
+//	// data_operands is zero
+//	assign case6 = ~(|data_operandA);
+//	assign case7 = ~(|data_operandB);
+//	
+//	assign signError = (case1 | case2 | case3 | case4) & ~(case6 | case7);
+//	
+//	// upper bits error
+//	wire upperBitsError, case5, except;
+//	assign case5 = |intermediate[33 +: 32];
+//	assign except = &intermediate[33 +: 32];
+//	
+//	assign upperBitsError = case5 & ~except;
+//	
+//	assign exception = upperBitsError | signError;
+//endmodule
+//
+//module isCountZerobit6(count, out);
+//	input [5:0] count;
+//	output out;
+//	
+//	wire w_or;
+//	or or1(w_or, count[0], count[1], count[2], count[3], count[4]);
+//	
+//	not not1(out, w_or);
+//endmodule
+//
+//module isCount31bit6(count, out);
+//	input [5:0] count;
+//	output out;
+//
+//	and and1(out, count[0], count[1], count[2], count[3], count[4]);
+//	
+//endmodule
+//
+//// 2-way mux for 65-bit inputs
+//module mux65(data_A, data_B, select, out);
+//	input [64:0] data_A, data_B;
+//	input select;
 //	output [64:0] out;
 //	
-//	genvar i1;
-//	generate
-//	for (i1 = 1; i1 < 65; i1 = i1+1) begin: rightShiftLoop1_md 
-//		assign out[i1-1] = data[i1];
-//	end
-//	endgenerate
+//	assign out = (select) ? data_B : data_A;
+//endmodule
+//
+//module mux32(data_A, data_B, select, out);
+//	input [31:0] data_A, data_B;
+//	input select;
+//	output [31:0] out;
 //	
-//	assign out[64] = data[64];
+//	assign out = (select) ? data_B : data_A;
+//endmodule
+//
+//// takes in multiplicand and mixed intermediate and performs add/sub and shift based on two LSBs
+//module boothCycle(data_operandA, intermediate, data_result);
+//	input [31:0] data_operandA;
+//	input [64:0] intermediate;
+//	output [64:0] data_result;
+//	
+//	// determine if we do something (01, 10) or not (00, 11)
+//	wire doSomething;
+//	xor xor1(doSomething, intermediate[0], intermediate[1]);
+//	
+//	// copy least significant 33 bits
+//	wire [64:0] sum;
+//	assign sum[0 +: 33] = intermediate[0 +: 33];
+//	
+//	// sum/diff to most significant 32 bits
+//	cla_mul addSub(intermediate[33 +: 32], data_operandA, intermediate[1], sum[33 +: 32]);
+//	
+//	// choose sum if we perform action else choose original
+//	wire [64:0] afterAction;
+//	assign afterAction = (doSomething) ? sum : intermediate;
+//	
+//	shift1bit65 sh(afterAction, 1'b1, data_result);
+//endmodule
+//
+//// 32-bit CLA (comprised of 4 8-bit CLAs)
+//module cla_mul(data_operandA, data_operandB_RAW, ctrl_addSub, data_sum);
+//	input ctrl_addSub;	// 0 for add, 1 for sub. also acts as carry-in
+//	input [31:0] data_operandA, data_operandB_RAW;
+//	output [31:0] data_sum;
+//	
+//	wire [31:0] data_operandB;
+//	wire data_carryout;
+//	
+//	// xor bits of second input
+//	genvar i;
+//	generate
+//		for(i = 0; i < 32; i = i + 1) begin: xorLoop
+//			xor xor0(data_operandB[i], ctrl_addSub, data_operandB_RAW[i]);
+//		end
+//	endgenerate
 //		
-//endmodule
-//
-//module checkOverflow(ofTOTAL,data, A, B);
-//
-//	input [31:0] A, B;
-//	input [64:0] data;
-//	output ofTOTAL;
+//	// intermediate carry bits
+//	wire c8, c16, c24;
 //	
-//	wire oc1, oc2, oc3, oc4, overall, of, last0_A, last0_B;
+//	// block-level propagate and generate bits
+//	wire P0, P1, P2, P3, G0, G1, G2, G3;
 //	
-//	checkZero c1(last0_A, A[31:0]);
-//	checkZero c2(last0_B, B[31:0]);
+//	// intermediate bits
+//	wire P0c0;
+//	wire P1G0, P1P0c0;
+//	wire P2G1, P2P1G0, P2P1P0c0;
+//	wire P3G2, P3P2G1, P3P2P1G0, P3P2P1P0c0;
 //	
-//	and a1(oc1, data[32], A[31], B[31]);
-//	and a2(oc2, data[32], ~A[31], ~B[31]);
-//	and a3(oc3, ~data[32], A[31], ~B[31]);
-//	and a4(oc4, ~data[32], ~A[31], B[31]);
+//	cla8simple adder0(data_operandA[0 +: 8], data_operandB[0 +: 8], data_operandB_RAW[0 +: 8], ctrl_addSub, data_sum[0 +: 8], P0, G0);
 //	
-//	assign overall =  (oc1 | oc2 | oc3 | oc4) & (~last0_A & ~last0_B);
+//	and and0(P0c0, P0, ctrl_addSub);
+//	or or0(c8, G0, P0c0);
 //	
-//	wire [31:0] tempCase1, tempCase2;
-//	wire notCase2,notof;
+//	cla8simple adder1(data_operandA[8 +: 8], data_operandB[8 +: 8], data_operandB_RAW[8 +: 8], c8, data_sum[8 +: 8], P1, G1);
 //	
-//	assign tempCase1[31] = data[64];
-//	assign tempCase2[31] = data[64];
+//	and and1(P1G0, P1, G0);
+//	and and2(P1P0c0, P1, P0, ctrl_addSub);
+//	or or1(c16, G1, P1G0, P1P0c0);
 //	
-//	genvar i1;
-//	generate
-//	for (i1 = 62; i1 > 31; i1 = i1-1) begin: case1
-//		and(tempCase1[i1-32], data[i1+1], tempCase1[i1-31]);
-//	end
-//	endgenerate
+//	cla8simple adder2(data_operandA[16 +: 8], data_operandB[16 +: 8], data_operandB_RAW[16 +: 8], c16, data_sum[16 +: 8], P2, G2);
+//		
+//	and and3(P2G1, P2, G1);
+//	and and4(P2P1G0, P2, P1, G0);
+//	and and5(P2P1P0c0, P2, P1, P0, ctrl_addSub);
+//	or or2(c24, G2, P2G1, P2P1G0, P2P1P0c0);
 //	
-//	genvar i2;
-//	generate
-//	for (i2 = 62; i2 > 31; i2 = i2-1) begin: case2
-//		or(tempCase2[i2-32], data[i2+1], tempCase2[i2-31]);
-//	end
-//	endgenerate
+//	cla8simple adder3(data_operandA[24 +: 8], data_operandB[24 +: 8], data_operandB_RAW[24 +: 8], c24, data_sum[24 +: 8], P3, G3);
 //	
-//	not(notCase2,tempCase2[0]);
-//	or(notof, tempCase1[0], notCase2);
-//	not(of, notof);
-//	
-//	or(ofTOTAL, of, overall);
+//	and and6(P3G2, P3, G2);
+//	and and7(P3P2G1, P3, P2, G1);
+//	and and8(P3P2P1G0, P3, P2, P1, G0);
+//	and and9(P3P2P1P0c0, P3, P2, P1, P0, ctrl_addSub);
+//	or or3(data_carryout, G3, P3G2, P3P2G1, P3P2P1G0, P3P2P1P0c0);
 //	
 //endmodule
 //
+//// 8-bit CLA
+//module cla8simple(data_operandA, data_operandB, data_operandB_noEdit, c0, data_sum, P0, G0);
+//	input c0;
+//	input [7:0] data_operandA, data_operandB, data_operandB_noEdit;
+//	output P0, G0;
+//	output [7:0] data_sum;
+//	
+//	wire g0, g1, g2, g3, g4, g5, g6, g7, p0, p1, p2, p3, p4, p5, p6, p7;
+//	
+//	// generate bits
+//	and and0(g0, data_operandA[0], data_operandB[0]);
+//	and and1(g1, data_operandA[1], data_operandB[1]);
+//	and and2(g2, data_operandA[2], data_operandB[2]);
+//	and and3(g3, data_operandA[3], data_operandB[3]);
+//	and and4(g4, data_operandA[4], data_operandB[4]);
+//	and and5(g5, data_operandA[5], data_operandB[5]);
+//	and and6(g6, data_operandA[6], data_operandB[6]);
+//	and and7(g7, data_operandA[7], data_operandB[7]);
+//	
+//	// propagate bits
+//	or or0(p0, data_operandA[0], data_operandB[0]);
+//	or or1(p1, data_operandA[1], data_operandB[1]);
+//	or or2(p2, data_operandA[2], data_operandB[2]);
+//	or or3(p3, data_operandA[3], data_operandB[3]);
+//	or or4(p4, data_operandA[4], data_operandB[4]);
+//	or or5(p5, data_operandA[5], data_operandB[5]);
+//	or or6(p6, data_operandA[6], data_operandB[6]);
+//	or or7(p7, data_operandA[7], data_operandB[7]);
+//	
+//	// intermediate wires
+//	wire c1, c2, c3, c4, c5, c6, c7;
+//	wire p0c0, p1p0c0, p2p1p0c0, p3p2p1p0c0, p4p3p2p1p0c0, p5p4p3p2p1p0c0, p6p5p4p3p2p1p0c0, p7p6p5p4p3p2p1p0c0;
+//	wire p1g0, p2p1g0, p3p2p1g0, p4p3p2p1g0, p5p4p3p2p1g0, p6p5p4p3p2p1g0, p7p6p5p4p3p2p1g0;
+//	wire p2g1, p3p2g1, p4p3p2g1, p5p4p3p2g1, p6p5p4p3p2g1, p7p6p5p4p3p2g1;
+//	wire p3g2, p4p3g2, p5p4p3g2, p6p5p4p3g2, p7p6p5p4p3g2;
+//	wire p4g3, p5p4g3, p6p5p4g3, p7p6p5p4g3;
+//	wire p5g4, p6p5g4, p7p6p5g4;
+//	wire p6g5, p7p6g5;
+//	wire p7g6;
+//	
+//	// assigning intermediate wires
+//	and and8(p0c0, p0, c0);
+//	and and9(p1p0c0, p1, p0, c0);
+//	and and10(p2p1p0c0, p2, p1, p0, c0);
+//	and and11(p3p2p1p0c0, p3, p2, p1, p0, c0);
+//	and and12(p4p3p2p1p0c0, p4, p3, p2, p1, p0, c0);
+//	and and13(p5p4p3p2p1p0c0, p5, p4, p3, p2, p1, p0, c0);
+//	and and14(p6p5p4p3p2p1p0c0, p6, p5, p4, p3, p2, p1, p0, c0);
+//	and and15(p7p6p5p4p3p2p1p0c0, p7, p6, p5, p4, p3, p2, p1, p0, c0);
+//	and and16(p1g0, p1, g0);
+//	and and17(p2p1g0, p2, p1, g0);
+//	and and18(p3p2p1g0, p3, p2, p1, g0);
+//	and and19(p4p3p2p1g0, p4, p3, p2, p1, g0);
+//	and and20(p5p4p3p2p1g0, p5, p4, p3, p2, p1, g0);
+//	and and21(p6p5p4p3p2p1g0, p6, p5, p4, p3, p2, p1, g0);
+//	and and22(p7p6p5p4p3p2p1g0, p7, p6, p5, p4, p3, p2, p1, g0);
+//	and and23(p2g1, p2, g1);
+//	and and24(p3p2g1, p3, p2, g1);
+//	and and25(p4p3p2g1, p4, p3, p2, g1);
+//	and and26(p5p4p3p2g1, p5, p4, p3, p2, g1);
+//	and and27(p6p5p4p3p2g1, p6, p5, p4, p3, p2, g1);
+//	and and28(p7p6p5p4p3p2g1, p7, p6, p5, p4, p3, p2, g1);
+//	and and29(p3g2, p3, g2);
+//	and and30(p4p3g2, p4, p3, g2);
+//	and and31(p5p4p3g2, p5, p4, p3, g2);
+//	and and32(p6p5p4p3g2, p6, p5, p4, p3, g2);
+//	and and33(p7p6p5p4p3g2, p7, p6, p5, p4, p3, g2);
+//	and and34(p4g3, p4, g3);
+//	and and35(p5p4g3, p5, p4, g3);
+//	and and36(p6p5p4g3, p6, p5, p4, g3);
+//	and and37(p7p6p5p4g3, p7, p6, p5, p4, g3);
+//	and and38(p5g4, p5, g4);
+//	and and39(p6p5g4, p6, p5, g4);
+//	and and40(p7p6p5g4, p7, p6, p5, g4);
+//	and and41(p6g5, p6, g5);
+//	and and42(p7p6g5, p7, p6, g5);
+//	and and43(p7g6, p7, g6);
+//	
+//	// assigning carries
+//	or or8(c1, g0, p0c0);
+//	or or9(c2, g1, p1g0, p1p0c0);
+//	or or10(c3, g2, p2g1, p2p1g0, p2p1p0c0);
+//	or or11(c4, g3, p3g2, p3p2g1, p3p2p1g0, p3p2p1p0c0);
+//	or or12(c5, g4, p4g3, p4p3g2, p4p3p2g1, p4p3p2p1g0, p4p3p2p1p0c0);
+//	or or13(c6, g5, p5g4, p5p4g3, p5p4p3g2, p5p4p3p2g1, p5p4p3p2p1g0, p5p4p3p2p1p0c0);
+//	or or14(c7, g6, p6g5, p6p5g4, p6p5p4g3, p6p5p4p3g2, p6p5p4p3p2g1, p6p5p4p3p2p1g0, p6p5p4p3p2p1p0c0);
 //
+//	// assigning sums
+//	xor xor0(data_sum[0], data_operandA[0], data_operandB[0], c0);
+//	xor xor1(data_sum[1], data_operandA[1], data_operandB[1], c1);
+//	xor xor2(data_sum[2], data_operandA[2], data_operandB[2], c2);
+//	xor xor3(data_sum[3], data_operandA[3], data_operandB[3], c3);
+//	xor xor4(data_sum[4], data_operandA[4], data_operandB[4], c4);
+//	xor xor5(data_sum[5], data_operandA[5], data_operandB[5], c5);
+//	xor xor6(data_sum[6], data_operandA[6], data_operandB[6], c6);
+//	xor xor7(data_sum[7], data_operandA[7], data_operandB[7], c7);
+//	
+//	// assigning block-level propagate
+//	and and44(P0, p7, p6, p5, p4, p3, p2, p1, p0);
+//	or or15(G0, g7, p7g6, p7p6g5, p7p6p5g4, p7p6p5p4g3, p7p6p5p4p3g2, p7p6p5p4p3p2g1, p7p6p5p4p3p2p1g0);
+//
+//endmodule
+//
+//// FSM counter (0 -> 31)
 //module up_counter(out,enable,clk,reset);
-//	output [5:0] out;	 //potentially change								
+//	output [5:0] out;
 //	input enable, clk, reset;
-//	reg [5:0] out;		//potentially change	initial out = 6'b0;
-//	initial 
+//	reg [5:0] out;
+//	initial
 //	begin
-//		out = 6'b111111;
+//		out = 6'd54;
 //	end
 //	always @(posedge clk)
 //	if (reset) begin
-//	  out <= 6'b0;
+//	  out <= 6'b000000;
 //	end else if (enable) begin
+//		//out <= out + 1;
 //		case(out)
 //			6'd0: out <= 6'd1;
 //			6'd1: out <= 6'd2;
@@ -1707,191 +1750,88 @@
 //			6'd28: out <= 6'd29;
 //			6'd29: out <= 6'd30;
 //			6'd30: out <= 6'd31;
-//			6'd31: out <= 6'd32;
-//			6'd32: out <= 6'd63;		
+//			6'd31: out <= 6'd54;
 //		endcase
 //	end
-//endmodule 
-//
-//module checkZero(isZero, data);
-//
-//	input [31:0] data;
-//	output isZero;
-//	
-//	wire [31:0] tempCase;
-//
-//	assign tempCase[0] = data[0];
-//	
-//	genvar i2;
-//	generate
-//	for (i2 = 1; i2 < 32; i2 = i2+1) begin: case1
-//		or(tempCase[i2], data[i2], tempCase[i2-1]);
-//	end
-//	endgenerate
-//	
-//	not(isZero,tempCase[31]);
-//
 //endmodule
 //
-//module multiplexer33bit(out,input1, input2, selectBit);
-//	input [32:0] input1, input2;
-//	input selectBit;
-//	output [32:0] out;
+//// 65-bit register
+//module register65(clock, data_writeReg, data_readReg);
+//
+//	// inputs and outputs
+//	input clock;
+//	input [64:0] data_writeReg;
+//	output [64:0] data_readReg;
+//	
+//	// flip flops
 //	genvar i;
 //	generate
-//	for (i = 0; i < 33; i = i+1) begin: Loop
-//		assign out[i] = selectBit ? input2[i]:input1[i];
-//	end
-//	endgenerate
-//	
-//	//Case select = 0: input1
-//	//Case select = 1: input2
-//endmodule	
-//
-//module multiplexer64(out,input1, input2, selectBit);
-//	input [64:0] input1, input2;
-//	input selectBit;
-//	output [64:0] out;
-//	genvar i;
-//	generate
-//	for (i = 0; i < 65; i = i+1) begin: multiplexerLoop
-//		assign out[i] = selectBit ? input2[i]:input1[i];
-//	end
-//	endgenerate
-//	
-//	//Case select = 0: input1
-//	//Case select = 1: input2
-//endmodule	
-//
-//module multiplexer1(out,input1, input2, selectBit);
-//	input input1, input2;
-//	input selectBit;
-//	output out;
-//	assign out = selectBit ? input2:input1;
-//	//Case select = 0: input1
-//	//Case select = 1: input2
-//endmodule	
-//
-//module singleReg64(readOut, writeIn, clk, clr, ena);
-//
-//	input clk, clr, ena;
-//	input [64:0] writeIn;
-//	output [64:0] readOut;
-//	wire clrn;
-//	assign clrn = ~clr;
-//	
-//	genvar i;
-//	generate
-//	for (i = 0; i < 65; i = i+1) begin: loop1
-//		dffe currDFFE(.d(writeIn[i]), .clk(clk), .clrn(clrn), .prn(1'b1), .ena(ena), .q(readOut[i]));
-//	end
-//	endgenerate
-//
-//endmodule
-//
-////////////////// RECYCLED CODE BELOW!!! Register File
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//
-//module regfile_jx35(clock, ctrl_writeEnable, ctrl_reset, ctrl_writeReg, 
-//ctrl_readRegA, ctrl_readRegB, data_writeReg, data_readRegA, data_readRegB, allRegData);
-//
-//   input clock, ctrl_writeEnable, ctrl_reset; // before code
-//   input [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB; // before code
-//   input [31:0] data_writeReg;  // before code
-//	output [31:0] data_readRegA, data_readRegB; // before code
-//	output [1023:0] allRegData;
-//	
-//	// Take control bits, and manufacture 3 sets of registers.
-//	wire [31:0] registerWriteEnable, rweTemp, wireRegA,wireRegB;
-//	decoder32 writeDecode(rweTemp,ctrl_writeReg,ctrl_writeEnable);
-//	
-//	assign registerWriteEnable[31:1] = rweTemp[31:1];
-//	assign registerWriteEnable[0] = 1'b0;
-//	
-//	
-//	decoder32 RegA(wireRegA, ctrl_readRegA,1'b1);
-//	decoder32 RegB(wireRegB, ctrl_readRegB,1'b1);
-//	genvar i;
-//	generate
-//	for (i = 0; i < 32; i = i+1) begin: registerLoop
-//		wire [31:0] toRA, toRB,data_tri;
-//		singleReg allRegisters(toRA, data_writeReg, clock, ctrl_reset, registerWriteEnable[i]);
-//		assign toRB = toRA;
-//		triBuffer tBuffRegA(data_readRegA,toRA,wireRegA[i]);
-//		triBuffer tBuffRegB(data_readRegB,toRB,wireRegB[i]);
-//		assign allRegData[i*32 +: 32] = toRB;
-//	end
+//		for(i = 0; i < 65; i = i + 1) begin: loop1
+//			dffeveri my_dffe(data_readReg[i], data_writeReg[i], clock, 1'b1, 1'b1, 1'b1);
+//		end
 //	endgenerate
 //	
 //endmodule
 //
-//// Code to write a single register
-//module singleReg(readOut, writeIn, clk, clr, ena);
+//// 32-bit register
+//module register32(clock, ena, data_writeReg, data_readReg);
 //
-//	input clk, clr, ena;
-//	input [31:0] writeIn;
-//	output [31:0] readOut;
-//	wire clrn;
-//	assign clrn = ~clr;
+//	// inputs and outputs
+//	input clock, ena;
+//	input [31:0] data_writeReg;
+//	output [31:0] data_readReg;
 //	
+//	// flip flops
 //	genvar i;
 //	generate
-//	for (i = 0; i < 32; i = i+1) begin: loop1
-//		dffe currDFFE(.d(writeIn[i]), .clk(clk), .clrn(clrn), .prn(1'b1), .ena(ena), .q(readOut[i]));
-//	end
+//		for(i = 0; i < 32; i = i + 1) begin: loop1
+//			dffeveri my_dffe(data_readReg[i], data_writeReg[i], clock, ena, 1'b1, 1'b1);
+//		end
 //	endgenerate
-//
-//endmodule
-//
-//module triBuffer(out,in, oe);
-//	input [31:0] in;
-//	input oe;
-//	output [31:0] out;
-//	assign out = oe ? in: 32'bz;
-//endmodule
-//
-//
-//module decoder32(registerOutput, select, writeEnable);
-//	input [4:0] select;
-//	input writeEnable;
-//	output [31:0] registerOutput;
 //	
-//	and and0(registerOutput[0], ~select[4], ~select[3], ~select[2], ~select[1], ~select[0], writeEnable);
-//   and and1(registerOutput[1], ~select[4], ~select[3], ~select[2], ~select[1], select[0], writeEnable);
-//   and and2(registerOutput[2], ~select[4], ~select[3], ~select[2], select[1], ~select[0], writeEnable);
-//   and and3(registerOutput[3], ~select[4], ~select[3], ~select[2], select[1], select[0], writeEnable);
-//   and and4(registerOutput[4], ~select[4], ~select[3], select[2], ~select[1], ~select[0], writeEnable);
-//   and and5(registerOutput[5], ~select[4], ~select[3], select[2], ~select[1], select[0], writeEnable);
-//   and and6(registerOutput[6], ~select[4], ~select[3], select[2], select[1], ~select[0], writeEnable);
-//   and and7(registerOutput[7], ~select[4], ~select[3], select[2], select[1], select[0], writeEnable);
-//   and and8(registerOutput[8], ~select[4], select[3], ~select[2], ~select[1], ~select[0], writeEnable);
-//   and and9(registerOutput[9], ~select[4], select[3], ~select[2], ~select[1], select[0], writeEnable);
-//   and and10(registerOutput[10], ~select[4], select[3], ~select[2], select[1], ~select[0], writeEnable);
-//   and and11(registerOutput[11], ~select[4], select[3], ~select[2], select[1], select[0], writeEnable);
-//   and and12(registerOutput[12], ~select[4], select[3], select[2], ~select[1], ~select[0], writeEnable);
-//   and and13(registerOutput[13], ~select[4], select[3], select[2], ~select[1], select[0], writeEnable);
-//   and and14(registerOutput[14], ~select[4], select[3], select[2], select[1], ~select[0], writeEnable);
-//   and and15(registerOutput[15], ~select[4], select[3], select[2], select[1], select[0], writeEnable);
-//   and and16(registerOutput[16], select[4], ~select[3], ~select[2], ~select[1], ~select[0], writeEnable);
-//   and and17(registerOutput[17], select[4], ~select[3], ~select[2], ~select[1], select[0], writeEnable);
-//   and and18(registerOutput[18], select[4], ~select[3], ~select[2], select[1], ~select[0], writeEnable);
-//   and and19(registerOutput[19], select[4], ~select[3], ~select[2], select[1], select[0], writeEnable);
-//   and and20(registerOutput[20], select[4], ~select[3], select[2], ~select[1], ~select[0], writeEnable);
-//   and and21(registerOutput[21], select[4], ~select[3], select[2], ~select[1], select[0], writeEnable);
-//   and and22(registerOutput[22], select[4], ~select[3], select[2], select[1], ~select[0], writeEnable);
-//   and and23(registerOutput[23], select[4], ~select[3], select[2], select[1], select[0], writeEnable);
-//   and and24(registerOutput[24], select[4], select[3], ~select[2], ~select[1], ~select[0], writeEnable);
-//   and and25(registerOutput[25], select[4], select[3], ~select[2], ~select[1], select[0], writeEnable);
-//   and and26(registerOutput[26], select[4], select[3], ~select[2], select[1], ~select[0], writeEnable);
-//   and and27(registerOutput[27], select[4], select[3], ~select[2], select[1], select[0], writeEnable);
-//   and and28(registerOutput[28], select[4], select[3], select[2], ~select[1], ~select[0], writeEnable);
-//   and and29(registerOutput[29], select[4], select[3], select[2], ~select[1], select[0], writeEnable);
-//   and and30(registerOutput[30], select[4], select[3], select[2], select[1], ~select[0], writeEnable);
-//	and and31(registerOutput[31], select[4], select[3], select[2], select[1], select[0], writeEnable);
+//endmodule
+//
+//// D-Flip-Flop
+//module dffeveri(q, d, clk, ena, rsn, prn);
+//	input d, clk, ena, rsn, prn;
+//	output q;
+//	reg q;
+//
+//	
+//	always @(posedge clk or negedge rsn or negedge prn) begin
+//		
+//		if(~prn)
+//			begin
+//			if(rsn)
+//				q = 1'b1;
+//			else
+//				q = 1'bx;
+//			end
+//			
+//		else if(~rsn)
+//			q = 1'b0;
+//			
+//		else if(ena)
+//			q = d;
+//	end
+//endmodule
+//
+//// 1-bit shifter
+//module shift1bit65(data_input, ctrl_shiftdirection, data_output);
+//	input [64:0] data_input;
+//	input ctrl_shiftdirection;
+//	output [64:0] data_output;
+//	
+//	// MSB and LSB special cases
+//	assign data_output[64] = (ctrl_shiftdirection) ? data_input[64] : data_input[63];
+//	assign data_output[0] = (ctrl_shiftdirection) ? data_input[1] : 1'b0;
+//	
+//	// assign remaining middle bits using loop
+//	genvar i;
+//	generate
+//		for(i = 1; i < 64; i = i + 1) begin: shiftLoop
+//			assign data_output[i] = (ctrl_shiftdirection) ? data_input[i + 1] : data_input[i - 1];
+//		end
+//	endgenerate
+//	
 //endmodule

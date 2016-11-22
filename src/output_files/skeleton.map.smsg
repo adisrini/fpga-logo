@@ -1,2 +1,8 @@
-Info (10281): Verilog HDL Declaration information at processor_jx35.v(1496): object "LT" differs only in case from object "lt" in the same scope File: C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/processor_jx35.v Line: 1496
-Warning (10273): Verilog HDL warning at processor_jx35.v(1856): extended using "x" or "z" File: C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/processor_jx35.v Line: 1856
+Warning (10273): Verilog HDL warning at processor_as577.v(715): extended using "x" or "z" File: C:/Users/Aditya Srinivasan/Desktop/processor/processor_as577.v Line: 715
+Info (10281): Verilog HDL Declaration information at processor_as577.v(872): object "G0" differs only in case from object "g0" in the same scope File: C:/Users/Aditya Srinivasan/Desktop/processor/processor_as577.v Line: 872
+Info (10281): Verilog HDL Declaration information at processor_as577.v(872): object "P0" differs only in case from object "p0" in the same scope File: C:/Users/Aditya Srinivasan/Desktop/processor/processor_as577.v Line: 872
+Warning (10273): Verilog HDL warning at processor_as577.v(1310): extended using "x" or "z" File: C:/Users/Aditya Srinivasan/Desktop/processor/processor_as577.v Line: 1310
+Warning (10273): Verilog HDL warning at processor_as577.v(1355): extended using "x" or "z" File: C:/Users/Aditya Srinivasan/Desktop/processor/processor_as577.v Line: 1355
+Warning (10273): Verilog HDL warning at processor_as577.v(1453): extended using "x" or "z" File: C:/Users/Aditya Srinivasan/Desktop/processor/processor_as577.v Line: 1453
+Info (10281): Verilog HDL Declaration information at processor_as577.v(1610): object "G0" differs only in case from object "g0" in the same scope File: C:/Users/Aditya Srinivasan/Desktop/processor/processor_as577.v Line: 1610
+Info (10281): Verilog HDL Declaration information at processor_as577.v(1610): object "P0" differs only in case from object "p0" in the same scope File: C:/Users/Aditya Srinivasan/Desktop/processor/processor_as577.v Line: 1610

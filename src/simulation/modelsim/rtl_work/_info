@@ -7,1626 +7,1685 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/simulation/modelsim
-vadder32bit_8
-Z1 !s110 1479704283
-!i10b 1
-!s100 lRO>`SHQ@89Azkejc2f;n3
-ISz?n^2Aj3gJa@iZl666E=0
-Z2 VDg1SIo80bB@j0V0VzS_@n1
-R0
-Z3 w1479330621
-Z4 8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/processor_jx35.v
-Z5 FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/processor_jx35.v
-L0 1098
-Z6 OV;L;10.4d;61
-r1
-!s85 0
-31
-Z7 !s108 1479704283.000000
-Z8 !s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/processor_jx35.v|
-Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/processor_jx35.v|
-!i113 1
-Z10 o-vlog01compat -work work
-Z11 !s92 -vlog01compat -work work {+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored}
-vadder8bit
-R1
-!i10b 1
-!s100 d9RiZ>PTMa1`iOPWW?Qdn2
-I:n>D;^2SJKHeJ_KD<L@_J2
-R2
-R0
-R3
-R4
-R5
-L0 1056
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
+Z0 dC:/Users/Aditya Srinivasan/Desktop/processor/simulation/modelsim
 vAltera_UP_PS2_Command_Out
-R1
+Z1 !s110 1479331053
 !i10b 1
 !s100 ZjDIV:z^W4aE7ECD]ReVK0
-IYJTR8U=j=H>JPEHcoZ@ne2
-R2
+IRfPZaLJ?lWg<6jg_^d5@X3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
 w1394229246
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Altera_UP_PS2_Command_Out.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Altera_UP_PS2_Command_Out.v
-Z12 L0 10
-R6
+8C:/Users/Aditya Srinivasan/Desktop/processor/Altera_UP_PS2_Command_Out.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/Altera_UP_PS2_Command_Out.v
+Z3 L0 10
+Z4 OV;L;10.4d;61
 r1
 !s85 0
 31
-Z13 !s108 1479704282.000000
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Altera_UP_PS2_Command_Out.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Altera_UP_PS2_Command_Out.v|
+Z5 !s108 1479331053.000000
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/Altera_UP_PS2_Command_Out.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/Altera_UP_PS2_Command_Out.v|
 !i113 1
-R10
-R11
+Z6 o-vlog01compat -work work
+Z7 !s92 -vlog01compat -work work {+incdir+C:/Users/Aditya Srinivasan/Desktop/processor}
 n@altera_@u@p_@p@s2_@command_@out
 vAltera_UP_PS2_Data_In
-Z14 !s110 1479704282
+R1
 !i10b 1
 !s100 ee^TmQcGZ[E_>UMojW[Zg0
-I@;oC3RIb5n[k4:MfVdN<X0
+I`OIZ[>3i6nHlnYMS0RhcU1
 R2
 R0
 w1394229255
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Altera_UP_PS2_Data_In.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Altera_UP_PS2_Data_In.v
-R12
-R6
+8C:/Users/Aditya Srinivasan/Desktop/processor/Altera_UP_PS2_Data_In.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/Altera_UP_PS2_Data_In.v
+R3
+R4
 r1
 !s85 0
 31
-R13
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Altera_UP_PS2_Data_In.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Altera_UP_PS2_Data_In.v|
+R5
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/Altera_UP_PS2_Data_In.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/Altera_UP_PS2_Data_In.v|
 !i113 1
-R10
-R11
+R6
+R7
 n@altera_@u@p_@p@s2_@data_@in
-vALU1bit
-R1
+vas577_alu
+Z8 !s110 1479331054
 !i10b 1
-!s100 X8nV1A;XR`X_J03T[h0DX1
-IEGfoFDU^65LOMKMW<lOBU0
+!s100 ?N?o6mJHCczAYO[Qz<JMM2
+IziCY@8m_LgHH6;kEZhF9K0
 R2
 R0
-R3
+Z9 w1479330925
+Z10 8C:/Users/Aditya Srinivasan/Desktop/processor/processor_as577.v
+Z11 FC:/Users/Aditya Srinivasan/Desktop/processor/processor_as577.v
+L0 676
 R4
-R5
-L0 1048
-R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+Z12 !s108 1479331054.000000
+Z13 !s107 C:/Users/Aditya Srinivasan/Desktop/processor/processor_as577.v|
+Z14 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/processor_as577.v|
 !i113 1
-R10
-R11
-n@a@l@u1bit
-vandOr32bit
-R1
+R6
+R7
+vassign_alu_operands
+R8
 !i10b 1
-!s100 =WRZgA;iN8XAn>m=hD0kR2
-IkGNc8Yz>a<J0@RRdRba]M2
+!s100 QkkKKCPFA60nNka@W]?9=3
+I60HBEU:A;OcPj?I7PaHm`1
 R2
 R0
-R3
+R9
+R10
+R11
+L0 490
 R4
-R5
-L0 1127
-R6
 r1
 !s85 0
 31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nand@or32bit
-vbasicShiftLeft2
-R1
-!i10b 1
-!s100 3VMgbAH];aZXoiIN^5SQN1
-I0CC:Y66F2a:KJ_h1^NjY60
-R2
-R0
-R3
-R4
-R5
-L0 812
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nbasic@shift@left2
-vbypass_EX
-R1
-!i10b 1
-!s100 LAM]CkemXDa=i[A7lEGa]2
-I:XPo=LG5L5GX[Wh@G1HDK3
-R2
-R0
-R3
-R4
-R5
-L0 703
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nbypass_@e@x
-vbypass_mem
-R1
-!i10b 1
-!s100 TVe`COndg2UCf4LOaH7GW3
-IM>noLMZa>eQZ:ZKFzhaCV3
-R2
-R0
-R3
-R4
-R5
-L0 728
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-vcheckEquality
-R1
-!i10b 1
-!s100 `WiLRacVBX4LGWLbj51bE0
-IelhgWjCeg?ohk?D]kddUK2
-R2
-R0
-R3
-R4
-R5
-L0 1031
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-ncheck@equality
-vcheckEquality_27bit
-R1
-!i10b 1
-!s100 XmdRi>U3jSYA[dZW2BLko1
-I45jgIIeL?;jSQmfP@k1oD0
-R2
-R0
-R3
-R4
-R5
-L0 954
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-ncheck@equality_27bit
-vcheckOverflow
-R1
-!i10b 1
-!s100 ?nSdIX2L5BQ`QGNUE7>;33
-Im8Y?UcS@LaJ_=Qc5G6QQl2
-R2
-R0
-R3
-R4
-R5
-L0 1619
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-ncheck@overflow
-vcheckZero
-R1
-!i10b 1
-!s100 ndMEcMG>WS6El@i7887U03
-IazGbJFS=@h=5bGmK9?iMc0
-R2
-R0
-R3
-R4
-R5
-L0 1716
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-ncheck@zero
-vcomputeValues
-R1
-!i10b 1
-!s100 9T]VXhmR7iAP@mGQ`_E;D3
-IMWk8RfC3LbSiOo=^]ILh13
-R2
-R0
-R3
-R4
-R5
-L0 747
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-ncompute@values
-vdecoder32
-R1
-!i10b 1
-!s100 M[O@HPiBYR2CH5<_IVF:d1
-I`:[]ig`kmQESMe=k]0NG]0
-R2
-R0
-R3
-R4
-R5
-L0 1860
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-vdivideCycle
-R1
-!i10b 1
-!s100 D<hNk3G[DYS@Jf6G>;Y;Q2
-I^`dT@@CLKO2ng3SR_CYBj1
-R2
-R0
-R3
-R4
-R5
-L0 1485
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-ndivide@cycle
-vdmem
+R12
+R13
 R14
+!i113 1
+R6
+R7
+vassign_reg_write
+R8
+!i10b 1
+!s100 iZ6o;82mM>hQ69EcI>59S1
+ITYNHD<i3C9VBl[3[nSd7<0
+R2
+R0
+R9
+R10
+R11
+L0 479
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vassign_registers
+R8
+!i10b 1
+!s100 ]HY:T7nnE_;e`dSXb=U4L0
+I_gkY<>JTWWT3TIM0M:lZV1
+R2
+R0
+R9
+R10
+R11
+L0 500
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vassign_status
+R8
+!i10b 1
+!s100 Hf21LbAhQBE@;]fBnM]hm3
+I9T>^W[DLAj[86TCY^1Vc:2
+R2
+R0
+R9
+R10
+R11
+L0 416
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vbooth_mult
+R8
+!i10b 1
+!s100 1fEfO@mD57:mg``UGeHU[2
+I?`b^`^E`F89Z_g5HUHFao0
+R2
+R0
+R9
+R10
+R11
+L0 1413
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vboothCycle
+R8
+!i10b 1
+!s100 @F[:PX@odHS9Vc?gl^e=l1
+I2QGL0`bW_@AfTJ9YocMzf3
+R2
+R0
+R9
+R10
+R11
+L0 1524
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+nbooth@cycle
+vbypass_ex
+R8
+!i10b 1
+!s100 8Nd5_2V2_MSl[m=L=zfVQ3
+IQMhEL=2L1M5a6GoJ=D4zT1
+R2
+R0
+R9
+R10
+R11
+L0 247
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vbypass_mem
+R8
+!i10b 1
+!s100 YHVzJ7R0WihJlR>JgjRe=3
+I2L^`H1eoh378jJBgdz2510
+R2
+R0
+R9
+R10
+R11
+L0 280
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vcheckDivisionException
+R8
+!i10b 1
+!s100 dUnEILZ7=PMKS`[K7:A^Z1
+Izol?:9H7:DJ^6SobTWK9T3
+R2
+R0
+R9
+R10
+R11
+L0 1369
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+ncheck@division@exception
+vcheckMultException
+R8
+!i10b 1
+!s100 ;1b52a79beJ5b6e^=CgDe0
+I:IkMnaP>4z;S4?1E1KdHY1
+R2
+R0
+R9
+R10
+R11
+L0 1457
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+ncheck@mult@exception
+vcla
+R8
+!i10b 1
+!s100 h8L@VaniLn??;@[0T:0L;3
+Im57UM6llkLB^ZXi3>9eZf0
+R2
+R0
+R9
+R10
+R11
+L0 758
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vcla8
+R8
+!i10b 1
+!s100 Fg4S3T7k_6c;0`]=77Y;>3
+I8<IDT;9o[[9O2^9WfV2OS1
+R2
+R0
+R9
+R10
+R11
+L0 867
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vcla8simple
+R8
+!i10b 1
+!s100 iY6DDl@hfSdG>`1DOYlQo2
+IdIFVE?c5Pi6XP2]2EE7e^3
+R2
+R0
+R9
+R10
+R11
+L0 1605
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vcla_mul
+R8
+!i10b 1
+!s100 @:2<ah^`O<V2b:K22H79d0
+Ik98RPGe6F?oCHz]]]Ma_;1
+R2
+R0
+R9
+R10
+R11
+L0 1548
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vcontrol
+R8
+!i10b 1
+!s100 f;AUg1Ld9caz4dWhh?E]21
+I92o<;H8WWJTHW7lM`8Lk50
+R2
+R0
+R9
+R10
+R11
+L0 511
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vdecoder
+R8
+!i10b 1
+!s100 HHI3XdaB`z>_cS5^7QRDG2
+Ifjj1[;d`<FigN:BdzUijH2
+R2
+R0
+R9
+R10
+R11
+L0 718
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vdffeveri
+R8
+!i10b 1
+!s100 D09UzdF2`U_fFiN3]VQn?0
+IUgTZ?Va0Te8<a_=mcOY?c3
+R2
+R0
+R9
+R10
+R11
+L0 1795
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vdiv
+R8
+!i10b 1
+!s100 cgm:IDOmSfn;16aWOWEQ]0
+Ie^h7_258?mM:8RGC6lg5n1
+R2
+R0
+R9
+R10
+R11
+L0 1322
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vdivision_cycle
+R8
+!i10b 1
+!s100 <dZE79dd_3mbdbQh[ahiT1
+Ig:KfI8fFUEAWA@Xb=kBKK3
+R2
+R0
+R9
+R10
+R11
+L0 1377
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vdmem
+R1
 !i10b 1
 !s100 Mf==1Z5X5eXB?1PVG7k`T3
-IaS25B`PR]BlQVSJH;OSn@3
+IXi[285XoWcLT[z?3CR3Fn1
 R2
 R0
-w1458863553
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/dmem.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/dmem.v
+w1458859953
+8C:/Users/Aditya Srinivasan/Desktop/processor/dmem.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/dmem.v
 Z15 L0 39
-R6
+R4
 r1
 !s85 0
 31
+R5
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/dmem.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/dmem.v|
+!i113 1
+R6
+R7
+vencode_ALUop
+R8
+!i10b 1
+!s100 JX<<l9G05IIN[Zd34odS[2
+IGVK^8n9>N:k8o?L^F<HMZ3
+R2
+R0
+R9
+R10
+R11
+L0 589
+R4
+r1
+!s85 0
+31
+R12
 R13
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/dmem.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/dmem.v|
-!i113 1
-R10
-R11
-vEX_MEM_Register
-R1
-!i10b 1
-!s100 c[cXTed>kNkcdNAjkiFJQ0
-IPg5RPih0N3jj0NFg6hhD>2
-R2
-R0
-R3
-R4
-R5
-L0 494
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-n@e@x_@m@e@m_@register
-vflipVal
-R1
-!i10b 1
-!s100 5S3FmjM_88PZ_IHCF52<Y3
-IzDRX:RCAgEzLBdk7H8je]0
-R2
-R0
-R3
-R4
-R5
-L0 1576
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nflip@val
-vflushLogic
-R1
-!i10b 1
-!s100 kYQICNg14GJT3fC0fZKCW0
-ICLQ@K11AHi8KJ=Q>ZXniI1
-R2
-R0
-R3
-R4
-R5
-L0 678
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nflush@logic
-vfullDiv
-R1
-!i10b 1
-!s100 ECIzk>l^ZXPXW?9]j<m9]3
-IcCSW4ogITiVD8^H[Ghgnl1
-R2
-R0
-R3
-R4
-R5
-L0 1445
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nfull@div
-vfullMult
-R1
-!i10b 1
-!s100 K8`VJoATF7;2QC1;a;Rm53
-I`R=;^a<oDlBTUbJjOY_fZ3
-R2
-R0
-R3
-R4
-R5
-L0 1410
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nfull@mult
-vHexadecimal_To_Seven_Segment
 R14
+!i113 1
+R6
+R7
+nencode_@a@l@uop
+vequals_4bit
+R8
+!i10b 1
+!s100 ?f;6NR6G2==3nQa3^>=IQ1
+IPfii[I^HjFX_Z5A`9iF103
+R2
+R0
+R9
+R10
+R11
+L0 354
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vflush_logic
+R8
+!i10b 1
+!s100 mi[i0YWcZn1HNiO8lSIiZ1
+I_43Bg1>79AXJ5=AGBbLk`3
+R2
+R0
+R9
+R10
+R11
+L0 295
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vHexadecimal_To_Seven_Segment
+R1
 !i10b 1
 !s100 >j7dlo6D<6b_bXMV;SleR2
-Il_n6H5QQkY8ki?9J@<^3X1
+I>:?<ODWK0amA_CnBDOB^M1
 R2
 R0
 w1394229262
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Hexadecimal_To_Seven_Segment.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Hexadecimal_To_Seven_Segment.v
+8C:/Users/Aditya Srinivasan/Desktop/processor/Hexadecimal_To_Seven_Segment.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/Hexadecimal_To_Seven_Segment.v
 L0 9
-R6
+R4
 r1
 !s85 0
 31
-R13
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Hexadecimal_To_Seven_Segment.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Hexadecimal_To_Seven_Segment.v|
+R5
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/Hexadecimal_To_Seven_Segment.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/Hexadecimal_To_Seven_Segment.v|
 !i113 1
-R10
-R11
+R6
+R7
 n@hexadecimal_@to_@seven_@segment
-vID_EX_Register
-R1
-!i10b 1
-!s100 ]zMkB7A9jRCMQ8NIP2z@Z3
-I4P_>BECfMh1Ta=7ko@G4b1
-R2
-R0
-R3
-R4
-R5
-L0 473
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-n@i@d_@e@x_@register
-vIF_ID_Register
-R1
-!i10b 1
-!s100 M6C;m8aGDBPD5L0?9cbL81
-I]mQN@g<_3MChO3Z;gN@o60
-R2
-R0
-R3
-R4
-R5
-L0 462
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-n@i@f_@i@d_@register
 vimem
-R14
+R1
 !i10b 1
 !s100 mRc`N<n9;SnR=4imM5oM]1
-IYR?1[O@j>D=:6n3WE<O7[1
+IU2JRMGkQ`[^cmf6Z3hU2h1
 R2
 R0
-w1458863566
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/imem.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/imem.v
+w1458859966
+8C:/Users/Aditya Srinivasan/Desktop/processor/imem.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/imem.v
 R15
-R6
+R4
 r1
 !s85 0
 31
-R13
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/imem.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/imem.v|
+R5
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/imem.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/imem.v|
 !i113 1
-R10
-R11
+R6
+R7
 vimg_data
-R1
+R8
 !i10b 1
 !s100 JFdTUOcdkh^ibfN2P0Il=3
-IRQHcB_>AKSZ>A``@KKY391
+IiVZ1Ai^dETS0OdZjj>U8g1
 R2
 R0
-w1466780798
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/img_data.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/img_data.v
+w1466777198
+8C:/Users/Aditya Srinivasan/Desktop/processor/img_data.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/img_data.v
 R15
-R6
+R4
 r1
 !s85 0
 31
-R7
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/img_data.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/img_data.v|
+R12
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/img_data.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/img_data.v|
 !i113 1
-R10
-R11
+R6
+R7
 vimg_index
-R1
+R8
 !i10b 1
 !s100 nic2ACEkRML]?cFJ`aa_;1
-ISfFfe_P0CO:4VKRIAXk4I0
+Ia4gL8Y2mWgdKja;5nBcnK3
 R2
 R0
-w1466780793
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/img_index.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/img_index.v
+w1466777193
+8C:/Users/Aditya Srinivasan/Desktop/processor/img_index.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/img_index.v
 R15
-R6
+R4
 r1
 !s85 0
 31
-R7
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/img_index.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/img_index.v|
+R12
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/img_index.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/img_index.v|
 !i113 1
-R10
-R11
-vinitFlipLogic
-R1
+R6
+R7
+vinstruction_splitter
+R8
 !i10b 1
-!s100 <ldce3RcTKAmm94A_@>c22
-IBdY:Ue?Y7H?gG42U0mMZC2
+!s100 Olb3`joK@1HOFUOJ=_3id3
+Il1:K69j0EUbf[Eg^VQ<ai3
 R2
 R0
-R3
+R9
+R10
+R11
+L0 642
 R4
-R5
-L0 1557
-R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R12
+R13
+R14
 !i113 1
-R10
-R11
-ninit@flip@logic
-vinstControl
-R1
+R6
+R7
+vis_not_zero
+R8
 !i10b 1
-!s100 ]aISHf=MTVMVal;7?aAOc3
-IMMdLPFYY;090XLkzn2U7c2
+!s100 Wi8`nI<O2AfUMiJ8;8G]k0
+IfMacE8ZY[SXShJ18YgWzn2
 R2
 R0
-R3
+R9
+R10
+R11
+L0 311
 R4
-R5
-L0 537
-R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R12
+R13
+R14
 !i113 1
-R10
-R11
-ninst@control
-visLT
-R1
+R6
+R7
+vis_zero27bits
+R8
 !i10b 1
-!s100 iF>LUNR;@WVGcdSAOLQm80
-IF5Pk;AFNTaX3a6AWJ4aLc3
+!s100 A@G[C=60akL8__D_l[S:;1
+IaCgLedM=T8dOcZUXJTcB10
 R2
 R0
-R3
+R9
+R10
+R11
+L0 462
 R4
-R5
-L0 999
-R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R12
+R13
+R14
 !i113 1
-R10
-R11
-nis@l@t
-vjx35_alu
-R1
+R6
+R7
+visCount31bit6
+R8
 !i10b 1
-!s100 l`gE?QmUaBOA_3BTcIdfm1
-Id9ge:z3daiTU:hhd8FzTG3
+!s100 `zZDUX1]5MUA7hIO;TZ6g3
+IiF2KkFd4ha53;:0`g>8HU1
 R2
 R0
-R3
+R9
+R10
+R11
+L0 1498
 R4
-R5
-L0 980
-R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R12
+R13
+R14
 !i113 1
+R6
+R7
+nis@count31bit6
+visCountZerobit6
+R8
+!i10b 1
+!s100 ;I<9A`]]<jdfUNz<?6U7O3
+Icz50[zPQ6US9V0`CkaS=N2
+R2
+R0
+R9
 R10
 R11
+L0 1488
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+nis@count@zerobit6
+vjb_PC
+R8
+!i10b 1
+!s100 H`:HK6z;K@7mz^8J`jQ_k0
+IO0R8cNb:<k[1]fTfk8aAO3
+R2
+R0
+R9
+R10
+R11
+L0 442
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+njb_@p@c
+vjump_addresser
+R8
+!i10b 1
+!s100 @63@ZZf:<3Gzal3[<lZ3<1
+InO:4?0jeK20Knid7NhLQH0
+R2
+R0
+R9
+R10
+R11
+L0 614
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
 vlcd
 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
-Z16 !s110 1479704284
+Z16 !s110 1479331055
 !i10b 1
 !s100 4d9[jBL5f6iUZ]`z^C42R1
-I[EoPLC5i?UfLc>^F=z6N[1
+IFNVkm^2<01MM0ML:62LL61
 R2
 !s105 lcd_sv_unit
 S1
 R0
-w1458862580
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/lcd.sv
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/lcd.sv
+w1458858980
+8C:/Users/Aditya Srinivasan/Desktop/processor/lcd.sv
+FC:/Users/Aditya Srinivasan/Desktop/processor/lcd.sv
 L0 1
-R6
+R4
 r1
 !s85 0
 31
-Z17 !s108 1479704284.000000
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/lcd.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/lcd.sv|
+Z17 !s108 1479331055.000000
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/lcd.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/lcd.sv|
 !i113 1
 o-sv -work work
-!s92 -sv -work work {+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored}
-vleftBarrelShifter
-R1
+!s92 -sv -work work {+incdir+C:/Users/Aditya Srinivasan/Desktop/processor}
+vlt
+R8
 !i10b 1
-!s100 bDJf`55^QQ9Qg4ZIlBRd^3
-IG[PbI;7V4ZmU]5oUj4;eZ3
+!s100 b?IoOPK_R1OcdL6[o54Q63
+II1FQnzH8:2@>hXz5f>bVJ3
 R2
 R0
-R3
+R9
+R10
+R11
+L0 820
 R4
-R5
-L0 1180
-R6
 r1
 !s85 0
 31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nleft@barrel@shifter
-vlw_Stall_Logic
-R1
-!i10b 1
-!s100 iW<IESE4>`>em=CIV>nGO3
-ISc[@A9a^>a<=?<7^m_U6F2
-R2
-R0
-R3
-R4
-R5
-L0 627
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nlw_@stall_@logic
-vMEM_WB_Register
-R1
-!i10b 1
-!s100 0f9TBzkla612MV63Q_`go3
-I@e64OJk7WIzz:7:]834W>1
-R2
-R0
-R3
-R4
-R5
-L0 516
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-n@m@e@m_@w@b_@register
-vmultCycle
-R1
-!i10b 1
-!s100 o2Ph8jAN`aAZ6T?=@I@^V3
-ID?]Q]><[7Y]Y7j_VkCA[z3
-R2
-R0
-R3
-R4
-R5
-L0 1533
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nmult@cycle
-vmultdiv_jx35
-R1
-!i10b 1
-!s100 lgPX<5nL[h08Ie<iICLez0
-IdC@LlW1J:M2ej1o]bjk<[1
-R2
-R0
-R3
-R4
-R5
-L0 1358
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-vmultiplexer
-R1
-!i10b 1
-!s100 NdImEW0oS><D;fbb4D9DT2
-I4bLBeiKKZojNbkGB:ie[91
-R2
-R0
-R3
-R4
-R5
-L0 1141
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-vmultiplexer1
-R1
-!i10b 1
-!s100 OgB;Zg?zhdh6IfDjEAl;61
-I^cOPcl6kgg8P8@OSf>G=M0
-R2
-R0
-R3
-R4
-R5
-L0 1766
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-vmultiplexer33bit
-R1
-!i10b 1
-!s100 F[c[PM?W[4kA0oMo`D<[W0
-IbC0?RJGg1mBWod@L1hT1h3
-R2
-R0
-R3
-R4
-R5
-L0 1736
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-vmultiplexer4
-R1
-!i10b 1
-!s100 SR4`lW_RQJ>AAi3CSToSd2
-I1PBVEz`N0Li17SWT6?X622
-R2
-R0
-R3
-R4
-R5
-L0 1157
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-vmultiplexer4_5bit
-R1
-!i10b 1
-!s100 @gJR9lZBb74lXGIJh_@P51
-I=PD[GVPZ>mP@8NCEcVoLM2
-R2
-R0
-R3
-R4
-R5
-L0 827
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-vmultiplexer64
-R1
-!i10b 1
-!s100 0cQOfY5c<FkdgcYe0^lS>0
-I1=QNec>C?Bz@:cXOAE>Hi2
-R2
-R0
-R3
-R4
-R5
-L0 1751
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-vmultiplexer_12bit
-R1
-!i10b 1
-!s100 @2I=;czccdg^3AAjF04=21
-IlA>Yco]oNb6f<c65[5hB71
-R2
-R0
-R3
-R4
-R5
-L0 852
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-vmultiplexer_1bit
-R1
-!i10b 1
-!s100 EUc]>CaS<[i3g84VkZDe72
-IjNTgDkY1_5nZf=N^Fg51P1
-R2
-R0
-R3
-R4
-R5
-L0 882
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-vmultiplexer_27bit
-R1
-!i10b 1
-!s100 nnmaDBG4[5LkA2BN[S39m2
-ISgO6S21kPYld>B8?[`b2X0
-R2
-R0
-R3
-R4
-R5
-L0 837
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-vmultiplexer_5bit
-R1
-!i10b 1
-!s100 l[^>dV[YkXYV?UJUKIc_;0
-I`l<?T<HJ;V9GX_eeichF<0
-R2
-R0
-R3
-R4
-R5
-L0 867
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-voneBitShifterMod
-R1
-!i10b 1
-!s100 =WBEGDWj_a2Uf`_0b6TkP1
-IJMKT62M[O>jk2h1MMj7hC0
-R2
-R0
-R3
-R4
-R5
-L0 1586
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-none@bit@shifter@mod
-voneBitShifterMod64
-R1
-!i10b 1
-!s100 fSZm8Bj?3Ik^6B;K29zGV2
-IhnAho2WdaA6f6NSSeZ1M63
-R2
-R0
-R3
-R4
-R5
-L0 1603
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-none@bit@shifter@mod64
-voverFlowChecker
-R1
-!i10b 1
-!s100 >XK``>iZEk]fk5GmAk8I72
-I9_]mKgfL@0<ki?62;M:a=0
-R2
-R0
-R3
-R4
-R5
-L0 1014
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nover@flow@checker
-vpll
+R12
+R13
 R14
+!i113 1
+R6
+R7
+vmultdiv_as577
+R8
+!i10b 1
+!s100 >nNQakYcBL]0HMnJ5mBgE3
+I^Dm5A4n5NBFk5_[8;>LZB0
+R2
+R0
+R9
+R10
+R11
+L0 1245
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vmux32
+R8
+!i10b 1
+!s100 3lE77P1LNdJ5ienLMa[bK2
+ILMA@Q0BS<B6l0nJJBBSJf1
+R2
+R0
+R9
+R10
+R11
+L0 1515
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vmux4_32bit
+R8
+!i10b 1
+!s100 NSYjhJeUZLgJ2bBAaMX=M2
+IGNeO16j4?ci?UZYeRNT>B2
+R2
+R0
+R9
+R10
+R11
+L0 1128
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vmux4_5bit
+R8
+!i10b 1
+!s100 b3a7col2Y6ll9H[c:bmNH1
+I5XR1Wo`R1<njb4Rm;EH_j2
+R2
+R0
+R9
+R10
+R11
+L0 1114
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vmux65
+R8
+!i10b 1
+!s100 1075@PV@]F;h_`S_3A6^22
+IZV:EGO1]gUYbjgdfj1QK50
+R2
+R0
+R9
+R10
+R11
+L0 1507
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vnegate
+R8
+!i10b 1
+!s100 eJiZOEG?78;4SR0Vl8Q7i2
+IM;iUMj_T8bfYo9m[iEW>U0
+R2
+R0
+R9
+R10
+R11
+L0 1361
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vopcode_decode
+R8
+!i10b 1
+!s100 Fi2g_bKDjMf9H?SHZTzOk0
+ITFR_c9IBf;SigK_4kICTB1
+R2
+R0
+R9
+R10
+R11
+L0 557
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vovf
+R8
+!i10b 1
+!s100 F1>cT6O<Zl3c[`<TjUbkk1
+I>;B_^^nWzN@FRD[i]L<F?3
+R2
+R0
+R9
+R10
+R11
+L0 842
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vpll
+R1
 !i10b 1
 !s100 el8m9?VhINk2D<LX>]oEj3
-IF4C;IDogjFShad^dTi8380
+InW:EhIF`Z`QS<K6Ez=2Fc2
 R2
 R0
-w1458858683
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/pll.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/pll.v
+w1458855083
+8C:/Users/Aditya Srinivasan/Desktop/processor/pll.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/pll.v
 R15
-R6
+R4
 r1
 !s85 0
 31
-R13
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/pll.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/pll.v|
+R5
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/pll.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/pll.v|
 !i113 1
-R10
-R11
+R6
+R7
 vpll_altpll
 R16
 !i10b 1
 !s100 2[X4]z<HMg5W5S4]lA8_11
-If]3V]6X;U474]k1B=H1Q:2
+I8QTK2<iA0iO;6zdj=NFLQ1
 R2
 R0
-w1479704221
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/db/pll_altpll.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/db/pll_altpll.v
+w1478303364
+8C:/Users/Aditya Srinivasan/Desktop/processor/db/pll_altpll.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/db/pll_altpll.v
 L0 30
-R6
+R4
 r1
 !s85 0
 31
 R17
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/db/pll_altpll.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/db|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/db/pll_altpll.v|
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/db/pll_altpll.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor/db|C:/Users/Aditya Srinivasan/Desktop/processor/db/pll_altpll.v|
 !i113 1
-R10
-!s92 -vlog01compat -work work {+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/db}
-vprocessor_jx35
-R1
+R6
+!s92 -vlog01compat -work work {+incdir+C:/Users/Aditya Srinivasan/Desktop/processor/db}
+vprocessor
+R8
 !i10b 1
-!s100 D^N_N`MY`?K]>kaH_4fK01
-IZ@[n3Ze9CCffCa]4gNmH<1
+!s100 a>ZAHI7AZEXG;YQccnzZ^1
+Il2KAgFS18g]o9=d2o15fh0
 R2
 R0
-R3
-R4
-R5
+R9
+R10
+R11
 L0 1
-R6
+R4
 r1
 !s85 0
 31
-R7
-R8
-R9
+R12
+R13
+R14
 !i113 1
-R10
-R11
-vprocessor_jx35_tb
+R6
+R7
+vprocessor_pipeline_stall_tb
 R16
 !i10b 1
-!s100 3gZ?YIS:=M;^X34;i2N:11
-IHc[g7IgcfimMo^LiQF^`k2
+!s100 gbAN8CLD7M8nGEgd3AX:N2
+IJ?Qfj`FYmNEE4i_LPnR]F2
 R2
 R0
-w1479330065
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/processor_jx35_tb.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/processor_jx35_tb.v
+w1479330930
+8C:/Users/Aditya Srinivasan/Desktop/processor/processor_pipeline_stall_tb.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/processor_pipeline_stall_tb.v
 L0 2
-R6
+R4
 r1
 !s85 0
 31
 R17
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/processor_jx35_tb.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/processor_jx35_tb.v|
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/processor_pipeline_stall_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/processor_pipeline_stall_tb.v|
 !i113 1
-R10
-R11
+R6
+R7
 vPS2_Controller
-R14
+Z18 !s110 1479331052
 !i10b 1
 !s100 SBbk<]9<EO>4gfA4Nk28g0
-IzIMaTzhSmzMV1HHNMPj]?3
+IR`J1en`bgRATI0HnU;g1`3
 R2
 R0
-w1458861791
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/PS2_Controller.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/PS2_Controller.v
+w1458858191
+8C:/Users/Aditya Srinivasan/Desktop/processor/PS2_Controller.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/PS2_Controller.v
 L0 9
-R6
+R4
 r1
 !s85 0
 31
-R13
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/PS2_Controller.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/PS2_Controller.v|
+Z19 !s108 1479331052.000000
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/PS2_Controller.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/PS2_Controller.v|
 !i113 1
-R10
-R11
+R6
+R7
 n@p@s2_@controller
 vPS2_Interface
-R14
+R18
 !i10b 1
 !s100 U_CGUUFDk3cUc^jbb>NfB2
-IeS?@S`L`WeMXRiZeULDFf1
+INd=_8EmU53GQ8gBO``>@e2
 R2
 R0
 w1394305241
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/PS2_Interface.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/PS2_Interface.v
+8C:/Users/Aditya Srinivasan/Desktop/processor/PS2_Interface.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/PS2_Interface.v
 L0 1
-R6
-r1
-!s85 0
-31
-R13
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/PS2_Interface.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/PS2_Interface.v|
-!i113 1
-R10
-R11
-n@p@s2_@interface
-vregfile_jx35
-R1
-!i10b 1
-!s100 AQnVX]2O9^7FM`oQJ>1290
-I_4bFcFEiS5L@4Z4XOM^103
-R2
-R0
-R3
 R4
-R5
-L0 1801
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-vReset_Delay
-Z18 !s110 1479704281
-!i10b 1
-!s100 <?EH4X[VcB<k?aKTEg:<H0
-ICX_K66jCdM^Il`lYAi^Dh2
-R2
-R0
-w1466747042
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Reset_Delay.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Reset_Delay.v
-L0 1
-R6
-r1
-!s85 0
-31
-Z19 !s108 1479704281.000000
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Reset_Delay.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/Reset_Delay.v|
-!i113 1
-R10
-R11
-n@reset_@delay
-vrightBarrelShifter
-R1
-!i10b 1
-!s100 SBk5[X6;SPAocdz@C72jm1
-I5FR?]H`cKm2hMEjf9PC>`3
-R2
-R0
-R3
-R4
-R5
-L0 1265
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nright@barrel@shifter
-vsameRegister_5bit
-R1
-!i10b 1
-!s100 jgeibzVO3U]__In9Gk`d71
-I?<M>[oX]VEjlKbeLROlaf2
-R2
-R0
-R3
-R4
-R5
-L0 893
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nsame@register_5bit
-vshiftOperator
-R1
-!i10b 1
-!s100 ?_mm4CIm8JD8_9o[o<WWo3
-I;ibZZ?bJTC9o@Jm0aCb_^0
-R2
-R0
-R3
-R4
-R5
-L0 1167
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nshift@operator
-vsignExt15
-R1
-!i10b 1
-!s100 :lE3N`>JDLN5kPKOMICP52
-ISamTO<62EoU2oU[0BE6^80
-R2
-R0
-R3
-R4
-R5
-L0 798
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nsign@ext15
-vsingleReg
-R1
-!i10b 1
-!s100 VP<]NN>fbRB1WY7U>;_C`1
-I>1Te;mAc5CeUdG]HW5Ub<0
-R2
-R0
-R3
-R4
-R5
-L0 1835
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nsingle@reg
-vsingleReg64
-R1
-!i10b 1
-!s100 A]TAo6cCf929gF`g?QCcb1
-IUa[^FERRY?[NPNdf4UfcI2
-R2
-R0
-R3
-R4
-R5
-L0 1775
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nsingle@reg64
-vsingleReg_27bit
-R1
-!i10b 1
-!s100 EO5L?U`PVY<9RFbTKX;h<1
-Ik24JYZfV9[1CPX]L[?=Q12
-R2
-R0
-R3
-R4
-R5
-L0 920
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nsingle@reg_27bit
-vsingleReg_5bit
-R1
-!i10b 1
-!s100 @U0_>3:N4cajJTeZ]WogO3
-IfiFYVbQFQi^b02Xm<lW@S0
-R2
-R0
-R3
-R4
-R5
-L0 937
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-nsingle@reg_5bit
-vskeleton
-R18
-!i10b 1
-!s100 ;DPCI6Tnc9`^UahmTnMeM3
-IL4Qz`1j3=mHK_@]6=ZhV11
-R2
-R0
-w1479781052
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/skeleton.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/skeleton.v
-L0 1
-R6
 r1
 !s85 0
 31
 R19
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/skeleton.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/skeleton.v|
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/PS2_Interface.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/PS2_Interface.v|
 !i113 1
-R10
-R11
-vstart
-R1
+R6
+R7
+n@p@s2_@interface
+vregfile_as577
+R8
 !i10b 1
-!s100 BzDW_Bk1D87diB7>bQU=U3
-I6Z<97A;S]ke5Em5<N64ES3
+!s100 i]M3a@UCR;1_eDR=BbFk51
+IkAQ@@IFFoVoEP[GW4^mgN2
 R2
 R0
-R3
+R9
+R10
+R11
+L0 1144
 R4
-R5
-L0 436
-R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R12
+R13
+R14
 !i113 1
-R10
-R11
-vstatusReg
-R1
+R6
+R7
+vregister
+R8
 !i10b 1
-!s100 D?1D6Q5KL83OK5BEY04Vl3
-Il^k@:<N]Pf`>C?<5Y:7hK0
+!s100 gFo_nCF[LhVJ_B9Ud;94Y1
+IKeiEd3L90ghkK37b5=CZG3
 R2
 R0
-R3
+R9
+R10
+R11
+L0 1180
 R4
-R5
-L0 581
-R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R12
+R13
+R14
 !i113 1
-R10
-R11
-nstatus@reg
-vtriBuffer
-R1
+R6
+R7
+vregister27
+R8
 !i10b 1
-!s100 bH8j_BWMKLE;22S;74nD@3
-I7HY9MdfKmQ59lVWi@5YoF0
+!s100 o<`e:T5dWYo1aIi4N]eDH0
+I>?o2EAZ5>_CWg>^JC:?Ve2
 R2
 R0
-R3
+R9
+R10
+R11
+L0 1200
 R4
-R5
-L0 1852
-R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R12
+R13
+R14
 !i113 1
+R6
+R7
+vregister32
+R8
+!i10b 1
+!s100 V?>SPNQY3IOQ6IKL3@@Z83
+IaP1A<Ia1k^f`dZefPDiUV1
+R2
+R0
+R9
 R10
 R11
-ntri@buffer
+L0 1777
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vregister5
+R8
+!i10b 1
+!s100 g]aoB_FHZ_CfN3Tj9mQ=M0
+I]bXJSVlCm_d[[@^O`XnWU1
+R2
+R0
+R9
+R10
+R11
+L0 1221
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vregister65
+R8
+!i10b 1
+!s100 JEA;kM5F8KDCnGm<U;FDQ3
+IZgLnlbT]nZk7f<H>o2SbY1
+R2
+R0
+R9
+R10
+R11
+L0 1759
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vReset_Delay
+R18
+!i10b 1
+!s100 <?EH4X[VcB<k?aKTEg:<H0
+IlA0_2liZX``C5VEBX[@IG2
+R2
+R0
+w1466743442
+8C:/Users/Aditya Srinivasan/Desktop/processor/Reset_Delay.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/Reset_Delay.v
+L0 1
+R4
+r1
+!s85 0
+31
+R19
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/Reset_Delay.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/Reset_Delay.v|
+!i113 1
+R6
+R7
+n@reset_@delay
+vshift16bit
+R8
+!i10b 1
+!s100 5jfNVJ6g]:G7:lRLkcaPH2
+IB^S1_[1n9[`4@E@cnleJ@0
+R2
+R0
+R9
+R10
+R11
+L0 1070
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vshift1bit
+R8
+!i10b 1
+!s100 b0O_Fm9FnoNH6UP=P>N8E2
+IJCET^5UDePNZ:jj[J0K9_1
+R2
+R0
+R9
+R10
+R11
+L0 994
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vshift1bit65
+R8
+!i10b 1
+!s100 Jfz`Wni1l7YI>A<JBD0<^1
+ImECP9TPFSzbHIDOUZ<9b_1
+R2
+R0
+R9
+R10
+R11
+L0 1820
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vshift2bit
+R8
+!i10b 1
+!s100 18ZaDjgWPn`EgVEUczI0G0
+IFl>[aXC`@NX1o4i2:^J:O0
+R2
+R0
+R9
+R10
+R11
+L0 1018
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vshift4bit
+R8
+!i10b 1
+!s100 1JA>9@5k4=IZ<7^eINPNX3
+IHgI5aH@FJ;Cf4Q4Md6f?o0
+R2
+R0
+R9
+R10
+R11
+L0 1036
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vshift8bit
+R8
+!i10b 1
+!s100 `;XO8o<cf14hM>`jjMb?D2
+I=Gl_==9=]e:`^^]lBYFbj1
+R2
+R0
+R9
+R10
+R11
+L0 1053
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vshiftXbits
+R8
+!i10b 1
+!s100 kcUn<;Z2MozNW_<MH^2@=2
+Ig;92l;XdYk8d5gRCC;=3=3
+R2
+R0
+R9
+R10
+R11
+L0 1088
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+nshift@xbits
+vsign_extender
+R8
+!i10b 1
+!s100 OXX?h]YKX@imeJaX[kNSL2
+IcORlWD7Ti<<O<__1OC15L3
+R2
+R0
+R9
+R10
+R11
+L0 624
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vskeleton
+R18
+!i10b 1
+!s100 Q9N>VnUQ=Q2IX48Cj6Xb>3
+IYJHHgJSk0X^NP6:`zRI?B1
+R2
+R0
+w1479330936
+8C:/Users/Aditya Srinivasan/Desktop/processor/skeleton.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/skeleton.v
+L0 1
+R4
+r1
+!s85 0
+31
+R19
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/skeleton.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/skeleton.v|
+!i113 1
+R6
+R7
+vstage_EX_MEM
+R8
+!i10b 1
+!s100 U4>KXNP_?2J=maCa5gLIo2
+I6nN5dO@k@7^9C?_LIN_8U2
+R2
+R0
+R9
+R10
+R11
+L0 392
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+nstage_@e@x_@m@e@m
+vstage_ID_EX
+R8
+!i10b 1
+!s100 Tj59F_6QiPabNIFf:B8bP2
+IBE`MUn7BfGHQ?LK8_D@]=0
+R2
+R0
+R9
+R10
+R11
+L0 380
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+nstage_@i@d_@e@x
+vstage_IF_ID
+R8
+!i10b 1
+!s100 Ukj:AZ:NlQ]KIIOFZ:SS[2
+ICk=FOBjAnPne3j@^?XVzF0
+R2
+R0
+R9
+R10
+R11
+L0 370
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+nstage_@i@f_@i@d
+vstage_MEM_WB
+R8
+!i10b 1
+!s100 [NiY1LA74>9aO]kWPC?FZ1
+I8mLOb68z0<cF[=321QUzo0
+R2
+R0
+R9
+R10
+R11
+L0 404
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+nstage_@m@e@m_@w@b
+vstall_logic
+R8
+!i10b 1
+!s100 OJ>cINI?XFCPE=3;QV?d40
+IAIdg@Pb^iobo?K8a45hPl1
+R2
+R0
+R9
+R10
+R11
+L0 320
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
+vtristate
+R8
+!i10b 1
+!s100 U<1Go?Z9SEnnnFGmi<<0A2
+IbY_2L;MmGF28IKPV?dh[E2
+R2
+R0
+R9
+R10
+R11
+L0 707
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R6
+R7
 vup_counter
-R1
+R8
 !i10b 1
-!s100 PJK];XX@C`nfZ[lVmhJ`Q1
-IbOXABU0Ac=DHW?5]Ge_Oe3
+!s100 1_`ajKijOlnhck?G?Qhbf3
+I:[:I?g6Ja1==@eH=K^PCE2
 R2
 R0
-R3
+R9
+R10
+R11
+L0 1708
 R4
-R5
-L0 1666
-R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R12
+R13
+R14
 !i113 1
-R10
-R11
+R6
+R7
 vVGA_Audio_PLL
-!s110 1479704280
+R18
 !i10b 1
 !s100 ]_G[h[5PmjnW=UbgX^dRW3
-I<E9:5XlPTP;g;;R>nF07g1
+I`J3e>8ihBP>1gKXjk@Mm^2
 R2
 R0
-w1412884558
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/VGA_Audio_PLL.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/VGA_Audio_PLL.v
+w1412880958
+8C:/Users/Aditya Srinivasan/Desktop/processor/VGA_Audio_PLL.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/VGA_Audio_PLL.v
 R15
-R6
+R4
 r1
 !s85 0
 31
-!s108 1479704280.000000
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/VGA_Audio_PLL.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/VGA_Audio_PLL.v|
+R19
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/VGA_Audio_PLL.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/VGA_Audio_PLL.v|
 !i113 1
-R10
-R11
+R6
+R7
 n@v@g@a_@audio_@p@l@l
 vvga_controller
-R1
+R8
 !i10b 1
 !s100 ?9CGR32]nlAKQJWFo36Cl1
-INlo0`o3b>@7cQn;g?cfRm2
+I5_<jWAohom10`=1X]8CO21
 R2
 R0
-w1466742992
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/vga_controller.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/vga_controller.v
+w1466739392
+8C:/Users/Aditya Srinivasan/Desktop/processor/vga_controller.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/vga_controller.v
 L0 1
-R6
+R4
 r1
 !s85 0
 31
-R7
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/vga_controller.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/vga_controller.v|
+R5
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/vga_controller.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/vga_controller.v|
 !i113 1
-R10
-R11
+R6
+R7
 vvideo_sync_generator
-R1
+R8
 !i10b 1
 !s100 5jkgiEod8eSjhRXb_KO0n3
-Ib;W<g>3SA8?3D]Ng]XEC51
+I?nYN6h0DRgTLBA:`C5iae2
 R2
 R0
-w1466743023
-8C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/video_sync_generator.v
-FC:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/video_sync_generator.v
+w1466739423
+8C:/Users/Aditya Srinivasan/Desktop/processor/video_sync_generator.v
+FC:/Users/Aditya Srinivasan/Desktop/processor/video_sync_generator.v
 L0 1
-R6
+R4
 r1
 !s85 0
 31
-R7
-!s107 C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/video_sync_generator.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored|C:/Users/Aditya Srinivasan/Desktop/skeleton_jx35_restored/video_sync_generator.v|
+R12
+!s107 C:/Users/Aditya Srinivasan/Desktop/processor/video_sync_generator.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aditya Srinivasan/Desktop/processor|C:/Users/Aditya Srinivasan/Desktop/processor/video_sync_generator.v|
 !i113 1
-R10
-R11
+R6
+R7

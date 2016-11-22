@@ -1,5 +1,5 @@
 Flow report for skeleton
-Sun Nov 20 20:57:33 2016
+Mon Nov 21 18:59:17 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -41,17 +41,17 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sun Nov 20 20:57:33 2016       ;
+; Flow Status                        ; Successful - Mon Nov 21 18:59:17 2016       ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                      ; skeleton                                    ;
 ; Top-level Entity Name              ; skeleton                                    ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 6,256                                       ;
-;     Total combinational functions  ; 4,865                                       ;
-;     Dedicated logic registers      ; 2,135                                       ;
-; Total registers                    ; 2135                                        ;
+; Total logic elements               ; 10,804                                      ;
+;     Total combinational functions  ; 9,398                                       ;
+;     Dedicated logic registers      ; 2,214                                       ;
+; Total registers                    ; 2214                                        ;
 ; Total pins                         ; 154                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 2,725,888                                   ;
@@ -65,84 +65,104 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/20/2016 20:56:31 ;
+; Start date & time ; 11/21/2016 18:57:58 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; skeleton            ;
 +-------------------+---------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                  ;
-+--------------------------------------+---------------------------------------+---------------+-------------+----------------------+
-; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id           ;
-+--------------------------------------+---------------------------------------+---------------+-------------+----------------------+
-; COMPILER_SIGNATURE_ID                ; 52236202716.147970419105456           ; --            ; --          ; --                   ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; statusReg_tb         ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; signExt15_tb         ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; flushLogic_tb        ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; processorCont_tb     ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; jx35_alu_tb          ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; computeValues_tb     ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; sameRegister_5bit_tb ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; instControl_tb       ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; lw_Stall_Logic_tb    ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; processor_jx35_tb    ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; processor_tb         ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; processor_jx35_tb                     ; --            ; --          ; eda_simulation       ;
-; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                           ; --            ; --          ; eda_simulation       ;
-; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)             ; <None>        ; --          ; --                   ;
-; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                       ; --            ; --          ; eda_simulation       ;
-; EDA_TEST_BENCH_FILE                  ; statusReg_tb.v                        ; --            ; --          ; statusReg_tb         ;
-; EDA_TEST_BENCH_FILE                  ; signExt15_tb.v                        ; --            ; --          ; signExt15_tb         ;
-; EDA_TEST_BENCH_FILE                  ; flushLogic_tb.v                       ; --            ; --          ; flushLogic_tb        ;
-; EDA_TEST_BENCH_FILE                  ; processorCont_tb.v                    ; --            ; --          ; processorCont_tb     ;
-; EDA_TEST_BENCH_FILE                  ; jx35_alu_tb.v                         ; --            ; --          ; jx35_alu_tb          ;
-; EDA_TEST_BENCH_FILE                  ; computeValues_tb.v                    ; --            ; --          ; computeValues_tb     ;
-; EDA_TEST_BENCH_FILE                  ; sameRegister_5bit_tb.v                ; --            ; --          ; sameRegister_5bit_tb ;
-; EDA_TEST_BENCH_FILE                  ; instControl_tb.v                      ; --            ; --          ; instControl_tb       ;
-; EDA_TEST_BENCH_FILE                  ; lw_Stall_Logic_tb.v                   ; --            ; --          ; lw_Stall_Logic_tb    ;
-; EDA_TEST_BENCH_FILE                  ; processor_jx35_tb.v                   ; --            ; --          ; processor_jx35_tb    ;
-; EDA_TEST_BENCH_FILE                  ; processor_tb.v                        ; --            ; --          ; processor_tb         ;
-; EDA_TEST_BENCH_MODULE_NAME           ; statusReg_tb                          ; --            ; --          ; statusReg_tb         ;
-; EDA_TEST_BENCH_MODULE_NAME           ; signExt15_tb                          ; --            ; --          ; signExt15_tb         ;
-; EDA_TEST_BENCH_MODULE_NAME           ; flushLogic_tb                         ; --            ; --          ; flushLogic_tb        ;
-; EDA_TEST_BENCH_MODULE_NAME           ; processorCont_tb                      ; --            ; --          ; processorCont_tb     ;
-; EDA_TEST_BENCH_MODULE_NAME           ; jx35_alu_tb                           ; --            ; --          ; jx35_alu_tb          ;
-; EDA_TEST_BENCH_MODULE_NAME           ; computeValues_tb                      ; --            ; --          ; computeValues_tb     ;
-; EDA_TEST_BENCH_MODULE_NAME           ; sameRegister_5bit_tb                  ; --            ; --          ; sameRegister_5bit_tb ;
-; EDA_TEST_BENCH_MODULE_NAME           ; instControl_tb                        ; --            ; --          ; instControl_tb       ;
-; EDA_TEST_BENCH_MODULE_NAME           ; lw_Stall_Logic_tb                     ; --            ; --          ; lw_Stall_Logic_tb    ;
-; EDA_TEST_BENCH_MODULE_NAME           ; processor_jx35_tb                     ; --            ; --          ; processor_jx35_tb    ;
-; EDA_TEST_BENCH_MODULE_NAME           ; processor_tb                          ; --            ; --          ; processor_tb         ;
-; EDA_TEST_BENCH_NAME                  ; computeValues_tb                      ; --            ; --          ; eda_simulation       ;
-; EDA_TEST_BENCH_NAME                  ; processorCont_tb                      ; --            ; --          ; eda_simulation       ;
-; EDA_TEST_BENCH_NAME                  ; instControl_tb                        ; --            ; --          ; eda_simulation       ;
-; EDA_TEST_BENCH_NAME                  ; signExt15_tb                          ; --            ; --          ; eda_simulation       ;
-; EDA_TEST_BENCH_NAME                  ; processor_tb                          ; --            ; --          ; eda_simulation       ;
-; EDA_TEST_BENCH_NAME                  ; sameRegister_5bit_tb                  ; --            ; --          ; eda_simulation       ;
-; EDA_TEST_BENCH_NAME                  ; lw_Stall_Logic_tb                     ; --            ; --          ; eda_simulation       ;
-; EDA_TEST_BENCH_NAME                  ; statusReg_tb                          ; --            ; --          ; eda_simulation       ;
-; EDA_TEST_BENCH_NAME                  ; flushLogic_tb                         ; --            ; --          ; eda_simulation       ;
-; EDA_TEST_BENCH_NAME                  ; jx35_alu_tb                           ; --            ; --          ; eda_simulation       ;
-; EDA_TEST_BENCH_NAME                  ; processor_jx35_tb                     ; --            ; --          ; eda_simulation       ;
-; EDA_TIME_SCALE                       ; 1 ps                                  ; --            ; --          ; eda_simulation       ;
-; MAX_CORE_JUNCTION_TEMP               ; 85                                    ; --            ; --          ; --                   ;
-; MIN_CORE_JUNCTION_TEMP               ; 0                                     ; --            ; --          ; --                   ;
-; MISC_FILE                            ; pll.bsf                               ; --            ; --          ; --                   ;
-; MISC_FILE                            ; pll.cmp                               ; --            ; --          ; --                   ;
-; MISC_FILE                            ; pll.ppf                               ; --            ; --          ; --                   ;
-; MISC_FILE                            ; imem_inst.v                           ; --            ; --          ; --                   ;
-; MISC_FILE                            ; imem.cmp                              ; --            ; --          ; --                   ;
-; MISC_FILE                            ; dmem_inst.v                           ; --            ; --          ; --                   ;
-; MISC_FILE                            ; dmem.cmp                              ; --            ; --          ; --                   ;
-; NOMINAL_CORE_SUPPLY_VOLTAGE          ; 1.2V                                  ; --            ; --          ; --                   ;
-; PARTITION_COLOR                      ; 16764057                              ; --            ; --          ; Top                  ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING                 ; --            ; --          ; Top                  ;
-; PARTITION_NETLIST_TYPE               ; SOURCE                                ; --            ; --          ; Top                  ;
-; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                   ; --            ; --          ; --                   ;
-; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --          ; --                   ;
-; PROJECT_OUTPUT_DIRECTORY             ; output_files                          ; --            ; --          ; --                   ;
-+--------------------------------------+---------------------------------------+---------------+-------------+----------------------+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                         ;
++--------------------------------------+---------------------------------------+---------------+-------------+-----------------------------+
+; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id                  ;
++--------------------------------------+---------------------------------------+---------------+-------------+-----------------------------+
+; COMPILER_SIGNATURE_ID                ; 52236202716.147978347801836           ; --            ; --          ; --                          ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; stall_logic_tb              ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; statusReg_tb                ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; multdiv_tb                  ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; bypass_wb_tb                ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; processor_pipeline_tb       ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; instruction_splitter_tb     ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; check_zero_tb               ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; sign_extender_tb            ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; flush_logic_tb              ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; processor_pipeline_stall_tb ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; jump_addresser_tb           ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; fsm_counter_tb              ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; bypass_mem_tb               ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; encode_aluop_tb             ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; ternary_tb                  ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; processor_tb                ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; processor_pipeline_stall_tb           ; --            ; --          ; eda_simulation              ;
+; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                           ; --            ; --          ; eda_simulation              ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)             ; <None>        ; --          ; --                          ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                       ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_FILE                  ; stall_logic_tb.v                      ; --            ; --          ; stall_logic_tb              ;
+; EDA_TEST_BENCH_FILE                  ; statusReg_tb.v                        ; --            ; --          ; statusReg_tb                ;
+; EDA_TEST_BENCH_FILE                  ; multdiv_tb.v                          ; --            ; --          ; multdiv_tb                  ;
+; EDA_TEST_BENCH_FILE                  ; bypass_wb_tb.v                        ; --            ; --          ; bypass_wb_tb                ;
+; EDA_TEST_BENCH_FILE                  ; processor_pipeline_tb.v               ; --            ; --          ; processor_pipeline_tb       ;
+; EDA_TEST_BENCH_FILE                  ; instruction_splitter_tb.v             ; --            ; --          ; instruction_splitter_tb     ;
+; EDA_TEST_BENCH_FILE                  ; check_zero_tb.v                       ; --            ; --          ; check_zero_tb               ;
+; EDA_TEST_BENCH_FILE                  ; sign_extender_tb.v                    ; --            ; --          ; sign_extender_tb            ;
+; EDA_TEST_BENCH_FILE                  ; flush_logic_tb.v                      ; --            ; --          ; flush_logic_tb              ;
+; EDA_TEST_BENCH_FILE                  ; processor_pipeline_stall_tb.v         ; --            ; --          ; processor_pipeline_stall_tb ;
+; EDA_TEST_BENCH_FILE                  ; jump_addresser_tb.v                   ; --            ; --          ; jump_addresser_tb           ;
+; EDA_TEST_BENCH_FILE                  ; fsm_counter_tb.v                      ; --            ; --          ; fsm_counter_tb              ;
+; EDA_TEST_BENCH_FILE                  ; bypass_mem_tb.v                       ; --            ; --          ; bypass_mem_tb               ;
+; EDA_TEST_BENCH_FILE                  ; encode_aluop_tb.v                     ; --            ; --          ; encode_aluop_tb             ;
+; EDA_TEST_BENCH_FILE                  ; ternary_tb.v                          ; --            ; --          ; ternary_tb                  ;
+; EDA_TEST_BENCH_FILE                  ; processor_tb.v                        ; --            ; --          ; processor_tb                ;
+; EDA_TEST_BENCH_MODULE_NAME           ; stall_logic_tb                        ; --            ; --          ; stall_logic_tb              ;
+; EDA_TEST_BENCH_MODULE_NAME           ; statusReg_tb                          ; --            ; --          ; statusReg_tb                ;
+; EDA_TEST_BENCH_MODULE_NAME           ; multdiv_tb                            ; --            ; --          ; multdiv_tb                  ;
+; EDA_TEST_BENCH_MODULE_NAME           ; bypass_wb_tb                          ; --            ; --          ; bypass_wb_tb                ;
+; EDA_TEST_BENCH_MODULE_NAME           ; processor_pipeline_tb                 ; --            ; --          ; processor_pipeline_tb       ;
+; EDA_TEST_BENCH_MODULE_NAME           ; instruction_splitter_tb               ; --            ; --          ; instruction_splitter_tb     ;
+; EDA_TEST_BENCH_MODULE_NAME           ; check_zero_tb                         ; --            ; --          ; check_zero_tb               ;
+; EDA_TEST_BENCH_MODULE_NAME           ; sign_extender_tb                      ; --            ; --          ; sign_extender_tb            ;
+; EDA_TEST_BENCH_MODULE_NAME           ; flush_logic_tb                        ; --            ; --          ; flush_logic_tb              ;
+; EDA_TEST_BENCH_MODULE_NAME           ; processor_pipeline_stall_tb           ; --            ; --          ; processor_pipeline_stall_tb ;
+; EDA_TEST_BENCH_MODULE_NAME           ; jump_addresser_tb                     ; --            ; --          ; jump_addresser_tb           ;
+; EDA_TEST_BENCH_MODULE_NAME           ; fsm_counter_tb                        ; --            ; --          ; fsm_counter_tb              ;
+; EDA_TEST_BENCH_MODULE_NAME           ; bypass_mem_tb                         ; --            ; --          ; bypass_mem_tb               ;
+; EDA_TEST_BENCH_MODULE_NAME           ; encode_aluop_tb                       ; --            ; --          ; encode_aluop_tb             ;
+; EDA_TEST_BENCH_MODULE_NAME           ; ternary_tb                            ; --            ; --          ; ternary_tb                  ;
+; EDA_TEST_BENCH_MODULE_NAME           ; processor_tb                          ; --            ; --          ; processor_tb                ;
+; EDA_TEST_BENCH_NAME                  ; instruction_splitter_tb               ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_NAME                  ; sign_extender_tb                      ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_NAME                  ; jump_addresser_tb                     ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_NAME                  ; encode_aluop_tb                       ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_NAME                  ; processor_tb                          ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_NAME                  ; processor_pipeline_tb                 ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_NAME                  ; stall_logic_tb                        ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_NAME                  ; flush_logic_tb                        ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_NAME                  ; processor_pipeline_stall_tb           ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_NAME                  ; bypass_mem_tb                         ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_NAME                  ; bypass_wb_tb                          ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_NAME                  ; ternary_tb                            ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_NAME                  ; statusReg_tb                          ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_NAME                  ; check_zero_tb                         ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_NAME                  ; fsm_counter_tb                        ; --            ; --          ; eda_simulation              ;
+; EDA_TEST_BENCH_NAME                  ; multdiv_tb                            ; --            ; --          ; eda_simulation              ;
+; EDA_TIME_SCALE                       ; 1 ps                                  ; --            ; --          ; eda_simulation              ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                    ; --            ; --          ; --                          ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                     ; --            ; --          ; --                          ;
+; MISC_FILE                            ; pll.bsf                               ; --            ; --          ; --                          ;
+; MISC_FILE                            ; pll.cmp                               ; --            ; --          ; --                          ;
+; MISC_FILE                            ; pll.ppf                               ; --            ; --          ; --                          ;
+; MISC_FILE                            ; imem_inst.v                           ; --            ; --          ; --                          ;
+; MISC_FILE                            ; imem.cmp                              ; --            ; --          ; --                          ;
+; MISC_FILE                            ; dmem_inst.v                           ; --            ; --          ; --                          ;
+; MISC_FILE                            ; dmem.cmp                              ; --            ; --          ; --                          ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE          ; 1.2V                                  ; --            ; --          ; --                          ;
+; PARTITION_COLOR                      ; 16764057                              ; --            ; --          ; Top                         ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING                 ; --            ; --          ; Top                         ;
+; PARTITION_NETLIST_TYPE               ; SOURCE                                ; --            ; --          ; Top                         ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                   ; --            ; --          ; --                          ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --          ; --                          ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                          ; --            ; --          ; --                          ;
++--------------------------------------+---------------------------------------+---------------+-------------+-----------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -150,8 +170,8 @@ agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:01     ; 1.0                     ; 928 MB              ; 00:00:50                           ;
-; Total                ; 00:01:01     ; --                      ; --                  ; 00:00:50                           ;
+; Analysis & Synthesis ; 00:01:17     ; 1.0                     ; 952 MB              ; 00:01:02                           ;
+; Total                ; 00:01:17     ; --                      ; --                  ; 00:01:02                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

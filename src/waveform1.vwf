@@ -532,8 +532,7 @@ TRANSITION_LIST("debug_addr[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -542,8 +541,7 @@ TRANSITION_LIST("debug_addr[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -552,8 +550,7 @@ TRANSITION_LIST("debug_addr[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -562,8 +559,7 @@ TRANSITION_LIST("debug_addr[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -572,8 +568,7 @@ TRANSITION_LIST("debug_addr[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -582,8 +577,7 @@ TRANSITION_LIST("debug_addr[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -592,8 +586,7 @@ TRANSITION_LIST("debug_addr[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -602,8 +595,7 @@ TRANSITION_LIST("debug_addr[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -612,8 +604,7 @@ TRANSITION_LIST("debug_addr[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -622,8 +613,7 @@ TRANSITION_LIST("debug_addr[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -632,8 +622,7 @@ TRANSITION_LIST("debug_addr[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -642,8 +631,7 @@ TRANSITION_LIST("debug_addr[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -652,8 +640,7 @@ TRANSITION_LIST("debug_data_in[31]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -662,8 +649,7 @@ TRANSITION_LIST("debug_data_in[30]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -672,8 +658,7 @@ TRANSITION_LIST("debug_data_in[29]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -682,8 +667,7 @@ TRANSITION_LIST("debug_data_in[28]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -692,8 +676,7 @@ TRANSITION_LIST("debug_data_in[27]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -702,8 +685,7 @@ TRANSITION_LIST("debug_data_in[26]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -712,8 +694,7 @@ TRANSITION_LIST("debug_data_in[25]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -722,8 +703,7 @@ TRANSITION_LIST("debug_data_in[24]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -732,8 +712,7 @@ TRANSITION_LIST("debug_data_in[23]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -742,8 +721,7 @@ TRANSITION_LIST("debug_data_in[22]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -752,8 +730,7 @@ TRANSITION_LIST("debug_data_in[21]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -762,8 +739,7 @@ TRANSITION_LIST("debug_data_in[20]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -772,8 +748,7 @@ TRANSITION_LIST("debug_data_in[19]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -782,8 +757,7 @@ TRANSITION_LIST("debug_data_in[18]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -792,8 +766,7 @@ TRANSITION_LIST("debug_data_in[17]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -802,8 +775,7 @@ TRANSITION_LIST("debug_data_in[16]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -812,8 +784,7 @@ TRANSITION_LIST("debug_data_in[15]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -822,8 +793,7 @@ TRANSITION_LIST("debug_data_in[14]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -832,8 +802,7 @@ TRANSITION_LIST("debug_data_in[13]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -842,8 +811,7 @@ TRANSITION_LIST("debug_data_in[12]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -852,8 +820,7 @@ TRANSITION_LIST("debug_data_in[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -862,8 +829,7 @@ TRANSITION_LIST("debug_data_in[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -872,8 +838,7 @@ TRANSITION_LIST("debug_data_in[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -882,8 +847,7 @@ TRANSITION_LIST("debug_data_in[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -892,8 +856,7 @@ TRANSITION_LIST("debug_data_in[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -902,8 +865,7 @@ TRANSITION_LIST("debug_data_in[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -912,8 +874,7 @@ TRANSITION_LIST("debug_data_in[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -922,8 +883,7 @@ TRANSITION_LIST("debug_data_in[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -932,8 +892,7 @@ TRANSITION_LIST("debug_data_in[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -942,8 +901,7 @@ TRANSITION_LIST("debug_data_in[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -952,8 +910,7 @@ TRANSITION_LIST("debug_data_in[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -962,8 +919,7 @@ TRANSITION_LIST("debug_data_in[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 999.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -972,9 +928,8 @@ TRANSITION_LIST("resetn")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 979.0;
-		LEVEL 0 FOR 1.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 990.0;
 	}
 }
 

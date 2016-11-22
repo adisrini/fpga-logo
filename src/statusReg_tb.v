@@ -1,12 +1,11 @@
 `timescale 1 ns/ 100 ps
 module statusReg_tb();
-
 	reg [4:0] opcode, alu_code;
 	reg [26:0] target;
 	reg overflow;
 	wire [26:0] statusOut;
 
-	statusReg sr(statusOut, opcode, alu_code, target, overflow);
+	assign_status asgn_sts(opcode, alu_code, overflow, target, statusOut);
 
 	initial
 	begin
