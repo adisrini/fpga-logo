@@ -69,6 +69,15 @@ _Output_: We plan on displaying the turtle’s movement and output of mathematic
 
 We will have assembly code that runs the entire program. This will consist of an input loop, similar to a game loop, that detects whether there exists a new instruction (input string) from PS2. This will trigger following steps to execute the command, which will depend on the current state of the turtle (which will exist in DMEM. 
 
+### Conventions
+
+Certain registers in the register file are special purpose registers:
+
+**$30**: holds current command
+**$29**: holds current state
+**$28**: turtle state pointer (to DMEM)
+**$27**: command history pointer (to DMEM)
+**$26**: variables pointer (to DMEM)
 
 ### General Timeline
 
