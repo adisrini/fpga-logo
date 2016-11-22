@@ -68,6 +68,8 @@ Thumbs.db
 *.pin
 *.mif
 *.hex
+src/simulation/modelsim/msim_transcript
+src/simulation/modelsim/rtl_work/_info
 
 # ignore Quartus II generated folders
 src/db/
