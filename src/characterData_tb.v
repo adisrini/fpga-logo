@@ -16,16 +16,11 @@ module characterData_tb();
 		clock = 0;
 		#20
 		reset = 1'b0;
-		#200
-		reset = 1'b1;
-		#220
-		reset = 1'b0;
 		#1000
 		$stop;
 	end
 		always
 			#10 clock = ~clock;	
-			
 		always
 			#20 ps2_info = ps2_info+1;
 endmodule

@@ -99,6 +99,15 @@ module skeleton(resetn,
 	
 endmodule
 
+	
+/**********
+ FSM COUNTER THAT INCREMENTS FROM 0 -> 3 THEN RESTARTS
+ 
+ @param: out is the counter value
+ @param: enable is whether the counter is enabled
+ @param: clk is the counter clock
+ @param: reset is whether to reset the counter
+**********/
 module position_counter(out,enable,clk,reset);
 	output [1:0] out;	 //potentially change								
 	input enable, clk, reset;
