@@ -10,17 +10,22 @@ module characterData_tb();
 	begin
 		$display($time, "<<Starting the simulation>> ");
 		$monitor("Reading the values of clock %b, ps2_info %h, and reset %b and output %h ", clock, ps2_info, reset, out);
-		ps2_info = 8'h32;
+		ps2_info = 8'h21;
 		ps2_enable = 1'b1;
 		reset = 1'b1;
 		clock = 0;
 		#20
 		reset = 1'b0;
+		#200
+		reset = 1'b1;
+		#220
+		reset = 1'b0;
 		#1000
 		$stop;
 	end
 		always
-			#10 clock = ~clock;
+			#10 clock = ~clock;	
+			
 		always
-			#20 ps2_info[0] = ~ps2_info[0];
+			#20 ps2_info = ps2_info+1;
 endmodule
