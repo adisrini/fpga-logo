@@ -55,22 +55,11 @@ module skeleton(resetn,
 	
 	wire [31:0] logo_command;
 	wire [7:0] data_ps2ascii;
-	wire [1:0] position;
 	reg [7:0] last_pressed;
 	reg trigger;
+	wire [1:0] position;
 	
-	position_counter pos_count(position, 1'b1, ps2_key_pressed, ~resetn);
-	
-	// your processor
-	processor myprocessor(clock, ~resetn, /*ps2_key_pressed, ps2_out, lcd_write_en, lcd_write_data,*/ debug_data_in, debug_addr);
-	
-	// keyboard controller
-	PS2_Interface myps2(clock, resetn, ps2_clock, ps2_data, ps2_key_data, ps2_key_pressed, ps2_out);
-	
-	// map PS2 output to ASCII value
-	mapping map(ps2_out, data_ps2ascii);
-	
-	always @(posedge clock)
+	always @(posedge ps2_clock)
 	begin
 	if(~(data_ps2ascii == last_pressed))
 		begin
@@ -83,6 +72,37 @@ module skeleton(resetn,
 		end
 	end
 	
+	position_counter pos_count(position, 1'b1, ps2_key_pressed, ~resetn);
+	
+	// your processor
+	processor myprocessor(clock, ~resetn, /*ps2_key_pressed, ps2_out, lcd_write_en, lcd_write_data,*/ debug_data_in, debug_addr);
+	
+	// keyboard controller
+	PS2_Interface myps2(clock, resetn, ps2_clock, ps2_data, ps2_key_data, ps2_key_pressed, ps2_out);
+	
+	// map PS2 output to ASCII value
+	mapping map(ps2_out, data_ps2ascii);
+	
+	wire [3:0] key_pressed;
+	assign key_pressed = ps2_key_pressed;
+	
+	wire [3:0] clock_4;
+	assign clock_4 = clock;
+	
+	wire [3:0] ps2_clock_4;
+	assign ps2_clock_4 = ps2_clock;
+	
+	wire [3:0] ps2_data_4;
+	assign ps2_data_4 = ps2_data;
+	
+	wire [3:0] trigger_4;
+	assign trigger_4 = trigger;
+	
+	wire [31:0] command;
+	
+	// character filling
+	characterData cd(command, ps2_key_data, ~trigger, ~resetn);
+	
 	// lcd controller
 	lcd mylcd(clock, ~resetn, 1'b1, data_ps2ascii, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
 	
@@ -91,12 +111,12 @@ module skeleton(resetn,
 	Hexadecimal_To_Seven_Segment hex2(data_ps2ascii[7:4], seg2);
 	
 	// the other seven segment displays are currently set to 0
-	Hexadecimal_To_Seven_Segment hex3(4'b0, seg3);
-	Hexadecimal_To_Seven_Segment hex4(4'b0, seg4);
-	Hexadecimal_To_Seven_Segment hex5(4'b0, seg5);
-	Hexadecimal_To_Seven_Segment hex6(4'b0, seg6);
-	Hexadecimal_To_Seven_Segment hex7(4'b0, seg7);
-	Hexadecimal_To_Seven_Segment hex8(4'b0, seg8);
+	Hexadecimal_To_Seven_Segment hex3(command[3:0], seg3);
+	Hexadecimal_To_Seven_Segment hex4(command[7:4], seg4);
+	Hexadecimal_To_Seven_Segment hex5(command[11:8], seg5);
+	Hexadecimal_To_Seven_Segment hex6(command[15:12], seg6);
+	Hexadecimal_To_Seven_Segment hex7(trigger_4, seg7);
+	Hexadecimal_To_Seven_Segment hex8(ps2_clock_4, seg8);
 	
 	// some LEDs that you could use for debugging if you wanted
 	assign leds = 8'b00101011;
@@ -169,7 +189,7 @@ module characterData(register_out, ps2_keydata, ps2_enable, reset);
 	mapping m(ps2_keydata, mappedResult);
 	
 	
-	shift8bitena s8be(register_out, 1'b0, 1'b1, out_temp);   // SHIFT WHENEVER ENABLE IS TRUE.
+	shift8bitena s8be(register_out, 1'b0, ~ps2_enable, out_temp);   // SHIFT WHENEVER ENABLE IS TRUE.
 	
 	assign out_register_input[31:8] = out_temp[31:8];
 	assign out_register_input[7:0] = mappedResult;
