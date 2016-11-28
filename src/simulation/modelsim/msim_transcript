@@ -1,4 +1,4 @@
-# Reading C:/altera_lite/16.0/modelsim_ase/tcl/vsim/pref.tcl
+# Reading C:/altera/16.0/modelsim_ase/tcl/vsim/pref.tcl
 # do skeleton_run_msim_rtl_verilog.do
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
@@ -7,33 +7,33 @@
 # vmap work rtl_work
 # Model Technology ModelSim ALTERA vmap 10.4d Lib Mapping Utility 2015.12 Dec 30 2015
 # vmap work rtl_work 
-# Copying C:/altera_lite/16.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Copying C:/altera/16.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/VGA_Audio_PLL.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/VGA_Audio_PLL.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:39 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/VGA_Audio_PLL.v 
+# Start time: 19:52:07 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/VGA_Audio_PLL.v 
 # -- Compiling module VGA_Audio_PLL
 # 
 # Top level modules:
 # 	VGA_Audio_PLL
-# End time: 22:20:39 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:07 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Reset_Delay.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/Reset_Delay.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:39 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Reset_Delay.v 
+# Start time: 19:52:07 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/Reset_Delay.v 
 # -- Compiling module Reset_Delay
 # 
 # Top level modules:
 # 	Reset_Delay
-# End time: 22:20:39 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:07 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/skeleton.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:39 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/skeleton.v 
+# Start time: 19:52:07 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v 
 # -- Compiling module skeleton
 # -- Compiling module position_counter
 # -- Compiling module characterData
@@ -43,132 +43,132 @@
 # Top level modules:
 # 	skeleton
 # 	characterData
-# End time: 22:20:39 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:07 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/PS2_Interface.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/PS2_Interface.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:39 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/PS2_Interface.v 
+# Start time: 19:52:07 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/PS2_Interface.v 
 # -- Compiling module PS2_Interface
 # 
 # Top level modules:
 # 	PS2_Interface
-# End time: 22:20:39 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:07 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/PS2_Controller.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/PS2_Controller.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:39 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/PS2_Controller.v 
+# Start time: 19:52:07 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/PS2_Controller.v 
 # -- Compiling module PS2_Controller
 # 
 # Top level modules:
 # 	PS2_Controller
-# End time: 22:20:39 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:07 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/pll.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/pll.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:39 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/pll.v 
+# Start time: 19:52:08 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/pll.v 
 # -- Compiling module pll
 # 
 # Top level modules:
 # 	pll
-# End time: 22:20:39 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:08 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/imem.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/imem.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:39 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/imem.v 
+# Start time: 19:52:08 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/imem.v 
 # -- Compiling module imem
 # 
 # Top level modules:
 # 	imem
-# End time: 22:20:40 on Nov 21,2016, Elapsed time: 0:00:01
+# End time: 19:52:08 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Hexadecimal_To_Seven_Segment.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/Hexadecimal_To_Seven_Segment.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:40 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Hexadecimal_To_Seven_Segment.v 
+# Start time: 19:52:08 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/Hexadecimal_To_Seven_Segment.v 
 # -- Compiling module Hexadecimal_To_Seven_Segment
 # 
 # Top level modules:
 # 	Hexadecimal_To_Seven_Segment
-# End time: 22:20:40 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:08 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/dmem.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/dmem.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:40 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/dmem.v 
+# Start time: 19:52:08 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/dmem.v 
 # -- Compiling module dmem
 # 
 # Top level modules:
 # 	dmem
-# End time: 22:20:40 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:08 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Altera_UP_PS2_Data_In.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/Altera_UP_PS2_Data_In.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:40 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Altera_UP_PS2_Data_In.v 
+# Start time: 19:52:08 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/Altera_UP_PS2_Data_In.v 
 # -- Compiling module Altera_UP_PS2_Data_In
 # 
 # Top level modules:
 # 	Altera_UP_PS2_Data_In
-# End time: 22:20:40 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:08 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Altera_UP_PS2_Command_Out.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/Altera_UP_PS2_Command_Out.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:40 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/Altera_UP_PS2_Command_Out.v 
+# Start time: 19:52:08 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/Altera_UP_PS2_Command_Out.v 
 # -- Compiling module Altera_UP_PS2_Command_Out
 # 
 # Top level modules:
 # 	Altera_UP_PS2_Command_Out
-# End time: 22:20:40 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:08 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/vga_controller.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/vga_controller.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:40 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/vga_controller.v 
+# Start time: 19:52:08 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/vga_controller.v 
 # -- Compiling module vga_controller
 # 
 # Top level modules:
 # 	vga_controller
-# End time: 22:20:40 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:08 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/video_sync_generator.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/video_sync_generator.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:40 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/video_sync_generator.v 
+# Start time: 19:52:09 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/video_sync_generator.v 
 # -- Compiling module video_sync_generator
 # 
 # Top level modules:
 # 	video_sync_generator
-# End time: 22:20:40 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:09 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/img_index.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/img_index.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:40 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/img_index.v 
+# Start time: 19:52:09 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/img_index.v 
 # -- Compiling module img_index
 # 
 # Top level modules:
 # 	img_index
-# End time: 22:20:41 on Nov 21,2016, Elapsed time: 0:00:01
+# End time: 19:52:09 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/img_data.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/img_data.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:41 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/img_data.v 
+# Start time: 19:52:09 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/img_data.v 
 # -- Compiling module img_data
 # 
 # Top level modules:
 # 	img_data
-# End time: 22:20:41 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:09 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/processor_as577.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:41 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/processor_as577.v 
+# Start time: 19:52:09 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v 
 # -- Compiling module processor
 # -- Compiling module bypass_ex
 # -- Compiling module bypass_mem
@@ -233,43 +233,43 @@
 # 
 # Top level modules:
 # 	processor
-# End time: 22:20:41 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:09 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src/db {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/db/pll_altpll.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src/db {C:/Users/Student/adityasrinivasan/fpga-logo/src/db/pll_altpll.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:41 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/db" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/db/pll_altpll.v 
+# Start time: 19:52:09 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src/db" C:/Users/Student/adityasrinivasan/fpga-logo/src/db/pll_altpll.v 
 # -- Compiling module pll_altpll
 # 
 # Top level modules:
 # 	pll_altpll
-# End time: 22:20:41 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:09 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/lcd.sv}
+# vlog -sv -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/lcd.sv}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:41 on Nov 21,2016
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/lcd.sv 
+# Start time: 19:52:09 on Nov 27,2016
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/lcd.sv 
 # -- Compiling module lcd
 # 
 # Top level modules:
 # 	lcd
-# End time: 22:20:41 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:09 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Aditya\ Srinivasan/Desktop/fpga-logo/src {C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/keyboard_fill_characters_tb.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/keyboard_fill_characters_tb.v}
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:20:41 on Nov 21,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src" C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/keyboard_fill_characters_tb.v 
+# Start time: 19:52:10 on Nov 27,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src" C:/Users/Student/adityasrinivasan/fpga-logo/src/keyboard_fill_characters_tb.v 
 # -- Compiling module keyboard_fill_characters_tb
 # 
 # Top level modules:
 # 	keyboard_fill_characters_tb
-# End time: 22:20:41 on Nov 21,2016, Elapsed time: 0:00:00
+# End time: 19:52:10 on Nov 27,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  keyboard_fill_characters_tb
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" keyboard_fill_characters_tb 
-# Start time: 22:20:42 on Nov 21,2016
+# Start time: 19:52:10 on Nov 27,2016
 # Loading work.keyboard_fill_characters_tb
 # Loading work.characterData
 # Loading work.mapping
@@ -286,10 +286,10 @@
 # 
 #           File in use by: joshxu95  Hostname: JXUCPU  ProcessID: 15364
 # 
-#           Attempting to use alternate WLF file "./wlft0q8iv5".
+#           Attempting to use alternate WLF file "./wlfttrmvj5".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlft0q8iv5
+#           Using alternate file: ./wlfttrmvj5
 # 
 # view structure
 # .main_pane.structure.interior.cs.body.struct
@@ -306,8 +306,8 @@
 # Values: data_PS2key 23, ctrl_PS2pressed 0, reset 0, output 00 41 4e 44
 # Values: data_PS2key 36, ctrl_PS2pressed 1, reset 0, output 00 41 4e 44
 # Values: data_PS2key 36, ctrl_PS2pressed 0, reset 0, output 41 4e 44 36
-# ** Note: $stop    : C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/keyboard_fill_characters_tb.v(37)
+# ** Note: $stop    : C:/Users/Student/adityasrinivasan/fpga-logo/src/keyboard_fill_characters_tb.v(37)
 #    Time: 730 ns  Iteration: 0  Instance: /keyboard_fill_characters_tb
-# Break in Module keyboard_fill_characters_tb at C:/Users/Aditya Srinivasan/Desktop/fpga-logo/src/keyboard_fill_characters_tb.v line 37
-# End time: 22:21:09 on Nov 21,2016, Elapsed time: 0:00:27
+# Break in Module keyboard_fill_characters_tb at C:/Users/Student/adityasrinivasan/fpga-logo/src/keyboard_fill_characters_tb.v line 37
+# End time: 19:53:30 on Nov 27,2016, Elapsed time: 0:01:20
 # Errors: 0, Warnings: 2

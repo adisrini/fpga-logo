@@ -1,5 +1,5 @@
 Analysis & Synthesis report for skeleton
-Tue Nov 22 16:07:22 2016
+Mon Nov 28 00:46:37 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 
@@ -41,161 +41,159 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
  33. Port Connectivity Checks: "VGA_Audio_PLL:p1"
  34. Port Connectivity Checks: "Hexadecimal_To_Seven_Segment:hex8"
  35. Port Connectivity Checks: "Hexadecimal_To_Seven_Segment:hex7"
- 36. Port Connectivity Checks: "Hexadecimal_To_Seven_Segment:hex6"
- 37. Port Connectivity Checks: "Hexadecimal_To_Seven_Segment:hex5"
- 38. Port Connectivity Checks: "Hexadecimal_To_Seven_Segment:hex4"
- 39. Port Connectivity Checks: "Hexadecimal_To_Seven_Segment:hex3"
- 40. Port Connectivity Checks: "lcd:mylcd"
- 41. Port Connectivity Checks: "PS2_Interface:myps2|PS2_Controller:PS2"
- 42. Port Connectivity Checks: "PS2_Interface:myps2"
- 43. Port Connectivity Checks: "processor:myprocessor|control:ctrl_wb"
- 44. Port Connectivity Checks: "processor:myprocessor|instruction_splitter:split_wb"
- 45. Port Connectivity Checks: "processor:myprocessor|stage_MEM_WB:mem_wb"
- 46. Port Connectivity Checks: "processor:myprocessor|control:ctrl_mem"
- 47. Port Connectivity Checks: "processor:myprocessor|instruction_splitter:split_mem"
- 48. Port Connectivity Checks: "processor:myprocessor|stage_EX_MEM:ex_mem"
- 49. Port Connectivity Checks: "processor:myprocessor|stall_logic:sl|opcode_decode:dc"
- 50. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|dffeveri:dffe3"
- 51. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|dffeveri:dffe"
- 52. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub2"
- 53. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shiftXbits:sh3"
- 54. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shift1bit:sh2"
- 55. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub1"
- 56. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shiftXbits:sh1"
- 57. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2"
- 58. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg1"
- 59. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|div:d|mux32:mx1"
- 60. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|negate:n1|cla_mul:sub"
- 61. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[64].my_dffe"
- 62. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[63].my_dffe"
- 63. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[62].my_dffe"
- 64. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[61].my_dffe"
- 65. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[60].my_dffe"
- 66. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[59].my_dffe"
- 67. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[58].my_dffe"
- 68. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[57].my_dffe"
- 69. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[56].my_dffe"
- 70. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[55].my_dffe"
- 71. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[54].my_dffe"
- 72. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[53].my_dffe"
- 73. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[52].my_dffe"
- 74. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[51].my_dffe"
- 75. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[50].my_dffe"
- 76. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[49].my_dffe"
- 77. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[48].my_dffe"
- 78. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[47].my_dffe"
- 79. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[46].my_dffe"
- 80. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[45].my_dffe"
- 81. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[44].my_dffe"
- 82. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[43].my_dffe"
- 83. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[42].my_dffe"
- 84. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[41].my_dffe"
- 85. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[40].my_dffe"
- 86. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[39].my_dffe"
- 87. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[38].my_dffe"
- 88. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[37].my_dffe"
- 89. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[36].my_dffe"
- 90. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[35].my_dffe"
- 91. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[34].my_dffe"
- 92. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[33].my_dffe"
- 93. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[32].my_dffe"
- 94. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[31].my_dffe"
- 95. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[30].my_dffe"
- 96. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[29].my_dffe"
- 97. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[28].my_dffe"
- 98. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[27].my_dffe"
- 99. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[26].my_dffe"
-100. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[25].my_dffe"
-101. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[24].my_dffe"
-102. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[23].my_dffe"
-103. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[22].my_dffe"
-104. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[21].my_dffe"
-105. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[20].my_dffe"
-106. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[19].my_dffe"
-107. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[18].my_dffe"
-108. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[17].my_dffe"
-109. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[16].my_dffe"
-110. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[15].my_dffe"
-111. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[14].my_dffe"
-112. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[13].my_dffe"
-113. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[12].my_dffe"
-114. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[11].my_dffe"
-115. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[10].my_dffe"
-116. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[9].my_dffe"
-117. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[8].my_dffe"
-118. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[7].my_dffe"
-119. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[6].my_dffe"
-120. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[5].my_dffe"
-121. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[4].my_dffe"
-122. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[3].my_dffe"
-123. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[2].my_dffe"
-124. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[1].my_dffe"
-125. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[0].my_dffe"
-126. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc1|shift1bit65:sh"
-127. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc1|cla_mul:addSub|cla8simple:adder3"
-128. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc1"
-129. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[31].my_dffe"
-130. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[30].my_dffe"
-131. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[29].my_dffe"
-132. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[28].my_dffe"
-133. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[27].my_dffe"
-134. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[26].my_dffe"
-135. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[25].my_dffe"
-136. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[24].my_dffe"
-137. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[23].my_dffe"
-138. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[22].my_dffe"
-139. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[21].my_dffe"
-140. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[20].my_dffe"
-141. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[19].my_dffe"
-142. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[18].my_dffe"
-143. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[17].my_dffe"
-144. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[16].my_dffe"
-145. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[15].my_dffe"
-146. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[14].my_dffe"
-147. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[13].my_dffe"
-148. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[12].my_dffe"
-149. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[11].my_dffe"
-150. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[10].my_dffe"
-151. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[9].my_dffe"
-152. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[8].my_dffe"
-153. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[7].my_dffe"
-154. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[6].my_dffe"
-155. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[5].my_dffe"
-156. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[4].my_dffe"
-157. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[3].my_dffe"
-158. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[2].my_dffe"
-159. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[1].my_dffe"
-160. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[0].my_dffe"
-161. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|dffeveri:dffe2"
-162. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|dffeveri:dffe1"
-163. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|up_counter:counter"
-164. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv"
-165. Port Connectivity Checks: "processor:myprocessor|as577_alu:alu|decoder:d1"
-166. Port Connectivity Checks: "processor:myprocessor|cla:branch_addresser"
-167. Port Connectivity Checks: "processor:myprocessor|jump_addresser:ja"
-168. Port Connectivity Checks: "processor:myprocessor|control:ctrl_ex"
-169. Port Connectivity Checks: "processor:myprocessor|stage_ID_EX:id_ex"
-170. Port Connectivity Checks: "processor:myprocessor|regfile_as577:rgfile|register:loop1[0].rg"
-171. Port Connectivity Checks: "processor:myprocessor|regfile_as577:rgfile|decoder:dc3"
-172. Port Connectivity Checks: "processor:myprocessor|regfile_as577:rgfile|decoder:dc2"
-173. Port Connectivity Checks: "processor:myprocessor|regfile_as577:rgfile|decoder:dc1"
-174. Port Connectivity Checks: "processor:myprocessor|regfile_as577:rgfile"
-175. Port Connectivity Checks: "processor:myprocessor|sign_extender:sx_id"
-176. Port Connectivity Checks: "processor:myprocessor|control:ctrl_id|encode_ALUop:enc|mux4_5bit:mx"
-177. Port Connectivity Checks: "processor:myprocessor|control:ctrl_id|opcode_decode:dec"
-178. Port Connectivity Checks: "processor:myprocessor|control:ctrl_id"
-179. Port Connectivity Checks: "processor:myprocessor|instruction_splitter:split_id"
-180. Port Connectivity Checks: "processor:myprocessor|stage_IF_ID:if_id"
-181. Port Connectivity Checks: "processor:myprocessor|imem:myimem"
-182. Port Connectivity Checks: "processor:myprocessor|cla:add1|cla8:adder3"
-183. Port Connectivity Checks: "processor:myprocessor|cla:add1"
-184. Port Connectivity Checks: "processor:myprocessor|register:pc"
-185. Port Connectivity Checks: "position_counter:pos_count"
-186. Port Connectivity Checks: "pll:div"
-187. Post-Synthesis Netlist Statistics for Top Partition
-188. Elapsed Time Per Partition
-189. Analysis & Synthesis Messages
-190. Analysis & Synthesis Suppressed Messages
+ 36. Port Connectivity Checks: "lcd:mylcd"
+ 37. Port Connectivity Checks: "characterData:cd|register:r1"
+ 38. Port Connectivity Checks: "characterData:cd|shift8bitena:s8be"
+ 39. Port Connectivity Checks: "characterData:cd"
+ 40. Port Connectivity Checks: "PS2_Interface:myps2|PS2_Controller:PS2"
+ 41. Port Connectivity Checks: "processor:myprocessor|control:ctrl_wb"
+ 42. Port Connectivity Checks: "processor:myprocessor|instruction_splitter:split_wb"
+ 43. Port Connectivity Checks: "processor:myprocessor|stage_MEM_WB:mem_wb"
+ 44. Port Connectivity Checks: "processor:myprocessor|control:ctrl_mem"
+ 45. Port Connectivity Checks: "processor:myprocessor|instruction_splitter:split_mem"
+ 46. Port Connectivity Checks: "processor:myprocessor|stage_EX_MEM:ex_mem"
+ 47. Port Connectivity Checks: "processor:myprocessor|stall_logic:sl|opcode_decode:dc"
+ 48. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|dffeveri:dffe3"
+ 49. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|dffeveri:dffe"
+ 50. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub2"
+ 51. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shiftXbits:sh3"
+ 52. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shift1bit:sh2"
+ 53. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub1"
+ 54. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shiftXbits:sh1"
+ 55. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2"
+ 56. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg1"
+ 57. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|div:d|mux32:mx1"
+ 58. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|negate:n1|cla_mul:sub"
+ 59. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[64].my_dffe"
+ 60. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[63].my_dffe"
+ 61. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[62].my_dffe"
+ 62. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[61].my_dffe"
+ 63. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[60].my_dffe"
+ 64. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[59].my_dffe"
+ 65. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[58].my_dffe"
+ 66. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[57].my_dffe"
+ 67. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[56].my_dffe"
+ 68. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[55].my_dffe"
+ 69. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[54].my_dffe"
+ 70. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[53].my_dffe"
+ 71. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[52].my_dffe"
+ 72. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[51].my_dffe"
+ 73. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[50].my_dffe"
+ 74. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[49].my_dffe"
+ 75. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[48].my_dffe"
+ 76. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[47].my_dffe"
+ 77. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[46].my_dffe"
+ 78. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[45].my_dffe"
+ 79. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[44].my_dffe"
+ 80. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[43].my_dffe"
+ 81. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[42].my_dffe"
+ 82. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[41].my_dffe"
+ 83. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[40].my_dffe"
+ 84. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[39].my_dffe"
+ 85. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[38].my_dffe"
+ 86. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[37].my_dffe"
+ 87. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[36].my_dffe"
+ 88. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[35].my_dffe"
+ 89. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[34].my_dffe"
+ 90. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[33].my_dffe"
+ 91. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[32].my_dffe"
+ 92. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[31].my_dffe"
+ 93. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[30].my_dffe"
+ 94. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[29].my_dffe"
+ 95. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[28].my_dffe"
+ 96. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[27].my_dffe"
+ 97. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[26].my_dffe"
+ 98. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[25].my_dffe"
+ 99. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[24].my_dffe"
+100. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[23].my_dffe"
+101. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[22].my_dffe"
+102. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[21].my_dffe"
+103. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[20].my_dffe"
+104. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[19].my_dffe"
+105. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[18].my_dffe"
+106. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[17].my_dffe"
+107. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[16].my_dffe"
+108. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[15].my_dffe"
+109. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[14].my_dffe"
+110. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[13].my_dffe"
+111. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[12].my_dffe"
+112. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[11].my_dffe"
+113. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[10].my_dffe"
+114. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[9].my_dffe"
+115. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[8].my_dffe"
+116. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[7].my_dffe"
+117. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[6].my_dffe"
+118. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[5].my_dffe"
+119. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[4].my_dffe"
+120. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[3].my_dffe"
+121. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[2].my_dffe"
+122. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[1].my_dffe"
+123. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[0].my_dffe"
+124. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc1|shift1bit65:sh"
+125. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc1|cla_mul:addSub|cla8simple:adder3"
+126. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc1"
+127. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[31].my_dffe"
+128. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[30].my_dffe"
+129. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[29].my_dffe"
+130. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[28].my_dffe"
+131. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[27].my_dffe"
+132. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[26].my_dffe"
+133. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[25].my_dffe"
+134. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[24].my_dffe"
+135. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[23].my_dffe"
+136. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[22].my_dffe"
+137. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[21].my_dffe"
+138. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[20].my_dffe"
+139. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[19].my_dffe"
+140. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[18].my_dffe"
+141. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[17].my_dffe"
+142. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[16].my_dffe"
+143. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[15].my_dffe"
+144. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[14].my_dffe"
+145. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[13].my_dffe"
+146. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[12].my_dffe"
+147. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[11].my_dffe"
+148. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[10].my_dffe"
+149. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[9].my_dffe"
+150. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[8].my_dffe"
+151. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[7].my_dffe"
+152. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[6].my_dffe"
+153. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[5].my_dffe"
+154. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[4].my_dffe"
+155. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[3].my_dffe"
+156. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[2].my_dffe"
+157. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[1].my_dffe"
+158. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|register32:rg2|dffeveri:loop1[0].my_dffe"
+159. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|dffeveri:dffe2"
+160. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|dffeveri:dffe1"
+161. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv|up_counter:counter"
+162. Port Connectivity Checks: "processor:myprocessor|multdiv_as577:multdiv"
+163. Port Connectivity Checks: "processor:myprocessor|as577_alu:alu|decoder:d1"
+164. Port Connectivity Checks: "processor:myprocessor|cla:branch_addresser"
+165. Port Connectivity Checks: "processor:myprocessor|jump_addresser:ja"
+166. Port Connectivity Checks: "processor:myprocessor|control:ctrl_ex"
+167. Port Connectivity Checks: "processor:myprocessor|stage_ID_EX:id_ex"
+168. Port Connectivity Checks: "processor:myprocessor|regfile_as577:rgfile|register:loop1[0].rg"
+169. Port Connectivity Checks: "processor:myprocessor|regfile_as577:rgfile|decoder:dc3"
+170. Port Connectivity Checks: "processor:myprocessor|regfile_as577:rgfile|decoder:dc2"
+171. Port Connectivity Checks: "processor:myprocessor|regfile_as577:rgfile|decoder:dc1"
+172. Port Connectivity Checks: "processor:myprocessor|regfile_as577:rgfile"
+173. Port Connectivity Checks: "processor:myprocessor|sign_extender:sx_id"
+174. Port Connectivity Checks: "processor:myprocessor|control:ctrl_id|encode_ALUop:enc|mux4_5bit:mx"
+175. Port Connectivity Checks: "processor:myprocessor|control:ctrl_id|opcode_decode:dec"
+176. Port Connectivity Checks: "processor:myprocessor|control:ctrl_id"
+177. Port Connectivity Checks: "processor:myprocessor|instruction_splitter:split_id"
+178. Port Connectivity Checks: "processor:myprocessor|stage_IF_ID:if_id"
+179. Port Connectivity Checks: "processor:myprocessor|imem:myimem"
+180. Port Connectivity Checks: "processor:myprocessor|cla:add1|cla8:adder3"
+181. Port Connectivity Checks: "processor:myprocessor|cla:add1"
+182. Port Connectivity Checks: "processor:myprocessor|register:pc"
+183. Port Connectivity Checks: "position_counter:pos_count"
+184. Port Connectivity Checks: "pll:div"
+185. Post-Synthesis Netlist Statistics for Top Partition
+186. Elapsed Time Per Partition
+187. Analysis & Synthesis Messages
+188. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -222,15 +220,15 @@ agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Nov 22 16:07:22 2016           ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 28 00:46:36 2016           ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
 ; Revision Name                      ; skeleton                                        ;
 ; Top-level Entity Name              ; skeleton                                        ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 10,845                                          ;
-;     Total combinational functions  ; 9,439                                           ;
-;     Dedicated logic registers      ; 2,214                                           ;
-; Total registers                    ; 2214                                            ;
+; Total logic elements               ; 10,930                                          ;
+;     Total combinational functions  ; 9,517                                           ;
+;     Dedicated logic registers      ; 2,236                                           ;
+; Total registers                    ; 2236                                            ;
 ; Total pins                         ; 154                                             ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 2,725,888                                       ;
@@ -339,7 +337,7 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.2%      ;
+;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
@@ -399,20 +397,20 @@ agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 10,845         ;
+; Estimated Total logic elements              ; 10,930         ;
 ;                                             ;                ;
-; Total combinational functions               ; 9439           ;
+; Total combinational functions               ; 9517           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 8194           ;
-;     -- 3 input functions                    ; 973            ;
-;     -- <=2 input functions                  ; 272            ;
+;     -- 4 input functions                    ; 8268           ;
+;     -- 3 input functions                    ; 971            ;
+;     -- <=2 input functions                  ; 278            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 9358           ;
+;     -- normal mode                          ; 9436           ;
 ;     -- arithmetic mode                      ; 81             ;
 ;                                             ;                ;
-; Total registers                             ; 2214           ;
-;     -- Dedicated logic registers            ; 2214           ;
+; Total registers                             ; 2236           ;
+;     -- Dedicated logic registers            ; 2236           ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 154            ;
@@ -425,7 +423,7 @@ agreement for further details.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 2203           ;
-; Total fan-out                               ; 50148          ;
+; Total fan-out                               ; 50556          ;
 ; Average fan-out                             ; 4.06           ;
 +---------------------------------------------+----------------+
 
@@ -435,74 +433,83 @@ agreement for further details.
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                           ; Entity Name                  ; Library Name ;
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+------------------------------+--------------+
-; |skeleton                                    ; 9439 (0)          ; 2214 (0)     ; 2725888     ; 0            ; 0       ; 0         ; 154  ; 0            ; |skeleton                                                                                                                                     ; skeleton                     ; work         ;
+; |skeleton                                    ; 9517 (5)          ; 2236 (8)     ; 2725888     ; 0            ; 0       ; 0         ; 154  ; 0            ; |skeleton                                                                                                                                     ; skeleton                     ; work         ;
 ;    |Hexadecimal_To_Seven_Segment:hex1|       ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|Hexadecimal_To_Seven_Segment:hex1                                                                                                   ; Hexadecimal_To_Seven_Segment ; work         ;
 ;    |Hexadecimal_To_Seven_Segment:hex2|       ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|Hexadecimal_To_Seven_Segment:hex2                                                                                                   ; Hexadecimal_To_Seven_Segment ; work         ;
+;    |Hexadecimal_To_Seven_Segment:hex3|       ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|Hexadecimal_To_Seven_Segment:hex3                                                                                                   ; Hexadecimal_To_Seven_Segment ; work         ;
+;    |Hexadecimal_To_Seven_Segment:hex4|       ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|Hexadecimal_To_Seven_Segment:hex4                                                                                                   ; Hexadecimal_To_Seven_Segment ; work         ;
+;    |Hexadecimal_To_Seven_Segment:hex5|       ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|Hexadecimal_To_Seven_Segment:hex5                                                                                                   ; Hexadecimal_To_Seven_Segment ; work         ;
+;    |Hexadecimal_To_Seven_Segment:hex6|       ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|Hexadecimal_To_Seven_Segment:hex6                                                                                                   ; Hexadecimal_To_Seven_Segment ; work         ;
 ;    |PS2_Interface:myps2|                     ; 41 (9)            ; 38 (8)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|PS2_Interface:myps2                                                                                                                 ; PS2_Interface                ; work         ;
 ;       |PS2_Controller:PS2|                   ; 32 (7)            ; 30 (5)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|PS2_Interface:myps2|PS2_Controller:PS2                                                                                              ; PS2_Controller               ; work         ;
 ;          |Altera_UP_PS2_Data_In:PS2_Data_In| ; 25 (25)           ; 25 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In                                                            ; Altera_UP_PS2_Data_In        ; work         ;
 ;    |Reset_Delay:r0|                          ; 27 (27)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|Reset_Delay:r0                                                                                                                      ; Reset_Delay                  ; work         ;
 ;    |VGA_Audio_PLL:p1|                        ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|VGA_Audio_PLL:p1                                                                                                                    ; VGA_Audio_PLL                ; work         ;
 ;       |altpll:altpll_component|              ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|VGA_Audio_PLL:p1|altpll:altpll_component                                                                                            ; altpll                       ; work         ;
+;    |characterData:cd|                        ; 52 (0)            ; 14 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|characterData:cd                                                                                                                    ; characterData                ; work         ;
+;       |mapping:m|                            ; 52 (52)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|characterData:cd|mapping:m                                                                                                          ; mapping                      ; work         ;
+;       |register:r1|                          ; 0 (0)             ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|characterData:cd|register:r1                                                                                                        ; register                     ; work         ;
 ;    |lcd:mylcd|                               ; 390 (390)         ; 278 (278)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|lcd:mylcd                                                                                                                           ; lcd                          ; work         ;
-;    |mapping:map|                             ; 51 (51)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|mapping:map                                                                                                                         ; mapping                      ; work         ;
-;    |processor:myprocessor|                   ; 8573 (2390)       ; 1801 (0)     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor                                                                                                               ; processor                    ; work         ;
-;       |as577_alu:alu|                        ; 636 (151)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|as577_alu:alu                                                                                                 ; as577_alu                    ; work         ;
-;          |cla:c0|                            ; 246 (35)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|as577_alu:alu|cla:c0                                                                                          ; cla                          ; work         ;
-;             |cla8:adder0|                    ; 55 (55)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|as577_alu:alu|cla:c0|cla8:adder0                                                                              ; cla8                         ; work         ;
-;             |cla8:adder1|                    ; 58 (58)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|as577_alu:alu|cla:c0|cla8:adder1                                                                              ; cla8                         ; work         ;
-;             |cla8:adder2|                    ; 49 (49)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|as577_alu:alu|cla:c0|cla8:adder2                                                                              ; cla8                         ; work         ;
-;             |cla8:adder3|                    ; 49 (49)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|as577_alu:alu|cla:c0|cla8:adder3                                                                              ; cla8                         ; work         ;
+;    |mapping:map|                             ; 47 (47)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|mapping:map                                                                                                                         ; mapping                      ; work         ;
+;    |processor:myprocessor|                   ; 8570 (2379)       ; 1801 (0)     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor                                                                                                               ; processor                    ; work         ;
+;       |as577_alu:alu|                        ; 641 (151)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|as577_alu:alu                                                                                                 ; as577_alu                    ; work         ;
+;          |cla:c0|                            ; 251 (39)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|as577_alu:alu|cla:c0                                                                                          ; cla                          ; work         ;
+;             |cla8:adder0|                    ; 57 (57)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|as577_alu:alu|cla:c0|cla8:adder0                                                                              ; cla8                         ; work         ;
+;             |cla8:adder1|                    ; 62 (62)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|as577_alu:alu|cla:c0|cla8:adder1                                                                              ; cla8                         ; work         ;
+;             |cla8:adder2|                    ; 47 (47)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|as577_alu:alu|cla:c0|cla8:adder2                                                                              ; cla8                         ; work         ;
+;             |cla8:adder3|                    ; 46 (46)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|as577_alu:alu|cla:c0|cla8:adder3                                                                              ; cla8                         ; work         ;
 ;          |shiftXbits:sxb|                    ; 239 (239)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|as577_alu:alu|shiftXbits:sxb                                                                                  ; shiftXbits                   ; work         ;
-;       |assign_alu_operands:asgn0|            ; 53 (53)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|assign_alu_operands:asgn0                                                                                     ; assign_alu_operands          ; work         ;
+;       |assign_alu_operands:asgn0|            ; 47 (47)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|assign_alu_operands:asgn0                                                                                     ; assign_alu_operands          ; work         ;
 ;       |assign_registers:asgn2|               ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|assign_registers:asgn2                                                                                        ; assign_registers             ; work         ;
 ;       |assign_status:asgn_sts|               ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|assign_status:asgn_sts                                                                                        ; assign_status                ; work         ;
-;       |bypass_ex:bx|                         ; 18 (17)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|bypass_ex:bx                                                                                                  ; bypass_ex                    ; work         ;
-;          |equals_4bit:eq3|                   ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|bypass_ex:bx|equals_4bit:eq3                                                                                  ; equals_4bit                  ; work         ;
-;       |bypass_mem:bm|                        ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|bypass_mem:bm                                                                                                 ; bypass_mem                   ; work         ;
+;       |bypass_ex:bx|                         ; 23 (15)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|bypass_ex:bx                                                                                                  ; bypass_ex                    ; work         ;
+;          |equals_4bit:eq1|                   ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|bypass_ex:bx|equals_4bit:eq1                                                                                  ; equals_4bit                  ; work         ;
+;          |equals_4bit:eq2|                   ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|bypass_ex:bx|equals_4bit:eq2                                                                                  ; equals_4bit                  ; work         ;
+;          |equals_4bit:eq3|                   ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|bypass_ex:bx|equals_4bit:eq3                                                                                  ; equals_4bit                  ; work         ;
+;       |bypass_mem:bm|                        ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|bypass_mem:bm                                                                                                 ; bypass_mem                   ; work         ;
 ;       |cla:add1|                             ; 41 (5)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|cla:add1                                                                                                      ; cla                          ; work         ;
 ;          |cla8:adder0|                       ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|cla:add1|cla8:adder0                                                                                          ; cla8                         ; work         ;
 ;          |cla8:adder1|                       ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|cla:add1|cla8:adder1                                                                                          ; cla8                         ; work         ;
 ;          |cla8:adder2|                       ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|cla:add1|cla8:adder2                                                                                          ; cla8                         ; work         ;
 ;          |cla8:adder3|                       ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|cla:add1|cla8:adder3                                                                                          ; cla8                         ; work         ;
-;       |cla:branch_addresser|                 ; 61 (5)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|cla:branch_addresser                                                                                          ; cla                          ; work         ;
-;          |cla8:adder0|                       ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|cla:branch_addresser|cla8:adder0                                                                              ; cla8                         ; work         ;
+;       |cla:branch_addresser|                 ; 71 (5)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|cla:branch_addresser                                                                                          ; cla                          ; work         ;
+;          |cla8:adder0|                       ; 15 (15)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|cla:branch_addresser|cla8:adder0                                                                              ; cla8                         ; work         ;
 ;          |cla8:adder1|                       ; 23 (23)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|cla:branch_addresser|cla8:adder1                                                                              ; cla8                         ; work         ;
-;          |cla8:adder2|                       ; 13 (13)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|cla:branch_addresser|cla8:adder2                                                                              ; cla8                         ; work         ;
-;          |cla8:adder3|                       ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|cla:branch_addresser|cla8:adder3                                                                              ; cla8                         ; work         ;
-;       |control:ctrl_ex|                      ; 12 (8)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|control:ctrl_ex                                                                                               ; control                      ; work         ;
-;          |encode_ALUop:enc|                  ; 4 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|control:ctrl_ex|encode_ALUop:enc                                                                              ; encode_ALUop                 ; work         ;
-;             |mux4_5bit:mx|                   ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|control:ctrl_ex|encode_ALUop:enc|mux4_5bit:mx                                                                 ; mux4_5bit                    ; work         ;
+;          |cla8:adder2|                       ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|cla:branch_addresser|cla8:adder2                                                                              ; cla8                         ; work         ;
+;          |cla8:adder3|                       ; 12 (12)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|cla:branch_addresser|cla8:adder3                                                                              ; cla8                         ; work         ;
+;       |control:ctrl_ex|                      ; 10 (7)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|control:ctrl_ex                                                                                               ; control                      ; work         ;
+;          |encode_ALUop:enc|                  ; 3 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|control:ctrl_ex|encode_ALUop:enc                                                                              ; encode_ALUop                 ; work         ;
+;             |mux4_5bit:mx|                   ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|control:ctrl_ex|encode_ALUop:enc|mux4_5bit:mx                                                                 ; mux4_5bit                    ; work         ;
 ;       |control:ctrl_id|                      ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|control:ctrl_id                                                                                               ; control                      ; work         ;
 ;       |control:ctrl_mem|                     ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|control:ctrl_mem                                                                                              ; control                      ; work         ;
-;       |control:ctrl_wb|                      ; 6 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|control:ctrl_wb                                                                                               ; control                      ; work         ;
-;          |opcode_decode:dec|                 ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|control:ctrl_wb|opcode_decode:dec                                                                             ; opcode_decode                ; work         ;
+;       |control:ctrl_wb|                      ; 5 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|control:ctrl_wb                                                                                               ; control                      ; work         ;
+;          |opcode_decode:dec|                 ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|control:ctrl_wb|opcode_decode:dec                                                                             ; opcode_decode                ; work         ;
 ;       |dmem:mydmem|                          ; 0 (0)             ; 0 (0)        ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|dmem:mydmem                                                                                                   ; dmem                         ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|dmem:mydmem|altsyncram:altsyncram_component                                                                   ; altsyncram                   ; work         ;
 ;             |altsyncram_8vc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|dmem:mydmem|altsyncram:altsyncram_component|altsyncram_8vc1:auto_generated                                    ; altsyncram_8vc1              ; work         ;
-;       |flush_logic:fl|                       ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|flush_logic:fl                                                                                                ; flush_logic                  ; work         ;
+;       |flush_logic:fl|                       ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|flush_logic:fl                                                                                                ; flush_logic                  ; work         ;
 ;       |imem:myimem|                          ; 0 (0)             ; 0 (0)        ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|imem:myimem                                                                                                   ; imem                         ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|imem:myimem|altsyncram:altsyncram_component                                                                   ; altsyncram                   ; work         ;
 ;             |altsyncram_2m81:auto_generated| ; 0 (0)             ; 0 (0)        ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|imem:myimem|altsyncram:altsyncram_component|altsyncram_2m81:auto_generated                                    ; altsyncram_2m81              ; work         ;
 ;       |is_not_zero:inz|                      ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|is_not_zero:inz                                                                                               ; is_not_zero                  ; work         ;
-;       |jb_PC:jb|                             ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|jb_PC:jb                                                                                                      ; jb_PC                        ; work         ;
-;       |multdiv_as577:multdiv|                ; 1013 (89)         ; 297 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv                                                                                         ; multdiv_as577                ; work         ;
-;          |booth_mult:bm|                     ; 291 (0)           ; 64 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm                                                                           ; booth_mult                   ; work         ;
-;             |boothCycle:bc1|                 ; 32 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc1                                                            ; boothCycle                   ; work         ;
-;                |cla_mul:addSub|              ; 32 (6)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc1|cla_mul:addSub                                             ; cla_mul                      ; work         ;
-;                   |cla8simple:adder0|        ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc1|cla_mul:addSub|cla8simple:adder0                           ; cla8simple                   ; work         ;
+;       |jb_PC:jb|                             ; 17 (17)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|jb_PC:jb                                                                                                      ; jb_PC                        ; work         ;
+;       |multdiv_as577:multdiv|                ; 1010 (97)         ; 297 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv                                                                                         ; multdiv_as577                ; work         ;
+;          |booth_mult:bm|                     ; 286 (0)           ; 64 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm                                                                           ; booth_mult                   ; work         ;
+;             |boothCycle:bc1|                 ; 33 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc1                                                            ; boothCycle                   ; work         ;
+;                |cla_mul:addSub|              ; 33 (5)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc1|cla_mul:addSub                                             ; cla_mul                      ; work         ;
+;                   |cla8simple:adder0|        ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc1|cla_mul:addSub|cla8simple:adder0                           ; cla8simple                   ; work         ;
 ;                   |cla8simple:adder1|        ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc1|cla_mul:addSub|cla8simple:adder1                           ; cla8simple                   ; work         ;
-;                   |cla8simple:adder2|        ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc1|cla_mul:addSub|cla8simple:adder2                           ; cla8simple                   ; work         ;
+;                   |cla8simple:adder2|        ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc1|cla_mul:addSub|cla8simple:adder2                           ; cla8simple                   ; work         ;
 ;                   |cla8simple:adder3|        ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc1|cla_mul:addSub|cla8simple:adder3                           ; cla8simple                   ; work         ;
-;             |boothCycle:bc2|                 ; 137 (38)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc2                                                            ; boothCycle                   ; work         ;
-;                |cla_mul:addSub|              ; 99 (45)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc2|cla_mul:addSub                                             ; cla_mul                      ; work         ;
+;             |boothCycle:bc2|                 ; 136 (39)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc2                                                            ; boothCycle                   ; work         ;
+;                |cla_mul:addSub|              ; 97 (43)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc2|cla_mul:addSub                                             ; cla_mul                      ; work         ;
 ;                   |cla8simple:adder0|        ; 21 (21)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc2|cla_mul:addSub|cla8simple:adder0                           ; cla8simple                   ; work         ;
 ;                   |cla8simple:adder1|        ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc2|cla_mul:addSub|cla8simple:adder1                           ; cla8simple                   ; work         ;
-;                   |cla8simple:adder2|        ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc2|cla_mul:addSub|cla8simple:adder2                           ; cla8simple                   ; work         ;
-;                   |cla8simple:adder3|        ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc2|cla_mul:addSub|cla8simple:adder3                           ; cla8simple                   ; work         ;
-;             |checkMultException:cme|         ; 42 (42)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|checkMultException:cme                                                    ; checkMultException           ; work         ;
+;                   |cla8simple:adder2|        ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc2|cla_mul:addSub|cla8simple:adder2                           ; cla8simple                   ; work         ;
+;                   |cla8simple:adder3|        ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|boothCycle:bc2|cla_mul:addSub|cla8simple:adder3                           ; cla8simple                   ; work         ;
+;             |checkMultException:cme|         ; 38 (38)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|checkMultException:cme                                                    ; checkMultException           ; work         ;
 ;             |isCountZerobit6:icz|            ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|isCountZerobit6:icz                                                       ; isCountZerobit6              ; work         ;
-;             |mux65:mx|                       ; 78 (78)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|mux65:mx                                                                  ; mux65                        ; work         ;
+;             |mux65:mx|                       ; 77 (77)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|mux65:mx                                                                  ; mux65                        ; work         ;
 ;             |register65:rg|                  ; 0 (0)             ; 64 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg                                                             ; register65                   ; work         ;
 ;                |dffeveri:loop1[0].my_dffe|   ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[0].my_dffe                                   ; dffeveri                     ; work         ;
 ;                |dffeveri:loop1[10].my_dffe|  ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[10].my_dffe                                  ; dffeveri                     ; work         ;
@@ -572,21 +579,20 @@ agreement for further details.
 ;          |dffeveri:dffe2|                    ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|dffeveri:dffe2                                                                          ; dffeveri                     ; work         ;
 ;          |dffeveri:dffe3|                    ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|dffeveri:dffe3                                                                          ; dffeveri                     ; work         ;
 ;          |dffeveri:dffe|                     ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|dffeveri:dffe                                                                           ; dffeveri                     ; work         ;
-;          |div:d|                             ; 547 (1)           ; 63 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d                                                                                   ; div                          ; work         ;
-;             |division_cycle:dc|              ; 482 (1)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc                                                                 ; division_cycle               ; work         ;
-;                |cla_mul:sub1|                ; 71 (31)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub1                                                    ; cla_mul                      ; work         ;
-;                   |cla8simple:adder0|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub1|cla8simple:adder0                                  ; cla8simple                   ; work         ;
-;                   |cla8simple:adder1|        ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub1|cla8simple:adder1                                  ; cla8simple                   ; work         ;
-;                   |cla8simple:adder2|        ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub1|cla8simple:adder2                                  ; cla8simple                   ; work         ;
-;                   |cla8simple:adder3|        ; 18 (18)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub1|cla8simple:adder3                                  ; cla8simple                   ; work         ;
-;                |cla_mul:sub2|                ; 106 (18)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub2                                                    ; cla_mul                      ; work         ;
+;          |div:d|                             ; 541 (1)           ; 63 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d                                                                                   ; div                          ; work         ;
+;             |division_cycle:dc|              ; 476 (1)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc                                                                 ; division_cycle               ; work         ;
+;                |cla_mul:sub1|                ; 75 (35)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub1                                                    ; cla_mul                      ; work         ;
+;                   |cla8simple:adder1|        ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub1|cla8simple:adder1                                  ; cla8simple                   ; work         ;
+;                   |cla8simple:adder2|        ; 12 (12)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub1|cla8simple:adder2                                  ; cla8simple                   ; work         ;
+;                   |cla8simple:adder3|        ; 19 (19)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub1|cla8simple:adder3                                  ; cla8simple                   ; work         ;
+;                |cla_mul:sub2|                ; 102 (17)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub2                                                    ; cla_mul                      ; work         ;
 ;                   |cla8simple:adder0|        ; 28 (28)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub2|cla8simple:adder0                                  ; cla8simple                   ; work         ;
-;                   |cla8simple:adder1|        ; 26 (26)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub2|cla8simple:adder1                                  ; cla8simple                   ; work         ;
+;                   |cla8simple:adder1|        ; 23 (23)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub2|cla8simple:adder1                                  ; cla8simple                   ; work         ;
 ;                   |cla8simple:adder2|        ; 15 (15)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub2|cla8simple:adder2                                  ; cla8simple                   ; work         ;
 ;                   |cla8simple:adder3|        ; 19 (19)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|cla_mul:sub2|cla8simple:adder3                                  ; cla8simple                   ; work         ;
 ;                |lt:lt1|                      ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|lt:lt1                                                          ; lt                           ; work         ;
-;                |shiftXbits:sh1|              ; 160 (160)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shiftXbits:sh1                                                  ; shiftXbits                   ; work         ;
-;                |shiftXbits:sh3|              ; 141 (141)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shiftXbits:sh3                                                  ; shiftXbits                   ; work         ;
+;                |shiftXbits:sh1|              ; 155 (155)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shiftXbits:sh1                                                  ; shiftXbits                   ; work         ;
+;                |shiftXbits:sh3|              ; 140 (140)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shiftXbits:sh3                                                  ; shiftXbits                   ; work         ;
 ;             |mux32:mx1|                      ; 31 (31)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|mux32:mx1                                                                         ; mux32                        ; work         ;
 ;             |register32:rg1|                 ; 0 (0)             ; 31 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg1                                                                    ; register32                   ; work         ;
 ;                |dffeveri:loop1[0].my_dffe|   ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg1|dffeveri:loop1[0].my_dffe                                          ; dffeveri                     ; work         ;
@@ -636,7 +642,7 @@ agreement for further details.
 ;                |dffeveri:loop1[20].my_dffe|  ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[20].my_dffe                                         ; dffeveri                     ; work         ;
 ;                |dffeveri:loop1[21].my_dffe|  ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[21].my_dffe                                         ; dffeveri                     ; work         ;
 ;                |dffeveri:loop1[22].my_dffe|  ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[22].my_dffe                                         ; dffeveri                     ; work         ;
-;                |dffeveri:loop1[23].my_dffe|  ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[23].my_dffe                                         ; dffeveri                     ; work         ;
+;                |dffeveri:loop1[23].my_dffe|  ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[23].my_dffe                                         ; dffeveri                     ; work         ;
 ;                |dffeveri:loop1[24].my_dffe|  ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[24].my_dffe                                         ; dffeveri                     ; work         ;
 ;                |dffeveri:loop1[25].my_dffe|  ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[25].my_dffe                                         ; dffeveri                     ; work         ;
 ;                |dffeveri:loop1[26].my_dffe|  ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[26].my_dffe                                         ; dffeveri                     ; work         ;
@@ -647,7 +653,7 @@ agreement for further details.
 ;                |dffeveri:loop1[30].my_dffe|  ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[30].my_dffe                                         ; dffeveri                     ; work         ;
 ;                |dffeveri:loop1[31].my_dffe|  ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[31].my_dffe                                         ; dffeveri                     ; work         ;
 ;                |dffeveri:loop1[3].my_dffe|   ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[3].my_dffe                                          ; dffeveri                     ; work         ;
-;                |dffeveri:loop1[4].my_dffe|   ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[4].my_dffe                                          ; dffeveri                     ; work         ;
+;                |dffeveri:loop1[4].my_dffe|   ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[4].my_dffe                                          ; dffeveri                     ; work         ;
 ;                |dffeveri:loop1[5].my_dffe|   ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[5].my_dffe                                          ; dffeveri                     ; work         ;
 ;                |dffeveri:loop1[6].my_dffe|   ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[6].my_dffe                                          ; dffeveri                     ; work         ;
 ;                |dffeveri:loop1[7].my_dffe|   ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[7].my_dffe                                          ; dffeveri                     ; work         ;
@@ -659,15 +665,14 @@ agreement for further details.
 ;                |cla8simple:adder1|           ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n1|cla_mul:sub|cla8simple:adder1                                                 ; cla8simple                   ; work         ;
 ;                |cla8simple:adder2|           ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n1|cla_mul:sub|cla8simple:adder2                                                 ; cla8simple                   ; work         ;
 ;                |cla8simple:adder3|           ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n1|cla_mul:sub|cla8simple:adder3                                                 ; cla8simple                   ; work         ;
-;          |negate:n2|                         ; 17 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n2                                                                               ; negate                       ; work         ;
-;             |cla_mul:sub|                    ; 17 (8)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n2|cla_mul:sub                                                                   ; cla_mul                      ; work         ;
+;          |negate:n2|                         ; 18 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n2                                                                               ; negate                       ; work         ;
+;             |cla_mul:sub|                    ; 18 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n2|cla_mul:sub                                                                   ; cla_mul                      ; work         ;
 ;                |cla8simple:adder0|           ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n2|cla_mul:sub|cla8simple:adder0                                                 ; cla8simple                   ; work         ;
-;                |cla8simple:adder1|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n2|cla_mul:sub|cla8simple:adder1                                                 ; cla8simple                   ; work         ;
 ;                |cla8simple:adder3|           ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n2|cla_mul:sub|cla8simple:adder3                                                 ; cla8simple                   ; work         ;
-;          |negate:n3|                         ; 21 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n3                                                                               ; negate                       ; work         ;
-;             |cla_mul:sub|                    ; 21 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n3|cla_mul:sub                                                                   ; cla_mul                      ; work         ;
+;          |negate:n3|                         ; 20 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n3                                                                               ; negate                       ; work         ;
+;             |cla_mul:sub|                    ; 20 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n3|cla_mul:sub                                                                   ; cla_mul                      ; work         ;
 ;                |cla8simple:adder0|           ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n3|cla_mul:sub|cla8simple:adder0                                                 ; cla8simple                   ; work         ;
-;                |cla8simple:adder1|           ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n3|cla_mul:sub|cla8simple:adder1                                                 ; cla8simple                   ; work         ;
+;                |cla8simple:adder1|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n3|cla_mul:sub|cla8simple:adder1                                                 ; cla8simple                   ; work         ;
 ;                |cla8simple:adder3|           ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|negate:n3|cla_mul:sub|cla8simple:adder3                                                 ; cla8simple                   ; work         ;
 ;          |register32:rg1|                    ; 0 (0)             ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|register32:rg1                                                                          ; register32                   ; work         ;
 ;             |dffeveri:loop1[0].my_dffe|      ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|register32:rg1|dffeveri:loop1[0].my_dffe                                                ; dffeveri                     ; work         ;
@@ -836,8 +841,8 @@ agreement for further details.
 ;             |dffeveri:loop1[9].my_dffe|      ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|register32:rg5|dffeveri:loop1[9].my_dffe                                                ; dffeveri                     ; work         ;
 ;          |up_counter:counter|                ; 9 (9)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|up_counter:counter                                                                      ; up_counter                   ; work         ;
 ;       |mux4_32bit:mx_bypassA|                ; 65 (65)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|mux4_32bit:mx_bypassA                                                                                         ; mux4_32bit                   ; work         ;
-;       |mux4_32bit:mx_bypassB|                ; 65 (65)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|mux4_32bit:mx_bypassB                                                                                         ; mux4_32bit                   ; work         ;
-;       |regfile_as577:rgfile|                 ; 4082 (4038)       ; 992 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|regfile_as577:rgfile                                                                                          ; regfile_as577                ; work         ;
+;       |mux4_32bit:mx_bypassB|                ; 66 (66)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|mux4_32bit:mx_bypassB                                                                                         ; mux4_32bit                   ; work         ;
+;       |regfile_as577:rgfile|                 ; 4080 (4036)       ; 992 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|regfile_as577:rgfile                                                                                          ; regfile_as577                ; work         ;
 ;          |decoder:dc1|                       ; 44 (44)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|regfile_as577:rgfile|decoder:dc1                                                                              ; decoder                      ; work         ;
 ;          |register:loop1[10].rg|             ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|regfile_as577:rgfile|register:loop1[10].rg                                                                    ; register                     ; work         ;
 ;          |register:loop1[11].rg|             ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:myprocessor|regfile_as577:rgfile|register:loop1[11].rg                                                                    ; register                     ; work         ;
@@ -981,6 +986,8 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 ; Register name                                                                                                                         ; Reason for Removal                                                                                               ;
 +---------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+; last_pressed[7]                                                                                                                       ; Stuck at GND due to stuck port data_in                                                                           ;
+; characterData:cd|register:r1|loop1[7].my_dffe                                                                                         ; Stuck at GND due to stuck port data_in                                                                           ;
 ; processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg1|dffeveri:loop1[31].my_dffe|q                                         ; Lost fanout                                                                                                      ;
 ; processor:myprocessor|regfile_as577:rgfile|register:loop1[0].rg|loop1[0].my_dffe                                                      ; Stuck at GND due to stuck port clock_enable                                                                      ;
 ; processor:myprocessor|regfile_as577:rgfile|register:loop1[0].rg|loop1[1].my_dffe                                                      ; Stuck at GND due to stuck port clock_enable                                                                      ;
@@ -1014,12 +1021,29 @@ Encoding Type:  One-Hot
 ; processor:myprocessor|regfile_as577:rgfile|register:loop1[0].rg|loop1[29].my_dffe                                                     ; Stuck at GND due to stuck port clock_enable                                                                      ;
 ; processor:myprocessor|regfile_as577:rgfile|register:loop1[0].rg|loop1[30].my_dffe                                                     ; Stuck at GND due to stuck port clock_enable                                                                      ;
 ; processor:myprocessor|regfile_as577:rgfile|register:loop1[0].rg|loop1[31].my_dffe                                                     ; Stuck at GND due to stuck port clock_enable                                                                      ;
+; characterData:cd|register:r1|loop1[16].my_dffe                                                                                        ; Lost fanout                                                                                                      ;
+; characterData:cd|register:r1|loop1[17].my_dffe                                                                                        ; Lost fanout                                                                                                      ;
+; characterData:cd|register:r1|loop1[18].my_dffe                                                                                        ; Lost fanout                                                                                                      ;
+; characterData:cd|register:r1|loop1[19].my_dffe                                                                                        ; Lost fanout                                                                                                      ;
+; characterData:cd|register:r1|loop1[20].my_dffe                                                                                        ; Lost fanout                                                                                                      ;
+; characterData:cd|register:r1|loop1[21].my_dffe                                                                                        ; Lost fanout                                                                                                      ;
+; characterData:cd|register:r1|loop1[22].my_dffe                                                                                        ; Lost fanout                                                                                                      ;
+; characterData:cd|register:r1|loop1[23].my_dffe                                                                                        ; Lost fanout                                                                                                      ;
+; characterData:cd|register:r1|loop1[24].my_dffe                                                                                        ; Lost fanout                                                                                                      ;
+; characterData:cd|register:r1|loop1[25].my_dffe                                                                                        ; Lost fanout                                                                                                      ;
+; characterData:cd|register:r1|loop1[26].my_dffe                                                                                        ; Lost fanout                                                                                                      ;
+; characterData:cd|register:r1|loop1[27].my_dffe                                                                                        ; Lost fanout                                                                                                      ;
+; characterData:cd|register:r1|loop1[28].my_dffe                                                                                        ; Lost fanout                                                                                                      ;
+; characterData:cd|register:r1|loop1[29].my_dffe                                                                                        ; Lost fanout                                                                                                      ;
+; characterData:cd|register:r1|loop1[30].my_dffe                                                                                        ; Lost fanout                                                                                                      ;
+; characterData:cd|register:r1|loop1[31].my_dffe                                                                                        ; Lost fanout                                                                                                      ;
 ; PS2_Interface:myps2|PS2_Controller:PS2|idle_counter[0..7]                                                                             ; Lost fanout                                                                                                      ;
 ; lcd:mylcd|state2[2..30]                                                                                                               ; Merged with lcd:mylcd|state2[31]                                                                                 ;
 ; lcd:mylcd|state1[2..9,11..31]                                                                                                         ; Merged with lcd:mylcd|state1[10]                                                                                 ;
 ; PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[1..7]                                    ; Merged with PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[0]      ;
 ; processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[64].my_dffe|q                                  ; Merged with processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[63].my_dffe|q ;
 ; lcd:mylcd|state2[31]                                                                                                                  ; Stuck at GND due to stuck port data_in                                                                           ;
+; characterData:cd|register:r1|loop1[15].my_dffe                                                                                        ; Stuck at GND due to stuck port data_in                                                                           ;
 ; PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[0]                                       ; Stuck at GND due to stuck port data_in                                                                           ;
 ; lcd:mylcd|line2[0][7]                                                                                                                 ; Stuck at GND due to stuck port data_in                                                                           ;
 ; lcd:mylcd|line2[1][7]                                                                                                                 ; Stuck at GND due to stuck port data_in                                                                           ;
@@ -1080,7 +1104,7 @@ Encoding Type:  One-Hot
 ; PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|error_communication_timed_out                        ; Stuck at GND due to stuck port data_in                                                                           ;
 ; PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[8]                                       ; Lost fanout                                                                                                      ;
 ; PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_0_IDLE                   ; Lost fanout                                                                                                      ;
-; Total Number of Removed Registers = 218                                                                                               ;                                                                                                                  ;
+; Total Number of Removed Registers = 237                                                                                               ;                                                                                                                  ;
 +---------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 
 
@@ -1177,12 +1201,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2214  ;
-; Number of registers using Synchronous Clear  ; 42    ;
+; Total registers                              ; 2236  ;
+; Number of registers using Synchronous Clear  ; 47    ;
 ; Number of registers using Synchronous Load   ; 62    ;
-; Number of registers using Asynchronous Clear ; 1822  ;
+; Number of registers using Asynchronous Clear ; 1836  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1582  ;
+; Number of registers using Clock Enable       ; 1596  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -1192,9 +1216,9 @@ Encoding Type:  One-Hot
 +-----------------------------------------------------------------------+---------+
 ; Inverted Register                                                     ; Fan out ;
 +-----------------------------------------------------------------------+---------+
-; processor:myprocessor|multdiv_as577:multdiv|up_counter:counter|out[4] ; 167     ;
-; processor:myprocessor|multdiv_as577:multdiv|up_counter:counter|out[2] ; 86      ;
-; processor:myprocessor|multdiv_as577:multdiv|up_counter:counter|out[1] ; 108     ;
+; processor:myprocessor|multdiv_as577:multdiv|up_counter:counter|out[2] ; 80      ;
+; processor:myprocessor|multdiv_as577:multdiv|up_counter:counter|out[1] ; 109     ;
+; processor:myprocessor|multdiv_as577:multdiv|up_counter:counter|out[4] ; 171     ;
 ; lcd:mylcd|line1[13][5]                                                ; 1       ;
 ; lcd:mylcd|line1[7][5]                                                 ; 1       ;
 ; lcd:mylcd|line1[15][5]                                                ; 1       ;
@@ -1237,60 +1261,60 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |skeleton|PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[5]                    ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |skeleton|PS2_Interface:myps2|last_data_received[0]                                                                    ;
-; 3:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; Yes        ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|register32:rg1|dffeveri:loop1[21].my_dffe|q                      ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |skeleton|PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[6]                   ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |skeleton|processor:myprocessor|stage_IF_ID:if_id|register:rg1|loop1[24].my_dffe                                       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[63].my_dffe|q         ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[0][2]                                                                                        ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[1][4]                                                                                        ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[2][2]                                                                                        ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[3][2]                                                                                        ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[4][3]                                                                                        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |skeleton|PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[1]                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |skeleton|PS2_Interface:myps2|last_data_received[6]                                                                    ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; Yes        ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|register32:rg1|dffeveri:loop1[29].my_dffe|q                      ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |skeleton|PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[5]                   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |skeleton|processor:myprocessor|stage_IF_ID:if_id|register:rg1|loop1[13].my_dffe                                       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|booth_mult:bm|register65:rg|dffeveri:loop1[32].my_dffe|q         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[0][3]                                                                                        ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[1][3]                                                                                        ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[2][3]                                                                                        ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[3][4]                                                                                        ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[4][6]                                                                                        ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[5][6]                                                                                        ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[6][4]                                                                                        ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[7][6]                                                                                        ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[8][6]                                                                                        ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[9][2]                                                                                        ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[10][6]                                                                                       ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[11][2]                                                                                       ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[12][6]                                                                                       ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[13][4]                                                                                       ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[14][4]                                                                                       ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[15][3]                                                                                       ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |skeleton|lcd:mylcd|ptr[3]                                                                                             ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |skeleton|lcd:mylcd|mstart                                                                                             ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|index[4]                                                                                           ;
-; 4:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |skeleton|PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[5]         ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[4].my_dffe|q                 ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |skeleton|PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[8] ;
-; 4:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |skeleton|PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[1]          ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |skeleton|PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[2]                  ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |skeleton|PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[3]                       ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 15 LEs               ; 5 LEs                  ; Yes        ; |skeleton|processor:myprocessor|register:pc|loop1[30].my_dffe                                                          ;
-; 6:1                ; 27 bits   ; 108 LEs       ; 81 LEs               ; 27 LEs                 ; Yes        ; |skeleton|processor:myprocessor|register:pc|loop1[18].my_dffe                                                          ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[6][0]                                                                                        ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[7][1]                                                                                        ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[8][1]                                                                                        ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[9][6]                                                                                        ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[10][3]                                                                                       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[11][3]                                                                                       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[12][3]                                                                                       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[13][1]                                                                                       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[14][2]                                                                                       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|line2[15][4]                                                                                       ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |skeleton|lcd:mylcd|ptr[2]                                                                                             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |skeleton|lcd:mylcd|cdone                                                                                              ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|lcd:mylcd|index[0]                                                                                           ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |skeleton|PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[14]        ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|register32:rg2|dffeveri:loop1[23].my_dffe|q                ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |skeleton|PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[1] ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |skeleton|PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[7]          ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |skeleton|PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[0]                  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |skeleton|PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[2]                       ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 15 LEs               ; 5 LEs                  ; Yes        ; |skeleton|processor:myprocessor|register:pc|loop1[27].my_dffe                                                          ;
+; 6:1                ; 27 bits   ; 108 LEs       ; 81 LEs               ; 27 LEs                 ; Yes        ; |skeleton|processor:myprocessor|register:pc|loop1[16].my_dffe                                                          ;
 ; 128:1              ; 32 bits   ; 2720 LEs      ; 2048 LEs             ; 672 LEs                ; Yes        ; |skeleton|processor:myprocessor|stage_ID_EX:id_ex|register:rg4|loop1[31].my_dffe                                       ;
-; 128:1              ; 32 bits   ; 2720 LEs      ; 2048 LEs             ; 672 LEs                ; Yes        ; |skeleton|processor:myprocessor|stage_ID_EX:id_ex|register:rg3|loop1[20].my_dffe                                       ;
+; 128:1              ; 32 bits   ; 2720 LEs      ; 2048 LEs             ; 672 LEs                ; Yes        ; |skeleton|processor:myprocessor|stage_ID_EX:id_ex|register:rg3|loop1[19].my_dffe                                       ;
 ; 38:1               ; 7 bits    ; 175 LEs       ; 175 LEs              ; 0 LEs                  ; Yes        ; |skeleton|lcd:mylcd|lcd_data[5]                                                                                        ;
-; 33:1               ; 16 bits   ; 352 LEs       ; 64 LEs               ; 288 LEs                ; Yes        ; |skeleton|processor:myprocessor|stage_EX_MEM:ex_mem|register:rg4|loop1[11].my_dffe                                     ;
-; 33:1               ; 15 bits   ; 330 LEs       ; 60 LEs               ; 270 LEs                ; Yes        ; |skeleton|processor:myprocessor|stage_EX_MEM:ex_mem|register:rg4|loop1[27].my_dffe                                     ;
+; 33:1               ; 16 bits   ; 352 LEs       ; 64 LEs               ; 288 LEs                ; Yes        ; |skeleton|processor:myprocessor|stage_EX_MEM:ex_mem|register:rg4|loop1[12].my_dffe                                     ;
+; 33:1               ; 15 bits   ; 330 LEs       ; 60 LEs               ; 270 LEs                ; Yes        ; |skeleton|processor:myprocessor|stage_EX_MEM:ex_mem|register:rg4|loop1[21].my_dffe                                     ;
 ; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|ctrl_ID_WRITE_REG[0]                                                                   ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|mux4_32bit:mx_bypassB|data_output[22]                                                  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|mux4_32bit:mx_bypassB|data_output[31]                                                  ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |skeleton|processor:myprocessor|control:ctrl_ex|encode_ALUop:enc|mux4_5bit:mx|data_output[3]                           ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|mux4_32bit:mx_bypassA|data_output[4]                                                   ;
-; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|as577_alu:alu|shiftXbits:sxb|w0[30]                                                    ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|mux4_32bit:mx_bypassA|data_output[17]                                                  ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|as577_alu:alu|shiftXbits:sxb|w0[10]                                                    ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|as577_alu:alu|shiftXbits:sxb|w1[1]                                                     ;
-; 3:1                ; 29 bits   ; 58 LEs        ; 58 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|as577_alu:alu|shiftXbits:sxb|w1[3]                                                     ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|as577_alu:alu|shiftXbits:sxb|w2[0]                                                     ;
-; 3:1                ; 27 bits   ; 54 LEs        ; 54 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|as577_alu:alu|shiftXbits:sxb|w2[4]                                                     ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|as577_alu:alu|shiftXbits:sxb|w3[7]                                                     ;
-; 3:1                ; 23 bits   ; 46 LEs        ; 46 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|as577_alu:alu|shiftXbits:sxb|w3[20]                                                    ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shiftXbits:sh3|data_output[21]           ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|data_writeReg[25]                                                                      ;
+; 3:1                ; 29 bits   ; 58 LEs        ; 58 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|as577_alu:alu|shiftXbits:sxb|w1[12]                                                    ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|as577_alu:alu|shiftXbits:sxb|w2[3]                                                     ;
+; 3:1                ; 27 bits   ; 54 LEs        ; 54 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|as577_alu:alu|shiftXbits:sxb|w2[19]                                                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|as577_alu:alu|shiftXbits:sxb|w3[0]                                                     ;
+; 3:1                ; 23 bits   ; 46 LEs        ; 46 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|as577_alu:alu|shiftXbits:sxb|w3[9]                                                     ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shiftXbits:sh3|data_output[22]           ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|data_writeReg[5]                                                                       ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shiftXbits:sh1|data_output[7]            ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shiftXbits:sh1|data_output[3]            ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shiftXbits:sh1|data_output[0]            ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shiftXbits:sh3|data_output[29]           ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:myprocessor|multdiv_as577:multdiv|div:d|division_cycle:dc|shiftXbits:sh1|data_output[1]            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -2465,56 +2489,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +---------------------------------------------------------------+
 ; Port Connectivity Checks: "Hexadecimal_To_Seven_Segment:hex8" ;
-+------------+-------+----------+-------------------------------+
-; Port       ; Type  ; Severity ; Details                       ;
-+------------+-------+----------+-------------------------------+
-; hex_number ; Input ; Info     ; Stuck at GND                  ;
-+------------+-------+----------+-------------------------------+
++------------------+-------+----------+-------------------------+
+; Port             ; Type  ; Severity ; Details                 ;
++------------------+-------+----------+-------------------------+
+; hex_number[3..1] ; Input ; Info     ; Stuck at GND            ;
++------------------+-------+----------+-------------------------+
 
 
 +---------------------------------------------------------------+
 ; Port Connectivity Checks: "Hexadecimal_To_Seven_Segment:hex7" ;
-+------------+-------+----------+-------------------------------+
-; Port       ; Type  ; Severity ; Details                       ;
-+------------+-------+----------+-------------------------------+
-; hex_number ; Input ; Info     ; Stuck at GND                  ;
-+------------+-------+----------+-------------------------------+
-
-
-+---------------------------------------------------------------+
-; Port Connectivity Checks: "Hexadecimal_To_Seven_Segment:hex6" ;
-+------------+-------+----------+-------------------------------+
-; Port       ; Type  ; Severity ; Details                       ;
-+------------+-------+----------+-------------------------------+
-; hex_number ; Input ; Info     ; Stuck at GND                  ;
-+------------+-------+----------+-------------------------------+
-
-
-+---------------------------------------------------------------+
-; Port Connectivity Checks: "Hexadecimal_To_Seven_Segment:hex5" ;
-+------------+-------+----------+-------------------------------+
-; Port       ; Type  ; Severity ; Details                       ;
-+------------+-------+----------+-------------------------------+
-; hex_number ; Input ; Info     ; Stuck at GND                  ;
-+------------+-------+----------+-------------------------------+
-
-
-+---------------------------------------------------------------+
-; Port Connectivity Checks: "Hexadecimal_To_Seven_Segment:hex4" ;
-+------------+-------+----------+-------------------------------+
-; Port       ; Type  ; Severity ; Details                       ;
-+------------+-------+----------+-------------------------------+
-; hex_number ; Input ; Info     ; Stuck at GND                  ;
-+------------+-------+----------+-------------------------------+
-
-
-+---------------------------------------------------------------+
-; Port Connectivity Checks: "Hexadecimal_To_Seven_Segment:hex3" ;
-+------------+-------+----------+-------------------------------+
-; Port       ; Type  ; Severity ; Details                       ;
-+------------+-------+----------+-------------------------------+
-; hex_number ; Input ; Info     ; Stuck at GND                  ;
-+------------+-------+----------+-------------------------------+
++------------------+-------+----------+-------------------------+
+; Port             ; Type  ; Severity ; Details                 ;
++------------------+-------+----------+-------------------------+
+; hex_number[3..1] ; Input ; Info     ; Stuck at GND            ;
++------------------+-------+----------+-------------------------+
 
 
 +--------------------------------------------+
@@ -2524,6 +2512,34 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+-------+----------+--------------+
 ; write_en ; Input ; Info     ; Stuck at VCC ;
 +----------+-------+----------+--------------+
+
+
++----------------------------------------------------------+
+; Port Connectivity Checks: "characterData:cd|register:r1" ;
++------------------+-------+----------+--------------------+
+; Port             ; Type  ; Severity ; Details            ;
++------------------+-------+----------+--------------------+
+; ctrl_writeEnable ; Input ; Info     ; Stuck at VCC       ;
++------------------+-------+----------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "characterData:cd|shift8bitena:s8be"                                                                ;
++---------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                ; Type   ; Severity ; Details                                                                             ;
++---------------------+--------+----------+-------------------------------------------------------------------------------------+
+; ctrl_shiftdirection ; Input  ; Info     ; Stuck at GND                                                                        ;
+; data_output[7..0]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "characterData:cd"                                                                                   ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                 ; Type   ; Severity ; Details                                                                             ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; register_out[31..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2536,15 +2552,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; command_was_sent              ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
 ; error_communication_timed_out ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
 +-------------------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "PS2_Interface:myps2"                                                                        ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port         ; Type   ; Severity ; Details                                                                             ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; ps2_key_data ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -4086,32 +4093,32 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 154                         ;
-; cycloneiii_ff         ; 2214                        ;
-;     CLR               ; 461                         ;
-;     CLR SCLR          ; 19                          ;
-;     ENA               ; 180                         ;
-;     ENA CLR           ; 1324                        ;
+; cycloneiii_ff         ; 2236                        ;
+;     CLR               ; 463                         ;
+;     CLR SCLR          ; 24                          ;
+;     ENA               ; 187                         ;
+;     ENA CLR           ; 1331                        ;
 ;     ENA CLR SCLR      ; 18                          ;
 ;     ENA SLD           ; 60                          ;
 ;     SCLR              ; 5                           ;
 ;     SLD               ; 2                           ;
-;     plain             ; 145                         ;
+;     plain             ; 146                         ;
 ; cycloneiii_io_obuf    ; 2                           ;
-; cycloneiii_lcell_comb ; 9442                        ;
+; cycloneiii_lcell_comb ; 9524                        ;
 ;     arith             ; 81                          ;
 ;         2 data inputs ; 79                          ;
 ;         3 data inputs ; 2                           ;
-;     normal            ; 9361                        ;
+;     normal            ; 9443                        ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 9                           ;
-;         2 data inputs ; 185                         ;
-;         3 data inputs ; 971                         ;
-;         4 data inputs ; 8194                        ;
+;         1 data inputs ; 13                          ;
+;         2 data inputs ; 191                         ;
+;         3 data inputs ; 969                         ;
+;         4 data inputs ; 8268                        ;
 ; cycloneiii_pll        ; 1                           ;
 ; cycloneiii_ram_block  ; 392                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 29.00                       ;
-; Average LUT depth     ; 11.80                       ;
+; Max LUT depth         ; 27.00                       ;
+; Average LUT depth     ; 11.63                       ;
 +-----------------------+-----------------------------+
 
 
@@ -4120,7 +4127,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:32     ;
+; Top            ; 00:00:34     ;
 +----------------+--------------+
 
 
@@ -4130,7 +4137,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
-    Info: Processing started: Tue Nov 22 16:06:35 2016
+    Info: Processing started: Mon Nov 28 00:45:46 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off skeleton -c skeleton
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -4140,10 +4147,10 @@ Info (12021): Found 1 design units, including 1 entities, in source file reset_d
     Info (12023): Found entity 1: Reset_Delay File: C:/Users/Student/adityasrinivasan/fpga-logo/src/Reset_Delay.v Line: 1
 Info (12021): Found 5 design units, including 5 entities, in source file skeleton.v
     Info (12023): Found entity 1: skeleton File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 1
-    Info (12023): Found entity 2: position_counter File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 128
-    Info (12023): Found entity 3: characterData File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 159
-    Info (12023): Found entity 4: shift8bitena File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 190
-    Info (12023): Found entity 5: mapping File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 210
+    Info (12023): Found entity 2: position_counter File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 148
+    Info (12023): Found entity 3: characterData File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 179
+    Info (12023): Found entity 4: shift8bitena File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 210
+    Info (12023): Found entity 5: mapping File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 230
 Info (12021): Found 1 design units, including 1 entities, in source file ps2_interface.v
     Info (12023): Found entity 1: PS2_Interface File: C:/Users/Student/adityasrinivasan/fpga-logo/src/PS2_Interface.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file ps2_controller.v
@@ -4272,9 +4279,9 @@ Info (12021): Found 1 design units, including 1 entities, in source file charact
 Info (12021): Found 1 design units, including 1 entities, in source file keyboard_fill_characters_tb.v
     Info (12023): Found entity 1: keyboard_fill_characters_tb File: C:/Users/Student/adityasrinivasan/fpga-logo/src/keyboard_fill_characters_tb.v Line: 2
 Warning (10236): Verilog HDL Implicit Net warning at skeleton.v(50): created implicit net for "inclock" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 50
-Warning (10236): Verilog HDL Implicit Net warning at skeleton.v(105): created implicit net for "DLY_RST" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 105
-Warning (10236): Verilog HDL Implicit Net warning at skeleton.v(106): created implicit net for "VGA_CTRL_CLK" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 106
-Warning (10236): Verilog HDL Implicit Net warning at skeleton.v(106): created implicit net for "AUD_CTRL_CLK" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 106
+Warning (10236): Verilog HDL Implicit Net warning at skeleton.v(125): created implicit net for "DLY_RST" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 125
+Warning (10236): Verilog HDL Implicit Net warning at skeleton.v(126): created implicit net for "VGA_CTRL_CLK" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 126
+Warning (10236): Verilog HDL Implicit Net warning at skeleton.v(126): created implicit net for "AUD_CTRL_CLK" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 126
 Warning (10236): Verilog HDL Implicit Net warning at processor_as577.v(370): created implicit net for "andi" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 370
 Warning (10236): Verilog HDL Implicit Net warning at processor_as577.v(371): created implicit net for "ori" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 371
 Warning (10236): Verilog HDL Implicit Net warning at processor_as577.v(851): created implicit net for "data_carryout" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 851
@@ -4282,7 +4289,9 @@ Warning (10236): Verilog HDL Implicit Net warning at processor_as577.v(1229): cr
 Warning (10236): Verilog HDL Implicit Net warning at processor_as577.v(1249): created implicit net for "ctrl_resetn" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 1249
 Warning (10236): Verilog HDL Implicit Net warning at processor_as577.v(1270): created implicit net for "ctrl_resetn" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 1270
 Info (12127): Elaborating entity "skeleton" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at skeleton.v(60): object "trigger" assigned a value but never read File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 60
+Warning (10036): Verilog HDL or VHDL warning at skeleton.v(86): object "key_pressed" assigned a value but never read File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 86
+Warning (10036): Verilog HDL or VHDL warning at skeleton.v(89): object "clock_4" assigned a value but never read File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 89
+Warning (10036): Verilog HDL or VHDL warning at skeleton.v(95): object "ps2_data_4" assigned a value but never read File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 95
 Warning (10034): Output port "VGA_SYNC" at skeleton.v(21) has no driver File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 21
 Info (12128): Elaborating entity "pll" for hierarchy "pll:div" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 50
 Info (12128): Elaborating entity "altpll" for hierarchy "pll:div|altpll:altpll_component" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/pll.v Line: 90
@@ -4341,9 +4350,9 @@ Info (12133): Instantiated megafunction "pll:div|altpll:altpll_component" with t
 Info (12021): Found 1 design units, including 1 entities, in source file db/pll_altpll.v
     Info (12023): Found entity 1: pll_altpll File: C:/Users/Student/adityasrinivasan/fpga-logo/src/db/pll_altpll.v Line: 30
 Info (12128): Elaborating entity "pll_altpll" for hierarchy "pll:div|altpll:altpll_component|pll_altpll:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "position_counter" for hierarchy "position_counter:pos_count" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 62
-Warning (10230): Verilog HDL assignment warning at skeleton.v(138): truncated value with size 6 to match size of target (2) File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 138
-Info (12128): Elaborating entity "processor" for hierarchy "processor:myprocessor" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 65
+Info (12128): Elaborating entity "position_counter" for hierarchy "position_counter:pos_count" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 75
+Warning (10230): Verilog HDL assignment warning at skeleton.v(158): truncated value with size 6 to match size of target (2) File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 158
+Info (12128): Elaborating entity "processor" for hierarchy "processor:myprocessor" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 78
 Warning (10036): Verilog HDL or VHDL warning at processor_as577.v(75): object "reg0" assigned a value but never read File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 75
 Warning (10036): Verilog HDL or VHDL warning at processor_as577.v(75): object "reg1" assigned a value but never read File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 75
 Warning (10036): Verilog HDL or VHDL warning at processor_as577.v(75): object "reg2" assigned a value but never read File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 75
@@ -4479,16 +4488,18 @@ Info (12128): Elaborating entity "altsyncram_8vc1" for hierarchy "processor:mypr
 Info (12128): Elaborating entity "stage_MEM_WB" for hierarchy "processor:myprocessor|stage_MEM_WB:mem_wb" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 247
 Info (12128): Elaborating entity "register5" for hierarchy "processor:myprocessor|register5:reg_num" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 269
 Info (12128): Elaborating entity "assign_reg_write" for hierarchy "processor:myprocessor|assign_reg_write:asgn1" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 275
-Info (12128): Elaborating entity "PS2_Interface" for hierarchy "PS2_Interface:myps2" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 68
+Info (12128): Elaborating entity "PS2_Interface" for hierarchy "PS2_Interface:myps2" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 81
 Info (12128): Elaborating entity "PS2_Controller" for hierarchy "PS2_Interface:myps2|PS2_Controller:PS2" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/PS2_Interface.v Line: 26
 Info (12128): Elaborating entity "Altera_UP_PS2_Data_In" for hierarchy "PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/PS2_Controller.v Line: 248
 Info (12128): Elaborating entity "Altera_UP_PS2_Command_Out" for hierarchy "PS2_Interface:myps2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/PS2_Controller.v Line: 268
-Info (12128): Elaborating entity "mapping" for hierarchy "mapping:map" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 71
-Info (12128): Elaborating entity "lcd" for hierarchy "lcd:mylcd" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 87
-Info (12128): Elaborating entity "Hexadecimal_To_Seven_Segment" for hierarchy "Hexadecimal_To_Seven_Segment:hex1" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 90
-Info (12128): Elaborating entity "Reset_Delay" for hierarchy "Reset_Delay:r0" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 105
+Info (12128): Elaborating entity "mapping" for hierarchy "mapping:map" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 84
+Info (12128): Elaborating entity "characterData" for hierarchy "characterData:cd" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 104
+Info (12128): Elaborating entity "shift8bitena" for hierarchy "characterData:cd|shift8bitena:s8be" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 192
+Info (12128): Elaborating entity "lcd" for hierarchy "lcd:mylcd" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 107
+Info (12128): Elaborating entity "Hexadecimal_To_Seven_Segment" for hierarchy "Hexadecimal_To_Seven_Segment:hex1" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 110
+Info (12128): Elaborating entity "Reset_Delay" for hierarchy "Reset_Delay:r0" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 125
 Warning (10230): Verilog HDL assignment warning at Reset_Delay.v(10): truncated value with size 32 to match size of target (20) File: C:/Users/Student/adityasrinivasan/fpga-logo/src/Reset_Delay.v Line: 10
-Info (12128): Elaborating entity "VGA_Audio_PLL" for hierarchy "VGA_Audio_PLL:p1" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 106
+Info (12128): Elaborating entity "VGA_Audio_PLL" for hierarchy "VGA_Audio_PLL:p1" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 126
 Info (12128): Elaborating entity "altpll" for hierarchy "VGA_Audio_PLL:p1|altpll:altpll_component" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/VGA_Audio_PLL.v Line: 107
 Info (12130): Elaborated megafunction instantiation "VGA_Audio_PLL:p1|altpll:altpll_component" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/VGA_Audio_PLL.v Line: 107
 Info (12133): Instantiated megafunction "VGA_Audio_PLL:p1|altpll:altpll_component" with the following parameter: File: C:/Users/Student/adityasrinivasan/fpga-logo/src/VGA_Audio_PLL.v Line: 107
@@ -4550,7 +4561,7 @@ Info (12133): Instantiated megafunction "VGA_Audio_PLL:p1|altpll:altpll_componen
     Info (12134): Parameter "port_extclk1" = "PORT_UNUSED"
     Info (12134): Parameter "port_extclk2" = "PORT_UNUSED"
     Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga_ins" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 114
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga_ins" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 134
 Warning (10230): Verilog HDL assignment warning at vga_controller.v(40): truncated value with size 32 to match size of target (19) File: C:/Users/Student/adityasrinivasan/fpga-logo/src/vga_controller.v Line: 40
 Info (12128): Elaborating entity "video_sync_generator" for hierarchy "vga_controller:vga_ins|video_sync_generator:LTM_ins" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/vga_controller.v Line: 30
 Warning (10230): Verilog HDL assignment warning at video_sync_generator.v(77): truncated value with size 32 to match size of target (10) File: C:/Users/Student/adityasrinivasan/fpga-logo/src/video_sync_generator.v Line: 77
@@ -4818,68 +4829,36 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "lcd_rw" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 32
     Warning (13410): Pin "lcd_on" is stuck at VCC File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 32
     Warning (13410): Pin "lcd_blon" is stuck at VCC File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 32
-    Warning (13410): Pin "seg3[0]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg3[1]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg3[2]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg3[3]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg3[4]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg3[5]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg3[6]" is stuck at VCC File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg4[0]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg4[1]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg4[2]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg4[3]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg4[4]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg4[5]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg4[6]" is stuck at VCC File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg5[0]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg5[1]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg5[2]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg5[3]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg5[4]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg5[5]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg5[6]" is stuck at VCC File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg6[0]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg6[1]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg6[2]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg6[3]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg6[4]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg6[5]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg6[6]" is stuck at VCC File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg7[0]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
     Warning (13410): Pin "seg7[1]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
     Warning (13410): Pin "seg7[2]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg7[3]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg7[4]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg7[5]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
     Warning (13410): Pin "seg7[6]" is stuck at VCC File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg8[0]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
     Warning (13410): Pin "seg8[1]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
     Warning (13410): Pin "seg8[2]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg8[3]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg8[4]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
-    Warning (13410): Pin "seg8[5]" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
     Warning (13410): Pin "seg8[6]" is stuck at VCC File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
     Warning (13410): Pin "VGA_SYNC" is stuck at GND File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 21
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 18 registers lost all their fanouts during netlist optimizations.
+Warning (14632): Output pin "seg8[4]" driven by bidirectional pin "ps2_clock" cannot be tri-stated File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
+Warning (14632): Output pin "seg8[0]" driven by bidirectional pin "ps2_clock" cannot be tri-stated File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
+Warning (14632): Output pin "seg8[5]" driven by bidirectional pin "ps2_clock" cannot be tri-stated File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
+Warning (14632): Output pin "seg8[3]" driven by bidirectional pin "ps2_clock" cannot be tri-stated File: C:/Users/Student/adityasrinivasan/fpga-logo/src/skeleton.v Line: 34
+Info (17049): 34 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/Student/adityasrinivasan/fpga-logo/src/output_files/skeleton.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (15897): PLL "VGA_Audio_PLL:p1|altpll:altpll_component|pll" has parameter compensate_clock set to clock0 but port CLK[0] is not connected File: c:/altera/16.0/quartus/libraries/megafunctions/altpll.tdf Line: 921
 Warning (15899): PLL "VGA_Audio_PLL:p1|altpll:altpll_component|pll" has parameters clk0_multiply_by and clk0_divide_by specified but port CLK[0] is not connected File: c:/altera/16.0/quartus/libraries/megafunctions/altpll.tdf Line: 921
-Info (21057): Implemented 11550 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 11647 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 150 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 11003 logic cells
+    Info (21061): Implemented 11100 logic cells
     Info (21064): Implemented 392 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 308 warnings
-    Info: Peak virtual memory: 982 megabytes
-    Info: Processing ended: Tue Nov 22 16:07:22 2016
-    Info: Elapsed time: 00:00:47
-    Info: Total CPU time (on all processors): 00:00:59
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 278 warnings
+    Info: Peak virtual memory: 1039 megabytes
+    Info: Processing ended: Mon Nov 28 00:46:37 2016
+    Info: Elapsed time: 00:00:51
+    Info: Total CPU time (on all processors): 00:01:03
 
 
 +------------------------------------------+
