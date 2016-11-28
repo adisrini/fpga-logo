@@ -124,6 +124,9 @@
 //            wire [26:0] data_EX_target;
 //
 //            instruction_splitter split_ex(instruction_id_ex_out, data_EX_opcode, data_EX_rd, data_EX_rs, data_EX_rt, data_EX_shamt, data_EX_ALUop, data_EX_immediate, data_EX_target);
+//				
+//				wire is_sw_EX;
+//				assign is_sw_EX = ~instruction_id_ex_out[31] & ~instruction_id_ex_out[30] & instruction_id_ex_out[29] & instruction_id_ex_out[28] & instruction_id_ex_out[27];
 //
 //            // CONTROLS
 //            wire [4:0] ctrl_EX_ALUop;
@@ -133,16 +136,22 @@
 //				assign ctrl_EX_BEX = data_EX_opcode[4] & ~data_EX_opcode[3] & data_EX_opcode[2] & data_EX_opcode[1] & ~data_EX_opcode[0];
 //				
 //				// BYPASS EXECUTE STAGE
-//				wire [4:0] ctrl_rr1_EX, ctrl_rr2_EX, ctrl_wr_MEM, ctrl_wr_WB;
+//				wire [4:0] ctrl_rr1_EX_temp,ctrl_rr2_EX_temp, ctrl_rr1_EX, ctrl_rr2_EX, ctrl_wr_MEM, ctrl_wr_WB;
 //				wire [1:0] forwardA, forwardB;
 //				wire ctrl_MEM_RegW;
 //				wire is_mem_zero, is_wb_zero;
 //				wire [31:0] instruction_ex_mem_out, instruction_mem_wb_out;
 //				assign is_mem_zero = ~(|instruction_ex_mem_out);
 //				assign is_wb_zero = ~(|instruction_mem_wb_out);
-//				assign ctrl_rr1_EX = (ctrl_EX_READ1) ? data_EX_rd : data_EX_rs;
-//				assign ctrl_rr2_EX = (ctrl_EX_READ2) ? data_EX_rs : data_EX_rt;
+//				assign ctrl_rr1_EX_temp = (ctrl_EX_READ1) ? data_EX_rd : data_EX_rs;
+//				assign ctrl_rr2_EX_temp = (ctrl_EX_READ2) ? data_EX_rs : data_EX_rt;
+//				
+//				assign ctrl_rr1_EX = (is_sw_EX) ? ctrl_rr2_EX_temp : ctrl_rr1_EX_temp;
+//				assign ctrl_rr2_EX = (is_sw_EX) ? ctrl_rr1_EX_temp : ctrl_rr2_EX_temp;
+//				
 //				bypass_ex bx(is_mem_zero, is_wb_zero, ctrl_rr1_EX, ctrl_rr2_EX, ctrl_wr_MEM, ctrl_wr_WB, ctrl_MEM_RegW, ctrl_WB_RegW, forwardA, forwardB);
+//				
+//				
 //
 //            // AUXILLIARY
 //            wire [31:0] extended_EX_immediate;

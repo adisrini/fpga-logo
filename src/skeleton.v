@@ -48,10 +48,10 @@ module skeleton(resetn,
 	
 	// clock divider (by 5, i.e., 10 MHz)
 	pll div(CLOCK_50,inclock);
-	assign clock = CLOCK_50;
+//	assign clock = CLOCK_50;
 	
 	// UNCOMMENT FOLLOWING LINE AND COMMENT ABOVE LINE TO RUN AT 50 MHz
-	//assign clock = inclock;
+	assign clock = inclock;
 	
 	wire [31:0] logo_command;
 	wire [7:0] data_ps2ascii;
@@ -115,7 +115,7 @@ module skeleton(resetn,
 	Hexadecimal_To_Seven_Segment hex4(command[7:4], seg4);
 	Hexadecimal_To_Seven_Segment hex5(command[11:8], seg5);
 	Hexadecimal_To_Seven_Segment hex6(command[15:12], seg6);
-	Hexadecimal_To_Seven_Segment hex7(trigger_4, seg7);
+	Hexadecimal_To_Seven_Segment hex7(clock_4, seg7);
 	Hexadecimal_To_Seven_Segment hex8(ps2_clock_4, seg8);
 	
 	// some LEDs that you could use for debugging if you wanted

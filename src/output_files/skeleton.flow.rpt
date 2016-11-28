@@ -1,5 +1,5 @@
 Flow report for skeleton
-Mon Nov 28 13:24:35 2016
+Mon Nov 28 16:12:29 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 
@@ -41,22 +41,22 @@ agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Flow Failed - Mon Nov 28 13:24:34 2016          ;
+; Flow Status                        ; Flow Failed - Mon Nov 28 16:12:29 2016          ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
 ; Revision Name                      ; skeleton                                        ;
 ; Top-level Entity Name              ; skeleton                                        ;
 ; Family                             ; Cyclone IV E                                    ;
 ; Device                             ; EP4CE115F29C7                                   ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 10,933 / 114,480 ( 10 % )                       ;
-;     Total combinational functions  ; 9,520 / 114,480 ( 8 % )                         ;
+; Total logic elements               ; 10,898 / 114,480 ( 10 % )                       ;
+;     Total combinational functions  ; 9,485 / 114,480 ( 8 % )                         ;
 ;     Dedicated logic registers      ; 2,236 / 114,480 ( 2 % )                         ;
 ; Total registers                    ; 2236                                            ;
 ; Total pins                         ; 154 / 529 ( 29 % )                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 2,725,888 / 3,981,312 ( 68 % )                  ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                                 ;
-; Total PLLs                         ; 1 / 4 ( 25 % )                                  ;
+; Total PLLs                         ; 2 / 4 ( 50 % )                                  ;
 +------------------------------------+-------------------------------------------------+
 
 
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/28/2016 13:23:33 ;
+; Start date & time ; 11/28/2016 16:11:30 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; skeleton            ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +--------------------------------------+---------------------------------------+---------------+-------------+-----------------------------+
 ; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id                  ;
 +--------------------------------------+---------------------------------------+---------------+-------------+-----------------------------+
-; COMPILER_SIGNATURE_ID                ; 159090364245495.148035741302656       ; --            ; --          ; --                          ;
+; COMPILER_SIGNATURE_ID                ; 159090364245495.148036749002248       ; --            ; --          ; --                          ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; stall_logic_tb              ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; statusReg_tb                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; multdiv_tb                  ;
@@ -181,8 +181,8 @@ agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:47     ; 1.0                     ; 990 MB              ; 00:00:58                           ;
-; Fitter               ; 00:00:11     ; 1.0                     ; 1143 MB             ; 00:00:10                           ;
+; Analysis & Synthesis ; 00:00:56     ; 1.0                     ; 990 MB              ; 00:01:07                           ;
+; Fitter               ; 00:00:02     ; 1.0                     ; 982 MB              ; 00:00:01                           ;
 ; Total                ; 00:00:58     ; --                      ; --                  ; 00:01:08                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 

@@ -72,8 +72,8 @@ module processor(clock, reset, /*ps2_key_pressed, ps2_out, lcd_write, lcd_data,*
             assign_registers asgn2(data_ID_rd, data_ID_rs, data_ID_rt, ctrl_ID_READ1, ctrl_ID_READ2, ctrl_ID_JAL, ctrl_ID_READ_REG1_temp, ctrl_ID_READ_REG2_temp);
 				
 				wire [4:0] ctrl_ID_READ_REG1, ctrl_ID_READ_REG2;
-				assign ctrl_ID_READ_REG1 = (is_sw_ID |is_svga_ID) ? ctrl_ID_READ_REG2_temp : ctrl_ID_READ_REG1_temp;
-				assign ctrl_ID_READ_REG2 = (is_sw_ID |is_svga_ID) ? ctrl_ID_READ_REG1_temp : ctrl_ID_READ_REG2_temp;
+				assign ctrl_ID_READ_REG1 = (is_sw_ID | is_svga_ID) ? ctrl_ID_READ_REG2_temp : ctrl_ID_READ_REG1_temp;
+				assign ctrl_ID_READ_REG2 = (is_sw_ID | is_svga_ID) ? ctrl_ID_READ_REG1_temp : ctrl_ID_READ_REG2_temp;
 
             // REGISTER WRITE DATA
             wire [31:0] data_writeReg;
@@ -136,18 +136,29 @@ module processor(clock, reset, /*ps2_key_pressed, ps2_out, lcd_write, lcd_data,*
             wire ctrl_EX_JR, ctrl_EX_JAL, ctrl_EX_DMWE, ctrl_EX_VGAE, ctrl_EX_RWd, ctrl_EX_READ1, ctrl_EX_READ2, ctrl_EX_BNE, ctrl_EX_BLT, ctrl_EX_BEQ, ctrl_EX_J, ctrl_EX_ALUin, ctrl_EX_RegW, ctrl_EX_SWE, ctrl_EX_BEX;
             control ctrl_ex(instruction_id_ex_out, ctrl_EX_ALUop, ctrl_EX_JR, ctrl_EX_JAL, ctrl_EX_DMWE, ctrl_EX_VGAE, ctrl_EX_RWd, ctrl_EX_READ1, ctrl_EX_READ2, ctrl_EX_BNE, ctrl_EX_BLT, ctrl_EX_BEQ, ctrl_EX_J, ctrl_EX_ALUin, ctrl_EX_RegW, ctrl_EX_SWE);
 				
+				wire is_sw_EX;
+				assign is_sw_EX = ~instruction_id_ex_out[31] & ~instruction_id_ex_out[30] & instruction_id_ex_out[29] & instruction_id_ex_out[28] & instruction_id_ex_out[27];
+
+				wire is_svga_EX;
+				assign is_svga_EX = ~instruction_id_ex_out[31] & instruction_id_ex_out[30] & instruction_id_ex_out[29] & instruction_id_ex_out[28] & instruction_id_ex_out[27];
+				
 				assign ctrl_EX_BEX = data_EX_opcode[4] & ~data_EX_opcode[3] & data_EX_opcode[2] & data_EX_opcode[1] & ~data_EX_opcode[0];
 				
 				// BYPASS EXECUTE STAGE
-				wire [4:0] ctrl_rr1_EX, ctrl_rr2_EX, ctrl_wr_MEM, ctrl_wr_WB;
+				wire [4:0] ctrl_rr1_EX, ctrl_rr2_EX, ctrl_rr1_EX_temp, ctrl_rr2_EX_temp, ctrl_wr_MEM, ctrl_wr_WB;
 				wire [1:0] forwardA, forwardB;
 				wire ctrl_MEM_RegW;
 				wire is_mem_zero, is_wb_zero;
 				wire [31:0] instruction_ex_mem_out, instruction_mem_wb_out;
 				assign is_mem_zero = ~(|instruction_ex_mem_out);
 				assign is_wb_zero = ~(|instruction_mem_wb_out);
-				assign ctrl_rr1_EX = (ctrl_EX_READ1) ? data_EX_rd : data_EX_rs;
-				assign ctrl_rr2_EX = (ctrl_EX_READ2) ? data_EX_rs : data_EX_rt;
+				assign ctrl_rr1_EX_temp = (ctrl_EX_READ1) ? data_EX_rd : data_EX_rs;
+				assign ctrl_rr2_EX_temp = (ctrl_EX_READ2) ? data_EX_rs : data_EX_rt;
+				
+				assign ctrl_rr1_EX = (is_sw_EX | is_svga_EX) ? ctrl_rr2_EX_temp : ctrl_rr1_EX_temp;
+				
+				assign ctrl_rr2_EX = (is_sw_EX | is_svga_EX) ? ctrl_rr1_EX_temp : ctrl_rr2_EX_temp;
+				
 				bypass_ex bx(is_mem_zero, is_wb_zero, ctrl_rr1_EX, ctrl_rr2_EX, ctrl_wr_MEM, ctrl_wr_WB, ctrl_MEM_RegW, ctrl_WB_RegW, forwardA, forwardB);
 
             // AUXILLIARY

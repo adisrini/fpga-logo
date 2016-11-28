@@ -388,22 +388,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "seg7[0]",
-					"strict" : false
-				},
-				{
-					"name" : "seg7[3]",
-					"strict" : false
-				},
-				{
-					"name" : "seg7[4]",
-					"strict" : false
-				},
-				{
-					"name" : "seg7[5]",
-					"strict" : false
-				},
-				{
 					"name" : "seg8[0]",
 					"strict" : false
 				},
@@ -536,11 +520,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "CLOCK_50",
+					"name" : "resetn",
 					"strict" : false
 				},
 				{
-					"name" : "resetn",
+					"name" : "CLOCK_50",
 					"strict" : false
 				}
 			]
