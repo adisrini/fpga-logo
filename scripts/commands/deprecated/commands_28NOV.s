@@ -15,21 +15,9 @@ addi $1, $0, 1 #east
 addi $2, $0, 2 #south
 addi $3, $0, 3 #west
 
-#Initial turtle coordinate is the center of the grid
-#Starting (15, 15), North, Red
-addi $10, $0, 15
-addi $11, $0, 15
-addi $12, $0, 0
-addi $13, $0, 0
 
 ###FORWARD: fwd x
-FORWARD:
-    #Save current state to previous state
-    j current_to_prev
-    
-    #return address pointer for current_to_prev
-endcurrent_to_prev:
-
+forward:
     #$12 has the angle
     #Determine direction it's currently facing
     #and call a subroutine that moves it forward
@@ -62,13 +50,7 @@ endforward:
     
 
 ###BACKWARD: bkd x
-BACKWARD:
-    #Save current state to previous state
-    j current_to_prev
-    
-    #return address pointer for current_to_prev
-endcurrent_to_prev:
-
+backward:
     #$12 has the angle
     #Determine direction it's currently facing
     #and call a subroutine that moves it backward
@@ -100,20 +82,8 @@ endbackward:
     jr $31 # return after backward
     
 
-###SAVE CURRENT STATE TO PREVIOUS STATE
-current_to_prev:
-    #move $10-$13 to $14-$17
-    addi $14, $0, $10
-    addi $15, $0, $11
-    addi $16, $0, $12
-    addi $17, $0, $13 
-    
-    #back to the subroutine
-    j endcurrent_to_prev
-    
-    
 ###LEFT ROTATE: lrt x
-LEFTROTATE:
+leftrotate:
     #$12 has current direction
     
     #process argument
@@ -128,7 +98,7 @@ LEFTROTATE:
 
     
 ###RIGHT ROTATE: rrt x
-RIGHTROTATE:
+rightrotate:
     #$12 has current direction
     
     #process argument
@@ -174,7 +144,6 @@ modfour:
     
     jr $31 #return to rotate
 
-    
 ###ADD 4 TO RETURN TO [0, 3] RANGE
 addfour:
     addi $12, $12, 4
