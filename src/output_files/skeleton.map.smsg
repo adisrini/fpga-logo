@@ -1,8 +1,8 @@
-Warning (10273): Verilog HDL warning at processor_as577.v(753): extended using "x" or "z" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 753
-Info (10281): Verilog HDL Declaration information at processor_as577.v(910): object "G0" differs only in case from object "g0" in the same scope File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 910
-Info (10281): Verilog HDL Declaration information at processor_as577.v(910): object "P0" differs only in case from object "p0" in the same scope File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 910
-Warning (10273): Verilog HDL warning at processor_as577.v(1350): extended using "x" or "z" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 1350
-Warning (10273): Verilog HDL warning at processor_as577.v(1395): extended using "x" or "z" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 1395
-Warning (10273): Verilog HDL warning at processor_as577.v(1493): extended using "x" or "z" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 1493
-Info (10281): Verilog HDL Declaration information at processor_as577.v(1650): object "G0" differs only in case from object "g0" in the same scope File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 1650
-Info (10281): Verilog HDL Declaration information at processor_as577.v(1650): object "P0" differs only in case from object "p0" in the same scope File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v Line: 1650
+Warning (10273): Verilog HDL warning at processor_as577_svga.v(781): extended using "x" or "z" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577_svga.v Line: 781
+Info (10281): Verilog HDL Declaration information at processor_as577_svga.v(938): object "G0" differs only in case from object "g0" in the same scope File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577_svga.v Line: 938
+Info (10281): Verilog HDL Declaration information at processor_as577_svga.v(938): object "P0" differs only in case from object "p0" in the same scope File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577_svga.v Line: 938
+Warning (10273): Verilog HDL warning at processor_as577_svga.v(1398): extended using "x" or "z" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577_svga.v Line: 1398
+Warning (10273): Verilog HDL warning at processor_as577_svga.v(1443): extended using "x" or "z" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577_svga.v Line: 1443
+Warning (10273): Verilog HDL warning at processor_as577_svga.v(1541): extended using "x" or "z" File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577_svga.v Line: 1541
+Info (10281): Verilog HDL Declaration information at processor_as577_svga.v(1698): object "G0" differs only in case from object "g0" in the same scope File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577_svga.v Line: 1698
+Info (10281): Verilog HDL Declaration information at processor_as577_svga.v(1698): object "P0" differs only in case from object "p0" in the same scope File: C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577_svga.v Line: 1698
