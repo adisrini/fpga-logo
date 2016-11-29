@@ -20,13 +20,14 @@ vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-log
 vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/video_sync_generator.v}
 vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/img_index.v}
 vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/img_data.v}
-vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_as577_svga.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/vgamem.v}
 vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src/db {C:/Users/Student/adityasrinivasan/fpga-logo/src/db/pll_altpll.v}
 vlog -sv -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/lcd.sv}
 
-vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/keyboard_fill_characters_tb.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Student/adityasrinivasan/fpga-logo/src {C:/Users/Student/adityasrinivasan/fpga-logo/src/processor_pipeline_stall_tb.v}
 
-vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  keyboard_fill_characters_tb
+vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  processor_pipeline_stall_tb
 
 add wave *
 view structure
