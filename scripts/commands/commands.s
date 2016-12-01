@@ -167,8 +167,9 @@ drawnorthf:
         beq $7, $11, enddrawforward
         #else, leave a trail and decrement
         #SVGA CODE HERE
-        j STOREVGA 
-        ENDSTOREVGA:
+        j DRAW_FILLCELL
+        nop        
+        ENDDRAW_FILLCELL:
         addi $7, $7, -1
         #loop
         j drawnorthf_loop
@@ -188,8 +189,9 @@ draweastf:
         beq $6, $10, enddrawforward
         #else, leave a trail and increment
         #SVGA CODE HERE
-        j STOREVGA 
-        ENDSTOREVGA:
+        j DRAW_FILLCELL
+        nop        
+        ENDDRAW_FILLCELL:
         addi $6, $6, 1
         #loop
         j draweastf_loop
@@ -209,8 +211,9 @@ drawsouthf:
         beq $7, $11, enddrawforward
         #else, leave a trail and increment
         #SVGA CODE HERE
-        j STOREVGA 
-        ENDSTOREVGA:
+        j DRAW_FILLCELL
+        nop        
+        ENDDRAW_FILLCELL:
         addi $7, $7, 1
         #loop
         j drawsouthf_loop
@@ -230,8 +233,9 @@ drawwestf:
         beq $6, $10, enddrawforward
         #else, leave a trail and increment
         #SVGA CODE HERE
-        j STOREVGA 
-        ENDSTOREVGA:
+        j DRAW_FILLCELL
+        nop        
+        ENDDRAW_FILLCELL:
         addi $6, $6, -1
         #loop
         j drawwestf_loop
@@ -280,8 +284,9 @@ drawnorthb:
         beq $7, $11, enddrawbackward
         #else, leave a trail and increment
         #SVGA CODE HERE
-        j STOREVGA 
-        ENDSTOREVGA:
+        j DRAW_FILLCELL
+        nop        
+        ENDDRAW_FILLCELL:
         addi $7, $7, 1
         #loop
         j drawnorthb_loop
@@ -300,8 +305,9 @@ draweastb:
         beq $6, $10, enddrawbackward
         #else, leave a trail and increment
         #SVGA CODE HERE
-        j STOREVGA 
-        ENDSTOREVGA:
+        j DRAW_FILLCELL
+        nop        
+        ENDDRAW_FILLCELL:
         addi $6, $6, -1
         #loop
         j draweastb_loop
@@ -320,8 +326,9 @@ drawsouthb:
         beq $7, $11, enddrawbackward
         #else, leave a trail and decrement
         #SVGA CODE HERE
-        j STOREVGA 
-        ENDSTOREVGA:
+        j DRAW_FILLCELL
+        nop        
+        ENDDRAW_FILLCELL:
         addi $7, $7, -1
         #loop
         j drawsouthb_loop
@@ -340,8 +347,9 @@ drawwestb:
         beq $6, $10, enddrawbackward
         #else, leave a trail and increment
         #SVGA CODE HERE
-        j STOREVGA 
-        ENDSTOREVGA:
+        j DRAW_FILLCELL
+        nop        
+        ENDDRAW_FILLCELL:
         addi $6, $6, 1
         #loop
         j drawwestb_loop
@@ -360,12 +368,82 @@ enddrawbackward:
     j ENDDRAW_BACKWARD
 
 
-###STOREVGA wrapper for svga per cell
-STOREVGA:
+###FILLCELL: svga wrapper for svga per cell
+DRAW_FILLCELL:
     #Put the svga snippet here
     #Use $6 for x, $7 for y, $13 for color
 
-    j ENDSTOREVGA
+    #Initialize temp registers
+    add $20, $0, $0
+    add $21, $0, $0
+    add $22, $0, $0
+    add $23, $0, $0
+    add $24, $0, $0
+    
+    #calculate top left starting pixel index
+    #and store it in $20
+    #(640*row) + col + 80 = (640*y) + x + 80
+    #$21 = 640
+    #row = $7, col = $6 !!
+    addi $21, $0, 640
+    mul $20, $21, $7
+    add $20, $20, $6
+    addi $20, $20, 80
+    
+    #$22 = 15 (go from 0 to 14)
+    #$23, $24 are loop variables
+    addi $22, $0, 15
+    addi $23, $0, 0
+    addi $24, $0, 0
+    
+    
+    
+    loopcol1:
+        
+        beq $23, $22, endloop1 #$22=15
+        
+        #get the index for this iteration
+        #$24 is the temporary index
+        add $24, $20, $23
+        
+        #color it
+        sw $13, 0($24)
+        #svga $13, 0($24) #TODO: change to svga! : hl130 
+        
+        #increment index
+        add $23, $23, 1
+        
+
+        j loopcol1
+        
+    
+    
+    
+    endloop1:
+    
+        #ran this outer loop 15 times? then you're done!
+        beq $24, $22, endloop2
+        
+        #first, increment the outer loop variable
+        addi $24, $24, 1
+    
+        #one iteration is done, so add 640 to $20
+        add $20, $20, $21
+        
+        #now set loop var to 0 and loop again 15 times
+        add $23, $0, $0 #inner loop var 0
+        j loopcol1
+    
+    
+    endloop2:
+        #cell all filled, clear the variables and return
+        add $20, $0, $0
+        add $21, $0, $0
+        add $22, $0, $0
+        add $23, $0, $0
+        add $24, $0, $0
+    
+    j ENDDRAW_FILLCELL
 
     
     
