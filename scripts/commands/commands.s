@@ -26,6 +26,10 @@ addi $13, $0, 0
 addi $30, $0, 1
 
 
+
+    
+    
+
 ###FORWARD: fwd x
 FORWARD:
     #Save current state to previous state
@@ -124,7 +128,7 @@ endbackward:
     ENDTURTLE_FILLCELL:
 
     #draw here
-    j DRAW_BACKWARD:
+    j DRAW_BACKWARD
     nop
     ENDDRAW_BACKWARD:
 
@@ -138,13 +142,128 @@ endbackward:
 ###SAVE CURRENT STATE TO PREVIOUS STATE
 current_to_prev:
     #move $10-$13 to $14-$17
-    addi $14, $0, $10
-    addi $15, $0, $11
-    addi $16, $0, $12
-    addi $17, $0, $13 
+    add $14, $0, $10
+    add $15, $0, $11
+    add $16, $0, $12
+    add $17, $0, $13 
     
     #back to the subroutine
     j endcurrent_to_prev
+    
+    
+
+###DRAWBACKWARD: bkd x
+DRAW_BACKWARD:
+    #$12 has the angle
+    
+    #store operations to move old x, y values in temp registers $6, $7
+    #store $14 into temp register $6 for x-coord
+    add $6, $0, $14
+
+    #store $15 into temp register $7 for y-coord
+    add $7, $0, $15
+
+    #Determine direction it's currently facing
+    #and call a subroutine that moves it forward
+    beq $12, $0, drawnorthb
+    beq $12, $1, draweastb
+    beq $12, $2, drawsouthb
+    beq $12, $3, drawwestb
+    
+drawnorthb:
+    #increment y
+
+    #increment $7 (old y) until it equals $11 (new y)
+    #and leave a trail (SVGA)
+    drawnorthb_loop:
+
+        #if $7 == $11, end
+        beq $7, $11, enddrawbackward
+        #else, leave a trail and increment
+        #SVGA CODE HERE
+        j DRAW_FILLCELL
+        nop        
+        ENDDRAW_FILLCELL:
+        addi $7, $7, 1
+        #loop
+        j drawnorthb_loop
+
+    #below jump is not really necessary but may prevent errors
+    j enddrawbackward
+
+draweastb:
+    #decrement x
+
+    #decrement $6 (old x) until it equals $10 (new x)
+    #and leave a trail (SVGA)
+    draweastb_loop:
+
+        #if $6 == $10, end
+        beq $6, $10, enddrawbackward
+        #else, leave a trail and increment
+        #SVGA CODE HERE
+        j DRAW_FILLCELL
+        nop        
+        ENDDRAW_FILLCELL:
+        addi $6, $6, -1
+        #loop
+        j draweastb_loop
+
+    #below jump is not really necessary but may prevent errors
+    j enddrawbackward
+
+drawsouthb:
+    #decrement y
+
+    #decrement $7 (old y) until it equals $11 (new y)
+    #and leave a trail (SVGA)
+    drawsouthb_loop:
+
+        #if $7 == $11, end
+        beq $7, $11, enddrawbackward
+        #else, leave a trail and decrement
+        #SVGA CODE HERE
+        j DRAW_FILLCELL
+        nop        
+        ENDDRAW_FILLCELL:
+        addi $7, $7, -1
+        #loop
+        j drawsouthb_loop
+
+    #below jump is not really necessary but may prevent errors
+    j enddrawbackward
+
+drawwestb:
+    #increment x
+
+    #decrement $6 (old x) until it equals $10 (new x)
+    #and leave a trail (SVGA)
+    drawwestb_loop:
+
+        #if $6 == $10, end
+        beq $6, $10, enddrawbackward
+        #else, leave a trail and increment
+        #SVGA CODE HERE
+        j DRAW_FILLCELL
+        nop        
+        ENDDRAW_FILLCELL:
+        addi $6, $6, 1
+        #loop
+        j drawwestb_loop
+
+    #below jump is not really necessary but may prevent errors
+    j enddrawbackward
+
+enddrawbackward:
+    #clear the argument register
+    addi $4, $0, 0
+    #clear $6 and $7
+    addi $6, $0, 0
+    addi $7, $0, 0
+
+    #back to return label
+    j ENDDRAW_BACKWARD
+
     
     
     
@@ -263,119 +382,11 @@ enddrawforward:
     #back to return label
     j ENDDRAW_FORWARD
 
-
-
-###DRAWBACKWARD: bkd x
-DRAW_BACKWARD:
-    #$12 has the angle
     
-    #store operations to move old x, y values in temp registers $6, $7
-    #store $14 into temp register $6 for x-coord
-    add $6, $0, $14
-
-    #store $15 into temp register $7 for y-coord
-    add $7, $0, $15
-
-    #Determine direction it's currently facing
-    #and call a subroutine that moves it forward
-    beq $12, $0, drawnorthb
-    beq $12, $1, draweastb
-    beq $12, $2, drawsouthb
-    beq $12, $3, drawwestb
     
-drawnorthb:
-    #increment y
+    
 
-    #increment $7 (old y) until it equals $11 (new y)
-    #and leave a trail (SVGA)
-    drawnorthb_loop:
 
-        #if $7 == $11, end
-        beq $7, $11, enddrawbackward
-        #else, leave a trail and increment
-        #SVGA CODE HERE
-        j DRAW_FILLCELL
-        nop        
-        ENDDRAW_FILLCELL:
-        addi $7, $7, 1
-        #loop
-        j drawnorthb_loop
-
-    #below jump is not really necessary but may prevent errors
-    j enddrawbackward
-
-draweastb:
-    #decrement x
-
-    #decrement $6 (old x) until it equals $10 (new x)
-    #and leave a trail (SVGA)
-    draweastb_loop:
-
-        #if $6 == $10, end
-        beq $6, $10, enddrawbackward
-        #else, leave a trail and increment
-        #SVGA CODE HERE
-        j DRAW_FILLCELL
-        nop        
-        ENDDRAW_FILLCELL:
-        addi $6, $6, -1
-        #loop
-        j draweastb_loop
-
-    #below jump is not really necessary but may prevent errors
-    j enddrawbackward
-
-drawsouthb:
-    #decrement y
-
-    #decrement $7 (old y) until it equals $11 (new y)
-    #and leave a trail (SVGA)
-    drawsouthb_loop:
-
-        #if $7 == $11, end
-        beq $7, $11, enddrawbackward
-        #else, leave a trail and decrement
-        #SVGA CODE HERE
-        j DRAW_FILLCELL
-        nop        
-        ENDDRAW_FILLCELL:
-        addi $7, $7, -1
-        #loop
-        j drawsouthb_loop
-
-    #below jump is not really necessary but may prevent errors
-    j enddrawbackward
-
-drawwestb:
-    #increment x
-
-    #decrement $6 (old x) until it equals $10 (new x)
-    #and leave a trail (SVGA)
-    drawwestb_loop:
-
-        #if $6 == $10, end
-        beq $6, $10, enddrawbackward
-        #else, leave a trail and increment
-        #SVGA CODE HERE
-        j DRAW_FILLCELL
-        nop        
-        ENDDRAW_FILLCELL:
-        addi $6, $6, 1
-        #loop
-        j drawwestb_loop
-
-    #below jump is not really necessary but may prevent errors
-    j enddrawbackward
-
-enddrawbackward:
-    #clear the argument register
-    addi $4, $0, 0
-    #clear $6 and $7
-    addi $6, $0, 0
-    addi $7, $0, 0
-
-    #back to return label
-    j ENDDRAW_BACKWARD
 
 
 ###FILLCELL: svga wrapper for svga per cell for lines
@@ -421,7 +432,7 @@ DRAW_FILLCELL:
         #svga $13, 0($24) #TODO: change to svga! : hl130 
         
         #increment index
-        add $23, $23, 1
+        addi $23, $23, 1
         
 
         j loopcol1
