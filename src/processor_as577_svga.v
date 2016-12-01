@@ -247,7 +247,7 @@ stage_EX_MEM ex_mem(clock, reset, 1'b1, data_PC_PLUS_ONE_id_ex_out, data_readReg
             assign debug_address = (data_resultRDY) ? multdiv_result[11:0] : alu_MEM_result[11:0];
             ////////////////////////////////////////////////////////////
 
-				assign vga_address = (data_resultRDY) ? multdiv_result[17:0] : alu_MEM_result[17:0];
+				assign vga_address = (data_resultRDY) ? multdiv_result[18:0] : alu_MEM_result[18:0];
 				
             wire [31:0] data_dmem_out_ex_mem_out;
 
