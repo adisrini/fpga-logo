@@ -22,11 +22,15 @@ addi $11, $0, 15
 addi $12, $0, 0
 addi $13, $0, 0
 
+#Default $30: pen down (1).  pen up is (0)
+addi $30, $0, 1
+
+
 ###FORWARD: fwd x
 FORWARD:
     #Save current state to previous state
     j current_to_prev
-    
+    nop
     #return address pointer for current_to_prev
 endcurrent_to_prev:
 
@@ -55,17 +59,29 @@ westf:
     sub $11, $11, $4
     j endforward
 
+
+
+    
+    
+    
 endforward:
+
+    #draw here
+    j DRAW_FORWARD
+    nop
+    ENDDRAW_FORWARD:
+
     #clear the argument register
     addi $4, $0, 0
     jr $31 # return after forward
+    
     
 
 ###BACKWARD: bkd x
 BACKWARD:
     #Save current state to previous state
     j current_to_prev
-    
+    nop
     #return address pointer for current_to_prev
 endcurrent_to_prev:
 
@@ -94,12 +110,21 @@ westb:
     add $10, $10, $4
     j endforward
 
+    
 endbackward:
+
+    #draw here
+    j DRAW_BACKWARD:
+    nop
+    ENDDRAW_BACKWARD:
+
+
     #clear the argument register
     addi $4, $0, 0
     jr $31 # return after backward
     
 
+    
 ###SAVE CURRENT STATE TO PREVIOUS STATE
 current_to_prev:
     #move $10-$13 to $14-$17
@@ -110,6 +135,241 @@ current_to_prev:
     
     #back to the subroutine
     j endcurrent_to_prev
+    
+    
+    
+###DRAWFORWARD: fwd x
+DRAW_FORWARD:
+    #$12 has the angle
+    
+    #store operations to move old x, y values in temp registers $6, $7
+    #store $14 into temp register $6 for x-coord
+    add $6, $0, $14
+
+    #store $15 into temp register $7 for y-coord
+    add $7, $0, $15
+
+    #Determine direction it's currently facing
+    #and call a subroutine that moves it forward
+    beq $12, $0, drawnorthf
+    beq $12, $1, draweastf
+    beq $12, $2, drawsouthf
+    beq $12, $3, drawwestf
+    
+drawnorthf:
+    #decrement y
+
+    #decrement $7 (old y) until it equals $11 (new y)
+    #and leave a trail (SVGA)
+    drawnorthf_loop:
+
+        #if $7 == $11, end
+        beq $7, $11, enddrawforward
+        #else, leave a trail and decrement
+        #SVGA CODE HERE
+        j STOREVGA 
+        ENDSTOREVGA:
+        addi $7, $7, -1
+        #loop
+        j drawnorthf_loop
+
+    #below jump is not really necessary but may prevent errors
+    j enddrawforward
+
+
+draweastf:
+    #increment x
+
+    #decrement $6 (old x) until it equals $10 (new x)
+    #and leave a trail (SVGA)
+    draweastf_loop:
+
+        #if $6 == $10, end
+        beq $6, $10, enddrawforward
+        #else, leave a trail and increment
+        #SVGA CODE HERE
+        j STOREVGA 
+        ENDSTOREVGA:
+        addi $6, $6, 1
+        #loop
+        j draweastf_loop
+
+    #below jump is not really necessary but may prevent errors
+    j enddrawforward
+
+
+drawsouthf:
+    #increment y
+
+    #increment $7 (old y) until it equals $11 (new y)
+    #and leave a trail (SVGA)
+    drawsouthf_loop:
+
+        #if $7 == $11, end
+        beq $7, $11, enddrawforward
+        #else, leave a trail and increment
+        #SVGA CODE HERE
+        j STOREVGA 
+        ENDSTOREVGA:
+        addi $7, $7, 1
+        #loop
+        j drawsouthf_loop
+
+    #below jump is not really necessary but may prevent errors
+    j enddrawforward
+
+
+drawwestf:
+    #decrement x
+
+    #decrement $6 (old x) until it equals $10 (new x)
+    #and leave a trail (SVGA)
+    drawwestf_loop:
+
+        #if $6 == $10, end
+        beq $6, $10, enddrawforward
+        #else, leave a trail and increment
+        #SVGA CODE HERE
+        j STOREVGA 
+        ENDSTOREVGA:
+        addi $6, $6, -1
+        #loop
+        j drawwestf_loop
+
+    #below jump is not really necessary but may prevent errors
+    j enddrawforward
+
+enddrawforward:
+    #clear the argument register
+    addi $4, $0, 0
+    #clear $6 and $7
+    addi $6, $0, 0
+    addi $7, $0, 0
+
+    #back to return label
+    j ENDDRAW_FORWARD
+
+
+
+###DRAWBACKWARD: bkd x
+DRAW_BACKWARD:
+    #$12 has the angle
+    
+    #store operations to move old x, y values in temp registers $6, $7
+    #store $14 into temp register $6 for x-coord
+    add $6, $0, $14
+
+    #store $15 into temp register $7 for y-coord
+    add $7, $0, $15
+
+    #Determine direction it's currently facing
+    #and call a subroutine that moves it forward
+    beq $12, $0, drawnorthb
+    beq $12, $1, draweastb
+    beq $12, $2, drawsouthb
+    beq $12, $3, drawwestb
+    
+drawnorthb:
+    #increment y
+
+    #increment $7 (old y) until it equals $11 (new y)
+    #and leave a trail (SVGA)
+    drawnorthb_loop:
+
+        #if $7 == $11, end
+        beq $7, $11, enddrawbackward
+        #else, leave a trail and increment
+        #SVGA CODE HERE
+        j STOREVGA 
+        ENDSTOREVGA:
+        addi $7, $7, 1
+        #loop
+        j drawnorthb_loop
+
+    #below jump is not really necessary but may prevent errors
+    j enddrawbackward
+
+draweastb:
+    #decrement x
+
+    #decrement $6 (old x) until it equals $10 (new x)
+    #and leave a trail (SVGA)
+    draweastb_loop:
+
+        #if $6 == $10, end
+        beq $6, $10, enddrawbackward
+        #else, leave a trail and increment
+        #SVGA CODE HERE
+        j STOREVGA 
+        ENDSTOREVGA:
+        addi $6, $6, -1
+        #loop
+        j draweastb_loop
+
+    #below jump is not really necessary but may prevent errors
+    j enddrawbackward
+
+drawsouthb:
+    #decrement y
+
+    #decrement $7 (old y) until it equals $11 (new y)
+    #and leave a trail (SVGA)
+    drawsouthb_loop:
+
+        #if $7 == $11, end
+        beq $7, $11, enddrawbackward
+        #else, leave a trail and decrement
+        #SVGA CODE HERE
+        j STOREVGA 
+        ENDSTOREVGA:
+        addi $7, $7, -1
+        #loop
+        j drawsouthb_loop
+
+    #below jump is not really necessary but may prevent errors
+    j enddrawbackward
+
+drawwestb:
+    #increment x
+
+    #decrement $6 (old x) until it equals $10 (new x)
+    #and leave a trail (SVGA)
+    drawwestb_loop:
+
+        #if $6 == $10, end
+        beq $6, $10, enddrawbackward
+        #else, leave a trail and increment
+        #SVGA CODE HERE
+        j STOREVGA 
+        ENDSTOREVGA:
+        addi $6, $6, 1
+        #loop
+        j drawwestb_loop
+
+    #below jump is not really necessary but may prevent errors
+    j enddrawbackward
+
+enddrawbackward:
+    #clear the argument register
+    addi $4, $0, 0
+    #clear $6 and $7
+    addi $6, $0, 0
+    addi $7, $0, 0
+
+    #back to return label
+    j ENDDRAW_BACKWARD
+
+
+###STOREVGA wrapper for svga per cell
+STOREVGA:
+    #Put the svga snippet here
+    #Use $6 for x, $7 for y, $13 for color
+
+    j ENDSTOREVGA
+
+    
+    
+    
     
     
 ###LEFT ROTATE: lrt x
