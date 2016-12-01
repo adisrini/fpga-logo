@@ -72,10 +72,14 @@ module skeleton(resetn,
 		end
 	end
 	
+	wire sk_ctrl_MEM_VGAE;
+	wire [7:0] sk_vga_data_in;
+	wire [18:0] sk_vga_address;
+	
 	position_counter pos_count(position, 1'b1, ps2_key_pressed, ~resetn);
 	
 	// your processor
-	processor myprocessor(clock, ~resetn, /*ps2_key_pressed, ps2_out, lcd_write_en, lcd_write_data,*/ debug_data_in, debug_addr);
+	processor myprocessor(clock, ~resetn, /*ps2_key_pressed, ps2_out, lcd_write_en, lcd_write_data,*/ debug_data_in, debug_addr,sk_ctrl_MEM_VGAE, sk_vga_address,sk_vga_data_in);
 	
 	// keyboard controller
 	PS2_Interface myps2(clock, resetn, ps2_clock, ps2_data, ps2_key_data, ps2_key_pressed, ps2_out);
@@ -101,7 +105,7 @@ module skeleton(resetn,
 	wire [31:0] command;
 	
 	// character filling
-	characterData cd(command, ps2_key_data, ~trigger, ~resetn);
+	characterData cd(command, ps2_key_data,CLOCK_50, ~trigger_4, ~resetn);
 	
 	// lcd controller
 	lcd mylcd(clock, ~resetn, 1'b1, data_ps2ascii, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
@@ -115,7 +119,7 @@ module skeleton(resetn,
 	Hexadecimal_To_Seven_Segment hex4(command[7:4], seg4);
 	Hexadecimal_To_Seven_Segment hex5(command[11:8], seg5);
 	Hexadecimal_To_Seven_Segment hex6(command[15:12], seg6);
-	Hexadecimal_To_Seven_Segment hex7(clock_4, seg7);
+	Hexadecimal_To_Seven_Segment hex7(trigger_4, seg7);
 	Hexadecimal_To_Seven_Segment hex8(ps2_clock_4, seg8);
 	
 	// some LEDs that you could use for debugging if you wanted
@@ -124,7 +128,11 @@ module skeleton(resetn,
 	// VGA
 	Reset_Delay			r0	(.iCLK(CLOCK_50),.oRESET(DLY_RST)	);
 	VGA_Audio_PLL 		p1	(.areset(~DLY_RST),.inclk0(CLOCK_50),.c0(VGA_CTRL_CLK),.c1(AUD_CTRL_CLK),.c2(VGA_CLK)	);
-	vga_controller vga_ins(.iRST_n(DLY_RST),
+	vga_controller vga_ins(
+							    .svga_we(sk_ctrl_MEM_VGAE),
+							    .address_write(sk_vga_address),
+                         .data_write(sk_vga_data_in),
+								 .iRST_n(DLY_RST),
 								 .iVGA_CLK(VGA_CLK),
 								 .oBLANK_n(VGA_BLANK),
 								 .oHS(VGA_HS),
@@ -176,9 +184,9 @@ endmodule
  @param: ps2_enable is whether the PS2 was activated
  @param: reset is whether to reset the wire
 **********/
-module characterData(register_out, ps2_keydata, ps2_enable, reset);
+module characterData(register_out, ps2_keydata, clock, ps2_enable, reset);
 	input [7:0] ps2_keydata;
-	input ps2_enable, reset;
+	input ps2_enable, reset,clock;
 	
 	output [31:0] register_out;
 	
@@ -196,7 +204,7 @@ module characterData(register_out, ps2_keydata, ps2_enable, reset);
 	
 	// HERE YOU"RE CHOOSING BETWEEN RESETING AND WRITING THE INITIAL DATA vs THE DATA RESULTING FROM PS2.
 	
-	register r1(~ps2_enable, 1'b1, reset, out_register_input,register_out); 
+	register r1(clock, ~ps2_enable, reset, out_register_input,register_out); 
 endmodule
 	
 /**********

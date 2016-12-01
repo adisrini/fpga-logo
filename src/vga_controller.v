@@ -1,4 +1,8 @@
-module vga_controller(iRST_n,
+module vga_controller(
+							 svga_we,
+							 address_write,
+                      data_write,
+						    iRST_n,
                       iVGA_CLK,
                       oBLANK_n,
                       oHS,
@@ -6,6 +10,10 @@ module vga_controller(iRST_n,
                       b_data,
                       g_data,
                       r_data);
+							 
+input svga_we;
+input [18:0] address_write;
+input [7:0] data_write;
 input iRST_n;
 input iVGA_CLK;
 output reg oBLANK_n;
@@ -42,11 +50,29 @@ end
 //////////////////////////
 //////INDEX addr.
 assign VGA_CLK_n = ~iVGA_CLK;
-img_data	img_data_inst (
-	.address ( ADDR ),
-	.clock ( VGA_CLK_n ),
-	.q ( index )
+
+
+img_data myvgamem(
+	.clock(iVGA_CLK),
+	.data(data_write),
+	.rdaddress(ADDR),
+	.wraddress(address_write),
+	.wren(svga_we),
+	.q(index)
 	);
+				
+//img_data myvgamem(.address        (debug_vga_address),
+//					 .clock          (~clock),
+//					 .data           (debug_vga_in),
+//					 .wren           (ctrl_MEM_VGAE),
+//					 .q              (data_vgamem_out_ex_mem_out)
+//);
+
+//img_data	img_data_inst (
+//	.address ( ADDR ),
+//	.clock ( VGA_CLK_n ),
+//	.q ( index )
+//	);
 //////Color table output
 img_index	img_index_inst (
 	.address ( index ),

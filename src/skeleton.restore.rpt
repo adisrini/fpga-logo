@@ -1,6 +1,6 @@
 Restore Archived Project report for skeleton
-Fri Nov 04 17:38:07 2016
-Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Wed Nov 30 20:04:22 2016
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 
 ---------------------
@@ -37,7 +37,7 @@ agreement for further details.
 +-------------------------------------------------------------------------+
 ; Restore Archived Project Summary                                        ;
 +---------------------------------+---------------------------------------+
-; Restore Archived Project Status ; Successful - Fri Nov 04 17:38:07 2016 ;
+; Restore Archived Project Status ; Successful - Wed Nov 30 20:04:22 2016 ;
 ; Revision Name                   ; skeleton                              ;
 ; Top-level Entity Name           ; skeleton                              ;
 ; Family                          ; Cyclone IV E                          ;
@@ -47,68 +47,95 @@ agreement for further details.
 +-----------------------------------+
 ; Restore Archived Project Messages ;
 +-----------------------------------+
-Info: Successfully restored 'C:/Users/Aditya Srinivasan/Downloads/skeleton_vga.qar' into the 'C:\\Users\\Aditya Srinivasan\\Desktop\\processor/' directory
+Info: Successfully restored 'C:/Users/Student/Downloads/skeleton.qar' into the 'C:/Users/Student/Downloads/skeleton_restored_jx35/' directory
 Info: Generated report 'skeleton.restore.rpt'
-Info (23030): Evaluation of Tcl script c:/altera_lite/16.0/quartus/common/tcl/apps/qpm/qar.tcl was successful
-Info: Quartus Prime Shell was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 853 megabytes
-    Info: Processing ended: Fri Nov 04 17:38:07 2016
-    Info: Elapsed time: 00:00:01
+Info (23030): Evaluation of Tcl script c:/altera/16.0/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 554 megabytes
+    Info: Processing ended: Wed Nov 30 20:04:22 2016
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 
-+-----------------------------------------------------+
-; Files Restored                                      ;
-+-----------------------------------------------------+
-; File Name                                           ;
-+-----------------------------------------------------+
-; Altera_UP_PS2_Command_Out.v                         ;
-; Altera_UP_PS2_Data_In.v                             ;
-; Hexadecimal_To_Seven_Segment.v                      ;
-; PS2_Controller.v                                    ;
-; PS2_Interface.v                                     ;
-; Reset_Delay.v                                       ;
-; VGA_Audio_PLL.v                                     ;
-; db/skeleton.db_info                                 ;
-; dmem.cmp                                            ;
-; dmem.mif                                            ;
-; dmem.qip                                            ;
-; dmem.v                                              ;
-; dmem_inst.v                                         ;
-; imem.cmp                                            ;
-; imem.mif                                            ;
-; imem.qip                                            ;
-; imem.v                                              ;
-; imem_inst.v                                         ;
-; img_bars.mif                                        ;
-; img_data.v                                          ;
-; img_data_logo.mif                                   ;
-; img_index.v                                         ;
-; incremental_db/compiled_partitions/skeleton.db_info ;
-; index.mif                                           ;
-; index_logo.mif                                      ;
-; lcd.sv                                              ;
-; pll.bsf                                             ;
-; pll.cmp                                             ;
-; pll.ppf                                             ;
-; pll.qip                                             ;
-; pll.v                                               ;
-; processor.v                                         ;
-; skeleton.qpf                                        ;
-; skeleton.qsf                                        ;
-; skeleton.v                                          ;
-; vga_controller.v                                    ;
-; video_sync_generator.v                              ;
-; assignment_defaults.qdf                             ;
-+-----------------------------------------------------+
++----------------------------------+
+; Files Restored                   ;
++----------------------------------+
+; File Name                        ;
++----------------------------------+
+; qar_info.json                    ;
+; Altera_UP_PS2_Command_Out.v      ;
+; Altera_UP_PS2_Data_In.v          ;
+; Hexadecimal_To_Seven_Segment.v   ;
+; PS2_Controller.v                 ;
+; PS2_Interface.v                  ;
+; Reset_Delay.v                    ;
+; VGA_Audio_PLL.v                  ;
+; assignment_defaults.qdf          ;
+; bypass_mem_tb.v                  ;
+; bypass_wb_tb.v                   ;
+; characterData_tb.v               ;
+; check_zero_tb.v                  ;
+; dmem.cmp                         ;
+; dmem.mif                         ;
+; dmem.qip                         ;
+; dmem.v                           ;
+; dmem_inst.v                      ;
+; encode_aluop_tb.v                ;
+; flush_logic_tb.v                 ;
+; fsm_counter_tb.v                 ;
+; imem.cmp                         ;
+; imem.mif                         ;
+; imem.qip                         ;
+; imem.v                           ;
+; imem_inst.v                      ;
+; img_bars.mif                     ;
+; img_data.cmp                     ;
+; img_data.qip                     ;
+; img_data.v                       ;
+; img_data_inst.v                  ;
+; img_data_logo.mif                ;
+; img_index.v                      ;
+; index.mif                        ;
+; index_logo.mif                   ;
+; instruction_splitter_tb.v        ;
+; jump_addresser_tb.v              ;
+; keyboard_fill_characters_tb.v    ;
+; lcd.sv                           ;
+; multdiv_tb.v                     ;
+; pll.bsf                          ;
+; pll.cmp                          ;
+; pll.ppf                          ;
+; pll.qip                          ;
+; pll.v                            ;
+; processor.v                      ;
+; processor_as577.v                ;
+; processor_as577_svga.v           ;
+; processor_pipeline_stall_tb.v    ;
+; processor_pipeline_tb.v          ;
+; processor_tb.v                   ;
+; reset.vwf                        ;
+; shift8bitena_tb.v                ;
+; sign_extender_tb.v               ;
+; skeleton.qpf                     ;
+; skeleton.qsf                     ;
+; skeleton.v                       ;
+; skeleton_assignment_defaults.qdf ;
+; stall_logic_tb.v                 ;
+; statusReg_tb.v                   ;
+; ternary_tb.v                     ;
+; vga_controller.v                 ;
+; vgamem.qip                       ;
+; vgamem.v                         ;
+; vgamem_bb.v                      ;
+; video_sync_generator.v           ;
+; waveform1.vwf                    ;
++----------------------------------+
 
 
-+---------------------+
-; Files Not Restored  ;
-+---------------------+
-; File Name           ;
-+---------------------+
-; db/skeleton.cmp.hdb ;
-+---------------------+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
 
 
