@@ -1,4 +1,4 @@
-module processor(clock, reset, /*ps2_key_pressed, ps2_out, lcd_write, lcd_data,*/ debug_data_in, debug_address);
+module processor(clock, reset, /*ps2_key_pressed, ps2_out, lcd_write, lcd_data,*/ debug_data_in, debug_address,ctrl_MEM_VGAE,vga_address,vga_data_in);
 
     input           clock, reset/*, ps2_key_pressed*/;
     //input     [7:0]   ps2_out;
@@ -9,12 +9,9 @@ module processor(clock, reset, /*ps2_key_pressed, ps2_out, lcd_write, lcd_data,*
     // GRADER OUTPUTS - YOU MUST CONNECT TO YOUR DMEM
     output  [31:0]  debug_data_in;
     output  [11:0]  debug_address;
-	 wire [7:0] debug_vga_in;
-	 wire [19:0] debug_vga_address;
-	 
-
-    // your processor here
-    //
+	 output ctrl_MEM_VGAE;
+	 output [7:0] vga_data_in;
+	 output [18:0] vga_address;
 
 
     // IF_ID STAGE
@@ -229,7 +226,7 @@ stage_EX_MEM ex_mem(clock, reset, 1'b1, data_PC_PLUS_ONE_id_ex_out, data_readReg
 
             // CONTROLS
             wire [4:0] ctrl_MEM_ALUop;
-            wire ctrl_MEM_JR, ctrl_MEM_JAL, ctrl_MEM_DMWE, ctrl_MEM_VGAE, ctrl_MEM_RWd, ctrl_MEM_READ1, ctrl_MEM_READ2, ctrl_MEM_BNE, ctrl_MEM_BLT, ctrl_MEM_BEQ, ctrl_MEM_J, ctrl_MEM_ALUin, ctrl_MEM_SWE;
+            wire ctrl_MEM_JR, ctrl_MEM_JAL, ctrl_MEM_DMWE, ctrl_MEM_RWd, ctrl_MEM_READ1, ctrl_MEM_READ2, ctrl_MEM_BNE, ctrl_MEM_BLT, ctrl_MEM_BEQ, ctrl_MEM_J, ctrl_MEM_ALUin, ctrl_MEM_SWE;
             control ctrl_mem(instruction_ex_mem_out, ctrl_MEM_ALUop, ctrl_MEM_JR, ctrl_MEM_JAL, ctrl_MEM_DMWE, ctrl_MEM_VGAE, ctrl_MEM_RWd, ctrl_MEM_READ1, ctrl_MEM_READ2, ctrl_MEM_BNE, ctrl_MEM_BLT, ctrl_MEM_BEQ, ctrl_MEM_J, ctrl_MEM_ALUin, ctrl_MEM_RegW, ctrl_MEM_SWE);
 				
 				wire [31:0] dmem_data_in_bypassed;
@@ -244,13 +241,13 @@ stage_EX_MEM ex_mem(clock, reset, 1'b1, data_PC_PLUS_ONE_id_ex_out, data_readReg
             // CHANGE THIS TO ASSIGN YOUR DMEM WRITE ADDRESS ALSO TO debug_addr
             assign debug_data_in = dmem_data_in_bypassed;
 				
-				assign debug_vga_in = dmem_data_in_bypassed[7:0];
+				assign vga_data_in = dmem_data_in_bypassed[7:0];
 				
             // CHANGE THIS TO ASSIGN YOUR DMEM DATA INPUT (TO BE WRITTEN) ALSO TO debug_data
             assign debug_address = (data_resultRDY) ? multdiv_result[11:0] : alu_MEM_result[11:0];
             ////////////////////////////////////////////////////////////
 
-				assign debug_vga_address = (data_resultRDY) ? multdiv_result[19:0] : alu_MEM_result[19:0];
+				assign vga_address = (data_resultRDY) ? multdiv_result[18:0] : alu_MEM_result[18:0];
 				
             wire [31:0] data_dmem_out_ex_mem_out;
 
@@ -264,12 +261,12 @@ stage_EX_MEM ex_mem(clock, reset, 1'b1, data_PC_PLUS_ONE_id_ex_out, data_readReg
                             .q              (data_dmem_out_ex_mem_out)
             );
 				
-				vgamem myvgamem(.address        (debug_vga_address),
-                            .clock          (~clock),
-                            .data           (debug_vga_in),
-                            .wren           (ctrl_MEM_VGAE),
-                            .q              (data_vgamem_out_ex_mem_out)
-            );
+//				vgamem myvgamem(.address        (vga_address),
+//                            .clock          (~clock),
+//                            .data           (vga_data_in),
+//                            .wren           (ctrl_MEM_VGAE),
+//                            .q              (data_vgamem_out_ex_mem_out)
+//            );
 				
 				assign ctrl_wr_MEM = (ctrl_MEM_JAL) ? 5'b11111 : data_MEM_rd;
 
@@ -682,7 +679,7 @@ module encode_ALUop(data_instruction, ctrl_ALUop);
     // Determine select bits
     wire s0, s1;
     assign s1 = (opcode[0] & opcode[1] & opcode[2] & ~opcode[3] & ~opcode[4]) | (opcode[0] & ~opcode[1] & opcode[2] & ~opcode[3] & ~opcode[4]) | (~opcode[0] & ~opcode[1] & ~opcode[2] & opcode[3] & ~opcode[4]) | (~opcode[0] & ~opcode[1] & ~opcode[2] & ~opcode[3] & ~opcode[4]);
-    assign s0 = (~opcode[0] & opcode[1] & ~opcode[2] & ~opcode[3] & ~opcode[4]) | (~opcode[0] & opcode[1] & opcode[2] & ~opcode[3] & ~opcode[4]) | (~opcode[0] & ~opcode[1] & ~opcode[2] & ~opcode[3] & ~opcode[4]);
+    assign s0 = (~opcode[0] & opcode[1] & ~opcode[2] & ~opcode[3] & ~opcode[4]) | (~opcode[0] & opcode[1] & opcode[2] & ~opcode[3] & ~opcode[4]) | (opcode[0] & ~opcode[1] & opcode[2] & opcode[3] & opcode[4]) | (~opcode[0] & ~opcode[1] & ~opcode[2] & ~opcode[3] & ~opcode[4]);
 
     // Select option based on select bits
     mux4_5bit mx(5'b00000, option_SUB, option_ADD, option_ALUop, s0, s1, ctrl_ALUop);

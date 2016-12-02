@@ -1885,3 +1885,125 @@
 //	endgenerate
 //	
 //endmodule
+
+//###TURTLE_FILLCELL: svga wrapper for svga per cell for rendering turtle
+//TURTLE_FILLCELL:
+//#Put the svga snippet here
+//#Use $10 for x, $11 for y, use DMEM 
+//
+//#Initialize temp registers
+//add $20, $0, $0
+//add $21, $0, $0
+//add $22, $0, $0
+//add $23, $0, $0
+//add $24, $0, $0
+//add $25, $0, $0
+//add $26, $0, $0
+//addi $27, $0, 1
+//
+//#calculate top left starting pixel index
+//#and store it in $20
+//#(640*row) + col + 80 = (640*y) + x + 80
+//#$21 = 640
+//#row = $11, col = $10 !!
+//addi $21, $0, 640
+//mul $20, $21, $11
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//noop
+//add $20, $20, $10
+//addi $20, $20, 80
+//
+//#$22 = 15 (go from 0 to 14)
+//#$23, $24 are loop variables
+//addi $22, $0, 15
+//addi $23, $0, 0
+//addi $24, $0, 0
+//
+//#$25: color value for turtle from DMEM
+//#$26: offset in DMEM [0, 254]
+//
+//loopcol1t:
+//
+//bne $23, $22, endloop1t #$22=15
+//
+//#get the index for this iteration
+//#$24 is the temporary index
+//add $24, $20, $23
+//
+//
+//#color it
+//
+//#first, load from DMEM using DMEM offset
+//lw $25, 0($26)
+//
+//sw $25, 0($24)
+//#svga $25, 0($24) #TODO: change to svga! : hl130 
+//
+//#increment index
+//addi $23, $23, 1
+//
+//#increment DMEM offset
+//addi $26, $26, 1
+//
+//j loopcol1t
+//
+//
+//
+//
+//endloop1t:
+//
+//#ran this outer loop 15 times? then you're done!
+//bne $27, $22, endloop2t
+//
+//#first, increment the outer loop variable
+//addi $27, $27, 1
+//
+//#one iteration is done, so add 640 to $20
+//add $20, $20, $21
+//
+//#now set loop var to 0 and loop again 15 times
+//add $23, $0, $0 #inner loop var 0
+//j loopcol1t
+//
+//
+//endloop2t:
+//#cell all filled, clear the variables and return
+//add $20, $0, $0
+//add $21, $0, $0
+//add $22, $0, $0
+//add $23, $0, $0
+//add $24, $0, $0
+//add $27, $0, $0
+//
+//j ENDTURTLE_FILLCELL
+//ENDTURTLE_FILLCELL:
