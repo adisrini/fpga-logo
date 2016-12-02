@@ -391,80 +391,152 @@ enddrawforward:
 
 ###FILLCELL: svga wrapper for svga per cell for lines
 DRAW_FILLCELL:
-    #Put the svga snippet here
-    #Use $6 for x, $7 for y, $13 for color
+#Put the svga snippet here
+#Use $6 for x, $7 for y, $13 for color
 
-    #Initialize temp registers
-    add $20, $0, $0
-    add $21, $0, $0
-    add $22, $0, $0
-    add $23, $0, $0
-    add $24, $0, $0
-    
-    #calculate top left starting pixel index
-    #and store it in $20
-    #(640*row) + col + 80 = (640*y) + x + 80
-    #$21 = 640
-    #row = $7, col = $6 !!
-    addi $21, $0, 640
-    mul $20, $21, $7
-    add $20, $20, $6
-    addi $20, $20, 80
-    
-    #$22 = 15 (go from 0 to 14)
-    #$23, $24 are loop variables
-    addi $22, $0, 15
-    addi $23, $0, 0
-    addi $24, $0, 0
-    
-    
-    
-    loopcol1:
-        
-        beq $23, $22, endloop1 #$22=15
-        
-        #get the index for this iteration
-        #$24 is the temporary index
-        add $24, $20, $23
-        
-        #color it
-        sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
-        #svga $13, 0($24) #TODO: change to svga! : hl130 
-        
-        #increment index
-        addi $23, $23, 1
-        
+#Initialize temp registers
+add $20, $0, $0
+add $21, $0, $0
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
 
-        j loopcol1
-        
-    
-    
-    
-    endloop1:
-    
-        #ran this outer loop 15 times? then you're done!
-        beq $24, $22, endloop2
-        
-        #first, increment the outer loop variable
-        addi $24, $24, 1
-    
-        #one iteration is done, so add 640 to $20
-        add $20, $20, $21
-        
-        #now set loop var to 0 and loop again 15 times
-        add $23, $0, $0 #inner loop var 0
-        j loopcol1
-    
-    
-    endloop2:
-        #cell all filled, clear the variables and return
-        add $20, $0, $0
-        add $21, $0, $0
-        add $22, $0, $0
-        add $23, $0, $0
-        add $24, $0, $0
-    
-    j ENDDRAW_FILLCELL
+# choose x, y, color
+addi $6, $0, 15
+addi $7, $0, 31
+addi $13, $0, 1
+
+#calculate top left starting pixel index
+#and store it in $20
+#(640*15*row) + 15*col + 80 = (640*15*y) + 15*x + 80
+#$21 = 640*15
+#row = $7, col = $6 !!
+addi $27, $0, 15
+addi $21, $0, 9600
+mul $20, $21, $7		# $20 = 640 * 15 * y
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+mul $27, $27, $6		# $27 = 15x
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+add $20, $20, $27		# $20 = (640 * 15 * y) + 15x
+addi $20, $20, 80		# $20 = (640 * 15 * y) + 15x + 80
+addi $21, $0, 640       # reset $21 to hold 640
+
+#$22 = 15 (go from 0 to 14)
+#$23, $24 are loop variables
+addi $22, $0, 15
+addi $23, $0, 0
+addi $24, $0, 0
+addi $27, $0, 1
+
+loopcol1:
+
+bne $23, $22, endloop1 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+
+#get the index for this iteration
+#$24 is the temporary index
+add $24, $20, $23
+
+#color it
+sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+#svga $13, 0($24) #TODO: change to svga! : hl130 
+
+#increment index
+addi $23, $23, 1
+
+
+j loopcol1
+
+
+
+
+endloop1:
+
+#ran this outer loop 15 times? then you're done!
+bne $27, $22, endloop2	# imem: SHOULD BE BEQ (11101)!!
+
+#first, increment the outer loop variable
+addi $27, $27, 1
+
+#one iteration is done, so add 640 to $20
+add $20, $20, $21
+
+#now set loop var to 0 and loop again 15 times
+add $23, $0, $0 #inner loop var 0
+j loopcol1
+
+
+endloop2:
+#cell all filled, clear the variables and return
+add $20, $0, $0
+add $21, $0, $0
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
+add $27, $0, $0
+
+j ENDDRAW_FILLCELL
 
     
 ###TURTLE_FILLCELL: svga wrapper for svga per cell for rendering turtle
@@ -614,7 +686,7 @@ add $24, $20, $23
 #first, load from DMEM using DMEM offset
 lw $25, 0($26)
 
-sw $25, 0($24)
+sw $25, 0($24)	# imem: SHOULD BE SVGA (01111)!!
 #svga $25, 0($24) #TODO: change to svga! : hl130 
 
 #increment index
