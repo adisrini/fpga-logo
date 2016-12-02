@@ -428,7 +428,7 @@ DRAW_FILLCELL:
         add $24, $20, $23
         
         #color it
-        sw $13, 0($24)
+        sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
         #svga $13, 0($24) #TODO: change to svga! : hl130 
         
         #increment index
@@ -602,7 +602,7 @@ addi $24, $0, 0
 
 loopcol1t:
 
-bne $23, $22, endloop1t #$22=15	SHOULD BE BEQ!!!!!
+bne $23, $22, endloop1t #$22=15	imem: SHOULD BE BEQ (11101)!!!
 
 #get the index for this iteration
 #$24 is the temporary index
@@ -629,7 +629,7 @@ j loopcol1t
 endloop1t:
 
 #ran this outer loop 15 times? then you're done!
-bne $27, $22, endloop2t   # SHOULD BE BEQ!!!!!
+bne $27, $22, endloop2t   # imem: SHOULD BE BEQ (11101)!!!
 
 #first, increment the outer loop variable
 addi $27, $27, 1
