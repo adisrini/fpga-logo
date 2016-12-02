@@ -602,7 +602,7 @@ addi $24, $0, 0
 
 loopcol1t:
 
-bne $23, $22, endloop1t #$22=15
+bne $23, $22, endloop1t #$22=15	SHOULD BE BEQ!!!!!
 
 #get the index for this iteration
 #$24 is the temporary index
@@ -629,7 +629,7 @@ j loopcol1t
 endloop1t:
 
 #ran this outer loop 15 times? then you're done!
-bne $27, $22, endloop2t
+bne $27, $22, endloop2t   # SHOULD BE BEQ!!!!!
 
 #first, increment the outer loop variable
 addi $27, $27, 1
