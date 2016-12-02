@@ -679,7 +679,7 @@ module encode_ALUop(data_instruction, ctrl_ALUop);
     // Determine select bits
     wire s0, s1;
     assign s1 = (opcode[0] & opcode[1] & opcode[2] & ~opcode[3] & ~opcode[4]) | (opcode[0] & ~opcode[1] & opcode[2] & ~opcode[3] & ~opcode[4]) | (~opcode[0] & ~opcode[1] & ~opcode[2] & opcode[3] & ~opcode[4]) | (~opcode[0] & ~opcode[1] & ~opcode[2] & ~opcode[3] & ~opcode[4]);
-    assign s0 = (~opcode[0] & opcode[1] & ~opcode[2] & ~opcode[3] & ~opcode[4]) | (~opcode[0] & opcode[1] & opcode[2] & ~opcode[3] & ~opcode[4]) | (~opcode[0] & ~opcode[1] & ~opcode[2] & ~opcode[3] & ~opcode[4]);
+    assign s0 = (~opcode[0] & opcode[1] & ~opcode[2] & ~opcode[3] & ~opcode[4]) | (~opcode[0] & opcode[1] & opcode[2] & ~opcode[3] & ~opcode[4]) | (opcode[0] & ~opcode[1] & opcode[2] & opcode[3] & opcode[4]) | (~opcode[0] & ~opcode[1] & ~opcode[2] & ~opcode[3] & ~opcode[4]);
 
     // Select option based on select bits
     mux4_5bit mx(5'b00000, option_SUB, option_ADD, option_ALUop, s0, s1, ctrl_ALUop);
