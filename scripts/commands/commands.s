@@ -29,7 +29,7 @@ addi $3, $0, 3 #west
     
     #$6 is constant: color WHITE
     #TODO: find the value for white
-    addi $6, $0, 16777215 # 16777215 is 0xFFFFFF
+    addi $6, $0, 255 # 255 corresponds to WHITE in index
     
     #$20 is constant: 80 for 80 iterations for left and right
     addi $20, $0, 80
