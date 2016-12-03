@@ -552,7 +552,7 @@ DRAW_FILLCELL:
 ###TURTLE_FILLCELL: svga wrapper for svga per cell for rendering turtle
 TURTLE_FILLCELL:
   	#Put the svga snippet here
-  	#Use $10 for x, $11 for y, use DMEM
+  	#Use $10 for x, $11 for y, $13 for direction, use DMEM
 
   	#Initialize temp registers
   	add $20, $0, $0
@@ -561,7 +561,42 @@ TURTLE_FILLCELL:
     add $23, $0, $0
     add $24, $0, $0
     add $25, $0, $0
-    add $26, $0, $0
+    addi $26, $0, 225   # temporarily store size of turtle image, used to index orientation
+    mul $26, $13, $26   # multiply orientation by 225 to find starting location
+    # TODO: incorporate turtle image being used (turtle1, turtle2, turtle3) to find $26
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+
 
     #calculate top left starting pixel index
     #and store it in $20
