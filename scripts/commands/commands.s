@@ -15,6 +15,85 @@ addi $1, $0, 1 #east
 addi $2, $0, 2 #south
 addi $3, $0, 3 #west
 
+#########################################################
+#Screen initialization (left and right white)
+    #Initialize temp registers
+    add $6, $0, $0
+    add $20, $0, $0
+    add $21, $0, $0
+    add $22, $0, $0
+    add $23, $0, $0
+    add $24, $0, $0
+    add $25, $0, $0
+    add $26, $0, $0
+    
+    #$6 is constant: color WHITE
+    #TODO: find the value for white
+    addi $6, $0, 16777215 # 16777215 is 0xFFFFFF
+    
+    #$20 is constant: 80 for 80 iterations for left and right
+    addi $20, $0, 80
+    
+    #$27 is constant: 480 for 480 iterations vertically
+    addi $27, $0, 480
+    
+    #two startpoints (left and right)
+    addi $21, $0, 0
+    addi $22, $0, 560
+    
+    #start looping 
+    loopinit:
+
+        bne $25, $20, endouterinit #$25=80, end	imem: SHOULD BE BEQ (11101)!!!
+
+        
+        #get the temporary left and right indices for this iteration
+        add $23, $21, $25
+        add $24, $22, $25
+
+
+        #color it
+        #left
+        sw $6, 0($23)	# imem: SHOULD BE SVGA (01111)!!
+        #right
+        sw $6, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+
+        #increment index
+        addi $25, $25, 1
+
+        j loopinit
+
+
+    endouterinit:
+
+        #ran this outer loop 480 times? then you're done!
+        bne $26, $27, endloopinit   # imem: SHOULD BE BEQ (11101)!!!
+
+        #first, increment the outer loop variable
+        addi $26, $26, 1
+
+        #one iteration is done, so add 640 to $21 and $22
+        addi $21, $21, 640
+        addi $22, $22, 640
+
+        #now set loop var to 0 and loop again 15 times
+        add $25, $0, $0 #inner loop var 0
+        j loopinit
+
+
+  	endloopinit:
+        #cell all filled, clear the variables and move down
+        add $6, $0, $0
+        add $20, $0, $0
+        add $21, $0, $0
+        add $22, $0, $0
+        add $23, $0, $0
+        add $24, $0, $0
+        add $25, $0, $0
+        add $26, $0, $0
+#########################################################
+
+
 #Initial turtle coordinate is the center of the grid
 #Starting (15, 15), North, Red
 addi $10, $0, 15
@@ -24,6 +103,25 @@ addi $13, $0, 0
 
 #Default $30: pen down (1).  pen up is (0)
 addi $30, $0, 1
+
+
+
+
+###MAIN LOOP###
+MAINLOOP:
+
+#detect a command
+#use $28: newcommand flag
+
+#if $28==1, set $28 == 0 and parse the command 
+#if $28==0, ignore and move on
+
+
+
+
+
+j MAINLOOP
+###END OF MAIN LOOP###
 
 
 
@@ -2048,7 +2146,71 @@ modfour_l:
     addi $9, $0, 0
 
     div $7, $4, $6
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
     mul $8, $6, $7
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
     sub $9, $4, $8
 
     #store it back to $4
@@ -2076,7 +2238,71 @@ modfour_r:
     addi $9, $0, 0
 
     div $7, $4, $6
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
     mul $8, $6, $7
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
     sub $9, $4, $8
 
     #store it back to $4
