@@ -60,7 +60,7 @@ southf:
     j endforward
 westf:
     #sub from x
-    sub $11, $11, $4
+    sub $10, $10, $4
     j endforward
 
 
@@ -108,7 +108,7 @@ northb:
     j endbackward
 eastb:
     #sub from x
-    sub $11, $11, $4
+    sub $10, $10, $4
     j endbackward
 southb:
     #sub from y
