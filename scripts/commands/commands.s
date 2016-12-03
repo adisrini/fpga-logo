@@ -97,27 +97,27 @@ endcurrent_to_prevb:
     #$12 has the angle
     #Determine direction it's currently facing
     #and call a subroutine that moves it backward
-    beq $12, $0, northb
-    beq $12, $1, eastb
-    beq $12, $2, southb
-    beq $12, $3, westb
+    bne $12, $0, northb     #imem SHOULD BE BEQ
+    bne $12, $1, eastb      #imem SHOULD BE BEQ
+    bne $12, $2, southb     #imem SHOULD BE BEQ
+    bne $12, $3, westb      #imem SHOULD BE BEQ
 
 northb:
     #add to y
     add $11, $11, $4
-    j endforward
+    j endbackward
 eastb:
     #sub from x
     sub $11, $11, $4
-    j endforward
+    j endbackward
 southb:
     #sub from y
     sub $11, $11, $4
-    j endforward
+    j endbackward
 westb:
     #add to x
     add $10, $10, $4
-    j endforward
+    j endbackward
 
 
 endbackward:
@@ -175,10 +175,10 @@ DRAW_BACKWARD:
 
     #Determine direction it's currently facing
     #and call a subroutine that moves it forward
-    beq $12, $0, drawnorthb
-    beq $12, $1, draweastb
-    beq $12, $2, drawsouthb
-    beq $12, $3, drawwestb
+    bne $12, $0, drawnorthb     #imem SHOULD BE BEQ
+    bne $12, $1, draweastb      #imem SHOULD BE BEQ
+    bne $12, $2, drawsouthb     #imem SHOULD BE BEQ
+    bne $12, $3, drawwestb      #imem SHOULD BE BEQ
 
 drawnorthb:
     #increment y
@@ -188,7 +188,7 @@ drawnorthb:
     drawnorthb_loop:
 
         #if $7 == $11, end
-        beq $7, $11, enddrawbackward
+        bne $7, $11, enddrawbackward      #imem SHOULD BE BEQ
         #else, leave a trail and increment
         #SVGA CODE HERE
         j DRAW_FILLCELL1
@@ -209,7 +209,7 @@ draweastb:
     draweastb_loop:
 
         #if $6 == $10, end
-        beq $6, $10, enddrawbackward
+        bne $6, $10, enddrawbackward      #imem SHOULD BE BEQ
         #else, leave a trail and increment
         #SVGA CODE HERE
         j DRAW_FILLCELL2
@@ -230,7 +230,7 @@ drawsouthb:
     drawsouthb_loop:
 
         #if $7 == $11, end
-        beq $7, $11, enddrawbackward
+        bne $7, $11, enddrawbackward      #imem SHOULD BE BEQ
         #else, leave a trail and decrement
         #SVGA CODE HERE
         j DRAW_FILLCELL3
@@ -251,7 +251,7 @@ drawwestb:
     drawwestb_loop:
 
         #if $6 == $10, end
-        beq $6, $10, enddrawbackward
+        bne $6, $10, enddrawbackward      #imem SHOULD BE BEQ
         #else, leave a trail and increment
         #SVGA CODE HERE
         j DRAW_FILLCELL4
@@ -325,7 +325,7 @@ draweastf:
     draweastf_loop:
 
         #if $6 == $10, end
-        beq $6, $10, enddrawforward
+        bne $6, $10, enddrawforward      #imem SHOULD BE BEQ
         #else, leave a trail and increment
         #SVGA CODE HERE
         j DRAW_FILLCELL6
@@ -347,7 +347,7 @@ drawsouthf:
     drawsouthf_loop:
 
         #if $7 == $11, end
-        beq $7, $11, enddrawforward
+        bne $7, $11, enddrawforward      #imem SHOULD BE BEQ
         #else, leave a trail and increment
         #SVGA CODE HERE
         j DRAW_FILLCELL7
@@ -369,7 +369,7 @@ drawwestf:
     drawwestf_loop:
 
         #if $6 == $10, end
-        beq $6, $10, enddrawforward
+        bne $6, $10, enddrawforward      #imem SHOULD BE BEQ
         #else, leave a trail and increment
         #SVGA CODE HERE
         j DRAW_FILLCELL8
@@ -491,7 +491,7 @@ DRAW_FILLCELL1:
 
     loopcol11:
 
-        bne $23, $22, endloop11 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+        bne $23, $22, endloop11 #$22=15	  #imem: SHOULD BE BEQ (11101)!!!
 
         #get the index for this iteration
         #$24 is the temporary index
@@ -513,7 +513,7 @@ DRAW_FILLCELL1:
     endloop11:
 
         #ran this outer loop 15 times? then you're done!
-        bne $27, $22, endloop21	# imem: SHOULD BE BEQ (11101)!!
+        bne $27, $22, endloop21	#imem: SHOULD BE BEQ (11101)!!
 
         #first, increment the outer loop variable
         addi $27, $27, 1
@@ -536,7 +536,7 @@ DRAW_FILLCELL1:
         add $27, $0, $0
 
     j ENDDRAW_FILLCELL1
-    
+
 ###FILLCELL: svga wrapper for svga per cell for lines
 DRAW_FILLCELL2:
     #Put the svga snippet here
@@ -635,14 +635,14 @@ DRAW_FILLCELL2:
 
     loopcol12:
 
-        bne $23, $22, endloop12 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+        bne $23, $22, endloop12 #$22=15	  #imem: SHOULD BE BEQ (11101)!!!
 
         #get the index for this iteration
         #$24 is the temporary index
         add $24, $20, $23
 
         #color it
-        sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+        sw $13, 0($24)	#imem: SHOULD BE SVGA (01111)!!
         #svga $13, 0($24) #TODO: change to svga! : hl130
 
         #increment index
@@ -657,7 +657,7 @@ DRAW_FILLCELL2:
     endloop12:
 
         #ran this outer loop 15 times? then you're done!
-        bne $27, $22, endloop22	# imem: SHOULD BE BEQ (11101)!!
+        bne $27, $22, endloop22	#imem: SHOULD BE BEQ (11101)!!
 
         #first, increment the outer loop variable
         addi $27, $27, 1
@@ -680,7 +680,7 @@ DRAW_FILLCELL2:
         add $27, $0, $0
 
     j ENDDRAW_FILLCELL2
-    
+
 ###FILLCELL: svga wrapper for svga per cell for lines
 DRAW_FILLCELL3:
     #Put the svga snippet here
@@ -779,14 +779,14 @@ DRAW_FILLCELL3:
 
     loopcol13:
 
-        bne $23, $22, endloop13 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+        bne $23, $22, endloop13 #$22=15	  #imem: SHOULD BE BEQ (11101)!!!
 
         #get the index for this iteration
         #$24 is the temporary index
         add $24, $20, $23
 
         #color it
-        sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+        sw $13, 0($24)	#imem: SHOULD BE SVGA (01111)!!
         #svga $13, 0($24) #TODO: change to svga! : hl130
 
         #increment index
@@ -801,7 +801,7 @@ DRAW_FILLCELL3:
     endloop13:
 
         #ran this outer loop 15 times? then you're done!
-        bne $27, $22, endloop23	# imem: SHOULD BE BEQ (11101)!!
+        bne $27, $22, endloop23	#imem: SHOULD BE BEQ (11101)!!
 
         #first, increment the outer loop variable
         addi $27, $27, 1
@@ -824,7 +824,7 @@ DRAW_FILLCELL3:
         add $27, $0, $0
 
     j ENDDRAW_FILLCELL3
-    
+
 ###FILLCELL: svga wrapper for svga per cell for lines
 DRAW_FILLCELL4:
     #Put the svga snippet here
@@ -923,14 +923,14 @@ DRAW_FILLCELL4:
 
     loopcol14:
 
-        bne $23, $22, endloop14 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+        bne $23, $22, endloop14 #$22=15	  #imem: SHOULD BE BEQ (11101)!!!
 
         #get the index for this iteration
         #$24 is the temporary index
         add $24, $20, $23
 
         #color it
-        sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+        sw $13, 0($24)	#imem: SHOULD BE SVGA (01111)!!
         #svga $13, 0($24) #TODO: change to svga! : hl130
 
         #increment index
@@ -945,7 +945,7 @@ DRAW_FILLCELL4:
     endloop14:
 
         #ran this outer loop 15 times? then you're done!
-        bne $27, $22, endloop24	# imem: SHOULD BE BEQ (11101)!!
+        bne $27, $22, endloop24	#imem: SHOULD BE BEQ (11101)!!
 
         #first, increment the outer loop variable
         addi $27, $27, 1
@@ -968,7 +968,7 @@ DRAW_FILLCELL4:
         add $27, $0, $0
 
     j ENDDRAW_FILLCELL4
-    
+
 ###FILLCELL: svga wrapper for svga per cell for lines
 DRAW_FILLCELL5:
     #Put the svga snippet here
@@ -1067,14 +1067,14 @@ DRAW_FILLCELL5:
 
     loopcol15:
 
-        bne $23, $22, endloop15 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+        bne $23, $22, endloop15 #$22=15	  #imem: SHOULD BE BEQ (11101)!!!
 
         #get the index for this iteration
         #$24 is the temporary index
         add $24, $20, $23
 
         #color it
-        sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+        sw $13, 0($24)	#imem: SHOULD BE SVGA (01111)!!
         #svga $13, 0($24) #TODO: change to svga! : hl130
 
         #increment index
@@ -1089,7 +1089,7 @@ DRAW_FILLCELL5:
     endloop15:
 
         #ran this outer loop 15 times? then you're done!
-        bne $27, $22, endloop25	# imem: SHOULD BE BEQ (11101)!!
+        bne $27, $22, endloop25	#imem: SHOULD BE BEQ (11101)!!
 
         #first, increment the outer loop variable
         addi $27, $27, 1
@@ -1112,7 +1112,7 @@ DRAW_FILLCELL5:
         add $27, $0, $0
 
     j ENDDRAW_FILLCELL5
-    
+
 ###FILLCELL: svga wrapper for svga per cell for lines
 DRAW_FILLCELL6:
     #Put the svga snippet here
@@ -1211,14 +1211,14 @@ DRAW_FILLCELL6:
 
     loopcol16:
 
-        bne $23, $22, endloop16 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+        bne $23, $22, endloop16 #$22=15	  #imem: SHOULD BE BEQ (11101)!!!
 
         #get the index for this iteration
         #$24 is the temporary index
         add $24, $20, $23
 
         #color it
-        sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+        sw $13, 0($24)	#imem: SHOULD BE SVGA (01111)!!
         #svga $13, 0($24) #TODO: change to svga! : hl130
 
         #increment index
@@ -1233,7 +1233,7 @@ DRAW_FILLCELL6:
     endloop16:
 
         #ran this outer loop 15 times? then you're done!
-        bne $27, $22, endloop26	# imem: SHOULD BE BEQ (11101)!!
+        bne $27, $22, endloop26	#imem: SHOULD BE BEQ (11101)!!
 
         #first, increment the outer loop variable
         addi $27, $27, 1
@@ -1256,7 +1256,7 @@ DRAW_FILLCELL6:
         add $27, $0, $0
 
     j ENDDRAW_FILLCELL6
-    
+
 ###FILLCELL: svga wrapper for svga per cell for lines
 DRAW_FILLCELL7:
     #Put the svga snippet here
@@ -1355,14 +1355,14 @@ DRAW_FILLCELL7:
 
     loopcol17:
 
-        bne $23, $22, endloop17 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+        bne $23, $22, endloop17 #$22=15	  #imem: SHOULD BE BEQ (11101)!!!
 
         #get the index for this iteration
         #$24 is the temporary index
         add $24, $20, $23
 
         #color it
-        sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+        sw $13, 0($24)	#imem: SHOULD BE SVGA (01111)!!
         #svga $13, 0($24) #TODO: change to svga! : hl130
 
         #increment index
@@ -1377,7 +1377,7 @@ DRAW_FILLCELL7:
     endloop17:
 
         #ran this outer loop 15 times? then you're done!
-        bne $27, $22, endloop27	# imem: SHOULD BE BEQ (11101)!!
+        bne $27, $22, endloop27	#imem: SHOULD BE BEQ (11101)!!
 
         #first, increment the outer loop variable
         addi $27, $27, 1
@@ -1400,8 +1400,8 @@ DRAW_FILLCELL7:
         add $27, $0, $0
 
     j ENDDRAW_FILLCELL7
-    
-    
+
+
 ###FILLCELL: svga wrapper for svga per cell for lines
 DRAW_FILLCELL8:
     #Put the svga snippet here
@@ -1500,14 +1500,14 @@ DRAW_FILLCELL8:
 
     loopcol18:
 
-        bne $23, $22, endloop18 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+        bne $23, $22, endloop18 #$22=15	  #imem: SHOULD BE BEQ (11101)!!!
 
         #get the index for this iteration
         #$24 is the temporary index
         add $24, $20, $23
 
         #color it
-        sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+        sw $13, 0($24)	#imem: SHOULD BE SVGA (01111)!!
         #svga $13, 0($24) #TODO: change to svga! : hl130
 
         #increment index
@@ -1522,7 +1522,7 @@ DRAW_FILLCELL8:
     endloop18:
 
         #ran this outer loop 15 times? then you're done!
-        bne $27, $22, endloop28	# imem: SHOULD BE BEQ (11101)!!
+        bne $27, $22, endloop28	#imem: SHOULD BE BEQ (11101)!!
 
         #first, increment the outer loop variable
         addi $27, $27, 1
@@ -1545,7 +1545,7 @@ DRAW_FILLCELL8:
         add $27, $0, $0
 
     j ENDDRAW_FILLCELL8
-    
+
 
 
 
@@ -1990,8 +1990,8 @@ TURTLE_FILLCELLB:
         add $27, $0, $0
 
     j ENDTURTLE_FILLCELLB
-    
-    
+
+
 ###LEFT ROTATE: lrt x
 LEFTROTATE:
     #$12 has current direction
