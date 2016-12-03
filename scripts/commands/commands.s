@@ -71,9 +71,9 @@ westf:
 endforward:
 
     #draw turtle at the new location
-    j TURTLE_FILLCELL
+    j TURTLE_FILLCELLF
     nop
-    ENDTURTLE_FILLCELL:
+    ENDTURTLE_FILLCELLF:
 
     #draw here
     j DRAW_FORWARD
@@ -123,9 +123,9 @@ westb:
 endbackward:
 
     #draw turtle at the new location
-    j TURTLE_FILLCELL
+    j TURTLE_FILLCELLB
     nop
-    ENDTURTLE_FILLCELL:
+    ENDTURTLE_FILLCELLB:
 
     #draw here
     j DRAW_BACKWARD
@@ -550,7 +550,7 @@ DRAW_FILLCELL:
 
 
 ###TURTLE_FILLCELL: svga wrapper for svga per cell for rendering turtle
-TURTLE_FILLCELL:
+TURTLE_FILLCELLF:
   	#Put the svga snippet here
   	#Use $10 for x, $11 for y, $12 for direction, use DMEM
 
@@ -717,9 +717,9 @@ TURTLE_FILLCELL:
     #$25: color value for turtle from DMEM
     #$26: offset in DMEM [0, 254]
 
-    loopcol1t:
+    loopcol1tf:
 
-        bne $23, $22, endloop1t #$22=15	imem: SHOULD BE BEQ (11101)!!!
+        bne $23, $22, endloop1tf #$22=15	imem: SHOULD BE BEQ (11101)!!!
 
         #get the index for this iteration
         #$24 is the temporary index
@@ -740,13 +740,13 @@ TURTLE_FILLCELL:
         #increment DMEM offset
         addi $26, $26, 1
 
-        j loopcol1t
+        j loopcol1tf
 
 
-    endloop1t:
+    endloop1tf:
 
         #ran this outer loop 15 times? then you're done!
-        bne $27, $22, endloop2t   # imem: SHOULD BE BEQ (11101)!!!
+        bne $27, $22, endloop2tf   # imem: SHOULD BE BEQ (11101)!!!
 
         #first, increment the outer loop variable
         addi $27, $27, 1
@@ -756,10 +756,10 @@ TURTLE_FILLCELL:
 
         #now set loop var to 0 and loop again 15 times
         add $23, $0, $0 #inner loop var 0
-        j loopcol1t
+        j loopcol1tf
 
 
-  	endloop2t:
+  	endloop2tf:
         #cell all filled, clear the variables and return
         add $20, $0, $0
         add $21, $0, $0
@@ -768,9 +768,230 @@ TURTLE_FILLCELL:
         add $24, $0, $0
         add $27, $0, $0
 
-    j ENDTURTLE_FILLCELL
+    j ENDTURTLE_FILLCELLF
+
+###TURTLE_FILLCELL: svga wrapper for svga per cell for rendering turtle
+TURTLE_FILLCELLB:
+  	#Put the svga snippet here
+  	#Use $10 for x, $11 for y, $12 for direction, use DMEM
+
+  	#Initialize temp registers
+  	add $20, $0, $0
+    add $21, $0, $0
+    add $22, $0, $0
+    add $23, $0, $0
+    add $24, $0, $0
+    add $25, $0, $0
+    addi $26, $0, 225   # temporarily store size of turtle image, used to index orientation
+    mul $26, $12, $26   # multiply orientation by 225 to find starting location
+    # TODO: incorporate turtle image being used (turtle1, turtle2, turtle3) to find $26
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
 
 
+    #calculate top left starting pixel index
+    #and store it in $20
+    #(640*row) + col + 80 = (640*y) + x + 80
+    #$21 = 640
+    #row = $11, col = $10 !!
+    addi $27, $0, 15
+    addi $21, $0, 640
+    mul $20, $21, $11   # $20 = 640 * y
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    mul $20, $20, $27   # $20 = (640 * y) * 15
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    mul $27, $10, $27       # $27 = x * 15
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    add $20, $20, $27       # $20 = (640 * y) * 15 + x * 15
+    addi $20, $20, 80       # $20 = (640*15y) + 15x + 80
+    addi $27, $0, 1         # reset $27 to 1
+
+    #$22 = 15 (go from 0 to 14)
+    #$23, $24 are loop variables
+    addi $22, $0, 15
+    addi $23, $0, 0
+    addi $24, $0, 0
+
+    #$25: color value for turtle from DMEM
+    #$26: offset in DMEM [0, 254]
+
+    loopcol1tb:
+
+        bne $23, $22, endloop1tb #$22=15	imem: SHOULD BE BEQ (11101)!!!
+
+        #get the index for this iteration
+        #$24 is the temporary index
+        add $24, $20, $23
+
+
+        #color it
+
+        #first, load from DMEM using DMEM offset
+        lw $25, 0($26)
+
+        sw $25, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+        #svga $25, 0($24) #TODO: change to svga! : hl130
+
+        #increment index
+        addi $23, $23, 1
+
+        #increment DMEM offset
+        addi $26, $26, 1
+
+        j loopcol1tb
+
+
+    endloop1tb:
+
+        #ran this outer loop 15 times? then you're done!
+        bne $27, $22, endloop2tb   # imem: SHOULD BE BEQ (11101)!!!
+
+        #first, increment the outer loop variable
+        addi $27, $27, 1
+
+        #one iteration is done, so add 640 to $20
+        add $20, $20, $21
+
+        #now set loop var to 0 and loop again 15 times
+        add $23, $0, $0 #inner loop var 0
+        j loopcol1tb
+
+
+  	endloop2tb:
+        #cell all filled, clear the variables and return
+        add $20, $0, $0
+        add $21, $0, $0
+        add $22, $0, $0
+        add $23, $0, $0
+        add $24, $0, $0
+        add $27, $0, $0
+
+    j ENDTURTLE_FILLCELLB
+    
+    
 ###LEFT ROTATE: lrt x
 LEFTROTATE:
     #$12 has current direction
