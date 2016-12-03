@@ -33,10 +33,10 @@ addi $30, $0, 1
 ###FORWARD: fwd x
 FORWARD:
     #Save current state to previous state
-    j current_to_prev
+    j current_to_prevf
     nop
     #return address pointer for current_to_prev
-endcurrent_to_prev:
+endcurrent_to_prevf:
 
     #$12 has the angle
     #Determine direction it's currently facing
@@ -89,10 +89,10 @@ endforward:
 ###BACKWARD: bkd x
 BACKWARD:
     #Save current state to previous state
-    j current_to_prev
+    j current_to_prevb
     nop
     #return address pointer for current_to_prev
-endcurrent_to_prev:
+endcurrent_to_prevb:
 
     #$12 has the angle
     #Determine direction it's currently facing
@@ -140,7 +140,7 @@ endbackward:
 
     
 ###SAVE CURRENT STATE TO PREVIOUS STATE
-current_to_prev:
+current_to_prevf:
     #move $10-$13 to $14-$17
     add $14, $0, $10
     add $15, $0, $11
@@ -148,9 +148,19 @@ current_to_prev:
     add $17, $0, $13 
     
     #back to the subroutine
-    j endcurrent_to_prev
+    j endcurrent_to_prevf
     
+###SAVE CURRENT STATE TO PREVIOUS STATE
+current_to_prevb:
+    #move $10-$13 to $14-$17
+    add $14, $0, $10
+    add $15, $0, $11
+    add $16, $0, $12
+    add $17, $0, $13 
     
+    #back to the subroutine
+    j endcurrent_to_prevb   
+ 
 
 ###DRAWBACKWARD: bkd x
 DRAW_BACKWARD:
