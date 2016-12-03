@@ -2048,7 +2048,71 @@ modfour_l:
     addi $9, $0, 0
 
     div $7, $4, $6
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
     mul $8, $6, $7
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
     sub $9, $4, $8
 
     #store it back to $4
@@ -2076,7 +2140,71 @@ modfour_r:
     addi $9, $0, 0
 
     div $7, $4, $6
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
     mul $8, $6, $7
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
     sub $9, $4, $8
 
     #store it back to $4
