@@ -34,8 +34,8 @@ addi $3, $0, 3 #west
     #$20 is constant: 80 for 80 iterations for left and right
     addi $20, $0, 80
     
-    #$27 is constant: 480 for 480 iterations vertically
-    addi $27, $0, 480
+    #$27 is constant: 479 for 480 iterations vertically
+    addi $27, $0, 479
     
     #two startpoints (left and right)
     addi $21, $0, 0
