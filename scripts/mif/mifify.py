@@ -10,7 +10,7 @@ def read_mif_file(path):
 def write_index_file(sorted_indices, path):
     text_file = open(path + "/index/index.mif", "w")
     for tup in sorted_indices:
-        text_file.write(hex(tup[1])[2:] + "  :  " + tup[0] + "\n")
+        text_file.write(hex(tup[1])[2:] + ":" + tup[0] + ";\n")
     text_file.close()
 
 def generate_indices(mif_files, start):
@@ -36,7 +36,7 @@ def write_dmem_file(indices, path, start):
             components = line.split(':')
             index = components[0].strip()
             color = components[1].strip()
-            dmem_file.write(hex(pos)[2:] + "  :  " + bin(indices[color])[2:] + "\n")
+            dmem_file.write(hex(pos)[2:] + ":" + bin(indices[color])[2:] + ";\n")
             pos += 1
     dmem_file.close()
 
