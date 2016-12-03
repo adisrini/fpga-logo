@@ -191,9 +191,9 @@ drawnorthb:
         beq $7, $11, enddrawbackward
         #else, leave a trail and increment
         #SVGA CODE HERE
-        j DRAW_FILLCELL
+        j DRAW_FILLCELL1
         nop
-        ENDDRAW_FILLCELL:
+        ENDDRAW_FILLCELL1:
         addi $7, $7, 1
         #loop
         j drawnorthb_loop
@@ -212,9 +212,9 @@ draweastb:
         beq $6, $10, enddrawbackward
         #else, leave a trail and increment
         #SVGA CODE HERE
-        j DRAW_FILLCELL
+        j DRAW_FILLCELL2
         nop
-        ENDDRAW_FILLCELL:
+        ENDDRAW_FILLCELL2:
         addi $6, $6, -1
         #loop
         j draweastb_loop
@@ -233,9 +233,9 @@ drawsouthb:
         beq $7, $11, enddrawbackward
         #else, leave a trail and decrement
         #SVGA CODE HERE
-        j DRAW_FILLCELL
+        j DRAW_FILLCELL3
         nop
-        ENDDRAW_FILLCELL:
+        ENDDRAW_FILLCELL3:
         addi $7, $7, -1
         #loop
         j drawsouthb_loop
@@ -254,9 +254,9 @@ drawwestb:
         beq $6, $10, enddrawbackward
         #else, leave a trail and increment
         #SVGA CODE HERE
-        j DRAW_FILLCELL
+        j DRAW_FILLCELL4
         nop
-        ENDDRAW_FILLCELL:
+        ENDDRAW_FILLCELL4:
         addi $6, $6, 1
         #loop
         j drawwestb_loop
@@ -306,9 +306,9 @@ drawnorthf:
         bne $7, $11, enddrawforward     #imem SHOULD BE BEQ
         #else, leave a trail and decrement
         #SVGA CODE HERE
-        j DRAW_FILLCELL
+        j DRAW_FILLCELL5
         nop
-        ENDDRAW_FILLCELL:
+        ENDDRAW_FILLCELL5:
         addi $7, $7, -1
         #loop
         j drawnorthf_loop
@@ -328,9 +328,9 @@ draweastf:
         beq $6, $10, enddrawforward
         #else, leave a trail and increment
         #SVGA CODE HERE
-        j DRAW_FILLCELL
+        j DRAW_FILLCELL6
         nop
-        ENDDRAW_FILLCELL:
+        ENDDRAW_FILLCELL6:
         addi $6, $6, 1
         #loop
         j draweastf_loop
@@ -350,9 +350,9 @@ drawsouthf:
         beq $7, $11, enddrawforward
         #else, leave a trail and increment
         #SVGA CODE HERE
-        j DRAW_FILLCELL
+        j DRAW_FILLCELL7
         nop
-        ENDDRAW_FILLCELL:
+        ENDDRAW_FILLCELL7:
         addi $7, $7, 1
         #loop
         j drawsouthf_loop
@@ -372,9 +372,9 @@ drawwestf:
         beq $6, $10, enddrawforward
         #else, leave a trail and increment
         #SVGA CODE HERE
-        j DRAW_FILLCELL
+        j DRAW_FILLCELL8
         nop
-        ENDDRAW_FILLCELL:
+        ENDDRAW_FILLCELL8:
         addi $6, $6, -1
         #loop
         j drawwestf_loop
@@ -394,7 +394,7 @@ enddrawforward:
 
 
 ###FILLCELL: svga wrapper for svga per cell for lines
-DRAW_FILLCELL:
+DRAW_FILLCELL1:
     #Put the svga snippet here
     #Use $6 for x, $7 for y, $13 for color
 
@@ -489,9 +489,9 @@ DRAW_FILLCELL:
     addi $24, $0, 0
     addi $27, $0, 1
 
-    loopcol1:
+    loopcol11:
 
-        bne $23, $22, endloop1 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+        bne $23, $22, endloop11 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
 
         #get the index for this iteration
         #$24 is the temporary index
@@ -505,15 +505,15 @@ DRAW_FILLCELL:
         addi $23, $23, 1
 
 
-        j loopcol1
+        j loopcol11
 
 
 
 
-    endloop1:
+    endloop11:
 
         #ran this outer loop 15 times? then you're done!
-        bne $27, $22, endloop2	# imem: SHOULD BE BEQ (11101)!!
+        bne $27, $22, endloop21	# imem: SHOULD BE BEQ (11101)!!
 
         #first, increment the outer loop variable
         addi $27, $27, 1
@@ -523,10 +523,10 @@ DRAW_FILLCELL:
 
         #now set loop var to 0 and loop again 15 times
         add $23, $0, $0 #inner loop var 0
-        j loopcol1
+        j loopcol11
 
 
-    endloop2:
+    endloop21:
         #cell all filled, clear the variables and return
         add $20, $0, $0
         add $21, $0, $0
@@ -535,7 +535,1018 @@ DRAW_FILLCELL:
         add $24, $0, $0
         add $27, $0, $0
 
-    j ENDDRAW_FILLCELL
+    j ENDDRAW_FILLCELL1
+    
+###FILLCELL: svga wrapper for svga per cell for lines
+DRAW_FILLCELL2:
+    #Put the svga snippet here
+    #Use $6 for x, $7 for y, $13 for color
+
+    #Initialize temp registers
+    add $20, $0, $0
+    add $21, $0, $0
+    add $22, $0, $0
+    add $23, $0, $0
+    add $24, $0, $0
+
+    #calculate top left starting pixel index
+    #and store it in $20
+    #(640*15*row) + 15*col + 80 = (640*15*y) + 15*x + 80
+    #$21 = 640*15
+    #row = $7, col = $6 !!
+    addi $27, $0, 15
+    addi $21, $0, 9600
+    mul $20, $21, $7		# $20 = 640 * 15 * y
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    mul $27, $27, $6		# $27 = 15x
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    add $20, $20, $27		# $20 = (640 * 15 * y) + 15x
+    addi $20, $20, 80		# $20 = (640 * 15 * y) + 15x + 80
+    addi $21, $0, 640       # reset $21 to hold 640
+
+    #$22 = 15 (go from 0 to 14)
+    #$23, $24 are loop variables
+    addi $22, $0, 15
+    addi $23, $0, 0
+    addi $24, $0, 0
+    addi $27, $0, 1
+
+    loopcol12:
+
+        bne $23, $22, endloop12 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+
+        #get the index for this iteration
+        #$24 is the temporary index
+        add $24, $20, $23
+
+        #color it
+        sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+        #svga $13, 0($24) #TODO: change to svga! : hl130
+
+        #increment index
+        addi $23, $23, 1
+
+
+        j loopcol12
+
+
+
+
+    endloop12:
+
+        #ran this outer loop 15 times? then you're done!
+        bne $27, $22, endloop22	# imem: SHOULD BE BEQ (11101)!!
+
+        #first, increment the outer loop variable
+        addi $27, $27, 1
+
+        #one iteration is done, so add 640 to $20
+        add $20, $20, $21
+
+        #now set loop var to 0 and loop again 15 times
+        add $23, $0, $0 #inner loop var 0
+        j loopcol12
+
+
+    endloop22:
+        #cell all filled, clear the variables and return
+        add $20, $0, $0
+        add $21, $0, $0
+        add $22, $0, $0
+        add $23, $0, $0
+        add $24, $0, $0
+        add $27, $0, $0
+
+    j ENDDRAW_FILLCELL2
+    
+###FILLCELL: svga wrapper for svga per cell for lines
+DRAW_FILLCELL3:
+    #Put the svga snippet here
+    #Use $6 for x, $7 for y, $13 for color
+
+    #Initialize temp registers
+    add $20, $0, $0
+    add $21, $0, $0
+    add $22, $0, $0
+    add $23, $0, $0
+    add $24, $0, $0
+
+    #calculate top left starting pixel index
+    #and store it in $20
+    #(640*15*row) + 15*col + 80 = (640*15*y) + 15*x + 80
+    #$21 = 640*15
+    #row = $7, col = $6 !!
+    addi $27, $0, 15
+    addi $21, $0, 9600
+    mul $20, $21, $7		# $20 = 640 * 15 * y
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    mul $27, $27, $6		# $27 = 15x
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    add $20, $20, $27		# $20 = (640 * 15 * y) + 15x
+    addi $20, $20, 80		# $20 = (640 * 15 * y) + 15x + 80
+    addi $21, $0, 640       # reset $21 to hold 640
+
+    #$22 = 15 (go from 0 to 14)
+    #$23, $24 are loop variables
+    addi $22, $0, 15
+    addi $23, $0, 0
+    addi $24, $0, 0
+    addi $27, $0, 1
+
+    loopcol13:
+
+        bne $23, $22, endloop13 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+
+        #get the index for this iteration
+        #$24 is the temporary index
+        add $24, $20, $23
+
+        #color it
+        sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+        #svga $13, 0($24) #TODO: change to svga! : hl130
+
+        #increment index
+        addi $23, $23, 1
+
+
+        j loopcol13
+
+
+
+
+    endloop13:
+
+        #ran this outer loop 15 times? then you're done!
+        bne $27, $22, endloop23	# imem: SHOULD BE BEQ (11101)!!
+
+        #first, increment the outer loop variable
+        addi $27, $27, 1
+
+        #one iteration is done, so add 640 to $20
+        add $20, $20, $21
+
+        #now set loop var to 0 and loop again 15 times
+        add $23, $0, $0 #inner loop var 0
+        j loopcol13
+
+
+    endloop23:
+        #cell all filled, clear the variables and return
+        add $20, $0, $0
+        add $21, $0, $0
+        add $22, $0, $0
+        add $23, $0, $0
+        add $24, $0, $0
+        add $27, $0, $0
+
+    j ENDDRAW_FILLCELL3
+    
+###FILLCELL: svga wrapper for svga per cell for lines
+DRAW_FILLCELL4:
+    #Put the svga snippet here
+    #Use $6 for x, $7 for y, $13 for color
+
+    #Initialize temp registers
+    add $20, $0, $0
+    add $21, $0, $0
+    add $22, $0, $0
+    add $23, $0, $0
+    add $24, $0, $0
+
+    #calculate top left starting pixel index
+    #and store it in $20
+    #(640*15*row) + 15*col + 80 = (640*15*y) + 15*x + 80
+    #$21 = 640*15
+    #row = $7, col = $6 !!
+    addi $27, $0, 15
+    addi $21, $0, 9600
+    mul $20, $21, $7		# $20 = 640 * 15 * y
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    mul $27, $27, $6		# $27 = 15x
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    add $20, $20, $27		# $20 = (640 * 15 * y) + 15x
+    addi $20, $20, 80		# $20 = (640 * 15 * y) + 15x + 80
+    addi $21, $0, 640       # reset $21 to hold 640
+
+    #$22 = 15 (go from 0 to 14)
+    #$23, $24 are loop variables
+    addi $22, $0, 15
+    addi $23, $0, 0
+    addi $24, $0, 0
+    addi $27, $0, 1
+
+    loopcol14:
+
+        bne $23, $22, endloop14 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+
+        #get the index for this iteration
+        #$24 is the temporary index
+        add $24, $20, $23
+
+        #color it
+        sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+        #svga $13, 0($24) #TODO: change to svga! : hl130
+
+        #increment index
+        addi $23, $23, 1
+
+
+        j loopcol14
+
+
+
+
+    endloop14:
+
+        #ran this outer loop 15 times? then you're done!
+        bne $27, $22, endloop24	# imem: SHOULD BE BEQ (11101)!!
+
+        #first, increment the outer loop variable
+        addi $27, $27, 1
+
+        #one iteration is done, so add 640 to $20
+        add $20, $20, $21
+
+        #now set loop var to 0 and loop again 15 times
+        add $23, $0, $0 #inner loop var 0
+        j loopcol14
+
+
+    endloop24:
+        #cell all filled, clear the variables and return
+        add $20, $0, $0
+        add $21, $0, $0
+        add $22, $0, $0
+        add $23, $0, $0
+        add $24, $0, $0
+        add $27, $0, $0
+
+    j ENDDRAW_FILLCELL4
+    
+###FILLCELL: svga wrapper for svga per cell for lines
+DRAW_FILLCELL5:
+    #Put the svga snippet here
+    #Use $6 for x, $7 for y, $13 for color
+
+    #Initialize temp registers
+    add $20, $0, $0
+    add $21, $0, $0
+    add $22, $0, $0
+    add $23, $0, $0
+    add $24, $0, $0
+
+    #calculate top left starting pixel index
+    #and store it in $20
+    #(640*15*row) + 15*col + 80 = (640*15*y) + 15*x + 80
+    #$21 = 640*15
+    #row = $7, col = $6 !!
+    addi $27, $0, 15
+    addi $21, $0, 9600
+    mul $20, $21, $7		# $20 = 640 * 15 * y
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    mul $27, $27, $6		# $27 = 15x
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    add $20, $20, $27		# $20 = (640 * 15 * y) + 15x
+    addi $20, $20, 80		# $20 = (640 * 15 * y) + 15x + 80
+    addi $21, $0, 640       # reset $21 to hold 640
+
+    #$22 = 15 (go from 0 to 14)
+    #$23, $24 are loop variables
+    addi $22, $0, 15
+    addi $23, $0, 0
+    addi $24, $0, 0
+    addi $27, $0, 1
+
+    loopcol15:
+
+        bne $23, $22, endloop15 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+
+        #get the index for this iteration
+        #$24 is the temporary index
+        add $24, $20, $23
+
+        #color it
+        sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+        #svga $13, 0($24) #TODO: change to svga! : hl130
+
+        #increment index
+        addi $23, $23, 1
+
+
+        j loopcol15
+
+
+
+
+    endloop15:
+
+        #ran this outer loop 15 times? then you're done!
+        bne $27, $22, endloop25	# imem: SHOULD BE BEQ (11101)!!
+
+        #first, increment the outer loop variable
+        addi $27, $27, 1
+
+        #one iteration is done, so add 640 to $20
+        add $20, $20, $21
+
+        #now set loop var to 0 and loop again 15 times
+        add $23, $0, $0 #inner loop var 0
+        j loopcol15
+
+
+    endloop25:
+        #cell all filled, clear the variables and return
+        add $20, $0, $0
+        add $21, $0, $0
+        add $22, $0, $0
+        add $23, $0, $0
+        add $24, $0, $0
+        add $27, $0, $0
+
+    j ENDDRAW_FILLCELL5
+    
+###FILLCELL: svga wrapper for svga per cell for lines
+DRAW_FILLCELL6:
+    #Put the svga snippet here
+    #Use $6 for x, $7 for y, $13 for color
+
+    #Initialize temp registers
+    add $20, $0, $0
+    add $21, $0, $0
+    add $22, $0, $0
+    add $23, $0, $0
+    add $24, $0, $0
+
+    #calculate top left starting pixel index
+    #and store it in $20
+    #(640*15*row) + 15*col + 80 = (640*15*y) + 15*x + 80
+    #$21 = 640*15
+    #row = $7, col = $6 !!
+    addi $27, $0, 15
+    addi $21, $0, 9600
+    mul $20, $21, $7		# $20 = 640 * 15 * y
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    mul $27, $27, $6		# $27 = 15x
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    add $20, $20, $27		# $20 = (640 * 15 * y) + 15x
+    addi $20, $20, 80		# $20 = (640 * 15 * y) + 15x + 80
+    addi $21, $0, 640       # reset $21 to hold 640
+
+    #$22 = 15 (go from 0 to 14)
+    #$23, $24 are loop variables
+    addi $22, $0, 15
+    addi $23, $0, 0
+    addi $24, $0, 0
+    addi $27, $0, 1
+
+    loopcol16:
+
+        bne $23, $22, endloop16 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+
+        #get the index for this iteration
+        #$24 is the temporary index
+        add $24, $20, $23
+
+        #color it
+        sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+        #svga $13, 0($24) #TODO: change to svga! : hl130
+
+        #increment index
+        addi $23, $23, 1
+
+
+        j loopcol16
+
+
+
+
+    endloop16:
+
+        #ran this outer loop 15 times? then you're done!
+        bne $27, $22, endloop26	# imem: SHOULD BE BEQ (11101)!!
+
+        #first, increment the outer loop variable
+        addi $27, $27, 1
+
+        #one iteration is done, so add 640 to $20
+        add $20, $20, $21
+
+        #now set loop var to 0 and loop again 15 times
+        add $23, $0, $0 #inner loop var 0
+        j loopcol16
+
+
+    endloop26:
+        #cell all filled, clear the variables and return
+        add $20, $0, $0
+        add $21, $0, $0
+        add $22, $0, $0
+        add $23, $0, $0
+        add $24, $0, $0
+        add $27, $0, $0
+
+    j ENDDRAW_FILLCELL6
+    
+###FILLCELL: svga wrapper for svga per cell for lines
+DRAW_FILLCELL7:
+    #Put the svga snippet here
+    #Use $6 for x, $7 for y, $13 for color
+
+    #Initialize temp registers
+    add $20, $0, $0
+    add $21, $0, $0
+    add $22, $0, $0
+    add $23, $0, $0
+    add $24, $0, $0
+
+    #calculate top left starting pixel index
+    #and store it in $20
+    #(640*15*row) + 15*col + 80 = (640*15*y) + 15*x + 80
+    #$21 = 640*15
+    #row = $7, col = $6 !!
+    addi $27, $0, 15
+    addi $21, $0, 9600
+    mul $20, $21, $7		# $20 = 640 * 15 * y
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    mul $27, $27, $6		# $27 = 15x
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    add $20, $20, $27		# $20 = (640 * 15 * y) + 15x
+    addi $20, $20, 80		# $20 = (640 * 15 * y) + 15x + 80
+    addi $21, $0, 640       # reset $21 to hold 640
+
+    #$22 = 15 (go from 0 to 14)
+    #$23, $24 are loop variables
+    addi $22, $0, 15
+    addi $23, $0, 0
+    addi $24, $0, 0
+    addi $27, $0, 1
+
+    loopcol17:
+
+        bne $23, $22, endloop17 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+
+        #get the index for this iteration
+        #$24 is the temporary index
+        add $24, $20, $23
+
+        #color it
+        sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+        #svga $13, 0($24) #TODO: change to svga! : hl130
+
+        #increment index
+        addi $23, $23, 1
+
+
+        j loopcol17
+
+
+
+
+    endloop17:
+
+        #ran this outer loop 15 times? then you're done!
+        bne $27, $22, endloop27	# imem: SHOULD BE BEQ (11101)!!
+
+        #first, increment the outer loop variable
+        addi $27, $27, 1
+
+        #one iteration is done, so add 640 to $20
+        add $20, $20, $21
+
+        #now set loop var to 0 and loop again 15 times
+        add $23, $0, $0 #inner loop var 0
+        j loopcol17
+
+
+    endloop27:
+        #cell all filled, clear the variables and return
+        add $20, $0, $0
+        add $21, $0, $0
+        add $22, $0, $0
+        add $23, $0, $0
+        add $24, $0, $0
+        add $27, $0, $0
+
+    j ENDDRAW_FILLCELL7
+    
+    
+###FILLCELL: svga wrapper for svga per cell for lines
+DRAW_FILLCELL8:
+    #Put the svga snippet here
+    #Use $6 for x, $7 for y, $13 for color
+
+    #Initialize temp registers
+    add $20, $0, $0
+    add $21, $0, $0
+    add $22, $0, $0
+    add $23, $0, $0
+    add $24, $0, $0
+
+    #calculate top left starting pixel index
+    #and store it in $20
+    #(640*15*row) + 15*col + 80 = (640*15*y) + 15*x + 80
+    #$21 = 640*15
+    #row = $7, col = $6 !!
+    addi $27, $0, 15
+    addi $21, $0, 9600
+    mul $20, $21, $7		# $20 = 640 * 15 * y
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    mul $27, $27, $6		# $27 = 15x
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    add $20, $20, $27		# $20 = (640 * 15 * y) + 15x
+    addi $20, $20, 80		# $20 = (640 * 15 * y) + 15x + 80
+    addi $21, $0, 640       # reset $21 to hold 640
+
+    #$22 = 15 (go from 0 to 14)
+    #$23, $24 are loop variables
+    addi $22, $0, 15
+    addi $23, $0, 0
+    addi $24, $0, 0
+    addi $27, $0, 1
+
+    loopcol18:
+
+        bne $23, $22, endloop18 #$22=15	  imem: SHOULD BE BEQ (11101)!!!
+
+        #get the index for this iteration
+        #$24 is the temporary index
+        add $24, $20, $23
+
+        #color it
+        sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+        #svga $13, 0($24) #TODO: change to svga! : hl130
+
+        #increment index
+        addi $23, $23, 1
+
+
+        j loopcol18
+
+
+
+
+    endloop18:
+
+        #ran this outer loop 15 times? then you're done!
+        bne $27, $22, endloop28	# imem: SHOULD BE BEQ (11101)!!
+
+        #first, increment the outer loop variable
+        addi $27, $27, 1
+
+        #one iteration is done, so add 640 to $20
+        add $20, $20, $21
+
+        #now set loop var to 0 and loop again 15 times
+        add $23, $0, $0 #inner loop var 0
+        j loopcol18
+
+
+    endloop28:
+        #cell all filled, clear the variables and return
+        add $20, $0, $0
+        add $21, $0, $0
+        add $22, $0, $0
+        add $23, $0, $0
+        add $24, $0, $0
+        add $27, $0, $0
+
+    j ENDDRAW_FILLCELL8
+    
+
 
 
 ###TURTLE_FILLCELL: svga wrapper for svga per cell for rendering turtle
