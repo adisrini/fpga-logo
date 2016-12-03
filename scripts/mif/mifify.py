@@ -36,7 +36,7 @@ def write_dmem_file(indices, path, start):
             components = line.split(':')
             index = components[0].strip()
             color = components[1].strip()
-            dmem_file.write(hex(pos)[2:] + ":" + bin(indices[color])[2:] + ";\n")
+            dmem_file.write(str(pos) + ":" + bin(indices[color])[2:] + ";\n")
             pos += 1
     dmem_file.close()
 
