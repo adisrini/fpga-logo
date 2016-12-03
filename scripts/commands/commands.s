@@ -41,10 +41,10 @@ endcurrent_to_prevf:
     #$12 has the angle
     #Determine direction it's currently facing
     #and call a subroutine that moves it forward
-    beq $12, $0, northf
-    beq $12, $1, eastf
-    beq $12, $2, southf
-    beq $12, $3, westf
+    bne $12, $0, northf     #imem SHOULD BE BEQ
+    bne $12, $1, eastf      #imem SHOULD BE BEQ
+    bne $12, $2, southf     #imem SHOULD BE BEQ
+    bne $12, $3, westf      #imem SHOULD BE BEQ
 
 northf:
     #sub from y
@@ -290,10 +290,10 @@ DRAW_FORWARD:
 
     #Determine direction it's currently facing
     #and call a subroutine that moves it forward
-    beq $12, $0, drawnorthf
-    beq $12, $1, draweastf
-    beq $12, $2, drawsouthf
-    beq $12, $3, drawwestf
+    bne $12, $0, drawnorthf     #imem SHOULD BE BEQ
+    bne $12, $1, draweastf      #imem SHOULD BE BEQ
+    bne $12, $2, drawsouthf     #imem SHOULD BE BEQ
+    bne $12, $3, drawwestf      #imem SHOULD BE BEQ
 
 drawnorthf:
     #decrement y
@@ -303,7 +303,7 @@ drawnorthf:
     drawnorthf_loop:
 
         #if $7 == $11, end
-        beq $7, $11, enddrawforward
+        bne $7, $11, enddrawforward     #imem SHOULD BE BEQ
         #else, leave a trail and decrement
         #SVGA CODE HERE
         j DRAW_FILLCELL
@@ -393,12 +393,6 @@ enddrawforward:
     j ENDDRAW_FORWARD
 
 
-
-
-
-
-
-
 ###FILLCELL: svga wrapper for svga per cell for lines
 DRAW_FILLCELL:
     #Put the svga snippet here
@@ -410,11 +404,6 @@ DRAW_FILLCELL:
     add $22, $0, $0
     add $23, $0, $0
     add $24, $0, $0
-
-    # choose x, y, color
-    addi $6, $0, 15
-    addi $7, $0, 31
-    addi $13, $0, 1
 
     #calculate top left starting pixel index
     #and store it in $20
