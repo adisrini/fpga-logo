@@ -1,7 +1,7 @@
-module processor(clock, reset, /*ps2_key_pressed, ps2_out, lcd_write, lcd_data,*/ debug_data_in, debug_address,ctrl_MEM_VGAE,vga_address,vga_data_in);
+module processor(clock, reset, ps2_key_pressed, ps2_out, /*lcd_write, lcd_data,*/ debug_data_in, debug_address,ctrl_MEM_VGAE,vga_address,vga_data_in, instruction_if_id_out);
 
-    input           clock, reset/*, ps2_key_pressed*/;
-    //input     [7:0]   ps2_out;
+    input           clock, reset, ps2_key_pressed;
+    input     [31:0]   ps2_out;
 
     //output            lcd_write;
     //output    [31:0]  lcd_data;
@@ -35,7 +35,8 @@ module processor(clock, reset, /*ps2_key_pressed, ps2_out, lcd_write, lcd_data,*
                     .q              (instruction_if_id_in)
     );
 
-    wire [31:0] instruction_if_id_out, data_PC_PLUS_ONE_if_id_out;
+    output [31:0] instruction_if_id_out;
+	 wire [31:0] data_PC_PLUS_ONE_if_id_out;
     wire [31:0] choose_instruction_if_id_in, intermediate_choose;
     assign intermediate_choose = (ctrl_stall) ? instruction_if_id_out : instruction_if_id_in;
     assign choose_instruction_if_id_in = (ctrl_flush) ? 32'b0 : intermediate_choose;
@@ -301,9 +302,9 @@ stage_MEM_WB mem_wb(clock, reset, 1'b1, data_PC_PLUS_ONE_ex_mem_out, instruction
 				assign data_writeReg = (data_resultRDY) ? multdiv_result : data_writeBack;
 
             // REGISTER WRITES
-            assign_reg_write asgn1(alu_WB_result, data_dmem_out_mem_wb_out, data_PC_PLUS_ONE_mem_wb_out, ctrl_WB_RWd, ctrl_WB_JAL, data_writeBack);
+            assign_reg_write asgn1(alu_WB_result, data_dmem_out_mem_wb_out, data_PC_PLUS_ONE_mem_wb_out, ctrl_WB_RWd, ctrl_WB_JAL, data_writeBack, ps2_key_pressed, ps2_out);
 				
-				assign ctrl_ID_WRITE_REG = (ctrl_WB_JAL) ? 5'b11111 : (data_resultRDY) ? multdiv_reg : data_WB_rd;
+				assign ctrl_ID_WRITE_REG = (ctrl_WB_JAL) ? 5'b11111 : (data_resultRDY) ? multdiv_reg : (ps2_key_pressed) ? 5'b10011: data_WB_rd;
 				assign ctrl_wr_WB = ctrl_ID_WRITE_REG;
 
 endmodule
@@ -547,14 +548,15 @@ module is_zero27bits(in, out);
 endmodule
 
 // ASSIGNS REGISTER VALUE TO WRITE BASED ON CONTROLS
-module assign_reg_write(alu_result, data_dmem_out, data_PC_PLUS_ONE, ctrl_RWd, ctrl_JAL, data_writeReg);
-    input [31:0] alu_result, data_dmem_out, data_PC_PLUS_ONE;
-    input ctrl_RWd, ctrl_JAL;
+module assign_reg_write(alu_result, data_dmem_out, data_PC_PLUS_ONE, ctrl_RWd, ctrl_JAL, data_writeReg, ps2_key_pressed, ps2_out);
+    input [31:0] alu_result, data_dmem_out, data_PC_PLUS_ONE,ps2_out;
+    input ctrl_RWd, ctrl_JAL,ps2_key_pressed;
     output [31:0] data_writeReg;
 
-    wire [31:0] intermediate;
-    assign intermediate = (ctrl_RWd) ? data_dmem_out : alu_result;
-    assign data_writeReg = (ctrl_JAL) ? data_PC_PLUS_ONE : intermediate;
+    wire [31:0] intermediate1, intermediate2;
+    assign intermediate1 = (ctrl_RWd) ? data_dmem_out : alu_result;
+	 assign intermediate2 = (ps2_key_pressed) ? ps2_out : intermediate1;
+    assign data_writeReg = (ctrl_JAL) ? data_PC_PLUS_ONE : intermediate2;
 endmodule
 
 // ASSIGNS ALU OPERANDS BASED ON CONTROLS

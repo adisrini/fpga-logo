@@ -59,7 +59,12 @@ module skeleton(resetn,
 	reg trigger;
 	wire [1:0] position;
 	
-	always @(posedge ps2_clock)
+	initial
+	begin
+	last_pressed <= data_ps2ascii;
+	end
+	
+	always @(posedge ps2_key_pressed)
 	begin
 	if(~(data_ps2ascii == last_pressed))
 		begin
@@ -77,9 +82,9 @@ module skeleton(resetn,
 	wire [18:0] sk_vga_address;
 	
 	position_counter pos_count(position, 1'b1, ps2_key_pressed, ~resetn);
-	
+
 	// your processor
-	processor myprocessor(clock, ~resetn, /*ps2_key_pressed, ps2_out, lcd_write_en, lcd_write_data,*/ debug_data_in, debug_addr,sk_ctrl_MEM_VGAE, sk_vga_address,sk_vga_data_in);
+	processor myprocessor(clock, ~resetn, trigger, data_ps2ascii, /*lcd_write_en, lcd_write_data,*/ debug_data_in, debug_addr,sk_ctrl_MEM_VGAE, sk_vga_address,sk_vga_data_in);
 	
 	// keyboard controller
 	PS2_Interface myps2(clock, resetn, ps2_clock, ps2_data, ps2_key_data, ps2_key_pressed, ps2_out);
@@ -102,6 +107,9 @@ module skeleton(resetn,
 	wire [3:0] trigger_4;
 	assign trigger_4 = trigger;
 	
+	wire [3:0] pos_count_4;
+	assign pos_count_4 = position;
+	
 	wire [31:0] command;
 	
 	// character filling
@@ -119,7 +127,7 @@ module skeleton(resetn,
 	Hexadecimal_To_Seven_Segment hex4(command[7:4], seg4);
 	Hexadecimal_To_Seven_Segment hex5(command[11:8], seg5);
 	Hexadecimal_To_Seven_Segment hex6(command[15:12], seg6);
-	Hexadecimal_To_Seven_Segment hex7(trigger_4, seg7);
+	Hexadecimal_To_Seven_Segment hex7(pos_count_4, seg7);
 	Hexadecimal_To_Seven_Segment hex8(ps2_clock_4, seg8);
 	
 	// some LEDs that you could use for debugging if you wanted

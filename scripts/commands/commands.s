@@ -143,6 +143,10 @@ nop
 #compare the instruction binary and jal to it
 
     #FWD
+	
+	addi $8, $0, 16
+	addi $9, $0, 41723
+
     addi $8, $0, 708768
     bne $7, $8, fwdskip
     nop
