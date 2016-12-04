@@ -1,4 +1,4 @@
-module processor(clock, reset, ps2_key_pressed, ps2_out, /*lcd_write, lcd_data,*/ debug_data_in, debug_address,ctrl_MEM_VGAE,vga_address,vga_data_in, instruction_if_id_out);
+module processor(clock, reset, ps2_key_pressed, ps2_out, /*lcd_write, lcd_data,*/ debug_data_in, debug_address, ctrl_MEM_VGAE, vga_address,vga_data_in, command_register);
 
     input           clock, reset, ps2_key_pressed;
     input     [31:0]   ps2_out;
@@ -12,6 +12,7 @@ module processor(clock, reset, ps2_key_pressed, ps2_out, /*lcd_write, lcd_data,*
 	 output ctrl_MEM_VGAE;
 	 output [7:0] vga_data_in;
 	 output [18:0] vga_address;
+	 output [31:0] command_register;
 
 
     // IF_ID STAGE
@@ -35,7 +36,7 @@ module processor(clock, reset, ps2_key_pressed, ps2_out, /*lcd_write, lcd_data,*
                     .q              (instruction_if_id_in)
     );
 
-    output [31:0] instruction_if_id_out;
+    wire [31:0] instruction_if_id_out;
 	 wire [31:0] data_PC_PLUS_ONE_if_id_out;
     wire [31:0] choose_instruction_if_id_in, intermediate_choose;
     assign intermediate_choose = (ctrl_stall) ? instruction_if_id_out : instruction_if_id_in;
@@ -114,7 +115,8 @@ module processor(clock, reset, ps2_key_pressed, ps2_out, /*lcd_write, lcd_data,*
 				assign reg30 = allData[991:960];
 				assign reg31 = allData[1023:992];
 				
-				
+				// COMMAND REGISTER
+				assign command_register = reg19;
 
     // ID_EX STAGE
     wire [31:0] instruction_id_ex_out, data_PC_PLUS_ONE_id_ex_out, data_readRegA_id_ex_out, data_readRegB_id_ex_out;

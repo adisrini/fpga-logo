@@ -35,10 +35,7 @@ module skeleton(resetn,
 	output 	[31:0] 	debug_data_in;
 	output   [11:0]   debug_addr;
 	
-	
-	
-	
-	
+
 	wire			 clock;
 	wire			 lcd_write_en;
 	wire 	[31:0] lcd_write_data;
@@ -53,11 +50,20 @@ module skeleton(resetn,
 	// UNCOMMENT FOLLOWING LINE AND COMMENT ABOVE LINE TO RUN AT 50 MHz
 	assign clock = inclock;
 	
+	// Defined wires
 	wire [31:0] logo_command;
 	wire [7:0] data_ps2ascii;
 	reg [7:0] last_pressed;
 	reg trigger;
+	wire trigger_out;
+	wire [2:0] position_double;
 	wire [1:0] position;
+	wire sk_ctrl_MEM_VGAE;
+	wire [7:0] sk_vga_data_in;
+	wire [18:0] sk_vga_address;
+	wire command_ready;
+	wire [31:0] command_register;
+	wire [31:0] command;
 	
 	initial
 	begin
@@ -77,58 +83,47 @@ module skeleton(resetn,
 		end
 	end
 	
-	wire sk_ctrl_MEM_VGAE;
-	wire [7:0] sk_vga_data_in;
-	wire [18:0] sk_vga_address;
+	position_counter_double pcd(position_double, 1'b1, trigger, ~resetn);	position_counter pc(position_double, position, 1'b1, trigger, ~resetn);
+	trigger_counter tc(position_double, trigger_out, 1'b1, trigger, ~resetn);
 	
-	position_counter pos_count(position, 1'b1, ps2_key_pressed, ~resetn);
-
 	// your processor
-	processor myprocessor(clock, ~resetn, trigger, data_ps2ascii, /*lcd_write_en, lcd_write_data,*/ debug_data_in, debug_addr,sk_ctrl_MEM_VGAE, sk_vga_address,sk_vga_data_in);
+//	processor myprocessor(clock, ~resetn, trigger, data_ps2ascii, /*lcd_write_en, lcd_write_data,*/ debug_data_in, debug_addr,sk_ctrl_MEM_VGAE, sk_vga_address,sk_vga_data_in);
+
+	assign command_ready = (position_double) == 1'b0 && command_register == 32'b0;
 	
+		processor myprocessor(clock, ~resetn, command_ready, command, /*lcd_write_en, lcd_write_data,*/ debug_data_in, debug_addr,sk_ctrl_MEM_VGAE, sk_vga_address, sk_vga_data_in, command_register);
+
 	// keyboard controller
 	PS2_Interface myps2(clock, resetn, ps2_clock, ps2_data, ps2_key_data, ps2_key_pressed, ps2_out);
 	
 	// map PS2 output to ASCII value
 	mapping map(ps2_out, data_ps2ascii);
 	
-	wire [3:0] key_pressed;
-	assign key_pressed = ps2_key_pressed;
+	wire [3:0] command_ready_4;
+	assign command_ready_4 = command_ready;
 	
-	wire [3:0] clock_4;
-	assign clock_4 = clock;
+	wire [3:0] trigger_out_4;
+	assign trigger_out_4 = trigger_out;
 	
-	wire [3:0] ps2_clock_4;
-	assign ps2_clock_4 = ps2_clock;
-	
-	wire [3:0] ps2_data_4;
-	assign ps2_data_4 = ps2_data;
-	
-	wire [3:0] trigger_4;
-	assign trigger_4 = trigger;
-	
-	wire [3:0] pos_count_4;
-	assign pos_count_4 = position;
-	
-	wire [31:0] command;
 	
 	// character filling
-	characterData cd(command, ps2_key_data,CLOCK_50, ~trigger_4, ~resetn);
+	characterData cd(command, ps2_key_data, clock, trigger_out, ~resetn);
 	
 	// lcd controller
-	lcd mylcd(clock, ~resetn, 1'b1, data_ps2ascii, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
+	lcd mylcd(clock, ~resetn, trigger_out, data_ps2ascii, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
+
 	
 	// example for sending ps2 data to the first two seven segment displays
-	Hexadecimal_To_Seven_Segment hex1(data_ps2ascii[3:0], seg1);
-	Hexadecimal_To_Seven_Segment hex2(data_ps2ascii[7:4], seg2);
+	Hexadecimal_To_Seven_Segment hex1(command[3:0], seg1);
+	Hexadecimal_To_Seven_Segment hex2(command[7:4], seg2);
 	
 	// the other seven segment displays are currently set to 0
-	Hexadecimal_To_Seven_Segment hex3(command[3:0], seg3);
-	Hexadecimal_To_Seven_Segment hex4(command[7:4], seg4);
-	Hexadecimal_To_Seven_Segment hex5(command[11:8], seg5);
-	Hexadecimal_To_Seven_Segment hex6(command[15:12], seg6);
-	Hexadecimal_To_Seven_Segment hex7(pos_count_4, seg7);
-	Hexadecimal_To_Seven_Segment hex8(ps2_clock_4, seg8);
+	Hexadecimal_To_Seven_Segment hex3(command[11:8], seg3);
+	Hexadecimal_To_Seven_Segment hex4(command[15:12], seg4);
+	Hexadecimal_To_Seven_Segment hex5(command_register[3:0], seg5);
+	Hexadecimal_To_Seven_Segment hex6(command_register[7:4], seg6);
+	Hexadecimal_To_Seven_Segment hex7(command_ready4, seg7);
+	Hexadecimal_To_Seven_Segment hex8(trigger_out_4, seg8);
 	
 	// some LEDs that you could use for debugging if you wanted
 	assign leds = 8'b00101011;
@@ -161,23 +156,155 @@ endmodule
  @param: clk is the counter clock
  @param: reset is whether to reset the counter
 **********/
-module position_counter(out,enable,clk,reset);
+module position_counter(in,out,enable,clk,reset);
+	input [2:0] in;
 	output [1:0] out;	 //potentially change								
 	input enable, clk, reset;
 	reg [1:0] out;		//potentially change	initial out = 6'b0;
 	initial 
 	begin
-		out = 2'b00;
+		out = 2'b0;
 	end
 	always @(posedge clk)
 	if (reset) begin
-	  out <= 6'b0;
+	  out <= 2'b0;
+	end else if (enable) begin
+		case(in)
+			3'd0: out <= 2'd0;
+			3'd1: out <= 2'd1;
+			3'd2: out <= 2'd1;
+			3'd3: out <= 2'd2;
+			3'd4: out <= 2'd2;
+			3'd5: out <= 2'd3;
+			3'd6: out <= 2'd3;
+			3'd7: out <= 2'd0;		
+		endcase
+	end
+endmodule
+
+
+/**********
+ FSM COUNTER THAT INCREMENTS FROM 0 -> 3 THEN RESTARTS
+ 
+ @param: out is the counter value
+ @param: enable is whether the counter is enabled
+ @param: clk is the counter clock
+ @param: reset is whether to reset the counter
+**********/
+module position_counter_double(out,enable,clk,reset);
+	output [2:0] out;	 //potentially change								
+	input enable, clk, reset;
+	reg [2:0] out;		//potentially change	initial out = 6'b0;
+	initial 
+	begin
+		out = 3'b0;
+	end
+	always @(posedge clk)
+	if (reset) begin
+	  out <= 3'b0;
 	end else if (enable) begin
 		case(out)
-			2'd0: out <= 2'd1;
-			2'd1: out <= 2'd2;
-			2'd2: out <= 2'd3;
-			2'd3: out <= 2'd0;		
+			3'd0: out <= 3'd1;
+			3'd1: out <= 3'd2;
+			3'd2: out <= 3'd3;
+			3'd3: out <= 3'd4;
+			3'd4: out <= 3'd5;
+			3'd5: out <= 3'd6;
+			3'd6: out <= 3'd7;
+			3'd7: out <= 3'd0;		
+		endcase
+	end
+endmodule
+
+
+/**********
+ FSM COUNTER 
+ 
+ @param: out is the counter value
+ @param: enable is whether the counter is enabled
+ @param: clk is the counter clock
+ @param: reset is whether to reset the counter
+**********/
+module trigger_counter(in, out, enable, clk, reset);
+	input enable, clk, reset;
+	input [2:0] in;
+	reg out;
+	output out;						
+	initial 
+	begin
+		out = 1'b0;
+	end
+	always @(posedge clk)
+	if (reset) begin
+	  out <= 1'b0;
+	end else if (enable) begin
+		case(in)
+			3'd0: out <= 1'b1;
+			3'd1: out <= 1'b0;
+			3'd2: out <= 1'b1;
+			3'd3: out <= 1'b0;
+			3'd4: out <= 1'b1;
+			3'd5: out <= 1'b0;
+			3'd6: out <= 1'b1;
+			3'd7: out <= 1'b0;		
+		endcase
+	end
+endmodule
+
+
+
+/**********
+ FSM COUNTER 
+ 
+ @param: out is the counter value
+ @param: enable is whether the counter is enabled
+ @param: clk is the counter clock
+ @param: reset is whether to reset the counter
+**********/
+module trigger_counter_ripple1(in, out, enable, clk, reset);
+	input enable, clk, reset;
+	input in;
+	reg out;
+	output out;						
+	initial 
+	begin
+		out = 1'b0;
+	end
+	always @(posedge clk)
+	if (reset) begin
+	  out <= 1'b0;
+	end else if (enable) begin
+		case(in)
+			1'b0: out <= 1'b1;
+			1'b1: out <= 1'b0;	
+		endcase
+	end
+endmodule
+
+/**********
+ FSM COUNTER 
+ 
+ @param: out is the counter value
+ @param: enable is whether the counter is enabled
+ @param: clk is the counter clock
+ @param: reset is whether to reset the counter
+**********/
+module trigger_counter_ripple2(in, out, enable, clk, reset);
+	input enable, clk, reset;
+	input in;
+	reg out;
+	output out;						
+	initial 
+	begin
+		out = 1'b0;
+	end
+	always @(negedge clk)
+	if (reset) begin
+	  out <= 1'b0;
+	end else if (enable) begin
+		case(in)
+			1'd0: out <= 1'b1;
+			1'd1: out <= 1'b0;	
 		endcase
 	end
 endmodule
@@ -205,14 +332,14 @@ module characterData(register_out, ps2_keydata, clock, ps2_enable, reset);
 	mapping m(ps2_keydata, mappedResult);
 	
 	
-	shift8bitena s8be(register_out, 1'b0, ~ps2_enable, out_temp);   // SHIFT WHENEVER ENABLE IS TRUE.
+	shift8bitena s8be(register_out, 1'b0, ps2_enable, out_temp);   // SHIFT WHENEVER ENABLE IS TRUE.
 	
 	assign out_register_input[31:8] = out_temp[31:8];
 	assign out_register_input[7:0] = mappedResult;
 	
 	// HERE YOU"RE CHOOSING BETWEEN RESETING AND WRITING THE INITIAL DATA vs THE DATA RESULTING FROM PS2.
 	
-	register r1(clock, ~ps2_enable, reset, out_register_input,register_out); 
+	register r1(~ps2_enable, ps2_enable, reset, out_register_input,register_out); 
 endmodule
 	
 /**********
