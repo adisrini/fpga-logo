@@ -123,9 +123,9 @@ add $7, $0, $0
 add $8, $0, $0
 add $9, $0, $0
 
-#detect a command: copy the command $29->$6 and put 0 in $29
-add $6, $29, $0
-add $29, $0, $0
+#detect a command: copy the command $19->$6 and put 0 in $19
+add $6, $19, $0
+add $19, $0, $0
 
 #get the instruction binary and store it in $7
 sra $7, $6, 8
