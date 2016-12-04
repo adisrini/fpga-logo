@@ -109,8 +109,10 @@ module skeleton(resetn,
 	// character filling
 	characterData cd(command, ps2_key_data, clock, trigger_out, ~resetn);
 	
+	wire lcd_enable = trigger_out && ps2_key_pressed;
+	
 	// lcd controller
-	lcd mylcd(clock, ~resetn, trigger_out, data_ps2ascii, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
+	lcd mylcd(clock, ~resetn, lcd_enable, data_ps2ascii, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
 
 	
 	// example for sending ps2 data to the first two seven segment displays
