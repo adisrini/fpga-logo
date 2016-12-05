@@ -977,9 +977,11 @@ noop
 lw $31, (0)$30
 addi $30, $30, -1
 add $26, $28, $0
+# TODO: incorporate turtle image being used (turtle1, turtle2, turtle3) to find $26
+# $26 = $26 + 900 * turtle index
+addi $26, $26, 2700
 
 #mul $26, $12, $26   # multiply orientation by 225 to find starting location
-# TODO: incorporate turtle image being used (turtle1, turtle2, turtle3) to find $26
 #calculate top left starting pixel index
 #and store it in $20
 #(640*row) + col + 80 = (640*y) + x + 80
@@ -1107,10 +1109,12 @@ LEFTROTATE:
     #re-render the turtle
     nop
     nop
-    j TURTLE_FILLCELLLRT
-    nop
-    nop
-    ENDTURTLE_FILLCELLLRT:
+    addi $30, $30, 1
+    sw $31, (0)$30
+    jal TURTLE_FILLCELL
+    noop
+    lw $31, (0)$30
+    addi $30, $30, -1
     nop
     nop
 
@@ -1139,10 +1143,12 @@ RIGHTROTATE:
     #re-render the turtle
     nop
     nop
-    j TURTLE_FILLCELLRRT
-    nop
-    nop
-    ENDTURTLE_FILLCELLRRT:
+	addi $30, $30, 1
+    sw $31, (0)$30
+    jal TURTLE_FILLCELL
+    noop
+    lw $31, (0)$30
+    addi $30, $30, -1
     nop
     nop
 
@@ -1164,7 +1170,7 @@ modfour_l:
     addi $8, $0, 0
     addi $9, $0, 0
 
-       add $28, $4, $0
+    add $28, $4, $0
     add $5, $6, $0
     addi $30, $30, 1
     sw $31, (0)$30
