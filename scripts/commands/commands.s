@@ -3,11 +3,15 @@
 #$10: x-coordinate
 #$11: y-coordinate
 #$12: current direction
+#$13: pen color (0 = white, 1 = blue, 2 = yellow, 3 = green, 4 = red)
 #$4 is the argument register
 
 #Direction code [0-3]
 #THESE VALUES ARE HARD-CODED
 #$0 = 0 (north), $1 = 1 (east) $2 = 2 (south) $3 = 3 (west)
+
+initloop:
+bne $19, $0, initloop		#imem SHOULD BE BEQ!
 
 #Initialization code
 #Fix $0-$3 to Direction code for ease of comparison
@@ -111,7 +115,10 @@ ENDTURTLE_FILLCELLI:
 #Default $30: pen down (1).  pen up is (0)
 addi $30, $0, 1
 
-
+promptstart:
+add $19, $0, $0			# set $19 to $0
+promptloop:
+bne $19, $0, promptloop	#imem SHOULD BE BEQ!
 
 
 ###MAIN LOOP###
@@ -125,7 +132,6 @@ add $9, $0, $0
 
 #detect a command: copy the command $19->$6 and put 0 in $19
 add $6, $19, $0
-add $19, $0, $0
 
 #get the instruction binary and store it in $7
 sra $7, $6, 8
