@@ -33,7 +33,7 @@ module skeleton(resetn,
 	output 	[7:0] 	leds, lcd_data;
 	output 	[6:0] 	seg1, seg2, seg3, seg4, seg5, seg6, seg7, seg8;
 	output 	[31:0] 	debug_data_in;
-	output   [11:0]   debug_addr;
+	output   [13:0]   debug_addr;
 	
 
 	wire			 clock;

@@ -8,7 +8,7 @@ module processor(clock, reset, ps2_key_pressed, ps2_out, /*lcd_write, lcd_data,*
 
     // GRADER OUTPUTS - YOU MUST CONNECT TO YOUR DMEM
     output  [31:0]  debug_data_in;
-    output  [11:0]  debug_address;
+    output  [13:0]  debug_address;
 	 output ctrl_MEM_VGAE;
 	 output [7:0] vga_data_in;
 	 output [18:0] vga_address;
@@ -247,7 +247,7 @@ stage_EX_MEM ex_mem(clock, reset, 1'b1, data_PC_PLUS_ONE_id_ex_out, data_readReg
 				assign vga_data_in = dmem_data_in_bypassed[7:0];
 				
             // CHANGE THIS TO ASSIGN YOUR DMEM DATA INPUT (TO BE WRITTEN) ALSO TO debug_data
-            assign debug_address = (data_resultRDY) ? multdiv_result[11:0] : alu_MEM_result[11:0];
+            assign debug_address = (data_resultRDY) ? multdiv_result[13:0] : alu_MEM_result[13:0];
             ////////////////////////////////////////////////////////////
 
 				assign vga_address = (data_resultRDY) ? multdiv_result[18:0] : alu_MEM_result[18:0];
