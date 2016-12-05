@@ -31,7 +31,7 @@ if (fid)
           R = im(i,j,1);
           G = im(i,j,2);
           B = im(i,j,3);
-          hex = sprintf('%s%s%s\n', dec2hex(R), dec2hex(G), dec2hex(B));
+          hex = sprintf('%s%s%s\n', dec2hex(R, 2), dec2hex(G, 2), dec2hex(B, 2));
           fprintf(fid, hex);
        end    
     end 
