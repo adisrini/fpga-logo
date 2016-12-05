@@ -106,7 +106,7 @@ add $26, $0, $0
 addi $10, $0, 15
 addi $11, $0, 15
 addi $12, $0, 0
-addi $13, $0, 250 # 250 offset applied
+addi $13, $0, 677 # 677 offset applied
 
 #Draw turtle at this location
 
@@ -379,8 +379,8 @@ nop
 nop
 add $17, $13, $0 #$13->$17
 add $13, $4, $0 #$4 (new line color)->$13
-#add 250 offset
-addi $13, $13, 250
+#add 677 offset
+addi $13, $13, 677
 nop
 nop
 j promptstart
