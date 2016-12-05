@@ -359,7 +359,7 @@ nop
     #CBC--deprecated
 
     #CLC
-    aaddi $8, $0, 2100
+    addi $8, $0, 2100
     mul $8, $8, $8
     noop
     noop
