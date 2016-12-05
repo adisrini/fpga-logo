@@ -30,27 +30,27 @@ addi $3, $0, 3 #west
     add $24, $0, $0
     add $25, $0, $0
     add $26, $0, $0
-    
+
     #$6 is constant: color WHITE
     #TODO: find the value for white
     addi $6, $0, 255 # 255 corresponds to WHITE in index
-    
+
     #$20 is constant: 80 for 80 iterations for left and right
     addi $20, $0, 80
-    
+
     #$27 is constant: 479 for 480 iterations vertically
     addi $27, $0, 479
-    
+
     #two startpoints (left and right)
     addi $21, $0, 0
     addi $22, $0, 560
-    
-    #start looping 
+
+    #start looping
     loopinit:
 
         bne $25, $20, endouterinit #$25=80, end	imem: SHOULD BE BEQ (11101)!!!
 
-        
+
         #get the temporary left and right indices for this iteration
         add $23, $21, $25
         add $24, $22, $25
@@ -120,6 +120,7 @@ add $19, $0, $0			# set $19 to $0
 promptloop:
 bne $19, $0, promptloop	#imem SHOULD BE BEQ!
 
+## WHEN A COMMAND HAS BEEN ENTERED, MAIN LOOP WILL BE ENTERED
 
 ###MAIN LOOP###
 MAINLOOP:
@@ -149,67 +150,251 @@ nop
 #compare the instruction binary and jal to it
 
     #FWD
-	
-	addi $8, $0, 16
-	addi $9, $0, 41723
 
-    addi $8, $0, 708768
+  	addi $8, $0, 2147
+    mul $8, $8, $8
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    addi $8, $8, 251
+    # $8 NOW CONTAINS 4609860 = FWD
     bne $7, $8, fwdskip
     nop
     nop
     jal FORWARD
     nop
     nop
+    j promptstart
+    nop
+    nop
     fwdskip:
     nop
     nop
-    
+
     #BKD
-    addi $8, $0, 667568
+    addi $8, $0, 2084
+    mul $8, $8, $8
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    addi $8, $8, 1588
+    # $8 NOW CONTAINS 4344644 = BKD
     bne $7, $8, bkdskip
     nop
     nop
     jal BACKWARD
     nop
     nop
+    j promptstart
+    nop
+    nop
     bkdskip:
     nop
     nop
-    
+
     #LRT
-    addi $8, $0, 768284
+    addi $8, $0, 2236
+    mul $8, $8, $8
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    addi $8, $8, 2116
+    # $8 NOW CONTAINS 5001812 = LRT
     bne $7, $8, lrtskip
     nop
     nop
     jal LEFTROTATE
     nop
     nop
+    j promptstart
+    nop
+    nop
     lrtskip:
     nop
     nop
-    
+
     #RRT
-    addi $8, $0, 828284
+    addi $8, $0, 2323
+    mul $8, $8, $8
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    addi $8, $8, -1301
+    # $8 NOW CONTAINS 5395028 = RRT
     bne $7, $8, rrtskip
     nop
     nop
     jal RIGHTROTATE
     nop
     nop
+    j promptstart
+    nop
+    nop
     rrtskip:
     nop
     nop
-    
+
     #UND
-    
+
     #RDO
-    
-    #CTC--change turtle image index?
-    
+
+    #CTI--change turtle image index?
+
     #CBC--deprecated
-    
+
     #CLC
-    addi $8, $0, 677667
+    aaddi $8, $0, 2100
+    mul $8, $8, $8
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    noop
+    addi $8, $8, 435
+    # $8 NOW CONTAINS 4410435 = CLC
     bne $7, $8, clcskip
     nop
     nop
@@ -217,22 +402,20 @@ nop
     add $13, $4, $0 #$4 (new line color)->$13
     #add 250 offset
     addi $13, $13, 250
+    nop
+    nop
+    j promptstart
     clcskip:
     nop
     nop
-    
+
     #RPT--deprecated
     #just repeat command without argument?
     #use arg1 ($5) to temporarily store the prev command
     #add $5, $6, $0
 
-
-j MAINLOOP
-###END OF MAIN LOOP###
-
-
-
-
+    # IF UNKNOWN COMMAND, BEST TO JUST JUMP TO PROMPT LOOP
+    j promptstart
 
 
 ###FORWARD: fwd x
@@ -2192,7 +2375,7 @@ TURTLE_FILLCELLLRT:
         add $27, $0, $0
 
     j ENDTURTLE_FILLCELLLRT
-    
+
 ###TURTLE_FILLCELL: svga wrapper for svga per cell for rendering turtle
 TURTLE_FILLCELLRRT:
   	#Put the svga snippet here
@@ -2882,8 +3065,8 @@ LEFTROTATE:
     ENDTURTLE_FILLCELLLRT:
     nop
     nop
-    
-    
+
+
     jr $31 # return after leftrotate
 
 
@@ -2904,7 +3087,7 @@ RIGHTROTATE:
     blt $12, $0, addfour_r
 
     endaddfour_r:
-    
+
     #re-render the turtle
     nop
     nop
