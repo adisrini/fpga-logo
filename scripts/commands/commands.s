@@ -174,39 +174,16 @@ nop
 #FWD
 
 addi $8, $0, 2147
-mul $8, $8, $8
+add $28, $8, $0
+add $5, $8, $0
+addi $30, $30, 1
+sw $31, (0)$30
+jal mult
 noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
+lw $31, (0)$30
+addi $30, $30, -1
+add $8, $28, $0
+# mul $8, $8, $8
 addi $8, $8, 251
 # $8 NOW CONTAINS 4609860 = FWD
 bne $7, $8, fwdskip
@@ -224,39 +201,16 @@ nop
 
 #BKD
 addi $8, $0, 2084
-mul $8, $8, $8
+add $28, $8, $0
+add $5, $8, $0
+addi $30, $30, 1
+sw $31, (0)$30
+jal mult
 noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
+lw $31, (0)$30
+addi $30, $30, -1
+add $8, $28, $0
+# mul $8, $8, $8
 addi $8, $8, 1588
 # $8 NOW CONTAINS 4344644 = BKD
 bne $7, $8, bkdskip
@@ -274,39 +228,16 @@ nop
 
 #LRT
 addi $8, $0, 2236
-mul $8, $8, $8
+add $28, $8, $0
+add $5, $8, $0
+addi $30, $30, 1
+sw $31, (0)$30
+jal mult
 noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
+lw $31, (0)$30
+addi $30, $30, -1
+add $8, $28, $0
+# mul $8, $8, $8
 addi $8, $8, 2116
 # $8 NOW CONTAINS 5001812 = LRT
 bne $7, $8, lrtskip
@@ -324,39 +255,16 @@ nop
 
 #RRT
 addi $8, $0, 2323
-mul $8, $8, $8
+add $28, $8, $0
+add $5, $8, $0
+addi $30, $30, 1
+sw $31, (0)$30
+jal mult
 noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
+lw $31, (0)$30
+addi $30, $30, -1
+add $8, $28, $0
+# mul $8, $8, $8
 addi $8, $8, -1301
 # $8 NOW CONTAINS 5395028 = RRT
 bne $7, $8, rrtskip
@@ -372,49 +280,98 @@ rrtskip:
 nop
 nop
 
-#UND
+#UNDO
+addi $8, $0, 2364
+add $28, $8, $0
+add $5, $8, $0
+addi $30, $30, 1
+sw $31, (0)$30
+jal mult
+noop
+lw $31, (0)$30
+addi $30, $30, -1
+add $8, $28, $0
+# mul $8, $8, $8
+addi $8, $8, 2100
+# $8 NOW CONTAINS 5590596 = UNDO
+bne $7, $8, undoskip
+nop
+nop
+# jal UNDO   (TODO)
+nop
+nop
+j promptstart
+nop
+nop
+undoskip:
+nop
+nop
 
-#RDO
+#REDO
+addi $8, $0, 2322
+add $28, $8, $0
+add $5, $8, $0
+addi $30, $30, 1
+sw $31, (0)$30
+jal mult
+noop
+lw $31, (0)$30
+addi $30, $30, -1
+add $8, $28, $0
+# mul $8, $8, $8
+# $8 NOW CONTAINS 5391684 = REDO
+bne $7, $8, redoskip
+nop
+nop
+# jal REDO   (TODO)
+nop
+nop
+j promptstart
+nop
+nop
+redoskip:
+nop
+nop
 
-#CTI--change turtle image index?
-
-#CBC--deprecated
+#CTI--change turtle image index
+addi $8, $0, 2101
+add $28, $8, $0
+add $5, $8, $0
+addi $30, $30, 1
+sw $31, (0)$30
+jal mult
+noop
+lw $31, (0)$30
+addi $30, $30, -1
+add $8, $28, $0
+# mul $8, $8, $8
+addi $8, $8, -1712
+# $8 NOW CONTAINS 4412489 = CTI
+bne $7, $8, ctiskip
+nop
+nop
+# jal CTI   (TODO)
+nop
+nop
+j promptstart
+nop
+nop
+ctiskip:
+nop
+nop
 
 #CLC
 addi $8, $0, 2100
-mul $8, $8, $8
+add $28, $8, $0
+add $5, $8, $0
+addi $30, $30, 1
+sw $31, (0)$30
+jal mult
 noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
+lw $31, (0)$30
+addi $30, $30, -1
+add $8, $28, $0
+# mul $8, $8, $8
 addi $8, $8, 435
 # $8 NOW CONTAINS 4410435 = CLC
 bne $7, $8, clcskip
@@ -431,10 +388,63 @@ clcskip:
 nop
 nop
 
-#RPT--deprecated
-#just repeat command without argument?
-#use arg1 ($5) to temporarily store the prev command
-#add $5, $6, $0
+
+#PNUP
+addi $8, $0, 2294
+add $28, $8, $0
+add $5, $8, $0
+addi $30, $30, 1
+sw $31, (0)$30
+jal mult
+noop
+lw $31, (0)$30
+addi $30, $30, -1
+add $8, $28, $0
+# mul $8, $8, $8
+addi $8, $8, 497
+# $8 NOW CONTAINS 5262933 = PNUP
+bne $7, $8, pnupskip
+nop
+nop
+# jal PNUP   (TODO)
+nop
+nop
+j promptstart
+nop
+nop
+pnupskip:
+nop
+nop
+
+
+#PNDN
+addi $8, $0, 2294
+add $28, $8, $0
+add $5, $8, $0
+addi $30, $30, 1
+sw $31, (0)$30
+jal mult
+noop
+lw $31, (0)$30
+addi $30, $30, -1
+add $8, $28, $0
+# mul $8, $8, $8
+addi $8, $8, 480
+# $8 NOW CONTAINS 5262916 = PNDN
+bne $7, $8, pndnskip
+nop
+nop
+# jal PNDN   (TODO)
+nop
+nop
+j promptstart
+nop
+nop
+pndnskip:
+nop
+nop
+
+
 
 # IF UNKNOWN COMMAND, BEST TO JUST JUMP TO PROMPT LOOP
 j promptstart
