@@ -99,7 +99,7 @@ addi $3, $0, 3 #west
 addi $10, $0, 15
 addi $11, $0, 15
 addi $12, $0, 0
-addi $13, $0, 0
+addi $13, $0, 250 # 250 offset applied
 
 #Draw turtle at this location
 j TURTLE_FILLCELLI
@@ -209,6 +209,8 @@ nop
     nop
     add $17, $13, $0 #$13->$17
     add $13, $4, $0 #$4 (new line color)->$13
+    #add 250 offset
+    addi $13, $13, 250
     clcskip:
     nop
     nop
