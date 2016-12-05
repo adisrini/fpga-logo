@@ -99,7 +99,7 @@ addi $3, $0, 3 #west
 addi $10, $0, 15
 addi $11, $0, 15
 addi $12, $0, 0
-addi $13, $0, 0
+addi $13, $0, 250 # 250 offset applied
 
 #Draw turtle at this location
 j TURTLE_FILLCELLI
@@ -123,9 +123,9 @@ add $7, $0, $0
 add $8, $0, $0
 add $9, $0, $0
 
-#detect a command: copy the command $29->$6 and put 0 in $29
-add $6, $29, $0
-add $29, $0, $0
+#detect a command: copy the command $19->$6 and put 0 in $19
+add $6, $19, $0
+add $19, $0, $0
 
 #get the instruction binary and store it in $7
 sra $7, $6, 8
@@ -209,6 +209,8 @@ nop
     nop
     add $17, $13, $0 #$13->$17
     add $13, $4, $0 #$4 (new line color)->$13
+    #add 250 offset
+    addi $13, $13, 250
     clcskip:
     nop
     nop
