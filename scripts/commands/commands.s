@@ -117,6 +117,18 @@ addi $30, $0, 1
 
 promptstart:
 add $19, $0, $0			# set $19 to $0
+nop
+nop
+nop
+nop
+nop
+bne $19, $0, promptstart
+noop
+noop
+noop
+noop
+noop
+noop
 promptloop:
 bne $19, $0, promptloop	#imem SHOULD BE BEQ!
 
@@ -144,6 +156,12 @@ sll $4, $6, 24
 nop
 nop
 sra $4, $4, 24
+nop
+nop
+addi $8, $0, 48   # OFFSET FOR ASCII -> DECIMAL
+nop
+nop
+sub $4, $4, $8
 nop
 nop
 
