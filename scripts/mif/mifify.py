@@ -29,7 +29,7 @@ def generate_indices(mif_files, start):
 def write_dmem_file(indices, path, start):
     prefix = path + "/" + sys.argv[1]
     suffixes = ["n.mif", "e.mif", "s.mif", "w.mif"]
-    pos = int(start)
+    pos = int(start)*900
     dmem_file = open(path + "/dmem/dmem.mif", "w")
     for suffix in suffixes:
         for line in read_mif_file(prefix + suffix):
@@ -54,6 +54,6 @@ if __name__ == '__main__':
     sorted_indices = sorted(indices.items(), key=operator.itemgetter(1))
     print "Writing indices to file..."
     write_index_file(sorted_indices, path)
-    print "Writing to DMEM"
-    write_dmem_file(indices, path, sys.argv[2]*900)
+    print "Writing to DMEM..."
+    write_dmem_file(indices, path, sys.argv[2])
     print "DONE"
