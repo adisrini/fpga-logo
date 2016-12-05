@@ -66,7 +66,6 @@ Thumbs.db
 *.sdc
 *.tcl
 *.pin
-*.mif
 *.hex
 src/simulation/modelsim/msim_transcript
 src/simulation/modelsim/rtl_work/_info
