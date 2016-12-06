@@ -413,6 +413,64 @@ add $17, $13, $0 #$13->$17
 add $13, $4, $0 #$4 (new line color)->$13
 #add 250 offset
 addi $13, $13, 250
+
+
+## WRITE C
+addi $2, $0, 0
+addi $6, $0, 1
+addi $26, $0, 12
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE L
+addi $2, $0, 0
+addi $6, $0, 2
+addi $26, $0, 23
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE C
+addi $2, $0, 0
+addi $6, $0, 3
+addi $26, $0, 12
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE WHITESPACE
+addi $2, $0, 0
+addi $6, $0, 4
+addi $26, $0, 40
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE NUMBER
+addi $2, $0, 0
+addi $6, $0, 5
+addi $26, $4, 0
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+
 nop
 nop
 j promptstart
@@ -483,6 +541,63 @@ j promptstart
 
 ###FORWARD: fwd x
 FORWARD:
+
+
+## WRITE F
+addi $2, $0, 0
+addi $6, $0, 1
+addi $26, $0, 16
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE W
+addi $2, $0, 0
+addi $6, $0, 2
+addi $26, $0, 36
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE D
+addi $2, $0, 0
+addi $6, $0, 3
+addi $26, $0, 13
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE WHITESPACE
+addi $2, $0, 0
+addi $6, $0, 4
+addi $26, $0, 40
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE NUMBER
+addi $2, $0, 0
+addi $6, $0, 5
+addi $26, $4, 0
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
 
 #save state in DMEM
 addi $30, $30, 1
@@ -560,6 +675,64 @@ jr $31 # return after forward
 
 ###BACKWARD: bkd x
 BACKWARD:
+
+
+## WRITE B
+addi $2, $0, 0
+addi $6, $0, 1
+addi $26, $0, 11
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE K
+addi $2, $0, 0
+addi $6, $0, 2
+addi $26, $0, 22
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE D
+addi $2, $0, 0
+addi $6, $0, 3
+addi $26, $0, 13
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE WHITESPACE
+addi $2, $0, 0
+addi $6, $0, 4
+addi $26, $0, 40
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE NUMBER
+addi $2, $0, 0
+addi $6, $0, 5
+addi $26, $4, 0
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+
 
 #save state in DMEM
 addi $30, $30, 1
@@ -1188,6 +1361,62 @@ jr $31
 ###LEFT ROTATE: lrt x
 LEFTROTATE:
 
+
+  ## WRITE L
+  addi $2, $0, 0
+  addi $6, $0, 1
+  addi $26, $0, 23
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal WRITE_LETTER
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+
+  ## WRITE R
+  addi $2, $0, 0
+  addi $6, $0, 2
+  addi $26, $0, 30
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal WRITE_LETTER
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+
+  ## WRITE T
+  addi $2, $0, 0
+  addi $6, $0, 3
+  addi $26, $0, 33
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal WRITE_LETTER
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+
+  ## WRITE WHITESPACE
+  addi $2, $0, 0
+  addi $6, $0, 4
+  addi $26, $0, 40
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal WRITE_LETTER
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+
+  ## WRITE NUMBER
+  addi $2, $0, 0
+  addi $6, $0, 5
+  addi $26, $4, 0
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal WRITE_LETTER
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+
   #save state in DMEM
   addi $30, $30, 1
   sw $31, 0($30)
@@ -1231,6 +1460,64 @@ LEFTROTATE:
 
 ###RIGHT ROTATE: rrt x
 RIGHTROTATE:
+
+
+  ## WRITE R
+  addi $2, $0, 0
+  addi $6, $0, 1
+  addi $26, $0, 30
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal WRITE_LETTER
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+
+  ## WRITE R
+  addi $2, $0, 0
+  addi $6, $0, 2
+  addi $26, $0, 30
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal WRITE_LETTER
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+
+  ## WRITE T
+  addi $2, $0, 0
+  addi $6, $0, 3
+  addi $26, $0, 33
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal WRITE_LETTER
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+
+  ## WRITE WHITESPACE
+  addi $2, $0, 0
+  addi $6, $0, 4
+  addi $26, $0, 40
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal WRITE_LETTER
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+
+  ## WRITE NUMBER
+  addi $2, $0, 0
+  addi $6, $0, 5
+  addi $26, $4, 0
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal WRITE_LETTER
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+
+
 
   #save state in DMEM
   addi $30, $30, 1
@@ -1484,6 +1771,64 @@ jr $31
 
 #CHANGETURTLEINDEX
 CHANGETURTLEINDEX:
+
+
+## WRITE C
+addi $2, $0, 0
+addi $6, $0, 1
+addi $26, $0, 12
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE T
+addi $2, $0, 0
+addi $6, $0, 2
+addi $26, $0, 33
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE I
+addi $2, $0, 0
+addi $6, $0, 3
+addi $26, $0, 20
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE WHITESPACE
+addi $2, $0, 0
+addi $6, $0, 4
+addi $26, $0, 40
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE NUMBER
+addi $2, $0, 0
+addi $6, $0, 5
+addi $26, $4, 0
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+
 
 #save state in DMEM
 addi $30, $30, 1
