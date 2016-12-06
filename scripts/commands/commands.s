@@ -15,11 +15,19 @@ bne $19, $0, initloop		#imem SHOULD BE BEQ!
 
 #Initialization code
 #Fix $0-$3 to Direction code for ease of comparison
-addi $1, $0, 1 #east
-addi $2, $0, 2 #south
-addi $3, $0, 3 #west
 
-#Default $30: stackpointer
+#$1-$3 Freed up
+###
+#addi $1, $0, 1 #east
+#addi $2, $0, 2 #south
+#addi $3, $0, 3 #west
+###
+
+
+#Default $29: DMEM state pointer
+addi $29, $0, 3600
+
+#Default $30: DMEM function pointer
 addi $30, $0, 4000
 
 
@@ -377,6 +385,17 @@ addi $8, $8, 435
 bne $7, $8, clcskip
 nop
 nop
+#save state in DMEM
+addi $30, $30, 1
+sw $31, (0)$30
+jal SAVESTATE
+nop
+nop
+lw $31, (0)$30
+addi $30, $30, -1
+nop
+nop
+
 add $17, $13, $0 #$13->$17
 add $13, $4, $0 #$4 (new line color)->$13
 #add 677 offset
@@ -451,6 +470,19 @@ j promptstart
 
 ###FORWARD: fwd x
 FORWARD:
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, (0)$30
+jal SAVESTATE
+nop
+nop
+lw $31, (0)$30
+addi $30, $30, -1
+nop
+nop
+
+
 #Save current state to previous state
 j current_to_prevf
 nop
@@ -460,10 +492,19 @@ endcurrent_to_prevf:
 #$12 has the angle
 #Determine direction it's currently facing
 #and call a subroutine that moves it forward
+
+
 bne $12, $0, northf     #imem SHOULD BE BEQ
+#set $1=1 to check for east
+addi $1, $0, 1
 bne $12, $1, eastf      #imem SHOULD BE BEQ
-bne $12, $2, southf     #imem SHOULD BE BEQ
-bne $12, $3, westf      #imem SHOULD BE BEQ
+#set $1=2 to check for east
+addi $1, $0, 2
+bne $12, $1, southf     #imem SHOULD BE BEQ
+#set $1=3 to check for east
+addi $1, $0, 3
+bne $12, $1, westf      #imem SHOULD BE BEQ
+
 
 northf:
 #sub from y
@@ -506,6 +547,19 @@ jr $31 # return after forward
 
 ###BACKWARD: bkd x
 BACKWARD:
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, (0)$30
+jal SAVESTATE
+nop
+nop
+lw $31, (0)$30
+addi $30, $30, -1
+nop
+nop
+
+
 #Save current state to previous state
 j current_to_prevb
 nop
@@ -515,10 +569,17 @@ endcurrent_to_prevb:
 #$12 has the angle
 #Determine direction it's currently facing
 #and call a subroutine that moves it backward
+
 bne $12, $0, northb     #imem SHOULD BE BEQ
+#set $1=1 to check for east
+addi $1, $0, 1
 bne $12, $1, eastb      #imem SHOULD BE BEQ
-bne $12, $2, southb     #imem SHOULD BE BEQ
-bne $12, $3, westb      #imem SHOULD BE BEQ
+#set $1=2 to check for east
+addi $1, $0, 2
+bne $12, $1, southb     #imem SHOULD BE BEQ
+#set $1=3 to check for east
+addi $1, $0, 3
+bne $12, $1, westb      #imem SHOULD BE BEQ
 
 northb:
 #add to y
@@ -597,10 +658,17 @@ add $7, $0, $15
 
 #Determine direction it's currently facing
 #and call a subroutine that moves it forward
+
 bne $12, $0, drawnorthb     #imem SHOULD BE BEQ
+#set $1=1 to check for east
+addi $1, $0, 1
 bne $12, $1, draweastb      #imem SHOULD BE BEQ
-bne $12, $2, drawsouthb     #imem SHOULD BE BEQ
-bne $12, $3, drawwestb      #imem SHOULD BE BEQ
+#set $1=2 to check for south
+addi $1, $0, 2
+bne $12, $1, drawsouthb     #imem SHOULD BE BEQ
+#set $1=1 to check for west
+addi $1, $0, 3
+bne $12, $1, drawwestb      #imem SHOULD BE BEQ
 
 drawnorthb:
 #increment y
@@ -728,10 +796,18 @@ add $7, $0, $15
 
 #Determine direction it's currently facing
 #and call a subroutine that moves it forward
+
+
 bne $12, $0, drawnorthf     #imem SHOULD BE BEQ
+#set $1=1 to check for east
+addi $1, $0, 1
 bne $12, $1, draweastf      #imem SHOULD BE BEQ
-bne $12, $2, drawsouthf     #imem SHOULD BE BEQ
-bne $12, $3, drawwestf      #imem SHOULD BE BEQ
+#set $1=2 to check for south
+addi $1, $0, 2
+bne $12, $1, drawsouthf     #imem SHOULD BE BEQ
+#set $1=1 to check for west
+addi $1, $0, 3
+bne $12, $1, drawwestf      #imem SHOULD BE BEQ
 
 drawnorthf:
 #decrement y
@@ -1092,6 +1168,18 @@ jr $31
 
 ###LEFT ROTATE: lrt x
 LEFTROTATE:
+
+    #save state in DMEM
+    addi $30, $30, 1
+    sw $31, (0)$30
+    jal SAVESTATE
+    nop
+    nop
+    lw $31, (0)$30
+    addi $30, $30, -1
+    nop
+    nop
+
     #$12 has current direction
 
     #process argument
@@ -1124,6 +1212,18 @@ LEFTROTATE:
 
 ###RIGHT ROTATE: rrt x
 RIGHTROTATE:
+
+    #save state in DMEM
+    addi $30, $30, 1
+    sw $31, (0)$30
+    jal SAVESTATE
+    nop
+    nop
+    lw $31, (0)$30
+    addi $30, $30, -1
+    nop
+    nop
+
     #$12 has current direction
 
     #process argument
@@ -1334,4 +1434,64 @@ noop
 noop
 noop
 noop
+jr $31
+
+
+#state save subroutine
+SAVESTATE:
+
+#save x-coord
+sw $10, (0)$29
+addi $29, $29, 1
+
+#save y-coord
+sw $11, (0)$29
+addi $29, $29, 1
+
+#save orientation
+sw $12, (0)$29
+addi $29, $29, 1
+
+#save line color (pen color)
+sw $13, (0)$29
+addi $29, $29, 1
+
+#save turtle image index
+sw $18, (0)$29
+addi $29, $29, 1
+
+jr $31
+
+
+#CHANGETURTLEINDEX
+CHANGETURTLEINDEX:
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, (0)$30
+jal SAVESTATE
+nop
+nop
+lw $31, (0)$30
+addi $30, $30, -1
+nop
+nop
+
+#change the index
+#$4(arg: new index) -> $18 and $4=0
+add $18, $0, $4
+add $4, $0, $0
+
+#re-render the turtle
+#save state in DMEM
+addi $30, $30, 1
+sw $31, (0)$30
+jal TURTLE_FILLCELL
+nop
+nop
+lw $31, (0)$30
+addi $30, $30, -1
+nop
+nop
+
 jr $31
