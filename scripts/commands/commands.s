@@ -24,7 +24,10 @@ bne $19, $0, initloop		#imem SHOULD BE BEQ!
 ###
 
 
-#Default $30: stackpointer
+#Default $29: DMEM state pointer
+addi $29, $0, 3600
+
+#Default $30: DMEM function pointer
 addi $30, $0, 4000
 
 
@@ -382,6 +385,17 @@ addi $8, $8, 435
 bne $7, $8, clcskip
 nop
 nop
+#save state in DMEM
+addi $30, $30, 1
+sw $31, (0)$30
+jal SAVESTATE
+nop
+nop
+lw $31, (0)$30
+addi $30, $30, -1
+nop
+nop
+
 add $17, $13, $0 #$13->$17
 add $13, $4, $0 #$4 (new line color)->$13
 #add 677 offset
@@ -456,6 +470,19 @@ j promptstart
 
 ###FORWARD: fwd x
 FORWARD:
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, (0)$30
+jal SAVESTATE
+nop
+nop
+lw $31, (0)$30
+addi $30, $30, -1
+nop
+nop
+
+
 #Save current state to previous state
 j current_to_prevf
 nop
@@ -520,6 +547,19 @@ jr $31 # return after forward
 
 ###BACKWARD: bkd x
 BACKWARD:
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, (0)$30
+jal SAVESTATE
+nop
+nop
+lw $31, (0)$30
+addi $30, $30, -1
+nop
+nop
+
+
 #Save current state to previous state
 j current_to_prevb
 nop
@@ -1128,6 +1168,18 @@ jr $31
 
 ###LEFT ROTATE: lrt x
 LEFTROTATE:
+
+    #save state in DMEM
+    addi $30, $30, 1
+    sw $31, (0)$30
+    jal SAVESTATE
+    nop
+    nop
+    lw $31, (0)$30
+    addi $30, $30, -1
+    nop
+    nop
+
     #$12 has current direction
 
     #process argument
@@ -1160,6 +1212,18 @@ LEFTROTATE:
 
 ###RIGHT ROTATE: rrt x
 RIGHTROTATE:
+
+    #save state in DMEM
+    addi $30, $30, 1
+    sw $31, (0)$30
+    jal SAVESTATE
+    nop
+    nop
+    lw $31, (0)$30
+    addi $30, $30, -1
+    nop
+    nop
+
     #$12 has current direction
 
     #process argument
@@ -1370,4 +1434,30 @@ noop
 noop
 noop
 noop
+jr $31
+
+
+#state save subroutine
+SAVESTATE:
+
+#save x-coord
+sw $10, (0)$29
+addi $29, $29, 1
+
+#save y-coord
+sw $11, (0)$29
+addi $29, $29, 1
+
+#save orientation
+sw $12, (0)$29
+addi $29, $29, 1
+
+#save line color (pen color)
+sw $13, (0)$29
+addi $29, $29, 1
+
+#save turtle image index
+sw $18, (0)$29
+addi $29, $29, 1
+
 jr $31
