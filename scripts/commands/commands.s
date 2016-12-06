@@ -5,10 +5,9 @@
 #$11: y-coordinate
 #$12: current direction
 #$4 is the argument register
+#$2 is the command counter register
 
 #Direction code [0-3]
-#THESE VALUES ARE HARD-CODED
-#$0 = 0 (north), $1 = 1 (east) $2 = 2 (south) $3 = 3 (west)
 
 initloop:
 bne $19, $0, initloop		#imem SHOULD BE BEQ!
@@ -44,7 +43,6 @@ add $26, $0, $0
 
 
 #$6 is constant: color WHITE
-#TODO: find the value for white
 addi $6, $0, 255 # 255 corresponds to WHITE in index
 
 #$20 is constant: 80 for 80 iterations for left and right
@@ -114,7 +112,7 @@ add $26, $0, $0
 addi $10, $0, 15
 addi $11, $0, 15
 addi $12, $0, 0
-addi $13, $0, 677 # 677 offset applied
+addi $13, $0, 250 # 250 offset applied
 
 #Draw turtle at this location
 
@@ -398,8 +396,8 @@ nop
 
 add $17, $13, $0 #$13->$17
 add $13, $4, $0 #$4 (new line color)->$13
-#add 677 offset
-addi $13, $13, 677
+#add 250 offset
+addi $13, $13, 250
 nop
 nop
 j promptstart
