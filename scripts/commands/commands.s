@@ -29,6 +29,9 @@ addi $29, $0, 9600
 #Default $30: DMEM function pointer
 addi $30, $0, 4000
 
+#Default $2: Starts off -1
+addi $2, $0, -1
+
 
 #Screen initialization (left and right white)
 #Initialize temp registers
@@ -124,42 +127,20 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 
-
-## TEMP TEMP TEMP TEMP
-# test drawing letters
-addi $2, $0, 0
-addi $6, $0, 0
-addi $26, $0, 6300
-addi $30, $30, 1
-sw $31, 0($30)
-jal WRITE_LETTER
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-
-addi $2, $0, 0
-addi $6, $0, 1
-addi $26, $0, 6450
-addi $30, $30, 1
-sw $31, 0($30)
-jal WRITE_LETTER
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-
-addi $2, $0, 0
-addi $6, $0, 2
-addi $26, $0, 6600
-addi $30, $30, 1
-sw $31, 0($30)
-jal WRITE_LETTER
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-
-
 promptstart:
 addi $2, $2, 1      # increment command counter
+
+## WRITE > SYMBOL
+addi $2, $0, 0
+addi $6, $0, 0
+addi $26, $0, 18
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
 add $19, $0, $0			# set $19 to $0
 nop
 nop
@@ -1537,10 +1518,21 @@ jr $31
 
 # @param: $2 is the row
 # @param: $6 is the column
-# @param: $26 is the position in DMEM of letter
+# @param: $26 is the letter index
 WRITE_LETTER:
 
-#Initialize temp registers
+# Get DMEM index
+add $5, $26, $0
+addi $28, $0, 150
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult            # $26 = 150 * index + 3600
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+addi $26, $28, 3600
+
+# Initialize temp registers
 add $20, $0, $0
 addi $21, $0, 640
 add $22, $0, $0
