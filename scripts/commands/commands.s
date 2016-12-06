@@ -116,7 +116,6 @@ addi $13, $0, 250 # 250 offset applied
 
 #Draw turtle at this location
 
-
 addi $30, $30, 1
 sw $31, 0($30)
 jal TURTLE_FILLCELL
@@ -125,7 +124,42 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 
+
+## TEMP TEMP TEMP TEMP
+# test drawing letters
+addi $2, $0, 0
+addi $6, $0, 0
+addi $26, $0, 6300
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+addi $2, $0, 0
+addi $6, $0, 1
+addi $26, $0, 6450
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+addi $2, $0, 0
+addi $6, $0, 2
+addi $26, $0, 6600
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+
 promptstart:
+addi $2, $2, 1      # increment command counter
 add $19, $0, $0			# set $19 to $0
 nop
 nop
@@ -1497,5 +1531,118 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 nop
+
+jr $31
+
+
+# @param: $2 is the row
+# @param: $6 is the column
+# @param: $26 is the position in DMEM of letter
+WRITE_LETTER:
+
+#Initialize temp registers
+add $20, $0, $0
+addi $21, $0, 640
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
+add $25, $0, $0
+addi $27, $0, 15
+
+add $28, $2, $0
+add $5, $21, $0
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult            # $20 = 640 * y
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+add $20, $28, $0
+
+add $28, $20, $0
+add $5, $27, $0
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult           # $20 = (640 * y) * 15
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+add $20, $28, $0
+
+addi $28, $0, 10
+add $5, $6, $0
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult           # $27 = 10 * x
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+add $27, $28, $0
+
+add $20, $20, $27       # $20 = 15*(640 * y) + 10x
+addi $27, $0, 1         # reset $27 to 1
+
+#$22 = 15 (go from 0 to 14)
+#$23, $24 are loop variables
+addi $22, $0, 10
+addi $7, $0, 15
+addi $23, $0, 0
+addi $24, $0, 0
+
+#$25: color value for turtle from DMEM
+#$26: offset in DMEM [0, 254]
+
+loopcol1t:
+
+bne $23, $22, endloop1t # $22 = 10	imem: SHOULD BE BEQ (11101)!!!
+
+#get the index for this iteration
+#$24 is the temporary index
+add $24, $20, $23
+
+
+#color it
+
+#first, load from DMEM using DMEM offset
+lw $25, 0($26)
+
+sw $25, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+#svga $25, 0($24) #TODO: change to svga! : hl130
+
+#increment index
+addi $23, $23, 1
+
+#increment DMEM offset
+addi $26, $26, 1
+
+j loopcol1t
+
+
+endloop1t:
+
+#ran this outer loop 15 times? then you're done!
+bne $27, $7, endloop2t   # imem: SHOULD BE BEQ (11101)!!!
+
+#first, increment the outer loop variable
+addi $27, $27, 1
+
+#one iteration is done, so add 640 to $20
+add $20, $20, $21
+
+#now set loop var to 0 and loop again 15 times
+add $23, $0, $0 #inner loop var 0
+j loopcol1t
+
+
+endloop2t:
+#cell all filled, clear the variables and return
+add $6, $0, $0
+add $7, $0, $0
+add $20, $0, $0
+add $21, $0, $0
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
+add $27, $0, $0
 
 jr $31
