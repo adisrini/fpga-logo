@@ -1461,3 +1461,37 @@ sw $18, (0)$29
 addi $29, $29, 1
 
 jr $31
+
+
+#CHANGETURTLEINDEX
+CHANGETURTLEINDEX:
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, (0)$30
+jal SAVESTATE
+nop
+nop
+lw $31, (0)$30
+addi $30, $30, -1
+nop
+nop
+
+#change the index
+#$4(arg: new index) -> $18 and $4=0
+add $18, $0, $4
+add $4, $0, $0
+
+#re-render the turtle
+#save state in DMEM
+addi $30, $30, 1
+sw $31, (0)$30
+jal TURTLE_FILLCELL
+nop
+nop
+lw $31, (0)$30
+addi $30, $30, -1
+nop
+nop
+
+jr $31
