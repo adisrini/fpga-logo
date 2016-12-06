@@ -25,7 +25,7 @@ bne $19, $0, initloop		#imem SHOULD BE BEQ!
 
 
 #Default $29: DMEM state pointer
-addi $29, $0, 3600
+addi $29, $0, 9600
 
 #Default $30: DMEM function pointer
 addi $30, $0, 4000
@@ -120,10 +120,10 @@ addi $13, $0, 677 # 677 offset applied
 
 
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal TURTLE_FILLCELL
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 nop
 
@@ -185,10 +185,10 @@ addi $8, $0, 2147
 add $28, $8, $0
 add $5, $8, $0
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal mult
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 add $8, $28, $0
 # mul $8, $8, $8
@@ -212,10 +212,10 @@ addi $8, $0, 2084
 add $28, $8, $0
 add $5, $8, $0
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal mult
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 add $8, $28, $0
 # mul $8, $8, $8
@@ -239,10 +239,10 @@ addi $8, $0, 2236
 add $28, $8, $0
 add $5, $8, $0
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal mult
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 add $8, $28, $0
 # mul $8, $8, $8
@@ -266,10 +266,10 @@ addi $8, $0, 2323
 add $28, $8, $0
 add $5, $8, $0
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal mult
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 add $8, $28, $0
 # mul $8, $8, $8
@@ -293,10 +293,10 @@ addi $8, $0, 2364
 add $28, $8, $0
 add $5, $8, $0
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal mult
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 add $8, $28, $0
 # mul $8, $8, $8
@@ -320,10 +320,10 @@ addi $8, $0, 2322
 add $28, $8, $0
 add $5, $8, $0
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal mult
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 add $8, $28, $0
 # mul $8, $8, $8
@@ -346,10 +346,10 @@ addi $8, $0, 2101
 add $28, $8, $0
 add $5, $8, $0
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal mult
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 add $8, $28, $0
 # mul $8, $8, $8
@@ -358,7 +358,7 @@ addi $8, $8, -1712
 bne $7, $8, ctiskip
 nop
 nop
-# jal CTI   (TODO)
+jal CHANGETURTLEINDEX
 nop
 nop
 j promptstart
@@ -373,10 +373,10 @@ addi $8, $0, 2100
 add $28, $8, $0
 add $5, $8, $0
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal mult
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 add $8, $28, $0
 # mul $8, $8, $8
@@ -387,11 +387,11 @@ nop
 nop
 #save state in DMEM
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal SAVESTATE
 nop
 nop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 nop
 nop
@@ -413,10 +413,10 @@ addi $8, $0, 2294
 add $28, $8, $0
 add $5, $8, $0
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal mult
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 add $8, $28, $0
 # mul $8, $8, $8
@@ -441,10 +441,10 @@ addi $8, $0, 2294
 add $28, $8, $0
 add $5, $8, $0
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal mult
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 add $8, $28, $0
 # mul $8, $8, $8
@@ -473,11 +473,11 @@ FORWARD:
 
 #save state in DMEM
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal SAVESTATE
 nop
 nop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 nop
 nop
@@ -528,10 +528,10 @@ endforward:
 
 #draw turtle at the new location
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal TURTLE_FILLCELL
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 nop
 #draw here
@@ -550,11 +550,11 @@ BACKWARD:
 
 #save state in DMEM
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal SAVESTATE
 nop
 nop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 nop
 nop
@@ -603,10 +603,10 @@ endbackward:
 
 #draw turtle at the new location
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal TURTLE_FILLCELL
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 nop
 
@@ -682,11 +682,11 @@ bne $7, $11, enddrawbackward      #imem SHOULD BE BEQ
 #else, leave a trail and increment
 #SVGA CODE HERE
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal DRAW_FILLCELL
 noop
- lw $31, (0)$30
- addi $30, $30, -1
+lw $31, 0($30)
+addi $30, $30, -1
 noop
 addi $7, $7, 1
 #loop
@@ -706,12 +706,12 @@ draweastb_loop:
 bne $6, $10, enddrawbackward      #imem SHOULD BE BEQ
 #else, leave a trail and increment
 #SVGA CODE HERE
- addi $30, $30, 1
-sw $31, (0)$30
+addi $30, $30, 1
+sw $31, 0($30)
 jal DRAW_FILLCELL
 noop
- lw $31, (0)$30
- addi $30, $30, -1
+lw $31, 0($30)
+addi $30, $30, -1
 noop
 addi $6, $6, -1
 #loop
@@ -731,12 +731,12 @@ drawsouthb_loop:
 bne $7, $11, enddrawbackward      #imem SHOULD BE BEQ
 #else, leave a trail and decrement
 #SVGA CODE HERE
- addi $30, $30, 1
-sw $31, (0)$30
+addi $30, $30, 1
+sw $31, 0($30)
 jal DRAW_FILLCELL
 noop
- lw $31, (0)$30
- addi $30, $30, -1
+lw $31, 0($30)
+addi $30, $30, -1
 noop
 addi $7, $7, -1
 #loop
@@ -756,12 +756,12 @@ drawwestb_loop:
 bne $6, $10, enddrawbackward      #imem SHOULD BE BEQ
 #else, leave a trail and increment
 #SVGA CODE HERE
- addi $30, $30, 1
-sw $31, (0)$30
+addi $30, $30, 1
+sw $31, 0($30)
 jal DRAW_FILLCELL
 noop
- lw $31, (0)$30
- addi $30, $30, -1
+lw $31, 0($30)
+addi $30, $30, -1
 noop
 addi $6, $6, 1
 #loop
@@ -820,12 +820,12 @@ drawnorthf_loop:
 bne $7, $11, enddrawforward     #imem SHOULD BE BEQ
 #else, leave a trail and decrement
 #SVGA CODE HERE
- addi $30, $30, 1
-sw $31, (0)$30
+addi $30, $30, 1
+sw $31, 0($30)
 jal DRAW_FILLCELL
 noop
- lw $31, (0)$30
- addi $30, $30, -1
+lw $31, 0($30)
+addi $30, $30, -1
 noop
 addi $7, $7, -1
 #loop
@@ -850,10 +850,10 @@ bne $6, $10, enddrawforward      #imem SHOULD BE BEQ
 
 
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal DRAW_FILLCELL
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 noop
 addi $6, $6, 1
@@ -877,10 +877,10 @@ bne $7, $11, enddrawforward      #imem SHOULD BE BEQ
 #SVGA CODE HERE
 
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal DRAW_FILLCELL
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 
 noop
@@ -904,10 +904,10 @@ bne $6, $10, enddrawforward      #imem SHOULD BE BEQ
 #else, leave a trail and increment
 #SVGA CODE HERE
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal DRAW_FILLCELL
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 noop
 addi $6, $6, -1
@@ -951,10 +951,10 @@ addi $21, $0, 9600
 add $28, $21, $0
 add $5, $7, $0
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal mult
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 add $20, $28, $0
 #mul $20, $21, $7		# $20 = 640 * 15 * y
@@ -962,10 +962,10 @@ add $20, $28, $0
 add $28, $27, $0
 add $5, $6, $0
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal mult
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 add $27, $28, $0
 #mul $27, $27, $6		# $27 = 15x
@@ -1047,15 +1047,21 @@ addi $26, $0, 225   # temporarily store size of turtle image, used to index orie
 add $28, $26, $0
 add $5, $12, $0
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal mult
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
-add $26, $28, $0
-# TODO: incorporate turtle image being used (turtle1, turtle2, turtle3) to find $26
-# $26 = $26 + 900 * turtle index
-addi $26, $26, 2700
+add $26, $28, $0      # $26 = 225*orientation
+addi $5, $0, 900
+add $28, $18, $0
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+add $26, $28, $26     # $26 = 225*orientation + 900*index
 
 #mul $26, $12, $26   # multiply orientation by 225 to find starting location
 #calculate top left starting pixel index
@@ -1069,10 +1075,10 @@ addi $21, $0, 640
 add $28, $11, $0
 add $5, $21, $0
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal mult
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 add $20, $28, $0
 # mul $20, $21, $11   # $20 = 640 * y
@@ -1080,10 +1086,10 @@ add $20, $28, $0
 add $28, $20, $0
 add $5, $27, $0
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal mult
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 add $20, $28, $0
 #mul $20, $20, $27   # $20 = (640 * y) * 15
@@ -1091,10 +1097,10 @@ add $20, $28, $0
 add $28, $27, $0
 add $5, $10, $0
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal mult
 noop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 add $27, $28, $0
 #mul $27, $10, $27       # $27 = x * 15
@@ -1169,199 +1175,199 @@ jr $31
 ###LEFT ROTATE: lrt x
 LEFTROTATE:
 
-    #save state in DMEM
-    addi $30, $30, 1
-    sw $31, (0)$30
-    jal SAVESTATE
-    nop
-    nop
-    lw $31, (0)$30
-    addi $30, $30, -1
-    nop
-    nop
+  #save state in DMEM
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal SAVESTATE
+  nop
+  nop
+  lw $31, 0($30)
+  addi $30, $30, -1
+  nop
+  nop
 
-    #$12 has current direction
+  #$12 has current direction
 
-    #process argument
-    j modfour_l
-    nop
-    endmodfour_l:
+  #process argument
+  j modfour_l
+  nop
+  endmodfour_l:
 
-    sub $12, $12, $4 #subtract
+  sub $12, $12, $4 #subtract
 
-    #if $12 is negative, add 4
-    blt $12, $0, addfour_l
-    nop
-    endaddfour_l:
+  #if $12 is negative, add 4
+  blt $12, $0, addfour_l
+  nop
+  endaddfour_l:
 
-    #re-render the turtle
-    nop
-    nop
-    addi $30, $30, 1
-    sw $31, (0)$30
-    jal TURTLE_FILLCELL
-    noop
-    lw $31, (0)$30
-    addi $30, $30, -1
-    nop
-    nop
+  #re-render the turtle
+  nop
+  nop
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal TURTLE_FILLCELL
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+  nop
+  nop
 
 
-    jr $31 # return after leftrotate
+  jr $31 # return after leftrotate
 
 
 ###RIGHT ROTATE: rrt x
 RIGHTROTATE:
 
-    #save state in DMEM
-    addi $30, $30, 1
-    sw $31, (0)$30
-    jal SAVESTATE
-    nop
-    nop
-    lw $31, (0)$30
-    addi $30, $30, -1
-    nop
-    nop
+  #save state in DMEM
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal SAVESTATE
+  nop
+  nop
+  lw $31, 0($30)
+  addi $30, $30, -1
+  nop
+  nop
 
-    #$12 has current direction
+  #$12 has current direction
 
-    #process argument
-    j modfour_r
-    nop
-    endmodfour_r:
+  #process argument
+  j modfour_r
+  nop
+  endmodfour_r:
 
-    add $12, $12, $4 #add
+  add $12, $12, $4 #add
 
-    #if $12 is greater than 4, we adjust the number
-    #subtract 4 and do a blt
-    addi $12, $12, -4
-    blt $12, $0, addfour_r
+  #if $12 is greater than 4, we adjust the number
+  #subtract 4 and do a blt
+  addi $12, $12, -4
+  blt $12, $0, addfour_r
 
-    endaddfour_r:
+  endaddfour_r:
 
-    #re-render the turtle
-    nop
-    nop
-	addi $30, $30, 1
-    sw $31, (0)$30
-    jal TURTLE_FILLCELL
-    noop
-    lw $31, (0)$30
-    addi $30, $30, -1
-    nop
-    nop
+  #re-render the turtle
+  nop
+  nop
+addi $30, $30, 1
+  sw $31, 0($30)
+  jal TURTLE_FILLCELL
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+  nop
+  nop
 
-    jr $31 # return after rightrotate
+  jr $31 # return after rightrotate
 
 
 
 
 ###ARGUMENT PROCESSING FOR ROTATE
 modfour_l:
-    #Get modulo 4 of the argument
-    #and stores it back into $4
-    #$6-$9 are temp registers
-    #assumes multdiv does not have mod implemented
+  #Get modulo 4 of the argument
+  #and stores it back into $4
+  #$6-$9 are temp registers
+  #assumes multdiv does not have mod implemented
 
-    #initialize
-    addi $6, $0, 4 #$6 = 4
-    addi $7, $0, 0
-    addi $8, $0, 0
-    addi $9, $0, 0
+  #initialize
+  addi $6, $0, 4 #$6 = 4
+  addi $7, $0, 0
+  addi $8, $0, 0
+  addi $9, $0, 0
 
-    add $28, $4, $0
-    add $5, $6, $0
-    addi $30, $30, 1
-    sw $31, (0)$30
-    jal divide
-    noop
-    lw $31, (0)$30
-    addi $30, $30, -1
-    add $7, $28, $0
-    #div $7, $4, $6
-       add $28, $6, $0
-    add $5, $7, $0
-    addi $30, $30, 1
-    sw $31, (0)$30
-    jal mult
-    noop
-    lw $31, (0)$30
-    addi $30, $30, -1
-    add $8, $28, $0
-    #mul $8, $6, $7
+  add $28, $4, $0
+  add $5, $6, $0
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal divide
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+  add $7, $28, $0
+  #div $7, $4, $6
+     add $28, $6, $0
+  add $5, $7, $0
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal mult
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+  add $8, $28, $0
+  #mul $8, $6, $7
 
-    sub $9, $4, $8
+  sub $9, $4, $8
 
-    #store it back to $4
-    add $4, $0, $9
+  #store it back to $4
+  add $4, $0, $9
 
-    #clear registers--redundant?
-    #addi $6, $0, 4 #$6 = 4
-    #addi $7, $0, 0
-    #addi $8, $0, 0
-    #addi $9, $0, 0
+  #clear registers--redundant?
+  #addi $6, $0, 4 #$6 = 4
+  #addi $7, $0, 0
+  #addi $8, $0, 0
+  #addi $9, $0, 0
 
-    j endmodfour_l #return to rotate
+  j endmodfour_l #return to rotate
 
 ###ARGUMENT PROCESSING FOR ROTATE
 modfour_r:
-    #Get modulo 4 of the argument
-    #and stores it back into $4
-    #$6-$9 are temp registers
-    #assumes multdiv does not have mod implemented
+  #Get modulo 4 of the argument
+  #and stores it back into $4
+  #$6-$9 are temp registers
+  #assumes multdiv does not have mod implemented
 
-    #initialize
-    addi $6, $0, 4 #$6 = 4
-    addi $7, $0, 0
-    addi $8, $0, 0
-    addi $9, $0, 0
+  #initialize
+  addi $6, $0, 4 #$6 = 4
+  addi $7, $0, 0
+  addi $8, $0, 0
+  addi $9, $0, 0
 
-      add $28, $4, $0
-    add $5, $6, $0
-    addi $30, $30, 1
-    sw $31, (0)$30
-    jal divide
-    noop
-    lw $31, (0)$30
-    addi $30, $30, -1
-    add $7, $28, $0
-    #div $7, $4, $6
-    add $28, $6, $0
-    add $5, $7, $0
-    addi $30, $30, 1
-    sw $31, (0)$30
-    jal mult
-    noop
-    lw $31, (0)$30
-    addi $30, $30, -1
-    add $8, $28, $0
-    #mul $8, $6, $7
-    sub $9, $4, $8
+    add $28, $4, $0
+  add $5, $6, $0
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal divide
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+  add $7, $28, $0
+  #div $7, $4, $6
+  add $28, $6, $0
+  add $5, $7, $0
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal mult
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+  add $8, $28, $0
+  #mul $8, $6, $7
+  sub $9, $4, $8
 
-    #store it back to $4
-    add $4, $0, $9
+  #store it back to $4
+  add $4, $0, $9
 
-    #clear registers--redundant?
-    #addi $6, $0, 4 #$6 = 4
-    #addi $7, $0, 0
-    #addi $8, $0, 0
-    #addi $9, $0, 0
+  #clear registers--redundant?
+  #addi $6, $0, 4 #$6 = 4
+  #addi $7, $0, 0
+  #addi $8, $0, 0
+  #addi $9, $0, 0
 
-    j endmodfour_r #return to rotate
+  j endmodfour_r #return to rotate
 
 
 ###ADD 4 TO RETURN TO [0, 3] RANGE
 addfour_l:
-    addi $12, $12, 4
+  addi $12, $12, 4
 
-    j endaddfour_l
+  j endaddfour_l
 
 ###ADD 4 TO RETURN TO [0, 3] RANGE
 addfour_r:
-    addi $12, $12, 4
+  addi $12, $12, 4
 
-    j endaddfour_r
+  j endaddfour_r
 
 
 mult:
@@ -1441,23 +1447,23 @@ jr $31
 SAVESTATE:
 
 #save x-coord
-sw $10, (0)$29
+sw $10, 0($29)
 addi $29, $29, 1
 
 #save y-coord
-sw $11, (0)$29
+sw $11, 0($29)
 addi $29, $29, 1
 
 #save orientation
-sw $12, (0)$29
+sw $12, 0($29)
 addi $29, $29, 1
 
 #save line color (pen color)
-sw $13, (0)$29
+sw $13, 0($29)
 addi $29, $29, 1
 
 #save turtle image index
-sw $18, (0)$29
+sw $18, 0($29)
 addi $29, $29, 1
 
 jr $31
@@ -1468,11 +1474,11 @@ CHANGETURTLEINDEX:
 
 #save state in DMEM
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal SAVESTATE
 nop
 nop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 nop
 nop
@@ -1485,11 +1491,11 @@ add $4, $0, $0
 #re-render the turtle
 #save state in DMEM
 addi $30, $30, 1
-sw $31, (0)$30
+sw $31, 0($30)
 jal TURTLE_FILLCELL
 nop
 nop
-lw $31, (0)$30
+lw $31, 0($30)
 addi $30, $30, -1
 nop
 nop
