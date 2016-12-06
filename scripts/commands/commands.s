@@ -15,9 +15,14 @@ bne $19, $0, initloop		#imem SHOULD BE BEQ!
 
 #Initialization code
 #Fix $0-$3 to Direction code for ease of comparison
-addi $1, $0, 1 #east
-addi $2, $0, 2 #south
-addi $3, $0, 3 #west
+
+#$1-$3 Freed up
+###
+#addi $1, $0, 1 #east
+#addi $2, $0, 2 #south
+#addi $3, $0, 3 #west
+###
+
 
 #Default $30: stackpointer
 addi $30, $0, 4000
@@ -460,10 +465,19 @@ endcurrent_to_prevf:
 #$12 has the angle
 #Determine direction it's currently facing
 #and call a subroutine that moves it forward
+
+
 bne $12, $0, northf     #imem SHOULD BE BEQ
+#set $1=1 to check for east
+addi $1, $0, 1
 bne $12, $1, eastf      #imem SHOULD BE BEQ
-bne $12, $2, southf     #imem SHOULD BE BEQ
-bne $12, $3, westf      #imem SHOULD BE BEQ
+#set $1=2 to check for east
+addi $1, $0, 2
+bne $12, $1, southf     #imem SHOULD BE BEQ
+#set $1=3 to check for east
+addi $1, $0, 3
+bne $12, $1, westf      #imem SHOULD BE BEQ
+
 
 northf:
 #sub from y
@@ -515,10 +529,17 @@ endcurrent_to_prevb:
 #$12 has the angle
 #Determine direction it's currently facing
 #and call a subroutine that moves it backward
+
 bne $12, $0, northb     #imem SHOULD BE BEQ
+#set $1=1 to check for east
+addi $1, $0, 1
 bne $12, $1, eastb      #imem SHOULD BE BEQ
-bne $12, $2, southb     #imem SHOULD BE BEQ
-bne $12, $3, westb      #imem SHOULD BE BEQ
+#set $1=2 to check for east
+addi $1, $0, 2
+bne $12, $1, southb     #imem SHOULD BE BEQ
+#set $1=3 to check for east
+addi $1, $0, 3
+bne $12, $1, westb      #imem SHOULD BE BEQ
 
 northb:
 #add to y
@@ -597,10 +618,17 @@ add $7, $0, $15
 
 #Determine direction it's currently facing
 #and call a subroutine that moves it forward
+
 bne $12, $0, drawnorthb     #imem SHOULD BE BEQ
+#set $1=1 to check for east
+addi $1, $0, 1
 bne $12, $1, draweastb      #imem SHOULD BE BEQ
-bne $12, $2, drawsouthb     #imem SHOULD BE BEQ
-bne $12, $3, drawwestb      #imem SHOULD BE BEQ
+#set $1=2 to check for south
+addi $1, $0, 2
+bne $12, $1, drawsouthb     #imem SHOULD BE BEQ
+#set $1=1 to check for west
+addi $1, $0, 3
+bne $12, $1, drawwestb      #imem SHOULD BE BEQ
 
 drawnorthb:
 #increment y
@@ -728,10 +756,18 @@ add $7, $0, $15
 
 #Determine direction it's currently facing
 #and call a subroutine that moves it forward
+
+
 bne $12, $0, drawnorthf     #imem SHOULD BE BEQ
+#set $1=1 to check for east
+addi $1, $0, 1
 bne $12, $1, draweastf      #imem SHOULD BE BEQ
-bne $12, $2, drawsouthf     #imem SHOULD BE BEQ
-bne $12, $3, drawwestf      #imem SHOULD BE BEQ
+#set $1=2 to check for south
+addi $1, $0, 2
+bne $12, $1, drawsouthf     #imem SHOULD BE BEQ
+#set $1=1 to check for west
+addi $1, $0, 3
+bne $12, $1, drawwestf      #imem SHOULD BE BEQ
 
 drawnorthf:
 #decrement y
