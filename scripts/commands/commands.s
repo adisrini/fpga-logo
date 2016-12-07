@@ -321,7 +321,7 @@ addi $8, $8, 2100
 bne $7, $8, undoskip
 nop
 nop
-# jal UNDO   (TODO)
+jal UNDO
 nop
 nop
 j promptstart
@@ -1361,8 +1361,8 @@ bne $23, $22, endloop11 #$22=15	  #imem: SHOULD BE BEQ (11101)!!!
 #$24 is the temporary index
 add $24, $20, $23
 
-#color it
-sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+#color it using previous line color
+sw $17, 0($24)	# imem: SHOULD BE SVGA (01111)!!
 #svga $13, 0($24) #TODO: change to svga! : hl130
 
 #increment index
@@ -2175,4 +2175,108 @@ add $23, $0, $0
 add $24, $0, $0
 add $27, $0, $0
 
+jr $31
+
+
+#UNDO
+UNDO:
+#initialize
+add $20, $0, $0
+add $21, $0, $0
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
+add $25, $0, $0
+add $26, $0, $0
+add $27, $0, $0
+#add $6, $0, $0
+#add $7, $0, $0
+#add $8, $0, $0
+#add $9, $0, $0
+
+#restore the six state values $20-$25
+addi $29, $29, -1
+lw $25, 0($29)
+addi $29, $29, -1
+lw $24, 0($29)
+addi $29, $29, -1
+lw $23, 0($29)
+addi $29, $29, -1
+lw $22, 0($29)
+addi $29, $29, -1
+lw $21, 0($29)
+addi $29, $29, -1
+lw $20, 0($29)
+#increment the state so that next SAVESTATE is ready to store
+addi $29, $29, 1
+
+#undo penup/down
+add $3, $24, $0
+
+#just delete the path by setting pencolor to black
+add $13, $0, $0
+
+#find x-delta: prev-curr in $26
+sub $26, $20, $10
+
+#find y-delta: prev-curr in $27
+sub $27, $21, $11
+
+#satisfy the deltas by going forward
+#$26 in $4: Horizontal delta and face east
+add $4, $0, $26
+addi, $12, $0, 1 #east
+addi $30, $30, 1
+sw $31, 0($30)
+jal FORWARD
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#$27 in $4: Horizontal delta and face south
+add $4, $0, $27
+addi, $12, $0, 2 #south
+addi $30, $30, 1
+sw $31, 0($30)
+jal FORWARD
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#restore prev orientation
+add $12, $22, $0
+
+#restore prev pencolor
+add $13, $23, $0
+
+#restore location
+add $10, $20, $0
+add $11, $21, $0
+
+#restore turtle image index
+add $18, $25, $0
+
+#refresh turtle image
+#$26 in $4: Horizontal delta and face east
+addi $30, $30, 1
+sw $31, 0($30)
+jal TURTLE_FILLCELL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#clear out the temp registers
+add $20, $0, $0
+add $21, $0, $0
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
+add $25, $0, $0
+add $26, $0, $0
+add $27, $0, $0
+
+#all restored, now return
 jr $31
