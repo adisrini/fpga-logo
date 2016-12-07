@@ -723,11 +723,19 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 
+#delete turtle at the old location
+addi $30, $30, 1
+sw $31, 0($30)
+jal DELETE_TURTLE
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
 
 
 
-#draw here
-j DRAW_FORWARD
+#draw here: only draw if $3 == 1
+bne $3, $0, DRAW_FORWARD
 nop
 ENDDRAW_FORWARD:
 
@@ -860,8 +868,18 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 
+#delete turtle at the old location
+addi $30, $30, 1
+sw $31, 0($30)
+jal DELETE_TURTLE
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+
 #draw here
-j DRAW_BACKWARD
+bne $3, $0, DRAW_BACKWARD
 nop
 ENDDRAW_BACKWARD:
 
@@ -1280,6 +1298,110 @@ add $27, $0, $0
 
 jr $31
 
+
+###DELETE_TURTLE: delete turtle from the prev x and prev y
+DELETE_TURTLE:
+#Put the svga snippet here
+#Use $14 for prev x, $15 for prev y, $13 for color
+
+#Initialize temp registers
+add $20, $0, $0
+add $21, $0, $0
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
+
+#calculate top left starting pixel index
+#and store it in $20
+#(640*15*row) + 15*col + 80 = (640*15*y) + 15*x + 80
+#$21 = 640*15
+#row = $7, col = $6 !!
+addi $27, $0, 15
+addi $21, $0, 9600
+
+add $28, $21, $0
+add $5, $15, $0
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+add $20, $28, $0
+#mul $20, $21, $7		# $20 = 640 * 15 * y
+
+add $28, $27, $0
+add $5, $14, $0
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+add $27, $28, $0
+#mul $27, $27, $6		# $27 = 15x
+
+
+add $20, $20, $27		# $20 = (640 * 15 * y) + 15x
+addi $20, $20, 80		# $20 = (640 * 15 * y) + 15x + 80
+addi $21, $0, 640       # reset $21 to hold 640
+
+#$22 = 15 (go from 0 to 14)
+#$23, $24 are loop variables
+addi $22, $0, 15
+addi $23, $0, 0
+addi $24, $0, 0
+addi $27, $0, 1
+
+loopcol11:
+
+bne $23, $22, endloop11 #$22=15	  #imem: SHOULD BE BEQ (11101)!!!
+
+#get the index for this iteration
+#$24 is the temporary index
+add $24, $20, $23
+
+#color it
+sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+#svga $13, 0($24) #TODO: change to svga! : hl130
+
+#increment index
+addi $23, $23, 1
+
+
+j loopcol11
+
+
+
+
+endloop11:
+
+#ran this outer loop 15 times? then you're done!
+bne $27, $22, endloop21	#imem: SHOULD BE BEQ (11101)!!
+
+#first, increment the outer loop variable
+addi $27, $27, 1
+
+#one iteration is done, so add 640 to $20
+add $20, $20, $21
+
+#now set loop var to 0 and loop again 15 times
+add $23, $0, $0 #inner loop var 0
+j loopcol11
+
+
+endloop21:
+#cell all filled, clear the variables and return
+add $20, $0, $0
+add $21, $0, $0
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
+add $27, $0, $0
+
+jr $31
+
+
 ###TURTLE_FILLCELL: svga wrapper for svga per cell for rendering turtle
 TURTLE_FILLCELL:
 #Put the svga snippet here
@@ -1420,6 +1542,9 @@ add $24, $0, $0
 add $27, $0, $0
 
 jr $31
+
+
+
 
 
 ###LEFT ROTATE: lrt x
