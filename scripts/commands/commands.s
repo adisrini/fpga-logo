@@ -722,6 +722,10 @@ noop
 lw $31, 0($30)
 addi $30, $30, -1
 nop
+
+
+
+
 #draw here
 j DRAW_FORWARD
 nop
@@ -1820,6 +1824,10 @@ addi $29, $29, 1
 
 #save line color (pen color)
 sw $13, 0($29)
+addi $29, $29, 1
+
+#save penup/down
+sw $3, 0($29)
 addi $29, $29, 1
 
 #save turtle image index
