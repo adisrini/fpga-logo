@@ -11,7 +11,7 @@ def clean(path):
     write = open("imem_clean.mif", "w")
 
     lines = read_mif_file(path)
-    pattern = [3, 1, 1, 10, 10000]
+    pattern = [3, 1, 1, 10, 4, 1, 4, 1, 100000]
     pattern_index = 0
     sub_index = 0
     line_pos = 0
@@ -28,6 +28,8 @@ def clean(path):
                 value = ' 0111101101110' + value[14:]
             elif value[0:11] == ' 0011111001':
                 value = ' 0111111001' + value[11:]
+            elif value[0:11] == ' 0011110001':
+                value = ' 0111110001' + value[11:]
             elif value[0:6] == ' 00010':
                 if pattern_index % 2 == 0:      # replace
                     value = ' 11101' + value[6:]
