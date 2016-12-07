@@ -1235,7 +1235,6 @@ add $24, $20, $23
 
 #color it
 sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
-#svga $13, 0($24) #TODO: change to svga! : hl130
 
 #increment index
 addi $23, $23, 1
