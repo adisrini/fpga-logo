@@ -535,8 +535,65 @@ nop
 nop
 
 
+# IF UNKNOWN COMMAND PRINT ERROR AND JUMP TO PROMPT LOOP TO PROMPT LOOP
 
-# IF UNKNOWN COMMAND, BEST TO JUST JUMP TO PROMPT LOOP
+
+## WRITE E (RED)
+addi $2, $0, 0
+addi $6, $0, 1
+addi $26, $0, 15
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE R (RED)
+addi $2, $0, 0
+addi $6, $0, 2
+addi $26, $0, 31
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE R (RED)
+addi $2, $0, 0
+addi $6, $0, 3
+addi $26, $0, 31
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE O (RED)
+addi $2, $0, 0
+addi $6, $0, 4
+addi $26, $0, 27
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE R (RED)
+addi $2, $0, 0
+addi $6, $0, 5
+addi $26, $0, 31
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+
 j promptstart
 
 ###FORWARD: fwd x
