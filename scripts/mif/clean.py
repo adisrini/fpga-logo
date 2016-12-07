@@ -42,11 +42,11 @@ def clean(path):
     write.close()
 
 if __name__ == '__main__':
-    print "Processing mif file..."
+    print("Processing mif file...")
     path = sys.argv[1]
     if not os.path.isfile(path):
-        print "ERROR: the file does not exist."
+        print("ERROR: the file does not exist.")
     else:
-        print "Writing to mif file..."
+        print("Writing to mif file...")
         clean(path)
-        print "DONE"
+        print("DONE")
