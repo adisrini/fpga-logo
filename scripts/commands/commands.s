@@ -2371,5 +2371,17 @@ addi $30, $30, -1
 nop
 
 
+#clear out the temp registers
+add $20, $0, $0
+add $21, $0, $0
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
+add $25, $0, $0
+add $26, $0, $0
+add $27, $0, $0
+
+
+
 #all redone, return
 jr $31
