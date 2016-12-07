@@ -131,7 +131,6 @@ promptstart:
 addi $2, $2, 1      # increment command counter
 
 ## WRITE > SYMBOL
-addi $2, $0, 0
 addi $6, $0, 0
 addi $26, $0, 18
 addi $30, $30, 1
@@ -416,7 +415,6 @@ addi $13, $13, 250
 
 
 ## WRITE C
-addi $2, $0, 0
 addi $6, $0, 1
 addi $26, $0, 12
 addi $30, $30, 1
@@ -427,7 +425,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE L
-addi $2, $0, 0
 addi $6, $0, 2
 addi $26, $0, 23
 addi $30, $30, 1
@@ -438,7 +435,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE C
-addi $2, $0, 0
 addi $6, $0, 3
 addi $26, $0, 12
 addi $30, $30, 1
@@ -449,7 +445,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE WHITESPACE
-addi $2, $0, 0
 addi $6, $0, 4
 addi $26, $0, 40
 addi $30, $30, 1
@@ -460,7 +455,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE NUMBER
-addi $2, $0, 0
 addi $6, $0, 5
 addi $26, $4, 0
 addi $30, $30, 1
@@ -539,7 +533,6 @@ nop
 
 
 ## WRITE E (RED)
-addi $2, $0, 0
 addi $6, $0, 1
 addi $26, $0, 15
 addi $30, $30, 1
@@ -550,7 +543,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE R (RED)
-addi $2, $0, 0
 addi $6, $0, 2
 addi $26, $0, 31
 addi $30, $30, 1
@@ -561,7 +553,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE R (RED)
-addi $2, $0, 0
 addi $6, $0, 3
 addi $26, $0, 31
 addi $30, $30, 1
@@ -572,7 +563,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE O (RED)
-addi $2, $0, 0
 addi $6, $0, 4
 addi $26, $0, 27
 addi $30, $30, 1
@@ -583,7 +573,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE R (RED)
-addi $2, $0, 0
 addi $6, $0, 5
 addi $26, $0, 31
 addi $30, $30, 1
@@ -601,7 +590,6 @@ FORWARD:
 
 
 ## WRITE F
-addi $2, $0, 0
 addi $6, $0, 1
 addi $26, $0, 16
 addi $30, $30, 1
@@ -612,7 +600,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE W
-addi $2, $0, 0
 addi $6, $0, 2
 addi $26, $0, 36
 addi $30, $30, 1
@@ -623,7 +610,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE D
-addi $2, $0, 0
 addi $6, $0, 3
 addi $26, $0, 13
 addi $30, $30, 1
@@ -634,7 +620,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE WHITESPACE
-addi $2, $0, 0
 addi $6, $0, 4
 addi $26, $0, 40
 addi $30, $30, 1
@@ -645,7 +630,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE NUMBER
-addi $2, $0, 0
 addi $6, $0, 5
 addi $26, $4, 0
 addi $30, $30, 1
@@ -735,7 +719,6 @@ BACKWARD:
 
 
 ## WRITE B
-addi $2, $0, 0
 addi $6, $0, 1
 addi $26, $0, 11
 addi $30, $30, 1
@@ -746,7 +729,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE K
-addi $2, $0, 0
 addi $6, $0, 2
 addi $26, $0, 22
 addi $30, $30, 1
@@ -757,7 +739,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE D
-addi $2, $0, 0
 addi $6, $0, 3
 addi $26, $0, 13
 addi $30, $30, 1
@@ -768,7 +749,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE WHITESPACE
-addi $2, $0, 0
 addi $6, $0, 4
 addi $26, $0, 40
 addi $30, $30, 1
@@ -779,7 +759,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE NUMBER
-addi $2, $0, 0
 addi $6, $0, 5
 addi $26, $4, 0
 addi $30, $30, 1
@@ -1419,7 +1398,6 @@ LEFTROTATE:
 
 
   ## WRITE L
-  addi $2, $0, 0
   addi $6, $0, 1
   addi $26, $0, 23
   addi $30, $30, 1
@@ -1430,7 +1408,6 @@ LEFTROTATE:
   addi $30, $30, -1
 
   ## WRITE R
-  addi $2, $0, 0
   addi $6, $0, 2
   addi $26, $0, 30
   addi $30, $30, 1
@@ -1441,7 +1418,6 @@ LEFTROTATE:
   addi $30, $30, -1
 
   ## WRITE T
-  addi $2, $0, 0
   addi $6, $0, 3
   addi $26, $0, 33
   addi $30, $30, 1
@@ -1452,7 +1428,6 @@ LEFTROTATE:
   addi $30, $30, -1
 
   ## WRITE WHITESPACE
-  addi $2, $0, 0
   addi $6, $0, 4
   addi $26, $0, 40
   addi $30, $30, 1
@@ -1463,7 +1438,6 @@ LEFTROTATE:
   addi $30, $30, -1
 
   ## WRITE NUMBER
-  addi $2, $0, 0
   addi $6, $0, 5
   addi $26, $4, 0
   addi $30, $30, 1
@@ -1519,7 +1493,6 @@ RIGHTROTATE:
 
 
   ## WRITE R
-  addi $2, $0, 0
   addi $6, $0, 1
   addi $26, $0, 30
   addi $30, $30, 1
@@ -1530,7 +1503,6 @@ RIGHTROTATE:
   addi $30, $30, -1
 
   ## WRITE R
-  addi $2, $0, 0
   addi $6, $0, 2
   addi $26, $0, 30
   addi $30, $30, 1
@@ -1541,7 +1513,6 @@ RIGHTROTATE:
   addi $30, $30, -1
 
   ## WRITE T
-  addi $2, $0, 0
   addi $6, $0, 3
   addi $26, $0, 33
   addi $30, $30, 1
@@ -1552,7 +1523,6 @@ RIGHTROTATE:
   addi $30, $30, -1
 
   ## WRITE WHITESPACE
-  addi $2, $0, 0
   addi $6, $0, 4
   addi $26, $0, 40
   addi $30, $30, 1
@@ -1563,7 +1533,6 @@ RIGHTROTATE:
   addi $30, $30, -1
 
   ## WRITE NUMBER
-  addi $2, $0, 0
   addi $6, $0, 5
   addi $26, $4, 0
   addi $30, $30, 1
@@ -1830,7 +1799,6 @@ CHANGETURTLEINDEX:
 
 
 ## WRITE C
-addi $2, $0, 0
 addi $6, $0, 1
 addi $26, $0, 12
 addi $30, $30, 1
@@ -1841,7 +1809,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE T
-addi $2, $0, 0
 addi $6, $0, 2
 addi $26, $0, 33
 addi $30, $30, 1
@@ -1852,7 +1819,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE I
-addi $2, $0, 0
 addi $6, $0, 3
 addi $26, $0, 20
 addi $30, $30, 1
@@ -1863,7 +1829,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE WHITESPACE
-addi $2, $0, 0
 addi $6, $0, 4
 addi $26, $0, 40
 addi $30, $30, 1
@@ -1874,7 +1839,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 ## WRITE NUMBER
-addi $2, $0, 0
 addi $6, $0, 5
 addi $26, $4, 0
 addi $30, $30, 1
