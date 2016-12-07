@@ -127,7 +127,7 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 
-promptstart:
+promptdisplay:
 addi $2, $2, 1      # increment command counter
 
 ## WRITE > SYMBOL
@@ -140,6 +140,7 @@ noop
 lw $31, 0($30)
 addi $30, $30, -1
 
+promptstart:
 add $19, $0, $0			# set $19 to $0
 nop
 nop
@@ -212,7 +213,7 @@ nop
 jal FORWARD
 nop
 nop
-j promptstart
+j promptdisplay
 nop
 nop
 fwdskip:
@@ -239,7 +240,7 @@ nop
 jal BACKWARD
 nop
 nop
-j promptstart
+j promptdisplay
 nop
 nop
 bkdskip:
@@ -266,7 +267,7 @@ nop
 jal LEFTROTATE
 nop
 nop
-j promptstart
+j promptdisplay
 nop
 nop
 lrtskip:
@@ -293,7 +294,7 @@ nop
 jal RIGHTROTATE
 nop
 nop
-j promptstart
+j promptdisplay
 nop
 nop
 rrtskip:
@@ -320,7 +321,7 @@ nop
 # jal UNDO   (TODO)
 nop
 nop
-j promptstart
+j promptdisplay
 nop
 nop
 undoskip:
@@ -346,7 +347,7 @@ nop
 # jal REDO   (TODO)
 nop
 nop
-j promptstart
+j promptdisplay
 nop
 nop
 redoskip:
@@ -373,7 +374,7 @@ nop
 jal CHANGETURTLEINDEX
 nop
 nop
-j promptstart
+j promptdisplay
 nop
 nop
 ctiskip:
@@ -467,7 +468,7 @@ addi $30, $30, -1
 
 nop
 nop
-j promptstart
+j promptdisplay
 clcskip:
 nop
 nop
@@ -493,7 +494,7 @@ nop
 # jal PNUP   (TODO)
 nop
 nop
-j promptstart
+j promptdisplay
 nop
 nop
 pnupskip:
@@ -521,7 +522,7 @@ nop
 # jal PNDN   (TODO)
 nop
 nop
-j promptstart
+j promptdisplay
 nop
 nop
 pndnskip:
@@ -583,7 +584,7 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 
-j promptstart
+j promptdisplay
 
 ###FORWARD: fwd x
 FORWARD:
