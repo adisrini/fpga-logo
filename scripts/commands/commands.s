@@ -499,7 +499,7 @@ addi $8, $8, 497
 bne $7, $8, pnupskip
 nop
 nop
-# jal PNUP   (TODO)
+jal PNUP
 nop
 nop
 j promptstart
@@ -527,7 +527,7 @@ addi $8, $8, 480
 bne $7, $8, pndnskip
 nop
 nop
-# jal PNDN   (TODO)
+jal PNDN
 nop
 nop
 j promptstart
@@ -2384,4 +2384,39 @@ add $27, $0, $0
 
 
 #all redone, return
+jr $31
+
+
+
+#PENDOWN
+PNDN:
+
+#call savestate
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#change pen flag to 1
+addi $3, $0, 1
+
+jr $31
+
+#PENUP
+PNUP:
+#call savestate
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#change pen flag to 0
+addi $3, $0, 0
+
 jr $31
