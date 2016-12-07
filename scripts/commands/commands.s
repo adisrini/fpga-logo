@@ -32,6 +32,9 @@ addi $30, $0, 4000
 #Default $2: Starts off -1
 addi $2, $0, -1
 
+#Default $3: Pen down
+addi $3, $0, 1
+
 
 #Screen initialization (left and right white)
 #Initialize temp registers
@@ -318,7 +321,7 @@ addi $8, $8, 2100
 bne $7, $8, undoskip
 nop
 nop
-# jal UNDO   (TODO)
+jal UNDO
 nop
 nop
 j promptdisplay
@@ -344,7 +347,7 @@ add $8, $28, $0
 bne $7, $8, redoskip
 nop
 nop
-# jal REDO   (TODO)
+jal REDO
 nop
 nop
 j promptdisplay
@@ -491,7 +494,7 @@ addi $8, $8, 497
 bne $7, $8, pnupskip
 nop
 nop
-# jal PNUP   (TODO)
+jal PNUP
 nop
 nop
 j promptdisplay
@@ -519,7 +522,7 @@ addi $8, $8, 480
 bne $7, $8, pndnskip
 nop
 nop
-# jal PNDN   (TODO)
+jal PNDN
 nop
 nop
 j promptdisplay
@@ -704,8 +707,20 @@ noop
 lw $31, 0($30)
 addi $30, $30, -1
 nop
-#draw here
-j DRAW_FORWARD
+
+#delete turtle at the old location
+addi $30, $30, 1
+sw $31, 0($30)
+jal DELETE_TURTLE
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+
+
+#draw here: only draw if $3 == 1
+bne $3, $0, DRAW_FORWARD
 nop
 ENDDRAW_FORWARD:
 
@@ -833,8 +848,18 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 
+#delete turtle at the old location
+addi $30, $30, 1
+sw $31, 0($30)
+jal DELETE_TURTLE
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+
 #draw here
-j DRAW_BACKWARD
+bne $3, $0, DRAW_BACKWARD
 nop
 ENDDRAW_BACKWARD:
 
@@ -1252,6 +1277,110 @@ add $27, $0, $0
 
 jr $31
 
+
+###DELETE_TURTLE: delete turtle from the prev x and prev y
+DELETE_TURTLE:
+#Put the svga snippet here
+#Use $14 for prev x, $15 for prev y, $13 for color
+
+#Initialize temp registers
+add $20, $0, $0
+add $21, $0, $0
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
+
+#calculate top left starting pixel index
+#and store it in $20
+#(640*15*row) + 15*col + 80 = (640*15*y) + 15*x + 80
+#$21 = 640*15
+#row = $7, col = $6 !!
+addi $27, $0, 15
+addi $21, $0, 9600
+
+add $28, $21, $0
+add $5, $15, $0
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+add $20, $28, $0
+#mul $20, $21, $7		# $20 = 640 * 15 * y
+
+add $28, $27, $0
+add $5, $14, $0
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+add $27, $28, $0
+#mul $27, $27, $6		# $27 = 15x
+
+
+add $20, $20, $27		# $20 = (640 * 15 * y) + 15x
+addi $20, $20, 80		# $20 = (640 * 15 * y) + 15x + 80
+addi $21, $0, 640       # reset $21 to hold 640
+
+#$22 = 15 (go from 0 to 14)
+#$23, $24 are loop variables
+addi $22, $0, 15
+addi $23, $0, 0
+addi $24, $0, 0
+addi $27, $0, 1
+
+loopcol11:
+
+bne $23, $22, endloop11 #$22=15	  #imem: SHOULD BE BEQ (11101)!!!
+
+#get the index for this iteration
+#$24 is the temporary index
+add $24, $20, $23
+
+#color it using previous line color
+sw $17, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+#svga $13, 0($24) #TODO: change to svga! : hl130
+
+#increment index
+addi $23, $23, 1
+
+
+j loopcol11
+
+
+
+
+endloop11:
+
+#ran this outer loop 15 times? then you're done!
+bne $27, $22, endloop21	#imem: SHOULD BE BEQ (11101)!!
+
+#first, increment the outer loop variable
+addi $27, $27, 1
+
+#one iteration is done, so add 640 to $20
+add $20, $20, $21
+
+#now set loop var to 0 and loop again 15 times
+add $23, $0, $0 #inner loop var 0
+j loopcol11
+
+
+endloop21:
+#cell all filled, clear the variables and return
+add $20, $0, $0
+add $21, $0, $0
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
+add $27, $0, $0
+
+jr $31
+
+
 ###TURTLE_FILLCELL: svga wrapper for svga per cell for rendering turtle
 TURTLE_FILLCELL:
 #Put the svga snippet here
@@ -1392,6 +1521,9 @@ add $24, $0, $0
 add $27, $0, $0
 
 jr $31
+
+
+
 
 
 ###LEFT ROTATE: lrt x
@@ -1788,6 +1920,10 @@ addi $29, $29, 1
 sw $13, 0($29)
 addi $29, $29, 1
 
+#save penup/down
+sw $3, 0($29)
+addi $29, $29, 1
+
 #save turtle image index
 sw $18, 0($29)
 addi $29, $29, 1
@@ -2002,5 +2138,249 @@ add $22, $0, $0
 add $23, $0, $0
 add $24, $0, $0
 add $27, $0, $0
+
+jr $31
+
+
+#UNDO
+UNDO:
+#initialize
+add $20, $0, $0
+add $21, $0, $0
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
+add $25, $0, $0
+add $26, $0, $0
+add $27, $0, $0
+#add $6, $0, $0
+#add $7, $0, $0
+#add $8, $0, $0
+#add $9, $0, $0
+
+#restore the six state values $20-$25
+addi $29, $29, -1
+lw $25, 0($29)
+addi $29, $29, -1
+lw $24, 0($29)
+addi $29, $29, -1
+lw $23, 0($29)
+addi $29, $29, -1
+lw $22, 0($29)
+addi $29, $29, -1
+lw $21, 0($29)
+addi $29, $29, -1
+lw $20, 0($29)
+#increment the state so that next SAVESTATE is ready to store
+addi $29, $29, 1
+
+#undo penup/down
+add $3, $24, $0
+
+#just delete the path by setting pencolor to black
+add $13, $0, $0
+
+#find x-delta: prev-curr in $26
+sub $26, $20, $10
+
+#find y-delta: prev-curr in $27
+sub $27, $21, $11
+
+#satisfy the deltas by going forward
+#$26 in $4: Horizontal delta and face east
+add $4, $0, $26
+addi, $12, $0, 1 #east
+addi $30, $30, 1
+sw $31, 0($30)
+jal FORWARD
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#$27 in $4: Vertical delta and face south
+add $4, $0, $27
+addi, $12, $0, 2 #south
+addi $30, $30, 1
+sw $31, 0($30)
+jal FORWARD
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#restore prev orientation
+add $12, $22, $0
+
+#restore prev pencolor
+add $13, $23, $0
+
+#restore location
+add $10, $20, $0
+add $11, $21, $0
+
+#restore turtle image index
+add $18, $25, $0
+
+#refresh turtle image
+addi $30, $30, 1
+sw $31, 0($30)
+jal TURTLE_FILLCELL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#clear out the temp registers
+add $20, $0, $0
+add $21, $0, $0
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
+add $25, $0, $0
+add $26, $0, $0
+add $27, $0, $0
+
+#all restored, now return
+jr $31
+
+
+
+#REDO
+REDO:
+
+#initialize
+add $20, $0, $0
+add $21, $0, $0
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
+add $25, $0, $0
+add $26, $0, $0
+add $27, $0, $0
+
+#get the next state values $20-$25
+
+lw $20, 0($29)
+addi $29, $29, 1
+lw $21, 0($29)
+addi $29, $29, 1
+lw $22, 0($29)
+addi $29, $29, 1
+lw $23, 0($29)
+addi $29, $29, 1
+lw $24, 0($29)
+addi $29, $29, 1
+lw $25, 0($29)
+#increment the state so that next SAVESTATE is ready to store
+addi $29, $29, 1
+
+
+#find x-delta: next-curr in $26
+sub $26, $20, $10
+
+#find y-delta: next-curr in $27
+sub $27, $21, $11
+
+#satisfy the deltas by going forward
+#$26 in $4: Horizontal delta and face east
+add $4, $0, $26
+addi, $12, $0, 1 #east
+addi $30, $30, 1
+sw $31, 0($30)
+jal FORWARD
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#$27 in $4: Vertical delta and face south
+add $4, $0, $27
+addi, $12, $0, 2 #south
+addi $30, $30, 1
+sw $31, 0($30)
+jal FORWARD
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#By now, location has been redone
+
+#redo other states
+
+#restore next orientation
+add $12, $22, $0
+
+#restore next pencolor
+add $13, $23, $0
+
+#restore next pen up/down
+add $3, $24, $0
+
+#update location
+add $10, $20, $0
+add $11, $21, $0
+
+#restore next turtle image index
+add $18, $25, $0
+
+#refresh turtle image
+addi $30, $30, 1
+sw $31, 0($30)
+jal TURTLE_FILLCELL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+
+#clear out the temp registers
+add $20, $0, $0
+add $21, $0, $0
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
+add $25, $0, $0
+add $26, $0, $0
+add $27, $0, $0
+
+
+
+#all redone, return
+jr $31
+
+
+
+#PENDOWN
+PNDN:
+
+#call savestate
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#change pen flag to 1
+addi $3, $0, 1
+
+jr $31
+
+#PENUP
+PNUP:
+#call savestate
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#change pen flag to 0
+addi $3, $0, 0
 
 jr $31
