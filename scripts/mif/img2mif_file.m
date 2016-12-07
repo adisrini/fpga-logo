@@ -12,10 +12,10 @@ function t = Mask_maker(image_name, text_name)
 % ---------------------------
 im = imread(image_name);
 % im = im2uint8(rgb2ycbcr(im))
-fid = fopen(text_name,'W'); 
+fid = fopen(text_name,'W');
 imsize = size(im);
 count = 0;
-if (fid)     
+if (fid)
     %% Write the RGB data
     fprintf(fid,'WIDTH = 8;\n');
     fprintf(fid,'DEPTH = %d;\n',imsize(1)*imsize(2));
@@ -26,25 +26,19 @@ if (fid)
        for j=1:imsize(2)
           fprintf(fid,'%x  : ',count);
           count = count + 1;
-%           if(im(i,j,1) >= 127)         fprintf(fid,'ff;\n');   
+%           if(im(i,j,1) >= 127)         fprintf(fid,'ff;\n');
 %           else                         fprintf(fid,'00;\n');
           R = im(i,j,1);
           G = im(i,j,2);
           B = im(i,j,3);
-          hex = sprintf('%s%s%s\n', dec2hex(R, 2), dec2hex(G, 2), dec2hex(B, 2));
+          hex = sprintf('%s%s%s\n', dec2hex(B, 2), dec2hex(G, 2), dec2hex(R, 2));
           fprintf(fid, hex);
-       end    
-    end 
+       end
+    end
     fprintf(fid,'END;\n');
     fclose(fid);
     t = 0; % successful
-	
+
 else
     t = 1; % error
 end
-
-
-
-
-    
-    
