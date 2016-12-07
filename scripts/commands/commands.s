@@ -708,7 +708,7 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 
-#delete turtle at the old location
+#delete turtle at the old location - not necessary. overriden by draw-forward
 addi $30, $30, 1
 sw $31, 0($30)
 jal DELETE_TURTLE
@@ -1340,7 +1340,7 @@ bne $23, $22, endloop11 #$22=15	  #imem: SHOULD BE BEQ (11101)!!!
 #$24 is the temporary index
 add $24, $20, $23
 
-#color it using previous line color
+#color it using previous line color-> just color it black!!!
 sw $17, 0($24)	# imem: SHOULD BE SVGA (01111)!!
 #svga $13, 0($24) #TODO: change to svga! : hl130
 
@@ -2171,11 +2171,14 @@ addi $29, $29, -1
 lw $21, 0($29)
 addi $29, $29, -1
 lw $20, 0($29)
-#increment the state so that next SAVESTATE is ready to store
-addi $29, $29, 1
 
-#undo penup/down
-add $3, $24, $0
+###THE FOLLOWING BLOCK IS WRONG###
+#increment the state so that next SAVESTATE is ready to store
+#addi $29, $29, 1
+##################################
+
+#set pendown
+addi $3, $0, 1
 
 #just delete the path by setting pencolor to black
 add $13, $0, $0
@@ -2208,6 +2211,9 @@ noop
 lw $31, 0($30)
 addi $30, $30, -1
 nop
+
+#undo penup/down
+add $3, $24, $0
 
 #restore prev orientation
 add $12, $22, $0
