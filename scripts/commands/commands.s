@@ -2160,17 +2160,53 @@ add $27, $0, $0
 
 #restore the six state values $20-$25
 addi $29, $29, -1
+nop
+nop
+nop
 lw $25, 0($29)
+nop
+nop
+nop
 addi $29, $29, -1
+nop
+nop
+nop
 lw $24, 0($29)
+nop
+nop
+nop
 addi $29, $29, -1
+nop
+nop
+nop
 lw $23, 0($29)
+nop
+nop
+nop
 addi $29, $29, -1
+nop
+nop
+nop
 lw $22, 0($29)
+nop
+nop
+nop
 addi $29, $29, -1
+nop
+nop
+nop
 lw $21, 0($29)
+nop
+nop
+nop
 addi $29, $29, -1
+nop
+nop
+nop
 lw $20, 0($29)
+nop
+nop
+nop
 
 ###THE FOLLOWING BLOCK IS WRONG###
 #increment the state so that next SAVESTATE is ready to store
@@ -2267,19 +2303,60 @@ add $27, $0, $0
 
 #get the next state values $20-$25
 
+#shift 6 forward
+addi $29, $29, 6
+
+nop
+nop
+nop
 lw $20, 0($29)
+nop
+nop
+nop
 addi $29, $29, 1
+nop
+nop
+nop
 lw $21, 0($29)
+nop
+nop
+nop
 addi $29, $29, 1
+nop
+nop
+nop
 lw $22, 0($29)
+nop
+nop
+nop
 addi $29, $29, 1
+nop
+nop
+nop
 lw $23, 0($29)
+nop
+nop
+nop
 addi $29, $29, 1
+nop
+nop
+nop
 lw $24, 0($29)
+nop
+nop
+nop
 addi $29, $29, 1
+nop
+nop
+nop
 lw $25, 0($29)
-#increment the state so that next SAVESTATE is ready to store
+nop
+nop
+nop
 addi $29, $29, 1
+nop
+nop
+nop
 
 
 #find x-delta: next-curr in $26
