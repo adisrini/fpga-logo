@@ -32,6 +32,9 @@ addi $30, $0, 4000
 #Default $2: Starts off -1
 addi $2, $0, -1
 
+#Default $3: Pen down
+addi $3, $0, 1
+
 
 #Screen initialization (left and right white)
 #Initialize temp registers
