@@ -221,6 +221,59 @@ addi $8, $8, 251
 bne $7, $8, fwdskip
 nop
 nop
+
+
+## WRITE F
+addi $6, $0, 1
+addi $26, $0, 16
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE W
+addi $6, $0, 2
+addi $26, $0, 36
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE D
+addi $6, $0, 3
+addi $26, $0, 13
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE WHITESPACE
+addi $6, $0, 4
+addi $26, $0, 40
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE NUMBER
+addi $6, $0, 5
+addi $26, $4, 0
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+
 jal FORWARD
 nop
 nop
@@ -248,6 +301,58 @@ addi $8, $8, 1588
 bne $7, $8, bkdskip
 nop
 nop
+
+
+## WRITE B
+addi $6, $0, 1
+addi $26, $0, 11
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE K
+addi $6, $0, 2
+addi $26, $0, 22
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE D
+addi $6, $0, 3
+addi $26, $0, 13
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE WHITESPACE
+addi $6, $0, 4
+addi $26, $0, 40
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE NUMBER
+addi $6, $0, 5
+addi $26, $4, 0
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
 jal BACKWARD
 nop
 nop
@@ -600,58 +705,6 @@ j promptdisplay
 ###FORWARD: fwd x
 FORWARD:
 
-
-## WRITE F
-addi $6, $0, 1
-addi $26, $0, 16
-addi $30, $30, 1
-sw $31, 0($30)
-jal WRITE_LETTER
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-
-## WRITE W
-addi $6, $0, 2
-addi $26, $0, 36
-addi $30, $30, 1
-sw $31, 0($30)
-jal WRITE_LETTER
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-
-## WRITE D
-addi $6, $0, 3
-addi $26, $0, 13
-addi $30, $30, 1
-sw $31, 0($30)
-jal WRITE_LETTER
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-
-## WRITE WHITESPACE
-addi $6, $0, 4
-addi $26, $0, 40
-addi $30, $30, 1
-sw $31, 0($30)
-jal WRITE_LETTER
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-
-## WRITE NUMBER
-addi $6, $0, 5
-addi $26, $4, 0
-addi $30, $30, 1
-sw $31, 0($30)
-jal WRITE_LETTER
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-
-
 #save state in DMEM
 addi $30, $30, 1
 sw $31, 0($30)
@@ -740,59 +793,6 @@ jr $31 # return after forward
 
 ###BACKWARD: bkd x
 BACKWARD:
-
-
-## WRITE B
-addi $6, $0, 1
-addi $26, $0, 11
-addi $30, $30, 1
-sw $31, 0($30)
-jal WRITE_LETTER
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-
-## WRITE K
-addi $6, $0, 2
-addi $26, $0, 22
-addi $30, $30, 1
-sw $31, 0($30)
-jal WRITE_LETTER
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-
-## WRITE D
-addi $6, $0, 3
-addi $26, $0, 13
-addi $30, $30, 1
-sw $31, 0($30)
-jal WRITE_LETTER
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-
-## WRITE WHITESPACE
-addi $6, $0, 4
-addi $26, $0, 40
-addi $30, $30, 1
-sw $31, 0($30)
-jal WRITE_LETTER
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-
-## WRITE NUMBER
-addi $6, $0, 5
-addi $26, $4, 0
-addi $30, $30, 1
-sw $31, 0($30)
-jal WRITE_LETTER
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-
-
 
 #save state in DMEM
 addi $30, $30, 1
@@ -2250,6 +2250,48 @@ jr $31
 
 #UNDO
 UNDO:
+
+## WRITE U
+addi $6, $0, 1
+addi $26, $0, 34
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE N
+addi $6, $0, 2
+addi $26, $0, 25
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE D
+addi $6, $0, 3
+addi $26, $0, 13
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE O
+addi $6, $0, 4
+addi $26, $0, 26
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+
 #initialize
 add $20, $0, $0
 add $21, $0, $0
@@ -2396,6 +2438,47 @@ jr $31
 
 #REDO
 REDO:
+
+## WRITE R
+addi $6, $0, 1
+addi $26, $0, 30
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE E
+addi $6, $0, 2
+addi $26, $0, 14
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE D
+addi $6, $0, 3
+addi $26, $0, 13
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE O
+addi $6, $0, 4
+addi $26, $0, 26
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
 
 #initialize
 add $20, $0, $0
@@ -2573,7 +2656,6 @@ nop
 addi $3, $0, 0
 
 jr $31
-
 
 PRINT_STATES:
 
@@ -3039,3 +3121,4 @@ noop
 noop
 noop
 jr $31
+
