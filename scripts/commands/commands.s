@@ -213,6 +213,21 @@ addi $8, $8, 251
 bne $7, $8, fwdskip
 nop
 nop
+
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+nop
+nop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+
+
+
 jal FORWARD
 nop
 nop
@@ -240,6 +255,20 @@ addi $8, $8, 1588
 bne $7, $8, bkdskip
 nop
 nop
+
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+nop
+nop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+
+
 jal BACKWARD
 nop
 nop
@@ -267,6 +296,20 @@ addi $8, $8, 2116
 bne $7, $8, lrtskip
 nop
 nop
+
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+nop
+nop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+
+
 jal LEFTROTATE
 nop
 nop
@@ -294,6 +337,21 @@ addi $8, $8, -1301
 bne $7, $8, rrtskip
 nop
 nop
+
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+nop
+nop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+
+
+
 jal RIGHTROTATE
 nop
 nop
@@ -374,6 +432,19 @@ addi $8, $8, -1712
 bne $7, $8, ctiskip
 nop
 nop
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+nop
+nop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+
+
 jal CHANGETURTLEINDEX
 nop
 nop
@@ -401,6 +472,8 @@ addi $8, $8, 435
 bne $7, $8, clcskip
 nop
 nop
+
+
 #save state in DMEM
 addi $30, $30, 1
 sw $31, 0($30)
@@ -411,6 +484,7 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 nop
+
 
 add $17, $13, $0 #$13->$17
 add $13, $4, $0 #$4 (new line color)->$13
@@ -494,6 +568,20 @@ addi $8, $8, 497
 bne $7, $8, pnupskip
 nop
 nop
+
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+nop
+nop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+
+
 jal PNUP
 nop
 nop
@@ -522,6 +610,21 @@ addi $8, $8, 480
 bne $7, $8, pndnskip
 nop
 nop
+
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+nop
+nop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+
+
+
 jal PNDN
 nop
 nop
@@ -644,16 +747,16 @@ lw $31, 0($30)
 addi $30, $30, -1
 
 
-#save state in DMEM
-addi $30, $30, 1
-sw $31, 0($30)
-jal SAVESTATE
-nop
-nop
-lw $31, 0($30)
-addi $30, $30, -1
-nop
-nop
+# #save state in DMEM
+# addi $30, $30, 1
+# sw $31, 0($30)
+# jal SAVESTATE
+# nop
+# nop
+# lw $31, 0($30)
+# addi $30, $30, -1
+# nop
+# nop
 
 
 #Save current state to previous state
@@ -786,16 +889,16 @@ addi $30, $30, -1
 
 
 
-#save state in DMEM
-addi $30, $30, 1
-sw $31, 0($30)
-jal SAVESTATE
-nop
-nop
-lw $31, 0($30)
-addi $30, $30, -1
-nop
-nop
+# #save state in DMEM
+# addi $30, $30, 1
+# sw $31, 0($30)
+# jal SAVESTATE
+# nop
+# nop
+# lw $31, 0($30)
+# addi $30, $30, -1
+# nop
+# nop
 
 
 #Save current state to previous state
@@ -1580,16 +1683,16 @@ LEFTROTATE:
   lw $31, 0($30)
   addi $30, $30, -1
 
-  #save state in DMEM
-  addi $30, $30, 1
-  sw $31, 0($30)
-  jal SAVESTATE
-  nop
-  nop
-  lw $31, 0($30)
-  addi $30, $30, -1
-  nop
-  nop
+  # #save state in DMEM
+  # addi $30, $30, 1
+  # sw $31, 0($30)
+  # jal SAVESTATE
+  # nop
+  # nop
+  # lw $31, 0($30)
+  # addi $30, $30, -1
+  # nop
+  # nop
 
   #$12 has current direction
 
@@ -1677,16 +1780,16 @@ RIGHTROTATE:
 
 
 
-  #save state in DMEM
-  addi $30, $30, 1
-  sw $31, 0($30)
-  jal SAVESTATE
-  nop
-  nop
-  lw $31, 0($30)
-  addi $30, $30, -1
-  nop
-  nop
+  # #save state in DMEM
+  # addi $30, $30, 1
+  # sw $31, 0($30)
+  # jal SAVESTATE
+  # nop
+  # nop
+  # lw $31, 0($30)
+  # addi $30, $30, -1
+  # nop
+  # nop
 
   #$12 has current direction
 
@@ -1987,16 +2090,16 @@ addi $30, $30, -1
 
 
 
-#save state in DMEM
-addi $30, $30, 1
-sw $31, 0($30)
-jal SAVESTATE
-nop
-nop
-lw $31, 0($30)
-addi $30, $30, -1
-nop
-nop
+# #save state in DMEM
+# addi $30, $30, 1
+# sw $31, 0($30)
+# jal SAVESTATE
+# nop
+# nop
+# lw $31, 0($30)
+# addi $30, $30, -1
+# nop
+# nop
 
 #change the index
 #$4(arg: new index) -> $18 and $4=0
@@ -2249,20 +2352,52 @@ addi $30, $30, -1
 nop
 
 #undo penup/down
-add $3, $24, $0
+#add $3, $24, $0
+nop
+nop
+lw $3, 4($29)
+nop
+nop
 
 #restore prev orientation
-add $12, $22, $0
+#add $12, $22, $0
+nop
+nop
+lw $12, 2($29)
+nop
+nop
 
 #restore prev pencolor
-add $13, $23, $0
+#add $13, $23, $0
+nop
+nop
+lw $13, 3($29)
+nop
+nop
+
 
 #restore location
-add $10, $20, $0
-add $11, $21, $0
+#add $10, $20, $0
+nop
+nop
+lw $10, 0($29)
+nop
+nop
+#add $11, $21, $0
+nop
+nop
+lw $11, 1($29)
+nop
+nop
 
 #restore turtle image index
-add $18, $25, $0
+#add $18, $25, $0
+nop
+nop
+lw $18, 5($29)
+nop
+nop
+
 
 #refresh turtle image
 addi $30, $30, 1
@@ -2392,21 +2527,76 @@ nop
 
 #redo other states
 
-#restore next orientation
-add $12, $22, $0
+#shift 6 backward to reread
+addi $29, $29, -6
 
-#restore next pencolor
-add $13, $23, $0
+nop
+nop
+nop
+lw $10, 0($29) #x
+nop
+nop
+nop
+addi $29, $29, 1
+nop
+nop
+nop
+lw $11, 0($29) #y
+nop
+nop
+nop
+addi $29, $29, 1
+nop
+nop
+nop
+lw $12, 0($29) #orientation
+nop
+nop
+nop
+addi $29, $29, 1
+nop
+nop
+nop
+lw $13, 0($29) #pencolor
+nop
+nop
+nop
+addi $29, $29, 1
+nop
+nop
+nop
+lw $3, 0($29) #pen flag
+nop
+nop
+nop
+addi $29, $29, 1
+nop
+nop
+nop
+lw $18, 0($29) #turtle index
+nop
+nop
+nop
+addi $29, $29, 1
+nop
+nop
+nop
 
-#restore next pen up/down
-add $3, $24, $0
+# #restore next orientation
+# add $12, $22, $0
 
-#update location
-add $10, $20, $0
-add $11, $21, $0
+# #restore next pencolor
+# add $13, $23, $0
 
-#restore next turtle image index
-add $18, $25, $0
+# #restore next pen up/down
+# add $3, $24, $0
+
+# #update location
+# add $10, $20, $0
+# add $11, $21, $0
+
+# #restore next turtle image index
+# add $18, $25, $0
 
 #refresh turtle image
 addi $30, $30, 1
@@ -2438,14 +2628,14 @@ jr $31
 #PENDOWN
 PNDN:
 
-#call savestate
-addi $30, $30, 1
-sw $31, 0($30)
-jal SAVESTATE
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-nop
+# #call savestate
+# addi $30, $30, 1
+# sw $31, 0($30)
+# jal SAVESTATE
+# noop
+# lw $31, 0($30)
+# addi $30, $30, -1
+# nop
 
 #change pen flag to 1
 addi $3, $0, 1
@@ -2454,16 +2644,19 @@ jr $31
 
 #PENUP
 PNUP:
-#call savestate
-addi $30, $30, 1
-sw $31, 0($30)
-jal SAVESTATE
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-nop
+
+
+# #call savestate
+# addi $30, $30, 1
+# sw $31, 0($30)
+# jal SAVESTATE
+# noop
+# lw $31, 0($30)
+# addi $30, $30, -1
+# nop
 
 #change pen flag to 0
 addi $3, $0, 0
 
 jr $31
+
