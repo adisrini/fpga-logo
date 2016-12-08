@@ -24,10 +24,10 @@ bne $19, $0, initloop		#imem SHOULD BE BEQ!
 
 
 #Default $29: DMEM state pointer
-addi $29, $0, 9750
+addi $29, $0, 1800
 
 #Default $30: DMEM function pointer
-addi $30, $0, 4000
+addi $30, $0, 3500
 
 #Default $2: Starts off -1
 addi $2, $0, -1
