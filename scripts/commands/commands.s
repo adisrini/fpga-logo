@@ -2698,10 +2698,10 @@ jr $31
 FORWARDINTERNAL:
 
 #Save current state to previous state
-j current_to_prevf
+j current_to_prevfi
 nop
 #return address pointer for current_to_prev
-endcurrent_to_prevf:
+endcurrent_to_prevfi:
 
 #$12 has the angle
 #Determine direction it's currently facing
@@ -2709,32 +2709,25 @@ endcurrent_to_prevf:
 
 
 addi $1, $0, 1
-bne $12, $1, eastf      #imem SHOULD BE BEQ
+bne $12, $1, eastfi      #imem SHOULD BE BEQ
 
 addi $1, $0, 2
-bne $12, $1, southf     #imem SHOULD BE BEQ
+bne $12, $1, southfi     #imem SHOULD BE BEQ
 
 
 
-northf:
-#sub from y
-sub $11, $11, $4
-j endforward
-eastf:
+eastfi:
 #add to x
 add $10, $10, $4
-j endforward
-southf:
+j endforwardi
+southfi:
 #add to y
 add $11, $11, $4
-j endforward
-westf:
-#sub from x
-sub $10, $10, $4
-j endforward
+j endforwardi
 
 
-endforward:
+
+endforwardi:
 
 #draw turtle at the new location
 addi $30, $30, 1
@@ -2755,8 +2748,167 @@ addi $30, $30, -1
 nop
 
 
-j DRAW_FORWARD
+j DRAW_FORWARDI
 nop
-ENDDRAW_FORWARD:
+ENDDRAW_FORWARDI:
 
 jr $31 # return after forward
+
+
+###SAVE CURRENT STATE TO PREVIOUS STATE
+current_to_prevfi:
+#move $10-$13 to $14-$17
+add $14, $0, $10
+add $15, $0, $11
+add $16, $0, $12
+add $17, $0, $13
+
+#back to the subroutine
+j endcurrent_to_prevfi
+
+
+
+
+###DRAWFORWARD: fwd x
+DRAW_FORWARDI:
+#$12 has the angle
+
+#store operations to move old x, y values in temp registers $6, $7
+#store $14 into temp register $6 for x-coord
+add $6, $0, $14
+
+#store $15 into temp register $7 for y-coord
+add $7, $0, $15
+
+#Determine direction it's currently facing
+#and call a subroutine that moves it forward
+
+
+bne $12, $0, drawnorthfi     #imem SHOULD BE BEQ
+#set $1=1 to check for east
+addi $1, $0, 1
+bne $12, $1, draweastfi      #imem SHOULD BE BEQ
+#set $1=2 to check for south
+addi $1, $0, 2
+bne $12, $1, drawsouthfi     #imem SHOULD BE BEQ
+#set $1=1 to check for west
+addi $1, $0, 3
+bne $12, $1, drawwestfi      #imem SHOULD BE BEQ
+
+drawnorthfi:
+#decrement y
+
+#decrement $7 (old y) until it equals $11 (new y)
+#and leave a trail (SVGA)
+drawnorthf_loopi:
+
+#if $7 == $11, end
+bne $7, $11, enddrawforwardi     #imem SHOULD BE BEQ
+#else, leave a trail and decrement
+#SVGA CODE HERE
+addi $30, $30, 1
+sw $31, 0($30)
+jal DRAW_FILLCELL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+noop
+addi $7, $7, -1
+#loop
+j drawnorthf_loopi
+
+#below jump is not really necessary but may prevent errors
+j enddrawforwardi
+
+
+draweastfi:
+#increment x
+
+#decrement $6 (old x) until it equals $10 (new x)
+#and leave a trail (SVGA)
+draweastf_loopi:
+
+#if $6 == $10, end
+bne $6, $10, enddrawforwardi      #imem SHOULD BE BEQ
+#else, leave a trail and increment
+#SVGA CODE HERE
+
+
+
+addi $30, $30, 1
+sw $31, 0($30)
+jal DRAW_FILLCELL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+noop
+addi $6, $6, 1
+#loop
+j draweastf_loopi
+
+#below jump is not really necessary but may prevent errors
+j enddrawforwardi
+
+
+drawsouthfi:
+#increment y
+
+#increment $7 (old y) until it equals $11 (new y)
+#and leave a trail (SVGA)
+drawsouthf_loopi:
+
+#if $7 == $11, end
+bne $7, $11, enddrawforwardi      #imem SHOULD BE BEQ
+#else, leave a trail and increment
+#SVGA CODE HERE
+
+addi $30, $30, 1
+sw $31, 0($30)
+jal DRAW_FILLCELL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+noop
+addi $7, $7, 1
+#loop
+j drawsouthf_loopi
+
+#below jump is not really necessary but may prevent errors
+j enddrawforwardi
+
+
+drawwestfi:
+#decrement x
+
+#decrement $6 (old x) until it equals $10 (new x)
+#and leave a trail (SVGA)
+drawwestf_loopi:
+
+#if $6 == $10, end
+bne $6, $10, enddrawforwardi      #imem SHOULD BE BEQ
+#else, leave a trail and increment
+#SVGA CODE HERE
+addi $30, $30, 1
+sw $31, 0($30)
+jal DRAW_FILLCELL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+noop
+addi $6, $6, -1
+#loop
+j drawwestf_loopi
+
+#below jump is not really necessary but may prevent errors
+j enddrawforwardi
+
+enddrawforwardi:
+#clear the argument register
+addi $4, $0, 0
+#clear $6 and $7
+addi $6, $0, 0
+addi $7, $0, 0
+
+#back to return label
+j ENDDRAW_FORWARDI
