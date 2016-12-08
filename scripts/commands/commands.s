@@ -1444,7 +1444,7 @@ bne $23, $22, endloop11 #$22=15	  #imem: SHOULD BE BEQ (11101)!!!
 add $24, $20, $23
 
 #color it using previous line color-> just color it black!!!
-sw $17, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
 #svga $13, 0($24) #TODO: change to svga! : hl130
 
 #increment index
