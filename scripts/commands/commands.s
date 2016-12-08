@@ -2268,10 +2268,13 @@ add $24, $0, $0
 add $25, $0, $0
 add $26, $0, $0
 add $27, $0, $0
-#add $6, $0, $0
-#add $7, $0, $0
+add $6, $0, $0
+add $7, $0, $0
 #add $8, $0, $0
 #add $9, $0, $0
+
+#back up 6
+addi $29, $29, -6
 
 #restore the six state values $20-$25
 addi $29, $29, -1
@@ -2336,22 +2339,85 @@ add $13, $0, $0
 
 
 
-addi $6, $0, 10002
+#addi $6, $0, 10002
 
 #find x-delta: prev-curr in $26
 sub $26, $20, $10
-sw $26, 0($6)
+#sw $26, 0($6)
+
+bne $26, $0, skipresolution
+
 #find y-delta: prev-curr in $27
 sub $27, $21, $11
-sw $27, 1($6)
+#sw $27, 1($6)
+
+#$27 in $4: Vertical delta
+
+#set direction: south or north
+#if negative set it north
+blt $27, $0, setnorth
+
+setsouth:
+addi $12, $0, 1
+addi $4, $0, $27
+j dirset2
+
+setnorth:
+addi $12, $0, 0
+#multiply by -1
+add $5, $0, $27
+addi $7, $0, -1
+add $28, $0, $7
+
+#now put 28 in arg register
+add $4, $0, $28
 
 
+dirset2:
 
+addi $30, $30, 1
+sw $31, 0($30)
+jal FORWARDINTERNAL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+j skipresolution2
+
+skipresolution:
+#set direction: east or west
+#if negative set it west
+blt $26, $0, setwest
+
+seteast:
+addi $12, $0, 1
+addi $4, $0, $26
+j dirset
+
+setwest:
+addi $12, $0, 3
+#multiply by -1
+add $5, $0, $26
+addi $7, $0, -1
+add $28, $0, $7
+
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#now have the delta in $28, put it in arg register
+add $4, $0, $28
+
+
+dirset:
 
 #satisfy the deltas by going forward
-#$26 in $4: Horizontal delta and face east
-add $4, $0, $26
-addi $12, $0, 1 #east
+
 addi $30, $30, 1
 sw $31, 0($30)
 jal FORWARDINTERNAL
@@ -2360,26 +2426,8 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 
-#$27 in $4: Vertical delta and face south
 
-addi $6, $0, 10002
-nop
-nop
-nop
-lw $4, 1($6)
-nop
-nop
-nop
-
-
-addi $12, $0, 2 #south
-addi $30, $30, 1
-sw $31, 0($30)
-jal FORWARDINTERNAL
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-nop
+skipresolution2:
 
 #undo penup/down
 #add $3, $24, $0
@@ -2447,6 +2495,8 @@ add $24, $0, $0
 add $25, $0, $0
 add $26, $0, $0
 add $27, $0, $0
+add $6, $0, $0
+add $7, $0, $0
 
 #all restored, now return
 jr $31
@@ -2720,14 +2770,22 @@ endcurrent_to_prevfi:
 #and call a subroutine that moves it forward
 
 
+bne $12, $0, northfi     #imem SHOULD BE BEQ
+#set $1=1 to check for east
 addi $1, $0, 1
 bne $12, $1, eastfi      #imem SHOULD BE BEQ
-
+#set $1=2 to check for east
 addi $1, $0, 2
 bne $12, $1, southfi     #imem SHOULD BE BEQ
+#set $1=3 to check for east
+addi $1, $0, 3
+bne $12, $1, westfi      #imem SHOULD BE BEQ
 
 
-
+northfi:
+#sub from y
+sub $11, $11, $4
+j endforwardi
 eastfi:
 #add to x
 add $10, $10, $4
@@ -2736,7 +2794,10 @@ southfi:
 #add to y
 add $11, $11, $4
 j endforwardi
-
+westfi:
+#sub from x
+sub $10, $10, $4
+j endforwardi
 
 
 endforwardi:
@@ -2765,6 +2826,10 @@ nop
 ENDDRAW_FORWARDI:
 
 jr $31 # return after forward
+
+
+
+
 
 
 ###SAVE CURRENT STATE TO PREVIOUS STATE
