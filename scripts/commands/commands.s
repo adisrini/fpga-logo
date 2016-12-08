@@ -2339,7 +2339,7 @@ sw $27, 1($6)
 #satisfy the deltas by going forward
 #$26 in $4: Horizontal delta and face east
 add $4, $0, $26
-addi, $12, $0, 1 #east
+addi $12, $0, 1 #east
 addi $30, $30, 1
 sw $31, 0($30)
 jal FORWARDINTERNAL
@@ -2360,7 +2360,7 @@ nop
 nop
 
 
-addi, $12, $0, 2 #south
+addi $12, $0, 2 #south
 addi $30, $30, 1
 sw $31, 0($30)
 jal FORWARDINTERNAL
@@ -2527,7 +2527,7 @@ sw $27, 1($6)
 #satisfy the deltas by going forward
 #$26 in $4: Horizontal delta and face east
 add $4, $0, $26
-addi, $12, $0, 1 #east
+addi $12, $0, 1 #east
 addi $30, $30, 1
 sw $31, 0($30)
 jal FORWARDINTERNAL
@@ -2546,7 +2546,7 @@ nop
 nop
 nop
 #add $4, $0, $27
-addi, $12, $0, 2 #south
+addi $12, $0, 2 #south
 addi $30, $30, 1
 sw $31, 0($30)
 jal FORWARDINTERNAL
