@@ -2359,7 +2359,7 @@ blt $27, $0, setnorth
 
 setsouth:
 addi $12, $0, 1
-addi $4, $0, $27
+add $4, $0, $27
 j dirset2
 
 setnorth:
@@ -2392,7 +2392,7 @@ blt $26, $0, setwest
 
 seteast:
 addi $12, $0, 1
-addi $4, $0, $26
+add $4, $0, $26
 j dirset
 
 setwest:
@@ -2595,7 +2595,7 @@ blt $27, $0, setnorthr
 
 setsouthr:
 addi $12, $0, 1
-addi $4, $0, $27
+add $4, $0, $27
 j dirset2r
 
 setnorthr:
@@ -2628,7 +2628,7 @@ blt $26, $0, setwestr
 
 seteastr:
 addi $12, $0, 1
-addi $4, $0, $26
+add $4, $0, $26
 j dirsetr
 
 setwestr:
