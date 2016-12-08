@@ -11,7 +11,7 @@ def clean(path):
     write = open("imem_clean.mif", "w")
 
     lines = read_mif_file(path)
-    pattern = [3, 1, 1, 10, 4, 1, 4, 1, 100000]
+    pattern = [3, 1, 1, 10, 4, 1, 4, 1, 26, 2, 100000]
     pattern_index = 0
     sub_index = 0
     line_pos = 0
@@ -50,7 +50,7 @@ if __name__ == '__main__':
         print("ERROR: the file does not exist.")
     else:
         print("Monitoring mif file...")
-        old_contents = read_mif_file(path)
+        old_contents = []
         while True:
             if read_mif_file(path) != old_contents:
                 old_contents = read_mif_file(path)
