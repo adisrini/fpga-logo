@@ -379,6 +379,18 @@ addi $8, $8, 2100
 bne $7, $8, undoskip
 nop
 nop
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+nop
+nop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+
 jal UNDO
 nop
 nop
