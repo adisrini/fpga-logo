@@ -215,6 +215,17 @@ nop
 nop
 
 
+#save state in DMEM
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+nop
+nop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+
 ## WRITE F
 addi $6, $0, 1
 addi $26, $0, 16
@@ -295,6 +306,18 @@ nop
 nop
 
 
+#save state in DMEM
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+nop
+nop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+
+
 ## WRITE B
 addi $6, $0, 1
 addi $26, $0, 11
@@ -345,6 +368,7 @@ noop
 lw $31, 0($30)
 addi $30, $30, -1
 
+
 jal BACKWARD
 nop
 nop
@@ -372,6 +396,20 @@ addi $8, $8, 2116
 bne $7, $8, lrtskip
 nop
 nop
+
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+nop
+nop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+
+
 jal LEFTROTATE
 nop
 nop
@@ -399,6 +437,21 @@ addi $8, $8, -1301
 bne $7, $8, rrtskip
 nop
 nop
+
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+nop
+nop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+
+
+
 jal RIGHTROTATE
 nop
 nop
@@ -426,6 +479,18 @@ addi $8, $8, 2100
 bne $7, $8, undoskip
 nop
 nop
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+nop
+nop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+
 jal UNDO
 nop
 nop
@@ -436,7 +501,7 @@ undoskip:
 nop
 nop
 
-#REDO
+#REDO: REDO does not call SAVESTATE!
 addi $8, $0, 2322
 add $28, $8, $0
 add $5, $8, $0
@@ -479,6 +544,19 @@ addi $8, $8, -1712
 bne $7, $8, ctiskip
 nop
 nop
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+nop
+nop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+
+
 jal CHANGETURTLEINDEX
 nop
 nop
@@ -506,6 +584,8 @@ addi $8, $8, 435
 bne $7, $8, clcskip
 nop
 nop
+
+
 #save state in DMEM
 addi $30, $30, 1
 sw $31, 0($30)
@@ -516,6 +596,7 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 nop
+
 
 add $17, $13, $0 #$13->$17
 add $13, $4, $0 #$4 (new line color)->$13
@@ -599,6 +680,20 @@ addi $8, $8, 497
 bne $7, $8, pnupskip
 nop
 nop
+
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+nop
+nop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+
+
 jal PNUP
 nop
 nop
@@ -627,6 +722,21 @@ addi $8, $8, 480
 bne $7, $8, pndnskip
 nop
 nop
+
+
+#save state in DMEM
+addi $30, $30, 1
+sw $31, 0($30)
+jal SAVESTATE
+nop
+nop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+
+
+
 jal PNDN
 nop
 nop
@@ -696,18 +806,6 @@ j promptdisplay
 
 ###FORWARD: fwd x
 FORWARD:
-
-#save state in DMEM
-addi $30, $30, 1
-sw $31, 0($30)
-jal SAVESTATE
-nop
-nop
-lw $31, 0($30)
-addi $30, $30, -1
-nop
-nop
-
 
 #Save current state to previous state
 j current_to_prevf
@@ -785,17 +883,6 @@ jr $31 # return after forward
 
 ###BACKWARD: bkd x
 BACKWARD:
-
-#save state in DMEM
-addi $30, $30, 1
-sw $31, 0($30)
-jal SAVESTATE
-nop
-nop
-lw $31, 0($30)
-addi $30, $30, -1
-nop
-nop
 
 
 #Save current state to previous state
@@ -1341,7 +1428,7 @@ bne $23, $22, endloop11 #$22=15	  #imem: SHOULD BE BEQ (11101)!!!
 add $24, $20, $23
 
 #color it using previous line color-> just color it black!!!
-sw $17, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
 #svga $13, 0($24) #TODO: change to svga! : hl130
 
 #increment index
@@ -1580,16 +1667,16 @@ LEFTROTATE:
   lw $31, 0($30)
   addi $30, $30, -1
 
-  #save state in DMEM
-  addi $30, $30, 1
-  sw $31, 0($30)
-  jal SAVESTATE
-  nop
-  nop
-  lw $31, 0($30)
-  addi $30, $30, -1
-  nop
-  nop
+  # #save state in DMEM
+  # addi $30, $30, 1
+  # sw $31, 0($30)
+  # jal SAVESTATE
+  # nop
+  # nop
+  # lw $31, 0($30)
+  # addi $30, $30, -1
+  # nop
+  # nop
 
   #$12 has current direction
 
@@ -1677,16 +1764,16 @@ RIGHTROTATE:
 
 
 
-  #save state in DMEM
-  addi $30, $30, 1
-  sw $31, 0($30)
-  jal SAVESTATE
-  nop
-  nop
-  lw $31, 0($30)
-  addi $30, $30, -1
-  nop
-  nop
+  # #save state in DMEM
+  # addi $30, $30, 1
+  # sw $31, 0($30)
+  # jal SAVESTATE
+  # nop
+  # nop
+  # lw $31, 0($30)
+  # addi $30, $30, -1
+  # nop
+  # nop
 
   #$12 has current direction
 
@@ -1987,16 +2074,16 @@ addi $30, $30, -1
 
 
 
-#save state in DMEM
-addi $30, $30, 1
-sw $31, 0($30)
-jal SAVESTATE
-nop
-nop
-lw $31, 0($30)
-addi $30, $30, -1
-nop
-nop
+# #save state in DMEM
+# addi $30, $30, 1
+# sw $31, 0($30)
+# jal SAVESTATE
+# nop
+# nop
+# lw $31, 0($30)
+# addi $30, $30, -1
+# nop
+# nop
 
 #change the index
 #$4(arg: new index) -> $18 and $4=0
@@ -2195,10 +2282,11 @@ add $24, $0, $0
 add $25, $0, $0
 add $26, $0, $0
 add $27, $0, $0
-#add $6, $0, $0
-#add $7, $0, $0
-#add $8, $0, $0
-#add $9, $0, $0
+add $6, $0, $0
+add $7, $0, $0
+
+#back up 6
+addi $29, $29, -6
 
 #restore the six state values $20-$25
 addi $29, $29, -1
@@ -2250,61 +2338,159 @@ nop
 nop
 nop
 
-###THE FOLLOWING BLOCK IS WRONG###
-#increment the state so that next SAVESTATE is ready to store
-#addi $29, $29, 1
-##################################
-
 #set pendown
 addi $3, $0, 1
-
 #just delete the path by setting pencolor to black
 add $13, $0, $0
 
 #find x-delta: prev-curr in $26
 sub $26, $20, $10
+#sw $26, 0($6)
 
+bne $26, $0, skipresolution
+nop
 #find y-delta: prev-curr in $27
 sub $27, $21, $11
+#sw $27, 1($6)
 
-#satisfy the deltas by going forward
-#$26 in $4: Horizontal delta and face east
-add $4, $0, $26
-addi, $12, $0, 1 #east
-addi $30, $30, 1
-sw $31, 0($30)
-jal FORWARD
-noop
-lw $31, 0($30)
-addi $30, $30, -1
+#$27: Vertical delta
+
+#set direction: south or north
+#if negative set it north
+blt $27, $0, setnorth
 nop
 
-#$27 in $4: Vertical delta and face south
+setsouth:
+nop
+addi $12, $0, 2
 add $4, $0, $27
-addi, $12, $0, 2 #south
+j dirset2
+
+setnorth:
+nop
+addi $12, $0, 0
+#multiply by -1
+add $5, $0, $27
+addi $7, $0, -1
+add $28, $0, $7
+
 addi $30, $30, 1
 sw $31, 0($30)
-jal FORWARD
+jal mult
 noop
 lw $31, 0($30)
 addi $30, $30, -1
 nop
 
+#now put 28 in arg register
+add $4, $0, $28
+
+dirset2:
+nop
+
+addi $30, $30, 1
+sw $31, 0($30)
+jal FORWARDINTERNAL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+j skipresolution2
+nop
+skipresolution:
+nop
+#set direction: east or west
+#if negative set it west
+blt $26, $0, setwest
+
+seteast:
+nop
+addi $12, $0, 1
+add $4, $0, $26
+nop
+j dirset
+
+setwest:
+nop
+addi $12, $0, 3
+#multiply by -1
+add $5, $0, $26
+addi $7, $0, -1
+add $28, $0, $7
+
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#now have the delta in $28, put it in arg register
+add $4, $0, $28
+
+
+dirset:
+nop
+#satisfy the deltas by going forward
+
+addi $30, $30, 1
+sw $31, 0($30)
+jal FORWARDINTERNAL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+
+skipresolution2:
+nop
 #undo penup/down
-add $3, $24, $0
+#add $3, $24, $0
+nop
+nop
+lw $3, 4($29)
+nop
+nop
 
 #restore prev orientation
-add $12, $22, $0
+#add $12, $22, $0
+nop
+nop
+lw $12, 2($29)
+nop
+nop
 
 #restore prev pencolor
-add $13, $23, $0
+#add $13, $23, $0
+nop
+nop
+lw $13, 3($29)
+nop
+nop
 
 #restore location
-add $10, $20, $0
-add $11, $21, $0
+#add $10, $20, $0
+nop
+nop
+lw $10, 0($29)
+nop
+nop
+#add $11, $21, $0
+nop
+nop
+lw $11, 1($29)
+nop
+nop
 
 #restore turtle image index
-add $18, $25, $0
+#add $18, $25, $0
+nop
+nop
+lw $18, 5($29)
+nop
+nop
 
 #refresh turtle image
 addi $30, $30, 1
@@ -2324,6 +2510,8 @@ add $24, $0, $0
 add $25, $0, $0
 add $26, $0, $0
 add $27, $0, $0
+add $6, $0, $0
+add $7, $0, $0
 
 #all restored, now return
 jr $31
@@ -2383,10 +2571,12 @@ add $24, $0, $0
 add $25, $0, $0
 add $26, $0, $0
 add $27, $0, $0
+add $6, $0, $0
+add $7, $0, $0
 
 #get the next state values $20-$25
 
-#shift 6 forward
+#shift 6 forward for next state
 addi $29, $29, 6
 
 nop
@@ -2442,54 +2632,167 @@ nop
 nop
 
 
-#find x-delta: next-curr in $26
+
+###########
+#find x-delta: prev-curr in $26
 sub $26, $20, $10
 
-#find y-delta: next-curr in $27
+bne $26, $0, skipresolutionr
+nop
+#find y-delta: prev-curr in $27
 sub $27, $21, $11
 
-#satisfy the deltas by going forward
-#$26 in $4: Horizontal delta and face east
-add $4, $0, $26
-addi, $12, $0, 1 #east
-addi $30, $30, 1
-sw $31, 0($30)
-jal FORWARD
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-nop
+#$27 in $4: Vertical delta
 
-#$27 in $4: Vertical delta and face south
+#set direction: south or north
+#if negative set it north
+blt $27, $0, setnorthr
+
+setsouthr:
+nop
+addi $12, $0, 2
 add $4, $0, $27
-addi, $12, $0, 2 #south
+j dirset2r
+
+setnorthr:
+nop
+addi $12, $0, 0
+#multiply by -1
+add $5, $0, $27
+addi $7, $0, -1
+add $28, $0, $7
+
+
 addi $30, $30, 1
 sw $31, 0($30)
-jal FORWARD
+jal mult
 noop
 lw $31, 0($30)
 addi $30, $30, -1
 nop
 
-#By now, location has been redone
+#now put 28 in arg register
+add $4, $0, $28
 
+
+dirset2r:
+nop
+addi $30, $30, 1
+sw $31, 0($30)
+jal FORWARDINTERNAL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+j skipresolution2r
+
+skipresolutionr:
+nop
+#set direction: east or west
+#if negative set it west
+blt $26, $0, setwestr
+
+seteastr:
+nop
+addi $12, $0, 1
+add $4, $0, $26
+j dirsetr
+
+setwestr:
+nop
+addi $12, $0, 3
+#multiply by -1
+add $5, $0, $26
+addi $7, $0, -1
+add $28, $0, $7
+
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#now have the delta in $28, put it in arg register
+add $4, $0, $28
+
+
+dirsetr:
+nop
+#satisfy the deltas by going forward
+
+addi $30, $30, 1
+sw $31, 0($30)
+jal FORWARDINTERNAL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+skipresolution2r:
+nop
+###########
+
+
+#By now, location has been redo-ne
 #redo other states
 
-#restore next orientation
-add $12, $22, $0
+#shift 6 backward to reread
+addi $29, $29, -6
 
-#restore next pencolor
-add $13, $23, $0
-
-#restore next pen up/down
-add $3, $24, $0
-
-#update location
-add $10, $20, $0
-add $11, $21, $0
-
-#restore next turtle image index
-add $18, $25, $0
+nop
+nop
+nop
+lw $10, 0($29) #x
+nop
+nop
+nop
+addi $29, $29, 1
+nop
+nop
+nop
+lw $11, 0($29) #y
+nop
+nop
+nop
+addi $29, $29, 1
+nop
+nop
+nop
+lw $12, 0($29) #orientation
+nop
+nop
+nop
+addi $29, $29, 1
+nop
+nop
+nop
+lw $13, 0($29) #pencolor
+nop
+nop
+nop
+addi $29, $29, 1
+nop
+nop
+nop
+lw $3, 0($29) #pen flag
+nop
+nop
+nop
+addi $29, $29, 1
+nop
+nop
+nop
+lw $18, 0($29) #turtle index
+nop
+nop
+nop
+addi $29, $29, 1
+nop
+nop
+nop
 
 #refresh turtle image
 addi $30, $30, 1
@@ -2500,7 +2803,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 
-
 #clear out the temp registers
 add $20, $0, $0
 add $21, $0, $0
@@ -2510,8 +2812,8 @@ add $24, $0, $0
 add $25, $0, $0
 add $26, $0, $0
 add $27, $0, $0
-
-
+add $6, $0, $0
+add $7, $0, $0
 
 #all redone, return
 jr $31
@@ -2521,14 +2823,14 @@ jr $31
 #PENDOWN
 PNDN:
 
-#call savestate
-addi $30, $30, 1
-sw $31, 0($30)
-jal SAVESTATE
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-nop
+# #call savestate
+# addi $30, $30, 1
+# sw $31, 0($30)
+# jal SAVESTATE
+# noop
+# lw $31, 0($30)
+# addi $30, $30, -1
+# nop
 
 #change pen flag to 1
 addi $3, $0, 1
@@ -2537,16 +2839,255 @@ jr $31
 
 #PENUP
 PNUP:
-#call savestate
-addi $30, $30, 1
-sw $31, 0($30)
-jal SAVESTATE
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-nop
+
+
+# #call savestate
+# addi $30, $30, 1
+# sw $31, 0($30)
+# jal SAVESTATE
+# noop
+# lw $31, 0($30)
+# addi $30, $30, -1
+# nop
 
 #change pen flag to 0
 addi $3, $0, 0
 
 jr $31
+
+
+
+###FORWARD: fwd x WITHOUT COMMAND to be used with undo and redo
+FORWARDINTERNAL:
+
+#Save current state to previous state
+j current_to_prevfi
+nop
+#return address pointer for current_to_prev
+endcurrent_to_prevfi:
+
+#$12 has the angle
+#Determine direction it's currently facing
+#and call a subroutine that moves it forward
+
+
+bne $12, $0, northfi     #imem SHOULD BE BEQ
+#set $1=1 to check for east
+addi $1, $0, 1
+bne $12, $1, eastfi      #imem SHOULD BE BEQ
+#set $1=2 to check for east
+addi $1, $0, 2
+bne $12, $1, southfi     #imem SHOULD BE BEQ
+#set $1=3 to check for east
+addi $1, $0, 3
+bne $12, $1, westfi      #imem SHOULD BE BEQ
+
+
+northfi:
+#sub from y
+sub $11, $11, $4
+j endforwardi
+eastfi:
+#add to x
+add $10, $10, $4
+j endforwardi
+southfi:
+#add to y
+add $11, $11, $4
+j endforwardi
+westfi:
+#sub from x
+sub $10, $10, $4
+j endforwardi
+
+
+endforwardi:
+
+#draw turtle at the new location
+addi $30, $30, 1
+sw $31, 0($30)
+jal TURTLE_FILLCELL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#delete turtle at the old location - not necessary. overriden by draw-forward
+addi $30, $30, 1
+sw $31, 0($30)
+jal DELETE_TURTLE
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+
+j DRAW_FORWARDI
+nop
+ENDDRAW_FORWARDI:
+
+jr $31 # return after forward
+
+
+
+
+
+
+###SAVE CURRENT STATE TO PREVIOUS STATE
+current_to_prevfi:
+#move $10-$13 to $14-$17
+add $14, $0, $10
+add $15, $0, $11
+add $16, $0, $12
+add $17, $0, $13
+
+#back to the subroutine
+j endcurrent_to_prevfi
+
+
+
+
+###DRAWFORWARD: fwd x
+DRAW_FORWARDI:
+#$12 has the angle
+
+#store operations to move old x, y values in temp registers $6, $7
+#store $14 into temp register $6 for x-coord
+add $6, $0, $14
+
+#store $15 into temp register $7 for y-coord
+add $7, $0, $15
+
+#Determine direction it's currently facing
+#and call a subroutine that moves it forward
+
+
+bne $12, $0, drawnorthfi     #imem SHOULD BE BEQ
+#set $1=1 to check for east
+addi $1, $0, 1
+bne $12, $1, draweastfi      #imem SHOULD BE BEQ
+#set $1=2 to check for south
+addi $1, $0, 2
+bne $12, $1, drawsouthfi     #imem SHOULD BE BEQ
+#set $1=1 to check for west
+addi $1, $0, 3
+bne $12, $1, drawwestfi      #imem SHOULD BE BEQ
+
+drawnorthfi:
+#decrement y
+
+#decrement $7 (old y) until it equals $11 (new y)
+#and leave a trail (SVGA)
+drawnorthf_loopi:
+
+#if $7 == $11, end
+bne $7, $11, enddrawforwardi     #imem SHOULD BE BEQ
+#else, leave a trail and decrement
+#SVGA CODE HERE
+addi $30, $30, 1
+sw $31, 0($30)
+jal DRAW_FILLCELL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+noop
+addi $7, $7, -1
+#loop
+j drawnorthf_loopi
+
+#below jump is not really necessary but may prevent errors
+j enddrawforwardi
+
+
+draweastfi:
+#increment x
+
+#decrement $6 (old x) until it equals $10 (new x)
+#and leave a trail (SVGA)
+draweastf_loopi:
+
+#if $6 == $10, end
+bne $6, $10, enddrawforwardi      #imem SHOULD BE BEQ
+#else, leave a trail and increment
+#SVGA CODE HERE
+
+
+
+addi $30, $30, 1
+sw $31, 0($30)
+jal DRAW_FILLCELL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+noop
+addi $6, $6, 1
+#loop
+j draweastf_loopi
+
+#below jump is not really necessary but may prevent errors
+j enddrawforwardi
+
+
+drawsouthfi:
+#increment y
+
+#increment $7 (old y) until it equals $11 (new y)
+#and leave a trail (SVGA)
+drawsouthf_loopi:
+
+#if $7 == $11, end
+bne $7, $11, enddrawforwardi      #imem SHOULD BE BEQ
+#else, leave a trail and increment
+#SVGA CODE HERE
+
+addi $30, $30, 1
+sw $31, 0($30)
+jal DRAW_FILLCELL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+noop
+addi $7, $7, 1
+#loop
+j drawsouthf_loopi
+
+#below jump is not really necessary but may prevent errors
+j enddrawforwardi
+
+
+drawwestfi:
+#decrement x
+
+#decrement $6 (old x) until it equals $10 (new x)
+#and leave a trail (SVGA)
+drawwestf_loopi:
+
+#if $6 == $10, end
+bne $6, $10, enddrawforwardi      #imem SHOULD BE BEQ
+#else, leave a trail and increment
+#SVGA CODE HERE
+addi $30, $30, 1
+sw $31, 0($30)
+jal DRAW_FILLCELL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+noop
+addi $6, $6, -1
+#loop
+j drawwestf_loopi
+
+#below jump is not really necessary but may prevent errors
+j enddrawforwardi
+
+enddrawforwardi:
+nop
+#clear the argument register
+addi $4, $0, 0
+#clear $6 and $7
+addi $6, $0, 0
+addi $7, $0, 0
+
+#back to return label
+j ENDDRAW_FORWARDI
