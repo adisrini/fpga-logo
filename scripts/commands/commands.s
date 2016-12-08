@@ -2322,11 +2322,19 @@ addi $3, $0, 1
 #just delete the path by setting pencolor to black
 add $13, $0, $0
 
+
+
+addi $6, $0, 10002
+
 #find x-delta: prev-curr in $26
 sub $26, $20, $10
-
+sw $26, 0($6)
 #find y-delta: prev-curr in $27
 sub $27, $21, $11
+sw $27, 1($6)
+
+
+
 
 #satisfy the deltas by going forward
 #$26 in $4: Horizontal delta and face east
@@ -2334,18 +2342,28 @@ add $4, $0, $26
 addi, $12, $0, 1 #east
 addi $30, $30, 1
 sw $31, 0($30)
-jal FORWARD
+jal FORWARDINTERNAL
 noop
 lw $31, 0($30)
 addi $30, $30, -1
 nop
 
 #$27 in $4: Vertical delta and face south
-add $4, $0, $27
+
+addi $6, $0, 10002
+nop
+nop
+nop
+lw $4, 1($6)
+nop
+nop
+nop
+
+
 addi, $12, $0, 2 #south
 addi $30, $30, 1
 sw $31, 0($30)
-jal FORWARD
+jal FORWARDINTERNAL
 noop
 lw $31, 0($30)
 addi $30, $30, -1
@@ -2435,6 +2453,7 @@ add $24, $0, $0
 add $25, $0, $0
 add $26, $0, $0
 add $27, $0, $0
+add $6, $0, $0
 
 #get the next state values $20-$25
 
@@ -2494,11 +2513,16 @@ nop
 nop
 
 
+addi $6, $0, 10002
+
 #find x-delta: next-curr in $26
 sub $26, $20, $10
+sw $26, 0($6)
 
 #find y-delta: next-curr in $27
 sub $27, $21, $11
+sw $27, 1($6)
+
 
 #satisfy the deltas by going forward
 #$26 in $4: Horizontal delta and face east
@@ -2506,18 +2530,26 @@ add $4, $0, $26
 addi, $12, $0, 1 #east
 addi $30, $30, 1
 sw $31, 0($30)
-jal FORWARD
+jal FORWARDINTERNAL
 noop
 lw $31, 0($30)
 addi $30, $30, -1
 nop
 
 #$27 in $4: Vertical delta and face south
-add $4, $0, $27
+addi $6, $0, 10002
+nop
+nop
+nop
+lw $4, 1($6)
+nop
+nop
+nop
+#add $4, $0, $27
 addi, $12, $0, 2 #south
 addi $30, $30, 1
 sw $31, 0($30)
-jal FORWARD
+jal FORWARDINTERNAL
 noop
 lw $31, 0($30)
 addi $30, $30, -1
@@ -2617,7 +2649,7 @@ add $24, $0, $0
 add $25, $0, $0
 add $26, $0, $0
 add $27, $0, $0
-
+add $6, $0, $0
 
 
 #all redone, return
@@ -2660,3 +2692,71 @@ addi $3, $0, 0
 
 jr $31
 
+
+
+###FORWARD: fwd x WITHOUT COMMAND to be used with undo and redo
+FORWARDINTERNAL:
+
+#Save current state to previous state
+j current_to_prevf
+nop
+#return address pointer for current_to_prev
+endcurrent_to_prevf:
+
+#$12 has the angle
+#Determine direction it's currently facing
+#and call a subroutine that moves it forward
+
+
+addi $1, $0, 1
+bne $12, $1, eastf      #imem SHOULD BE BEQ
+
+addi $1, $0, 2
+bne $12, $1, southf     #imem SHOULD BE BEQ
+
+
+
+northf:
+#sub from y
+sub $11, $11, $4
+j endforward
+eastf:
+#add to x
+add $10, $10, $4
+j endforward
+southf:
+#add to y
+add $11, $11, $4
+j endforward
+westf:
+#sub from x
+sub $10, $10, $4
+j endforward
+
+
+endforward:
+
+#draw turtle at the new location
+addi $30, $30, 1
+sw $31, 0($30)
+jal TURTLE_FILLCELL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+#delete turtle at the old location - not necessary. overriden by draw-forward
+addi $30, $30, 1
+sw $31, 0($30)
+jal DELETE_TURTLE
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
+
+j DRAW_FORWARD
+nop
+ENDDRAW_FORWARD:
+
+jr $31 # return after forward
