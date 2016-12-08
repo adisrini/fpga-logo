@@ -2270,8 +2270,6 @@ add $26, $0, $0
 add $27, $0, $0
 add $6, $0, $0
 add $7, $0, $0
-#add $8, $0, $0
-#add $9, $0, $0
 
 #back up 6
 addi $29, $29, -6
@@ -2326,20 +2324,10 @@ nop
 nop
 nop
 
-###THE FOLLOWING BLOCK IS WRONG###
-#increment the state so that next SAVESTATE is ready to store
-#addi $29, $29, 1
-##################################
-
 #set pendown
 addi $3, $0, 1
-
 #just delete the path by setting pencolor to black
 add $13, $0, $0
-
-
-
-#addi $6, $0, 10002
 
 #find x-delta: prev-curr in $26
 sub $26, $20, $10
@@ -2351,18 +2339,20 @@ bne $26, $0, skipresolution
 sub $27, $21, $11
 #sw $27, 1($6)
 
-#$27 in $4: Vertical delta
+#$27: Vertical delta
 
 #set direction: south or north
 #if negative set it north
 blt $27, $0, setnorth
 
 setsouth:
+nop
 addi $12, $0, 1
 add $4, $0, $27
 j dirset2
 
 setnorth:
+nop
 addi $12, $0, 0
 #multiply by -1
 add $5, $0, $27
@@ -2372,8 +2362,8 @@ add $28, $0, $7
 #now put 28 in arg register
 add $4, $0, $28
 
-
 dirset2:
+nop
 
 addi $30, $30, 1
 sw $31, 0($30)
@@ -2384,18 +2374,22 @@ addi $30, $30, -1
 nop
 
 j skipresolution2
-
+nop
 skipresolution:
+nop
 #set direction: east or west
 #if negative set it west
 blt $26, $0, setwest
 
 seteast:
+nop
 addi $12, $0, 1
 add $4, $0, $26
+nop
 j dirset
 
 setwest:
+nop
 addi $12, $0, 3
 #multiply by -1
 add $5, $0, $26
@@ -2415,7 +2409,7 @@ add $4, $0, $28
 
 
 dirset:
-
+nop
 #satisfy the deltas by going forward
 
 addi $30, $30, 1
@@ -2428,7 +2422,7 @@ nop
 
 
 skipresolution2:
-
+nop
 #undo penup/down
 #add $3, $24, $0
 nop
@@ -2453,7 +2447,6 @@ lw $13, 3($29)
 nop
 nop
 
-
 #restore location
 #add $10, $20, $0
 nop
@@ -2475,7 +2468,6 @@ nop
 lw $18, 5($29)
 nop
 nop
-
 
 #refresh turtle image
 addi $30, $30, 1
@@ -2516,10 +2508,11 @@ add $25, $0, $0
 add $26, $0, $0
 add $27, $0, $0
 add $6, $0, $0
+add $7, $0, $0
 
 #get the next state values $20-$25
 
-#shift 6 forward
+#shift 6 forward for next state
 addi $29, $29, 6
 
 nop
@@ -2579,13 +2572,11 @@ nop
 ###########
 #find x-delta: prev-curr in $26
 sub $26, $20, $10
-#sw $26, 0($6)
 
 bne $26, $0, skipresolutionr
-
+nop
 #find y-delta: prev-curr in $27
 sub $27, $21, $11
-#sw $27, 1($6)
 
 #$27 in $4: Vertical delta
 
@@ -2594,11 +2585,13 @@ sub $27, $21, $11
 blt $27, $0, setnorthr
 
 setsouthr:
+nop
 addi $12, $0, 1
 add $4, $0, $27
 j dirset2r
 
 setnorthr:
+nop
 addi $12, $0, 0
 #multiply by -1
 add $5, $0, $27
@@ -2610,7 +2603,7 @@ add $4, $0, $28
 
 
 dirset2r:
-
+nop
 addi $30, $30, 1
 sw $31, 0($30)
 jal FORWARDINTERNAL
@@ -2622,16 +2615,19 @@ nop
 j skipresolution2r
 
 skipresolutionr:
+nop
 #set direction: east or west
 #if negative set it west
 blt $26, $0, setwestr
 
 seteastr:
+nop
 addi $12, $0, 1
 add $4, $0, $26
 j dirsetr
 
 setwestr:
+nop
 addi $12, $0, 3
 #multiply by -1
 add $5, $0, $26
@@ -2651,7 +2647,7 @@ add $4, $0, $28
 
 
 dirsetr:
-
+nop
 #satisfy the deltas by going forward
 
 addi $30, $30, 1
@@ -2662,18 +2658,12 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 
-
 skipresolution2r:
+nop
 ###########
 
 
-
-
-
-
-
-#By now, location has been redone
-
+#By now, location has been redo-ne
 #redo other states
 
 #shift 6 backward to reread
@@ -2731,22 +2721,6 @@ nop
 nop
 nop
 
-# #restore next orientation
-# add $12, $22, $0
-
-# #restore next pencolor
-# add $13, $23, $0
-
-# #restore next pen up/down
-# add $3, $24, $0
-
-# #update location
-# add $10, $20, $0
-# add $11, $21, $0
-
-# #restore next turtle image index
-# add $18, $25, $0
-
 #refresh turtle image
 addi $30, $30, 1
 sw $31, 0($30)
@@ -2755,7 +2729,6 @@ noop
 lw $31, 0($30)
 addi $30, $30, -1
 nop
-
 
 #clear out the temp registers
 add $20, $0, $0
@@ -2767,7 +2740,7 @@ add $25, $0, $0
 add $26, $0, $0
 add $27, $0, $0
 add $6, $0, $0
-
+add $7, $0, $0
 
 #all redone, return
 jr $31
