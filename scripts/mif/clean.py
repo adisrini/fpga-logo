@@ -49,6 +49,9 @@ if __name__ == '__main__':
     if not os.path.isfile(path):
         print("ERROR: the file does not exist.")
     else:
-        print("Writing to mif file...")
-        clean(path)
-        print("DONE")
+        print("Monitoring mif file...")
+        old_contents = read_mif_file(path)
+        while True:
+            if read_mif_file(path) != old_contents:
+                old_contents = read_mif_file(path)
+                clean(path)
