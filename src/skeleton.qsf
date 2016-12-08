@@ -166,7 +166,7 @@ set_location_assignment PIN_G22 -to leds[6]
 set_location_assignment PIN_G21 -to leds[7]
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH keyboard_fill_characters_tb -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH processor_pipeline_stall_tb -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME instruction_splitter_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id instruction_splitter_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME instruction_splitter_tb -section_id instruction_splitter_tb
@@ -300,4 +300,5 @@ set_global_assignment -name EDA_TEST_BENCH_FILE multdiv_tb.v -section_id multdiv
 set_global_assignment -name EDA_TEST_BENCH_FILE shift8bitena_tb.v -section_id shift8bitena_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE characterData_tb.v -section_id characterData_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE keyboard_fill_characters_tb.v -section_id keyboard_fill_characters_tb
+set_global_assignment -name VERILOG_FILE original_skeleton.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
