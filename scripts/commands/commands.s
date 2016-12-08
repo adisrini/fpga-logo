@@ -401,7 +401,7 @@ undoskip:
 nop
 nop
 
-#REDO
+#REDO: REDO does not call SAVESTATE!
 addi $8, $0, 2322
 add $28, $8, $0
 add $5, $8, $0
@@ -3009,6 +3009,7 @@ j drawwestf_loopi
 j enddrawforwardi
 
 enddrawforwardi:
+nop
 #clear the argument register
 addi $4, $0, 0
 #clear $6 and $7
