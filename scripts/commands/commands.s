@@ -1835,6 +1835,52 @@ addfour_r:
 
   j endaddfour_r
 
+
+mod10: 
+
+ #initialize
+  addi $21, $28, 0 #$6 = 4
+  addi $20, $5, 0
+  addi $7, $0, 0
+  addi $22, $0, 0
+  addi $9, $0, 0
+
+  add $28, $21, $0
+  add $5, $20, $0
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal divide
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+  add $7, $28, $0
+
+  #div $7, $21, $20
+
+  add $28, $20, $0
+  add $5, $7, $0
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal mult
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+  add $22, $28, $0
+
+  #mul $22, $20, $7
+
+  #Put result back in register 28
+  sub $28, $21, $22
+
+  addi $21, $0, 0 #$6 = 4
+  addi $20, $0, 0
+  addi $7, $0, 0
+  addi $22, $0, 0
+  addi $9, $0, 0
+
+#return to where mod was called.
+jr $31
+
 #state save subroutine
 SAVESTATE:
 
@@ -2603,10 +2649,19 @@ noop
 lw $31, 0($30)
 addi $30, $30, -1
 
-## WRITE NUMBER
+## WRITE NUMBER TENS DIGIT
 addi $6, $0, 5
 
-addi $26, $0, 2
+add $28, $10, $0
+addi $5, $0, 10
+addi $30, $30, 1
+sw $31, 0($30)
+jal divide
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+addi $26, $28, 0
 addi $30, $30, 1
 sw $31, 0($30)
 jal WRITE_STATE_LETTER
@@ -2614,6 +2669,30 @@ noop
 lw $31, 0($30)
 addi $30, $30, -1
 
+
+## WORK ON MOD TOMORROW
+
+## WRITE NUMBER ONES DIGIT
+addi $6, $0, 6
+
+add $28, $10, $0
+addi $5, $0, 10
+addi $30, $30, 1
+sw $31, 0($30)
+jal mod10
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+#Register 28 contains the mod 10 result.
+addi $26, $28, 0
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+ 
 jr $31
 
 
@@ -2631,10 +2710,19 @@ noop
 lw $31, 0($30)
 addi $30, $30, -1
 
-## WRITE NUMBER
+## WRITE NUMBER TENS DIGIT
 addi $6, $0, 5
 
-addi $26, $0, 5
+add $28, $11, $0
+addi $5, $0, 10
+addi $30, $30, 1
+sw $31, 0($30)
+jal divide
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+addi $26, $28, 0
 addi $30, $30, 1
 sw $31, 0($30)
 jal WRITE_STATE_LETTER
@@ -2642,7 +2730,32 @@ noop
 lw $31, 0($30)
 addi $30, $30, -1
 
+
+## WORK ON MOD TOMORROW
+
+## WRITE NUMBER ONES DIGIT
+addi $6, $0, 6
+
+add $28, $11, $0
+addi $5, $0, 10
+addi $30, $30, 1
+sw $31, 0($30)
+jal mod10
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+#Register 28 contains the mod 10 result.
+addi $26, $28, 0
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+ 
 jr $31
+
 
 
 PRINT_DIR:
