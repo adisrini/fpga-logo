@@ -2374,6 +2374,14 @@ add $5, $0, $27
 addi $7, $0, -1
 add $28, $0, $7
 
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+
 #now put 28 in arg register
 add $4, $0, $28
 
@@ -2653,6 +2661,15 @@ addi $12, $0, 0
 add $5, $0, $27
 addi $7, $0, -1
 add $28, $0, $7
+
+
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
 
 #now put 28 in arg register
 add $4, $0, $28
