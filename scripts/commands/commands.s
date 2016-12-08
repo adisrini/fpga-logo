@@ -2348,7 +2348,7 @@ sub $26, $20, $10
 #sw $26, 0($6)
 
 bne $26, $0, skipresolution
-
+nop
 #find y-delta: prev-curr in $27
 sub $27, $21, $11
 #sw $27, 1($6)
@@ -2358,10 +2358,11 @@ sub $27, $21, $11
 #set direction: south or north
 #if negative set it north
 blt $27, $0, setnorth
+nop
 
 setsouth:
 nop
-addi $12, $0, 1
+addi $12, $0, 2
 add $4, $0, $27
 j dirset2
 
@@ -2641,7 +2642,7 @@ blt $27, $0, setnorthr
 
 setsouthr:
 nop
-addi $12, $0, 1
+addi $12, $0, 2
 add $4, $0, $27
 j dirset2r
 
