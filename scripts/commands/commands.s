@@ -2665,7 +2665,7 @@ add $20, $0, $0
 add $28, $20, $0
 addi $30, $30, 1
 sw $31, 0($30)
-jal PRINT_X    		# PRINT X
+jal PRINT_COLUMN    		# PRINT COL
 noop
 lw $31, 0($30)
 addi $30, $30, -1
@@ -2675,7 +2675,7 @@ addi $20, $0, 1
 add $28, $20, $0
 addi $30, $30, 1
 sw $31, 0($30)
-jal PRINT_Y			# PRINT Y
+jal PRINT_ROW			# PRINT ROW
 noop
 lw $31, 0($30)
 addi $30, $30, -1
@@ -2717,20 +2717,40 @@ add $20, $0, $0
 jr $31
 
 
-PRINT_X:
+PRINT_COLUMN:
 
 ## WRITE X
 addi $8, $0, 0
-addi $6, $0, 3
 
-addi $26, $0, 37
+addi $6, $0, 1
+
+addi $26, $0, 12
 addi $30, $30, 1
 sw $31, 0($30)
-jal WRITE_STATE_LETTER
+jal WRITE_STATE_LETTER				#Letter C
 noop
 lw $31, 0($30)
 addi $30, $30, -1
 
+addi $6, $0, 2
+
+addi $26, $0, 26
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER				#Letter O
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+addi $6, $0, 3
+
+addi $26, $0, 23
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER				#Letter L
+noop
+lw $31, 0($30)
+addi $30, $30, -1
 ## WRITE NUMBER TENS DIGIT
 addi $6, $0, 5
 
@@ -2778,16 +2798,37 @@ addi $30, $30, -1
 jr $31
 
 
-PRINT_Y:
+PRINT_ROW:
 
-## WRITE Y
+## WRITE ROW
 addi $8, $0, 1
-addi $6, $0, 3
 
-addi $26, $0, 38
+addi $6, $0, 1
+
+addi $26, $0, 30
 addi $30, $30, 1
 sw $31, 0($30)
-jal WRITE_STATE_LETTER
+jal WRITE_STATE_LETTER				#Letter R
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+addi $6, $0, 2
+
+addi $26, $0, 26
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER				#Letter O
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+addi $6, $0, 3
+
+addi $26, $0, 36
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER				#Letter W
 noop
 lw $31, 0($30)
 addi $30, $30, -1
@@ -2849,7 +2890,7 @@ addi $6, $0, 1
 addi $26, $0, 13
 addi $30, $30, 1
 sw $31, 0($30)
-jal WRITE_STATE_LETTER
+jal WRITE_STATE_LETTER				#PRINT D
 noop
 lw $31, 0($30)
 addi $30, $30, -1
@@ -2861,7 +2902,7 @@ addi $6, $0, 2
 addi $26, $0, 20
 addi $30, $30, 1
 sw $31, 0($30)
-jal WRITE_STATE_LETTER
+jal WRITE_STATE_LETTER				#PRINT I
 noop
 lw $31, 0($30)
 addi $30, $30, -1
@@ -2873,7 +2914,7 @@ addi $6, $0, 3
 addi $26, $0, 30
 addi $30, $30, 1
 sw $31, 0($30)
-jal WRITE_STATE_LETTER
+jal WRITE_STATE_LETTER				#PRINT D
 noop
 lw $31, 0($30)
 addi $30, $30, -1
@@ -3015,10 +3056,10 @@ noop
 lw $31, 0($30)
 addi $30, $30, -1
 
-## WRITE O
+## WRITE L
 addi $6, $0, 2
 
-addi $26, $0, 26
+addi $26, $0, 23
 addi $30, $30, 1
 sw $31, 0($30)
 jal WRITE_STATE_LETTER
@@ -3026,10 +3067,10 @@ noop
 lw $31, 0($30)
 addi $30, $30, -1
 
-## WRITE L
+## WRITE R
 addi $6, $0, 3
 
-addi $26, $0, 23
+addi $26, $0, 30
 addi $30, $30, 1
 sw $31, 0($30)
 jal WRITE_STATE_LETTER
