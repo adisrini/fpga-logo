@@ -143,6 +143,14 @@ noop
 lw $31, 0($30)
 addi $30, $30, -1
 
+## Josh added logic here to print things in the right side of the screen.
+addi $30, $30, 1
+sw $31, 0($30)
+jal PRINT_STATES
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
 promptstart:
 add $19, $0, $0			# set $19 to $0
 nop
@@ -1914,77 +1922,49 @@ addfour_r:
 
   j endaddfour_r
 
+mod10: 
 
-mult:
-mul $28, $28, $5
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-jr $31
+ #initialize
+  addi $21, $28, 0 #$6 = 4
+  addi $20, $5, 0
+  addi $7, $0, 0
+  addi $22, $0, 0
+  addi $9, $0, 0
 
-divide:
-div $28, $28, $5
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
-noop
+  add $28, $21, $0
+  add $5, $20, $0
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal divide
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+  add $7, $28, $0
+
+  #div $7, $21, $20
+
+  add $28, $20, $0
+  add $5, $7, $0
+  addi $30, $30, 1
+  sw $31, 0($30)
+  jal mult
+  noop
+  lw $31, 0($30)
+  addi $30, $30, -1
+  add $22, $28, $0
+
+  #mul $22, $20, $7
+
+  #Put result back in register 28
+  sub $28, $21, $22
+
+  addi $21, $0, 0 #$6 = 4
+  addi $20, $0, 0
+  addi $7, $0, 0
+  addi $22, $0, 0
+  addi $9, $0, 0
+
+#return to where mod was called.
 jr $31
 
 
@@ -2216,6 +2196,131 @@ j loopcol1t
 
 
 endloop2t:
+#cell all filled, clear the variables and return
+add $6, $0, $0
+add $7, $0, $0
+add $20, $0, $0
+add $21, $0, $0
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
+add $27, $0, $0
+
+jr $31
+
+# @param: $8 is the row
+# @param: $6 is the column
+# @param: $26 is the letter index
+WRITE_STATE_LETTER:
+
+# Get DMEM index
+add $5, $26, $0
+addi $28, $0, 150
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult            # $26 = 150 * index + 3600
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+addi $26, $28, 3600
+
+# Initialize temp registers
+add $20, $0, $0
+addi $21, $0, 640
+add $22, $0, $0
+add $23, $0, $0
+add $24, $0, $0
+add $25, $0, $0
+addi $27, $0, 15
+
+add $28, $8, $0
+add $5, $21, $0
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult            # $20 = 640 * y
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+add $20, $28, $0
+
+add $28, $20, $0
+add $5, $27, $0
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult           # $20 = (640 * y) * 15
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+add $20, $28, $0
+
+addi $28, $0, 10
+add $5, $6, $0
+addi $30, $30, 1
+sw $31, 0($30)
+jal mult           # $27 = 10 * x
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+add $27, $28, $0
+
+add $20, $20, $27       # $20 = 15*(640 * y) + 10x
+addi $20, $20, 560       # $20 = 15*(640 * y) + 10x + 560
+
+addi $27, $0, 1         # reset $27 to 1
+
+#$22 = 15 (go from 0 to 14)
+#$23, $24 are loop variables
+addi $22, $0, 10
+addi $7, $0, 15
+addi $23, $0, 0
+addi $24, $0, 0
+
+#$25: color value for turtle from DMEM
+#$26: offset in DMEM [0, 254]
+
+loopcol1t_s:
+
+bne $23, $22, endloop1t_s # $22 = 10	imem: SHOULD BE BEQ (11101)!!!
+
+#get the index for this iteration
+#$24 is the temporary index
+add $24, $20, $23
+
+
+#color it
+
+#first, load from DMEM using DMEM offset
+lw $25, 0($26)
+
+sw $25, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+#svga $25, 0($24) #TODO: change to svga! : hl130
+
+#increment index
+addi $23, $23, 1
+
+#increment DMEM offset
+addi $26, $26, 1
+
+j loopcol1t_s
+
+
+endloop1t_s:
+
+#ran this outer loop 15 times? then you're done!
+bne $27, $7, endloop2t_s   # imem: SHOULD BE BEQ (11101)!!!
+
+#first, increment the outer loop variable
+addi $27, $27, 1
+
+#one iteration is done, so add 640 to $20
+add $20, $20, $21
+
+#now set loop var to 0 and loop again 15 times
+add $23, $0, $0 #inner loop var 0
+j loopcol1t_s
+
+
+endloop2t_s:
 #cell all filled, clear the variables and return
 add $6, $0, $0
 add $7, $0, $0
@@ -3091,3 +3196,510 @@ addi $7, $0, 0
 
 #back to return label
 j ENDDRAW_FORWARDI
+
+PRINT_STATES:
+
+#initialize registers
+add $20, $0, $0
+
+add $28, $20, $0
+addi $30, $30, 1
+sw $31, 0($30)
+jal PRINT_COLUMN    		# PRINT COL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+addi $20, $0, 1
+
+add $28, $20, $0
+addi $30, $30, 1
+sw $31, 0($30)
+jal PRINT_ROW			# PRINT ROW
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+
+addi $20, $0, 2
+
+add $28, $20, $0
+addi $30, $30, 1
+sw $31, 0($30)
+jal PRINT_DIR		# PRINT DIRECTION (ORIENTATION)
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+addi $20, $0, 3
+
+add $28, $20, $0
+addi $30, $30, 1
+sw $31, 0($30)
+jal PRINT_PENUP			# PRINT PEN UP OR DOWN
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+addi $20, $0, 4
+
+add $28, $20, $0
+addi $30, $30, 1
+sw $31, 0($30)
+jal PRINT_COLOR		# PRINT COLOR
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+#reset registers
+add $20, $0, $0
+
+jr $31
+
+
+PRINT_COLUMN:
+
+## WRITE X
+addi $8, $0, 0
+
+addi $6, $0, 1
+
+addi $26, $0, 12
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER				#Letter C
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+addi $6, $0, 2
+
+addi $26, $0, 26
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER				#Letter O
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+addi $6, $0, 3
+
+addi $26, $0, 23
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER				#Letter L
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+## WRITE NUMBER TENS DIGIT
+addi $6, $0, 5
+
+add $28, $10, $0
+addi $5, $0, 10
+addi $30, $30, 1
+sw $31, 0($30)
+jal divide
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+addi $26, $28, 0
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+
+## WORK ON MOD TOMORROW
+
+## WRITE NUMBER ONES DIGIT
+addi $6, $0, 6
+
+add $28, $10, $0
+addi $5, $0, 10
+addi $30, $30, 1
+sw $31, 0($30)
+jal mod10
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+#Register 28 contains the mod 10 result.
+addi $26, $28, 0
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+ 
+jr $31
+
+
+PRINT_ROW:
+
+## WRITE ROW
+addi $8, $0, 1
+
+addi $6, $0, 1
+
+addi $26, $0, 30
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER				#Letter R
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+addi $6, $0, 2
+
+addi $26, $0, 26
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER				#Letter O
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+addi $6, $0, 3
+
+addi $26, $0, 36
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER				#Letter W
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE NUMBER TENS DIGIT
+addi $6, $0, 5
+
+add $28, $11, $0
+addi $5, $0, 10
+addi $30, $30, 1
+sw $31, 0($30)
+jal divide
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+addi $26, $28, 0
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+
+## WORK ON MOD TOMORROW
+
+## WRITE NUMBER ONES DIGIT
+addi $6, $0, 6
+
+add $28, $11, $0
+addi $5, $0, 10
+addi $30, $30, 1
+sw $31, 0($30)
+jal mod10
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+#Register 28 contains the mod 10 result.
+addi $26, $28, 0
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+ 
+jr $31
+
+
+
+PRINT_DIR:
+
+## WRITE D
+addi $8, $0, 2
+addi $6, $0, 1
+
+addi $26, $0, 13
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER				#PRINT D
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE I
+addi $8, $0, 2
+addi $6, $0, 2
+
+addi $26, $0, 20
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER				#PRINT I
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE R
+addi $8, $0, 2
+addi $6, $0, 3
+
+addi $26, $0, 30
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER				#PRINT D
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE NUMBER
+addi $6, $0, 5
+
+## PRINT DIRECTION
+addi $30, $30, 1
+sw $31, 0($30)
+jal direction_map
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+jr $31
+
+direction_map:
+addi $20, $0, 0
+bne $12, $20, map_north		#imem: SHOULD BE BEQ
+addi $20, $0, 1
+bne $12, $20, map_east		#imem: SHOULD BE BEQ
+addi $20, $0, 2
+bne $12, $20, map_south		#imem: SHOULD BE BEQ
+addi $20, $0, 3
+bne $12, $20, map_west		#imem: SHOULD BE BEQ
+
+map_north:
+addi $26, $0, 25
+jr $31
+
+
+map_south:
+addi $26, $0, 32
+jr $31
+
+
+map_east:
+addi $26, $0, 14
+jr $31
+
+
+map_west:
+addi $26, $0, 36
+jr $31
+
+
+PRINT_PENUP:
+
+## WRITE P
+addi $8, $0, 3
+addi $6, $0, 1
+
+addi $26, $0, 28
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE E
+addi $8, $0, 3
+addi $6, $0, 2
+
+addi $26, $0, 14
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE N
+addi $8, $0, 3
+addi $6, $0, 3
+
+addi $26, $0, 25
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## PRINT UP/DOWN
+addi $6, $0, 5
+addi $30, $30, 1
+sw $31, 0($30)
+jal pen_map
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
+nop
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+jr $31
+
+pen_map:
+addi $20, $0, 0
+bne $3, $20, map_up		#imem: SHOULD BE BEQ
+addi $20, $0, 1
+bne $3, $20, map_down		#imem: SHOULD BE BEQ
+
+map_up:
+addi $26, $0, 34
+jr $31
+
+map_down:
+addi $26, $0, 13
+jr $31
+
+
+PRINT_COLOR:
+
+## WRITE C
+addi $8, $0, 4
+addi $6, $0, 1
+
+addi $26, $0, 12
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE L
+addi $6, $0, 2
+
+addi $26, $0, 23
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## WRITE R
+addi $6, $0, 3
+
+addi $26, $0, 30
+addi $30, $30, 1
+sw $31, 0($30)
+jal WRITE_STATE_LETTER
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+## COLOR CELL
+addi $6, $0, 35
+addi $7, $8, 0
+
+addi $30, $30, 1
+sw $31, 0($30)
+jal DRAW_FILLCELL
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+
+jr $31
+
+
+mult:
+mul $28, $28, $5
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+jr $31
+
+divide:
+div $28, $28, $5
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+noop
+jr $31
