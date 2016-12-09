@@ -859,6 +859,16 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 
+
+
+
+
+#draw here: only draw if $3 == 1
+bne $3, $0, DRAW_FORWARD
+nop
+ENDDRAW_FORWARD:
+
+nop
 #delete turtle at the old location - not necessary. overriden by draw-forward
 addi $30, $30, 1
 sw $31, 0($30)
@@ -868,12 +878,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 
-
-
-#draw here: only draw if $3 == 1
-bne $3, $0, DRAW_FORWARD
-nop
-ENDDRAW_FORWARD:
 
 #clear the argument register
 addi $4, $0, 0
@@ -935,6 +939,14 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 
+
+
+#draw here
+bne $3, $0, DRAW_BACKWARD
+nop
+ENDDRAW_BACKWARD:
+nop
+
 #delete turtle at the old location
 addi $30, $30, 1
 sw $31, 0($30)
@@ -943,12 +955,6 @@ noop
 lw $31, 0($30)
 addi $30, $30, -1
 nop
-
-
-#draw here
-bne $3, $0, DRAW_BACKWARD
-nop
-ENDDRAW_BACKWARD:
 
 
 #clear the argument register
@@ -1428,7 +1434,9 @@ bne $23, $22, endloop11 #$22=15	  #imem: SHOULD BE BEQ (11101)!!!
 add $24, $20, $23
 
 #color it using previous line color-> just color it black!!!
-sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!
+sw $0, 0($24)	# imem: SHOULD BE SVGA (01111)!! This is just black now!
+
+###sw $13, 0($24)	# imem: SHOULD BE SVGA (01111)!!hl130
 #svga $13, 0($24) #TODO: change to svga! : hl130
 
 #increment index
