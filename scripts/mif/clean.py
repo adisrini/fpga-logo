@@ -53,5 +53,7 @@ if __name__ == '__main__':
         old_contents = []
         while True:
             if read_mif_file(path) != old_contents:
+                print("CHANGE DETECTED!")
                 old_contents = read_mif_file(path)
                 clean(path)
+                print("Written new clean file.\n")
