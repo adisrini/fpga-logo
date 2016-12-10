@@ -868,6 +868,14 @@ addi $30, $30, -1
 nop
 
 
+#delete turtle at the old location - not necessary. overriden by draw-forward
+addi $30, $30, 1
+sw $31, 0($30)
+jal DELETE_TURTLE
+noop
+lw $31, 0($30)
+addi $30, $30, -1
+nop
 
 
 
@@ -877,14 +885,7 @@ nop
 ENDDRAW_FORWARD:
 
 nop
-#delete turtle at the old location - not necessary. overriden by draw-forward
-addi $30, $30, 1
-sw $31, 0($30)
-jal DELETE_TURTLE
-noop
-lw $31, 0($30)
-addi $30, $30, -1
-nop
+
 
 
 #clear the argument register
@@ -947,14 +948,6 @@ lw $31, 0($30)
 addi $30, $30, -1
 nop
 
-
-
-#draw here
-bne $3, $0, DRAW_BACKWARD
-nop
-ENDDRAW_BACKWARD:
-nop
-
 #delete turtle at the old location
 addi $30, $30, 1
 sw $31, 0($30)
@@ -963,6 +956,14 @@ noop
 lw $31, 0($30)
 addi $30, $30, -1
 nop
+
+
+#draw here
+bne $3, $0, DRAW_BACKWARD
+nop
+ENDDRAW_BACKWARD:
+nop
+
 
 
 #clear the argument register
